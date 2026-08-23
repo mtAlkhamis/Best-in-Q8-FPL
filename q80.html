@@ -6,7 +6,7 @@
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Best in Q8 — دوري فانتازي الأصدقاء</title>
+<title>Q80 Managers — دوري فانتازي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -103,7 +103,7 @@
 </head>
 <body>
 <div class="nav"><div class="wrap">
-  <div class="logo" data-go="home"><div class="dot"></div><b>BEST IN <span style="color:#00FF85">Q8</span></b></div>
+  <div class="logo" data-go="home"><div class="dot"></div><b>Q80 <span style="color:#00FF85">MANAGERS</span></b></div>
   <div class="tabs">
     <button class="tab" data-go="home">الرئيسية</button>
     <button class="tab" data-go="seasons">المواسم</button>
@@ -115,294 +115,123 @@
 <div id="app"></div>
 
 <div class="foot"><div class="wrap">
-  <div style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap">Best in Q8 · 2013 — 2026</div>
+  <div style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap">Q80 Managers · 2018 — 2026</div>
   <div class="bars"><i style="background:#E90052"></i><i style="background:#00FF85"></i><i style="background:#04F5FF"></i></div>
 </div></div>
 
 <script>
-var AR = {"Madi Alkhamis":"ماضي الخميس","HAMAD ALKHAMEES":"حمد الخميس","meshary alderah":"مشاري الدرعة","Musaed Al_Husaini":"مساعد الحسيني","Thamer Alhumaidhi":"ثامر الحميضي","Mohammad R":"محمد الرهيماني","Yousef KH":"يوسف الخميس","mohammad fahad":"محمد الفهد","Ahmed K":"أحمد الخميس","Ali Alkhamees":"علي الخميس","Ali Alkhames":"علي الخميس","Abdullah Alkhamees":"عبدالله الخميس","Abdullah Alkhames":"عبدالله الخميس","Naser Alkhamees":"ناصر الخميس","Nasser T Alkhamis":"ناصر الخميس","fahad alsha6y":"فهد الشطي","Abdulaziz Al Khamees":"عبدالعزيز الخميس","Hussain Bin Mattar":"حسين بن مطر","Saud Alkhamis":"سعود الخميس","nawaf alkhamis":"نواف الخميس","Abdullah Alsultan":"عبدالله السلطان","Homoud Alkhalifah":"حمود الخليفة","Turki Alkhamis":"تركي الخميس","Khaled Alfahed":"خالد الفهد","Fahad Alkhamis":"فهد الخميس","Meshary Alkhamees":"مشاري الخميس","Mubarak Almutairi":"مبارك المطيري","Meshary Abdullah":"مشاري عبدالله"};
+var AR = {"Madi Alkhamis":"ماضي الخميس","Abdula Alkulaib":"عبدالله الكليب","Abdullatif Alsane":"عبداللطيف الصانع","Abdulaziz AlAli":"عبدالعزيز العلي","Abdulrahman al-musallam":"عبدالرحمن المسلم","BADER ALMUTAWA":"بدر المطوع","Osamah Bash":"أسامة باش","fawwaz alghanim":"فواز الغنيم","Faisal Alhazza":"فيصل الهزاع","Abdullah Alshatti":"عبدالله الشطي","Ali Al Hussaini":"علي الحسيني","Nasser AlMutawa":"ناصر المطوع","Abdulrahman J":"عبدالرحمن الجاسم","Abdulaziz Faisal":"عبدالعزيز فيصل","Abdulqader Al-Mutawa":"عبدالقادر المطوع","Faris almutawa":"فارس المطوع","Omar Almutawa":"عمر المطوع"};
 
 var ROWS = [
-  ["2013/14",1,"Madi Alkhamis","القصيعة يونايتد",2408,8000],
-  ["2013/14",2,"Thamer Alhumaidhi","Bo Ya3qoub",2182,347779],
-  ["2013/14",3,"meshary alderah","فريق meshary",2133,519260],
-  ["2013/14",4,"Musaed Al_Husaini","Al Redz",2123,556881],
-  ["2013/14",5,"HAMAD ALKHAMEES","20 Times",2117,578231],
-  ["2013/14",6,"Mohammad R","Mohammad's Team",2105,624980],
-  ["2013/14",7,"Ali Alkhamees","امبراطور الشمس",2073,750439],
-  ["2013/14",8,"fahad alsha6y","Liverpool",1986,1094249],
-  ["2013/14",9,"Abdulaziz Al Khamees","Bos3yid X11",1931,1296318],
-  ["2014/15",1,"meshary alderah","فريق meshary",2188,11859],
-  ["2014/15",2,"Madi Alkhamis","القصيعة يونايتد",2172,15968],
-  ["2014/15",3,"Mohammad R","Mohammad's Team",2098,55241],
-  ["2014/15",4,"HAMAD ALKHAMEES","20 Times",1983,260336],
-  ["2014/15",5,"Ali Alkhamees","امبراطور الشمس",1934,435109],
-  ["2014/15",6,"Thamer Alhumaidhi","Bo Ya3qoub",1812,1047893],
-  ["2014/15",7,"Musaed Al_Husaini","Al Redz",1800,1112772],
-  ["2014/15",8,"Abdulaziz Al Khamees","Bos3yid X11",1782,1204878],
-  ["2014/15",9,"fahad alsha6y","Liverpool",1727,1486791],
-  ["2014/15",10,"Abdullah Alkhamees","Nerds FC",1521,2469786],
-  ["2015/16",1,"Yousef KH","Stockfish",2113,187331],
-  ["2015/16",2,"Thamer Alhumaidhi","Bo Ya3qoub",2104,212097],
-  ["2015/16",3,"Hussain Bin Mattar","Bin Mattar FC",2103,213473],
-  ["2015/16",4,"Ali Alkhamees","امبراطور الشمس",2103,213744],
-  ["2015/16",5,"Mohammad R","Mohammad's Team",2056,379120],
-  ["2015/16",6,"HAMAD ALKHAMEES","20 Times",2027,509848],
-  ["2015/16",7,"Saud Alkhamis","Azooz@Anfield",2020,545474],
-  ["2015/16",8,"nawaf alkhamis","madrak$hesale7",2008,606789],
-  ["2015/16",9,"Abdullah Alkhamees","Nerds FC",2001,643849],
-  ["2015/16",10,"Meshary Abdullah","mshary",1981,752868],
-  ["2015/16",11,"Musaed Al_Husaini","Al Redz",1972,802337],
-  ["2015/16",12,"meshary alderah","فريق meshary",1966,838592],
-  ["2015/16",13,"Madi Alkhamis","القصيعة يونايتد",1940,989654],
-  ["2015/16",14,"Abdullah Alsultan","Abdullah Alsultan",1921,1103922],
-  ["2015/16",15,"Abdulaziz Al Khamees","Bos3yid X11",1817,1699738],
-  ["2015/16",16,"fahad alsha6y","Liverpool",1638,2443628],
-  ["2016/17",1,"Mohammad R","Mohammad's Team",2392,1044],
-  ["2016/17",2,"Thamer Alhumaidhi","Bo Ya3qoub",2270,20892],
-  ["2016/17",3,"Madi Alkhamis","القصيعة يونايتد",2240,35627],
-  ["2016/17",4,"meshary alderah","فريق meshary",2231,41709],
-  ["2016/17",5,"HAMAD ALKHAMEES","20 Times",2230,42480],
-  ["2016/17",6,"Yousef KH","Stockfish",2201,66780],
-  ["2016/17",7,"Abdullah Alkhamees","Nerds FC",2084,285225],
-  ["2016/17",8,"Saud Alkhamis","Azooz@Anfield",2066,341016],
-  ["2016/17",9,"Abdullah Alsultan","Abdullah Alsultan",2034,457808],
-  ["2016/17",10,"Ali Alkhamees","امبراطور الشمس",2021,509161],
-  ["2016/17",11,"nawaf alkhamis","madrak$hesale7",1993,641089],
-  ["2016/17",12,"Homoud Alkhalifah","halkhalifah",1943,903234],
-  ["2016/17",13,"Abdulaziz Al Khamees","Bos3yid X11",1930,979987],
-  ["2016/17",14,"Musaed Al_Husaini","Al Redz",1889,1238300],
-  ["2016/17",15,"fahad alsha6y","Liverpool",1887,1247475],
-  ["2016/17",16,"Hussain Bin Mattar","Bin Mattar FC",1864,1400323],
-  ["2016/17",17,"Turki Alkhamis","Q8 Dream",1443,3687485],
-  ["2017/18",1,"Madi Alkhamis","القصيعة يونايتد",2310,11030],
-  ["2017/18",2,"Abdulaziz Al Khamees","Bos3yid X11",2277,26360],
-  ["2017/18",3,"Mohammad R","Mohammad's Team",2258,40594],
-  ["2017/18",4,"Yousef KH","Stockfish",2256,42627],
-  ["2017/18",5,"meshary alderah","فريق meshary",2233,69343],
-  ["2017/18",6,"Musaed Al_Husaini","Al Redz",2215,96631],
-  ["2017/18",7,"Thamer Alhumaidhi","Bo Ya3qoub",2204,117184],
-  ["2017/18",8,"mohammad fahad","mohammad fahad",2152,260798],
-  ["2017/18",9,"fahad alsha6y","Liverpool",2147,277473],
-  ["2017/18",10,"Saud Alkhamis","Azooz@Anfield",2116,410064],
-  ["2017/18",11,"Hussain Bin Mattar","Bin Mattar FC",2099,493178],
-  ["2017/18",12,"Ahmed K","ahmed k",2069,670997],
-  ["2017/18",13,"Abdullah Alsultan","Abdullah Alsultan",2067,687291],
-  ["2017/18",14,"Khaled Alfahed","KAF",2065,696443],
-  ["2017/18",15,"HAMAD ALKHAMEES","20 Times",2045,836922],
-  ["2017/18",16,"nawaf alkhamis","madrak$hesale7",2004,1148750],
-  ["2017/18",17,"Ali Alkhamees","امبراطور الشمس",1863,2317178],
-  ["2017/18",18,"Homoud Alkhalifah","halkhalifah",1858,2355448],
-  ["2017/18",19,"Abdullah Alkhamees","Nerds FC",1818,2675056],
-  ["2017/18",20,"Turki Alkhamis","Q8 Dream",1589,4306138],
-  ["2018/19",1,"Yousef KH","Stockfish",2387,9488],
-  ["2018/19",2,"mohammad fahad","mohammad fahad",2366,15712],
-  ["2018/19",3,"Madi Alkhamis","القصيعة يونايتد",2271,96406],
-  ["2018/19",4,"Saud Alkhamis","Azooz@Anfield",2211,234904],
-  ["2018/19",5,"Ali Alkhamees","امبراطور الشمس",2196,284859],
-  ["2018/19",6,"HAMAD ALKHAMEES","20 Times",2190,309873],
-  ["2018/19",7,"Turki Alkhamis","Q8 Dream",2167,410566],
-  ["2018/19",8,"meshary alderah","فريق meshary",2163,431364],
-  ["2018/19",9,"fahad alsha6y","Liverpool",2151,492622],
-  ["2018/19",10,"Abdullah Alkhamees","Nerds FC",2126,649429],
-  ["2018/19",11,"Abdulaziz Al Khamees","Bos3yid X11",2125,658173],
-  ["2018/19",12,"Khaled Alfahed","KAF",2107,789580],
-  ["2018/19",13,"Musaed Al_Husaini","Al Redz",2085,975933],
-  ["2018/19",14,"Thamer Alhumaidhi","Bo Ya3qoub",2060,1214288],
-  ["2018/19",15,"nawaf alkhamis","madrak$hesale7",2060,1215953],
-  ["2018/19",16,"Fahad Alkhamis","Totti",2052,1296143],
-  ["2018/19",17,"Mohammad R","Mohammad's Team",2047,1345858],
-  ["2018/19",18,"Ahmed K","ahmed k",2040,1423973],
-  ["2018/19",19,"Meshary Alkhamees","Romanista",2027,1567517],
-  ["2018/19",20,"Abdullah Alsultan","Abdullah Alsultan",2022,1626826],
-  ["2018/19",21,"Hussain Bin Mattar","Bin Mattar FC",2012,1738566],
-  ["2018/19",22,"Homoud Alkhalifah","halkhalifah",1997,1917963],
-  ["2018/19",23,"Nasser T Alkhamis","Shadow Strikers",1662,4915160],
-  ["2018/19",24,"Meshary Abdullah","mshary",78,6285873],
-  ["2019/20",1,"Yousef KH","Stockfish",2344,15784],
-  ["2019/20",2,"HAMAD ALKHAMEES","20 Times",2339,18346],
-  ["2019/20",3,"mohammad fahad","mohammad fahad",2332,22252],
-  ["2019/20",4,"Turki Alkhamis","Q8 Dream",2330,23569],
-  ["2019/20",5,"Musaed Al_Husaini","Al Redz",2263,106175],
-  ["2019/20",6,"Saud Alkhamis","Azooz@Anfield",2249,136157],
-  ["2019/20",7,"meshary alderah","فريق meshary",2233,180265],
-  ["2019/20",8,"Thamer Alhumaidhi","Bo Ya3qoub",2226,200426],
-  ["2019/20",9,"Khaled Alfahed","KAF",2211,249725],
-  ["2019/20",10,"Meshary Alkhamees","Romanista",2202,285712],
-  ["2019/20",11,"Fahad Alkhamis","Totti",2185,359863],
-  ["2019/20",12,"Madi Alkhamis","القصيعة يونايتد",2169,443996],
-  ["2019/20",13,"Meshary Abdullah","mshary",2147,573522],
-  ["2019/20",14,"Homoud Alkhalifah","halkhalifah",2132,670521],
-  ["2019/20",15,"Abdulaziz Al Khamees","Bos3yid X11",2105,873623],
-  ["2019/20",16,"nawaf alkhamis","madrak$hesale7",2094,965547],
-  ["2019/20",17,"Abdullah Alkhamees","Nerds FC",2087,1024436],
-  ["2019/20",18,"Ali Alkhamees","امبراطور الشمس",2068,1189765],
-  ["2019/20",19,"Ahmed K","ahmed k",2065,1221566],
-  ["2019/20",20,"Nasser T Alkhamis","Shadow Strikers",2048,1383817],
-  ["2019/20",21,"fahad alsha6y","Liverpool",2040,1465763],
-  ["2019/20",22,"Mohammad R","Mohammad's Team",2018,1696099],
-  ["2019/20",23,"Abdullah Alsultan","Abdullah Alsultan",2003,1865523],
-  ["2019/20",24,"Hussain Bin Mattar","Bin Mattar FC",1786,4439784],
-  ["2019/20",25,"Mubarak Almutairi","MUBARAK TM",539,7414662],
-  ["2020/21",1,"Meshary Alkhamees","Romanista",2585,274],
-  ["2020/21",2,"HAMAD ALKHAMEES","20 Times",2460,24227],
-  ["2020/21",3,"Fahad Alkhamis","Totti",2436,42331],
-  ["2020/21",4,"Khaled Alfahed","KAF",2434,44316],
-  ["2020/21",5,"nawaf alkhamis","madrak$hesale7",2434,44843],
-  ["2020/21",6,"Thamer Alhumaidhi","Bo Ya3qoub",2423,55550],
-  ["2020/21",7,"Mohammad R","Mohammad's Team",2398,89521],
-  ["2020/21",8,"Musaed Al_Husaini","Al Redz",2344,210512],
-  ["2020/21",9,"mohammad fahad","mohammad fahad",2334,241635],
-  ["2020/21",10,"Madi Alkhamis","القصيعة يونايتد",2318,294242],
-  ["2020/21",11,"Abdulaziz Al Khamees","Bos3yid X11",2299,367918],
-  ["2020/21",12,"Turki Alkhamis","Q8 Dream",2266,516655],
-  ["2020/21",13,"Abdullah Alsultan","Abdullah Alsultan",2249,610584],
-  ["2020/21",14,"meshary alderah","فريق meshary",2242,649433],
-  ["2020/21",15,"Ahmed K","ahmed k",2240,661279],
-  ["2020/21",16,"Meshary Abdullah","mshary",2157,1227261],
-  ["2020/21",17,"Saud Alkhamis","Azooz@Anfield",2141,1353112],
-  ["2020/21",18,"Yousef KH","Stockfish",2139,1369573],
-  ["2020/21",19,"Hussain Bin Mattar","Bin Mattar FC",2106,1643027],
-  ["2020/21",20,"Abdullah Alkhamees","Nerds FC",2088,1803334],
-  ["2020/21",21,"fahad alsha6y","Liverpool",2013,2494571],
-  ["2020/21",22,"Mubarak Almutairi","MUBARAK TM",1958,3027333],
-  ["2020/21",23,"Homoud Alkhalifah","halkhalifah",1847,4075987],
-  ["2020/21",24,"Nasser T Alkhamis","Shadow Strikers",1837,4165324],
-  ["2021/22",1,"Musaed Al_Husaini","Al Redz",2523,77312],
-  ["2021/22",2,"Khaled Alfahed","KAF",2500,105679],
-  ["2021/22",3,"mohammad fahad","mohammad fahad",2465,163750],
-  ["2021/22",4,"Fahad Alkhamis","Totti",2459,174350],
-  ["2021/22",5,"Yousef KH","Stockfish",2434,226721],
-  ["2021/22",6,"meshary alderah","فريق meshary",2429,238025],
-  ["2021/22",7,"Abdulaziz Al Khamees","Bos3yid X11",2418,263252],
-  ["2021/22",8,"Turki Alkhamis","Q8 Dream",2414,271618],
-  ["2021/22",9,"Abdullah Alsultan","Abdullah Alsultan",2405,296510],
-  ["2021/22",10,"HAMAD ALKHAMEES","20 Times",2393,329223],
-  ["2021/22",11,"Meshary Alkhamees","Romanista",2387,345058],
-  ["2021/22",12,"Thamer Alhumaidhi","Bo Ya3qoub",2378,370792],
-  ["2021/22",13,"Madi Alkhamis","القصيعة يونايتد",2365,412771],
-  ["2021/22",14,"Ahmed K","ahmed k",2330,537021],
-  ["2021/22",15,"Ali Alkhamees","امبراطور الشمس",2305,636609],
-  ["2021/22",16,"nawaf alkhamis","madrak$hesale7",2301,657189],
-  ["2021/22",17,"Saud Alkhamis","Azooz@Anfield",2269,805263],
-  ["2021/22",18,"Hussain Bin Mattar","Bin Mattar FC",2240,956588],
-  ["2021/22",19,"fahad alsha6y","Liverpool",2017,2635821],
-  ["2021/22",20,"Mohammad R","Mohammad's Team",1985,2930210],
-  ["2021/22",21,"Abdullah Alkhamees","Nerds FC",1975,3029241],
-  ["2021/22",22,"Abdullah Alkhames","alkhames86",1870,4080776],
-  ["2021/22",23,"Homoud Alkhalifah","halkhalifah",1844,4345571],
-  ["2021/22",24,"Mubarak Almutairi","MUBARAK TM",1779,5019676],
-  ["2021/22",25,"Nasser T Alkhamis","Shadow Strikers",1592,6752392],
-  ["2021/22",26,"Naser Alkhamees","Naser",537,8969823],
-  ["2022/23",1,"mohammad fahad","mohammad fahad",2583,22800],
-  ["2022/23",2,"Madi Alkhamis","القصيعة يونايتد",2537,80679],
-  ["2022/23",3,"meshary alderah","فريق meshary",2515,130074],
-  ["2022/23",4,"Musaed Al_Husaini","Al Redz",2514,132930],
-  ["2022/23",5,"Hussain Bin Mattar","Bin Mattar FC",2475,257148],
-  ["2022/23",6,"Thamer Alhumaidhi","Bo Ya3qoub",2467,288380],
-  ["2022/23",7,"Meshary Alkhamees","Romanista",2461,314438],
-  ["2022/23",8,"Ali Alkhamees","امبراطور الشمس",2434,444768],
-  ["2022/23",9,"Fahad Alkhamis","Totti",2427,484809],
-  ["2022/23",10,"HAMAD ALKHAMEES","20 Times",2416,554347],
-  ["2022/23",11,"nawaf alkhamis","madrak$hesale7",2415,560541],
-  ["2022/23",12,"Abdullah Alsultan","Abdullah Alsultan",2407,610017],
-  ["2022/23",13,"Abdulaziz Al Khamees","Bos3yid X11",2395,690445],
-  ["2022/23",14,"Turki Alkhamis","Q8 Dream",2387,744909],
-  ["2022/23",15,"Khaled Alfahed","KAF",2375,835998],
-  ["2022/23",16,"Ahmed K","ahmed k",2355,1001625],
-  ["2022/23",17,"Yousef KH","Stockfish",2305,1477674],
-  ["2022/23",18,"Saud Alkhamis","Azooz@Anfield",2253,2053288],
-  ["2022/23",19,"Abdullah Alkhamees","Nerds FC",2182,2922435],
-  ["2022/23",20,"Abdullah Alkhames","alkhames86",2163,3169538],
-  ["2022/23",21,"fahad alsha6y","Liverpool",2082,4206958],
-  ["2022/23",22,"Homoud Alkhalifah","halkhalifah",2007,5158668],
-  ["2022/23",23,"Mohammad R","Mohammad's Team",1938,5995824],
-  ["2022/23",24,"Mubarak Almutairi","MUBARAK TM",1926,6140390],
-  ["2022/23",25,"Nasser T Alkhamis","Shadow Strikers",1717,8319831],
-  ["2022/23",26,"Naser Alkhamees","Naser",1652,8852732],
-  ["2022/23",27,"Meshary Abdullah","mshary",1464,9950166],
-  ["2023/24",1,"Musaed Al_Husaini","Al Redz",2536,32530],
-  ["2023/24",2,"HAMAD ALKHAMEES","20 Times",2462,152985],
-  ["2023/24",3,"Fahad Alkhamis","Totti",2447,191081],
-  ["2023/24",4,"Hussain Bin Mattar","Bin Mattar FC",2431,241090],
-  ["2023/24",5,"meshary alderah","فريق meshary",2395,387168],
-  ["2023/24",6,"Meshary Alkhamees","Romanista",2391,403592],
-  ["2023/24",7,"Turki Alkhamis","Q8 Dream",2374,491992],
-  ["2023/24",8,"Yousef KH","Stockfish",2374,495000],
-  ["2023/24",9,"Madi Alkhamis","القصيعة يونايتد",2360,577182],
-  ["2023/24",10,"Meshary Abdullah","mshary",2356,603631],
-  ["2023/24",11,"Abdullah Alsultan","Abdullah Alsultan",2343,691610],
-  ["2023/24",12,"Khaled Alfahed","KAF",2339,714856],
-  ["2023/24",13,"Abdullah Alkhamees","Nerds FC",2318,884030],
-  ["2023/24",14,"mohammad fahad","mohammad fahad",2314,917802],
-  ["2023/24",15,"Abdulaziz Al Khamees","Bos3yid X11",2309,960086],
-  ["2023/24",16,"nawaf alkhamis","madrak$hesale7",2308,970133],
-  ["2023/24",17,"Thamer Alhumaidhi","Bo Ya3qoub",2277,1265178],
-  ["2023/24",18,"Ali Alkhames","arsenal",2256,1497070],
-  ["2023/24",19,"fahad alsha6y","Liverpool",2205,2117661],
-  ["2023/24",20,"Abdullah Alkhames","alkhames86",2166,2643132],
-  ["2023/24",21,"Saud Alkhamis","Azooz@Anfield",2157,2767834],
-  ["2023/24",22,"Ali Alkhamees","امبراطور الشمس",2111,3383455],
-  ["2023/24",23,"Ahmed K","ahmed k",2104,3481825],
-  ["2023/24",24,"Homoud Alkhalifah","halkhalifah",1975,5091565],
-  ["2023/24",25,"Mohammad R","Mohammad's Team",1886,6163451],
-  ["2023/24",26,"Mubarak Almutairi","MUBARAK TM",1732,7967063],
-  ["2024/25",1,"Musaed Al_Husaini","Al Redz",2548,44146],
-  ["2024/25",2,"Ali Alkhames","arsenal",2525,76534],
-  ["2024/25",3,"HAMAD ALKHAMEES","20 Times",2490,152480],
-  ["2024/25",4,"mohammad fahad","mohammad fahad",2481,179511],
-  ["2024/25",5,"Yousef KH","Stockfish",2450,295362],
-  ["2024/25",6,"Abdulaziz Al Khamees","Bos3yid X11",2406,531377],
-  ["2024/25",7,"meshary alderah","فريق meshary",2404,548593],
-  ["2024/25",8,"Madi Alkhamis","القصيعة يونايتد",2398,587793],
-  ["2024/25",9,"Ahmed K","ahmed k",2381,711181],
-  ["2024/25",10,"Saud Alkhamis","Azooz@Anfield",2377,742382],
-  ["2024/25",11,"Khaled Alfahed","KAF",2375,756127],
-  ["2024/25",12,"Hussain Bin Mattar","Bin Mattar FC",2368,813300],
-  ["2024/25",13,"Thamer Alhumaidhi","Bo Ya3qoub",2362,865682],
-  ["2024/25",14,"Fahad Alkhamis","Totti",2265,1942298],
-  ["2024/25",15,"Nasser T Alkhamis","Shadow Strikers",2250,2137445],
-  ["2024/25",16,"Meshary Alkhamees","Romanista",2238,2305652],
-  ["2024/25",17,"Meshary Abdullah","mshary",2214,2654343],
-  ["2024/25",18,"Turki Alkhamis","Q8 Dream",2173,3239326],
-  ["2024/25",19,"Abdullah Alkhames","alkhames86",2142,3694234],
-  ["2024/25",20,"Homoud Alkhalifah","halkhalifah",2130,3863221],
-  ["2024/25",21,"Abdullah Alsultan","Abdullah Alsultan",2117,4050584],
-  ["2024/25",22,"Naser Alkhamees","Naser",2007,5428050],
-  ["2024/25",23,"Mubarak Almutairi","MUBARAK TM",1973,5785545],
-  ["2024/25",24,"Abdullah Alkhamees","Nerds FC",1931,6209663],
-  ["2024/25",25,"nawaf alkhamis","madrak$hesale7",1895,6568083],
-  ["2024/25",26,"Ali Alkhamees","امبراطور الشمس",1875,6761483],
-  ["2024/25",27,"fahad alsha6y","Liverpool",1742,8080975],
-  ["2024/25",28,"Mohammad R","Mohammad's Team",1657,8850085],
-  ["2025/26",1,"Yousef KH","Stockfish",2356,44218],
-  ["2025/26",2,"Madi Alkhamis","القصيعة يونايتد",2312,141737],
-  ["2025/26",3,"Musaed Al_Husaini","Al Redz",2283,257167],
-  ["2025/26",4,"HAMAD ALKHAMEES","20 Times",2277,290825],
-  ["2025/26",5,"Hussain Bin Mattar","Bin Mattar FC",2244,496413],
-  ["2025/26",6,"Thamer Alhumaidhi","Bo Ya3qoub",2228,623925],
-  ["2025/26",7,"meshary alderah","فريق meshary",2205,849171],
-  ["2025/26",8,"Ahmed K","ahmed k",2190,1003027],
-  ["2025/26",9,"mohammad fahad","mohammad fahad",2177,1161450],
-  ["2025/26",10,"nawaf alkhamis","madrak$hesale7",2172,1226873],
-  ["2025/26",11,"Fahad Alkhamis","Totti",2159,1389505],
-  ["2025/26",12,"Nasser T Alkhamis","Shadow Strikers",2152,1482315],
-  ["2025/26",13,"Meshary Alkhamees","Romanista",2134,1738249],
-  ["2025/26",14,"Ali Alkhames","arsenal",2124,1896092],
-  ["2025/26",15,"Meshary Abdullah","mshary",2096,2341565],
-  ["2025/26",16,"Naser Alkhamees","Naser",2094,2375223],
-  ["2025/26",17,"Khaled Alfahed","KAF",2086,2504903],
-  ["2025/26",18,"Abdullah Alsultan","Abdullah Alsultan",2067,2835901],
-  ["2025/26",19,"Turki Alkhamis","Q8 Dream",2064,2878471],
-  ["2025/26",20,"Abdulaziz Al Khamees","Bos3yid X11",2053,3081246],
-  ["2025/26",21,"Saud Alkhamis","Azooz@Anfield",2046,3205523],
-  ["2025/26",22,"Abdullah Alkhamees","Nerds FC",2005,3944163],
-  ["2025/26",23,"Ali Alkhamees","امبراطور الشمس",1998,4082662],
-  ["2025/26",24,"Homoud Alkhalifah","halkhalifah",1984,4342300],
-  ["2025/26",25,"Abdullah Alkhames","alkhames86",1930,5357362],
-  ["2025/26",26,"fahad alsha6y","Liverpool",1865,6540392],
-  ["2025/26",27,"Mohammad R","Mohammad's Team",1579,10503960],
-  ["2025/26",28,"Mubarak Almutairi","MUBARAK TM",1165,12282160]
+  ["2018/19",1,"Madi Alkhamis","القصيعة يونايتد",2271,96406],
+  ["2018/19",2,"Osamah Bash","UNITED",2156,464845],
+  ["2018/19",3,"Abdulrahman al-musallam","Abdulrahman's Team",2148,509398],
+  ["2018/19",4,"BADER ALMUTAWA","BeLeaF",2092,916079],
+  ["2018/19",5,"Abdulaziz AlAli","THe oooLLLooo",2067,1143696],
+  ["2018/19",6,"Abdullatif Alsane","كاظمة",2062,1192177],
+  ["2018/19",7,"Abdula Alkulaib","tactation",2036,1469066],
+  ["2018/19",8,"fawwaz alghanim","Real^Madridy",2012,1745115],
+  ["2018/19",9,"Abdullah Alshatti","AbdullahQ84",1975,2190527],
+  ["2018/19",10,"Faisal Alhazza","Faisal",1475,5495430],
+  ["2019/20",1,"Abdulaziz AlAli","THe oooLLLooo",2235,174149],
+  ["2019/20",2,"Abdulrahman al-musallam","Abdulrahman's Team",2194,319081],
+  ["2019/20",3,"Madi Alkhamis","القصيعة يونايتد",2169,443996],
+  ["2019/20",4,"Abdullatif Alsane","كاظمة",2159,499023],
+  ["2019/20",5,"Abdula Alkulaib","tactation",2070,1178253],
+  ["2019/20",6,"fawwaz alghanim","Real^Madridy",2038,1492685],
+  ["2019/20",7,"BADER ALMUTAWA","BeLeaF",2031,1565059],
+  ["2019/20",8,"Osamah Bash","UNITED",1995,1950517],
+  ["2019/20",9,"Abdullah Alshatti","AbdullahQ84",1886,3258042],
+  ["2019/20",10,"Faisal Alhazza","Faisal",1766,4657969],
+  ["2020/21",1,"Abdullatif Alsane","كاظمة",2464,21473],
+  ["2020/21",2,"Abdulaziz AlAli","THe oooLLLooo",2327,263143],
+  ["2020/21",3,"Madi Alkhamis","القصيعة يونايتد",2318,294242],
+  ["2020/21",4,"Abdula Alkulaib","tactation",2292,398494],
+  ["2020/21",5,"Ali Al Hussaini","BUJENAN",2212,830254],
+  ["2020/21",6,"BADER ALMUTAWA","BeLeaF",2164,1174375],
+  ["2020/21",7,"Abdulrahman al-musallam","Abdulrahman's Team",2157,1222780],
+  ["2020/21",8,"Osamah Bash","UNITED",2139,1363698],
+  ["2020/21",9,"fawwaz alghanim","Real^Madridy",2002,2605377],
+  ["2020/21",10,"Faisal Alhazza","Faisal",1932,3279704],
+  ["2020/21",11,"Abdullah Alshatti","AbdullahQ84",1804,4459535],
+  ["2020/21",12,"Nasser AlMutawa","BELLINGHAM OVERRATED",476,8070151],
+  ["2021/22",1,"Ali Al Hussaini","BUJENAN",2401,306771],
+  ["2021/22",2,"Abdula Alkulaib","tactation",2385,352112],
+  ["2021/22",3,"Abdulaziz AlAli","THe oooLLLooo",2381,363079],
+  ["2021/22",4,"Madi Alkhamis","القصيعة يونايتد",2365,412771],
+  ["2021/22",5,"Abdullatif Alsane","كاظمة",2269,805117],
+  ["2021/22",6,"Osamah Bash","UNITED",2168,1409514],
+  ["2021/22",7,"Abdulrahman al-musallam","Abdulrahman's Team",2078,2102047],
+  ["2021/22",8,"BADER ALMUTAWA","BeLeaF",2030,2523839],
+  ["2021/22",9,"fawwaz alghanim","Real^Madridy",1978,3004649],
+  ["2021/22",10,"Faisal Alhazza","Faisal",1763,5183042],
+  ["2021/22",11,"Abdullah Alshatti","AbdullahQ84",1706,5747474],
+  ["2021/22",12,"Nasser AlMutawa","BELLINGHAM OVERRATED",1673,6061004],
+  ["2022/23",1,"Madi Alkhamis","القصيعة يونايتد",2537,80679],
+  ["2022/23",2,"Abdula Alkulaib","tactation",2505,157762],
+  ["2022/23",3,"Abdullatif Alsane","كاظمة",2426,490556],
+  ["2022/23",4,"Abdulaziz AlAli","THe oooLLLooo",2300,1529825],
+  ["2022/23",5,"Ali Al Hussaini","BUJENAN",2235,2272875],
+  ["2022/23",6,"Abdulrahman al-musallam","Abdulrahman's Team",2196,2747364],
+  ["2022/23",7,"Abdulrahman J","AJ squad",2180,2958072],
+  ["2022/23",8,"Osamah Bash","UNITED",2168,3102352],
+  ["2022/23",9,"Abdullah Alshatti","AbdullahQ84",2148,3363117],
+  ["2022/23",10,"Nasser AlMutawa","BELLINGHAM OVERRATED",2139,3484313],
+  ["2022/23",11,"BADER ALMUTAWA","BeLeaF",2093,4076573],
+  ["2022/23",12,"Faisal Alhazza","Faisal",2083,4203356],
+  ["2022/23",13,"fawwaz alghanim","Real^Madridy",1929,6112450],
+  ["2022/23",14,"Abdulaziz Faisal","Masterclass",1609,9164846],
+  ["2022/23",15,"Abdulqader Al-Mutawa","FPL Kadoor",1453,9999959],
+  ["2023/24",1,"Abdula Alkulaib","tactation",2432,238728],
+  ["2023/24",2,"Abdullatif Alsane","كاظمة",2390,408862],
+  ["2023/24",3,"Abdulrahman al-musallam","Abdulrahman's Team",2362,560874],
+  ["2023/24",4,"Madi Alkhamis","القصيعة يونايتد",2360,577182],
+  ["2023/24",5,"Abdulaziz AlAli","THe oooLLLooo",2347,661304],
+  ["2023/24",6,"Ali Al Hussaini","BUJENAN",2294,1098876],
+  ["2023/24",7,"Faisal Alhazza","Faisal",2292,1113177],
+  ["2023/24",8,"Osamah Bash","UNITED",2259,1454414],
+  ["2023/24",9,"Abdullah Alshatti","AbdullahQ84",2259,1462579],
+  ["2023/24",10,"Abdulrahman J","AJ squad",2168,2618776],
+  ["2023/24",11,"fawwaz alghanim","Real^Madridy",2154,2809422],
+  ["2023/24",12,"Abdulqader Al-Mutawa","FPL Kadoor",2124,3213879],
+  ["2023/24",13,"BADER ALMUTAWA","BeLeaF",2040,4306942],
+  ["2023/24",14,"Faris almutawa","Real madrid prime",1958,5298699],
+  ["2023/24",15,"Abdulaziz Faisal","Masterclass",1895,6064028],
+  ["2023/24",16,"Nasser AlMutawa","BELLINGHAM OVERRATED",1685,8417523],
+  ["2024/25",1,"Madi Alkhamis","القصيعة يونايتد",2398,587793],
+  ["2024/25",2,"Ali Al Hussaini","BUJENAN",2366,836442],
+  ["2024/25",3,"Faisal Alhazza","Faisal",2339,1079445],
+  ["2024/25",4,"Abdula Alkulaib","tactation",2311,1382144],
+  ["2024/25",5,"Abdulrahman al-musallam","Abdulrahman's Team",2300,1501786],
+  ["2024/25",6,"Abdullatif Alsane","كاظمة",2290,1628829],
+  ["2024/25",7,"Abdulaziz AlAli","THe oooLLLooo",2279,1765696],
+  ["2024/25",8,"BADER ALMUTAWA","BeLeaF",2263,1975988],
+  ["2024/25",9,"fawwaz alghanim","Real^Madridy",2225,2495147],
+  ["2024/25",10,"Abdulaziz Faisal","Masterclass",2210,2711778],
+  ["2024/25",11,"Abdulrahman J","AJ squad",2209,2721986],
+  ["2024/25",12,"Abdulqader Al-Mutawa","FPL Kadoor",2182,3114773],
+  ["2024/25",13,"Omar Almutawa","yes",2140,3727450],
+  ["2024/25",14,"Osamah Bash","UNITED",2117,4046995],
+  ["2024/25",15,"Abdullah Alshatti","AbdullahQ84",2085,4482077],
+  ["2024/25",16,"Faris almutawa","Real madrid prime",1941,6117067],
+  ["2024/25",17,"Nasser AlMutawa","BELLINGHAM OVERRATED",1866,6855699],
+  ["2025/26",1,"Madi Alkhamis","القصيعة يونايتد",2312,141737],
+  ["2025/26",2,"Abdulaziz AlAli","THe oooLLLooo",2311,144984],
+  ["2025/26",3,"Abdulrahman J","AJ squad",2300,182900],
+  ["2025/26",4,"Abdula Alkulaib","tactation",2282,262702],
+  ["2025/26",5,"Abdulaziz Faisal","Masterclass",2197,929655],
+  ["2025/26",6,"Abdullatif Alsane","كاظمة",2192,984535],
+  ["2025/26",7,"Faisal Alhazza","Faisal",2146,1564591],
+  ["2025/26",8,"BADER ALMUTAWA","BeLeaF",2134,1743629],
+  ["2025/26",9,"Ali Al Hussaini","BUJENAN",2118,1987362],
+  ["2025/26",10,"Abdulqader Al-Mutawa","FPL Kadoor",2072,2750059],
+  ["2025/26",11,"Nasser AlMutawa","BELLINGHAM OVERRATED",2069,2802397],
+  ["2025/26",12,"Abdullah Alshatti","AbdullahQ84",2063,2905390],
+  ["2025/26",13,"Faris almutawa","Real madrid prime",2029,3513911],
+  ["2025/26",14,"fawwaz alghanim","Real^Madridy",2007,3923613],
+  ["2025/26",15,"Abdulrahman al-musallam","Abdulrahman's Team",1983,4360971],
+  ["2025/26",16,"Osamah Bash","UNITED",1907,5784067],
+  ["2025/26",17,"Omar Almutawa","yes",1863,6577705]
 ];
 
 
@@ -470,14 +299,14 @@ function homeView() {
   }).join('');
 
   return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,84px) 0 clamp(36px,6vw,64px)"><div class="wrap">' +
-    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
-    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
-    '<p class="lede">كل الأبطال، وكل الأرقام، وكل الخيبات — من موسم 13/14 إلى 25/26. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.</p>' +
+    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">8 مواسم من الفانتازي</div><div></div></div>' +
+    '<h1 class="hero">Q80<br><span style="color:#00FF85">MANAGERS</span></h1>' +
+    '<p class="lede">كل الأبطال، وكل الأرقام، وكل الخيبات — من موسم 18/19 إلى 25/26. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.</p>' +
     '<div class="stats">' +
-      '<div class="stat" style="background:#E90052"><div class="n">13</div><div class="l">موسم</div></div>' +
-      '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">28</div><div class="l">مشترك</div></div>' +
-      '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">7</div><div class="l">أبطال مختلفين</div></div>' +
-      '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">2585</div><div class="l">أعلى نقاط بموسم</div></div>' +
+      '<div class="stat" style="background:#E90052"><div class="n">8</div><div class="l">مواسم</div></div>' +
+      '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">17</div><div class="l">مشترك</div></div>' +
+      '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">5</div><div class="l">أبطال مختلفين</div></div>' +
+      '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">2537</div><div class="l">أعلى نقاط بموسم</div></div>' +
     '</div></div></div>' +
 
     '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">لوحة الأبطال</h2><div class="s">اضغط الموسم لترتيب الدوري كامل</div></div>' +
@@ -486,29 +315,29 @@ function homeView() {
     '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">أرقام ما تنسى</h2><div class="s" style="color:#E90052">من صنع التاريخ؟</div></div>' +
     '<div class="recs">' +
       '<div class="rec" style="background:#E90052"><div class="k" style="opacity:.85">أكثر ألقاب</div>' +
-        '<div class="row"><span class="who">يوسف الخميس</span><span class="big">4</span></div>' +
-        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;opacity:.9">15/16 · 18/19 · 19/20 · 25/26</div></div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">4</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;opacity:.9">18/19 · 22/23 · 24/25 · 25/26</div></div>' +
       '<div class="rec" style="background:#00FF85;color:#38003C"><div class="k" style="opacity:.7;margin-bottom:4px">أكثر مرات في المراكز الثلاثة الأولى</div>' +
         '<div style="font-size:15px;font-weight:500;opacity:.6;margin-bottom:12px">أول أو ثاني أو ثالث — أكثر واحد صعد المنصة</div>' +
-        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">7</span></div>' +
-        '<div style="font-size:18px;font-weight:700;opacity:.75">ساكن المنصة بالإيجار الطويل</div></div>' +
-      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات وصيف الدوري — تعادل ثلاثي</div>' +
-        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">ثلاث مرات لكل واحد</span><span class="big" style="font-size:48px">3</span></div>' +
-        '<div style="font-size:21px;font-weight:800;line-height:1.45">ثامر الحميضي · ماضي الخميس · حمد الخميس</div></div>' +
-      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات مركز ثالث — تعادل خماسي</div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">6</span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.75">ست مواسم من ثمانية على المنصة</div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات وصيف الدوري — تعادل</div>' +
         '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">مرتين لكل واحد</span><span class="big" style="font-size:48px">2</span></div>' +
-        '<div style="font-size:20px;font-weight:800;line-height:1.45">مشاري الدرعة · محمد الرهيماني · ماضي الخميس · محمد الفهد · فهد الخميس</div></div>' +
+        '<div style="font-size:21px;font-weight:800;line-height:1.45">عبدالله الكليب · عبدالعزيز العلي</div></div>' +
       '<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">أفضل موسم في التاريخ</div>' +
-        '<div class="row"><span class="who">مشاري الخميس</span><span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">2585</span><span style="font-size:16px;font-weight:700;opacity:.75">نقطة</span></span></div>' +
-        '<div style="font-size:18px;font-weight:700;opacity:.8">موسم 20/21 — وأفضل ترتيب عالمي على الإطلاق: <span class="num" style="font-weight:700">274</span></div></div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">2537</span><span style="font-size:16px;font-weight:700;opacity:.75">نقطة</span></span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.8">موسم 22/23 — بترتيب عالمي <span class="num" style="font-weight:700">80,679</span></div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أفضل ترتيب عالمي على الإطلاق</div>' +
+        '<div class="row"><span class="who">عبداللطيف الصانع</span><span class="big" style="font-size:44px">21,473</span></div>' +
+        '<div style="font-size:18px;font-weight:700;color:rgba(255,255,255,.7)">موسم 20/21 — وبطل الدوري بنفس السنة بـ 2464 نقطة</div></div>' +
       '<div class="rec" style="background:#2A002E;border:2px dashed rgba(255,255,255,.35)"><div class="k" style="color:#E90052;margin-bottom:4px">فشيلة الدوري — أكثر واحد جا الأخير</div>' +
         '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:12px">قاعد بذيل الجدول أكثر من أي أحد</div>' +
-        '<div class="row"><span class="who">مبارك المطيري</span><span class="big">3</span></div>' +
-        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;color:rgba(255,255,255,.7)">19/20 · 23/24 · 25/26</div></div>' +
+        '<div class="row"><span class="who">ناصر المطوع</span><span class="big">4</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;color:rgba(255,255,255,.7)">20/21 · 21/22 · 23/24 · 24/25</div></div>' +
       '<div style="grid-column:1/-1;background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">' +
         '<div style="font-size:62px;line-height:1">😅</div><div style="flex:1;min-width:240px">' +
         '<h3 style="margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:900;line-height:1">المنحوس</h3>' +
-        '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">حمد الخميس يمتلك أفضل متوسط ترتيب في تاريخ الدوري كله — <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">5.69</span> على مدى 13 موسم — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>' +
+        '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">عبدالرحمن المسلم لعب كل المواسم الثمانية، وصل وصيف مرة وثالث مرتين، ومتوسط ترتيبه <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">6.00</span> — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>' +
     '</div></div></section>' +
 
     '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#04F5FF;margin-bottom:8px"><h2 class="sec">الترتيب التاريخي</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك لتاريخه الكامل</div></div>' +
