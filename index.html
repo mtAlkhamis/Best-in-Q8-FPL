@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=["https://claude.ai","https://preview.claude.ai","https://d86c942a-99be-4731-b7ca-1920111e3bbe.claudeusercontent.com"];var B=true;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
+</script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Best in Q8 — دوري فانتازي الأصدقاء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#38003C;color:#fff;font-family:Tajawal,'Segoe UI',sans-serif;text-align:right}
+  body{-webkit-font-smoothing:antialiased}
+  ::selection{background:#00FF85;color:#38003C}
+  .num{font-family:Oswald,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .nav{position:sticky;top:0;z-index:20;background:rgba(42,0,46,.94);backdrop-filter:blur(10px);border-bottom:3px solid #E90052}
+  .nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+  .logo{display:flex;align-items:center;gap:10px;cursor:pointer;direction:ltr}
+  .logo b{font-family:Oswald,sans-serif;font-size:24px;font-weight:700;white-space:nowrap}
+  .dot{width:14px;height:14px;background:#00FF85}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-inline-start:auto}
+  .tab{font-size:17px;font-weight:700;padding:8px 16px;background:rgba(255,255,255,.08);cursor:pointer;border:0;color:#fff;font-family:inherit}
+  .tab:hover{background:#E90052}
+  .tab.on{background:#E90052}
+  h1.hero{margin:0 0 24px;font-family:Oswald,sans-serif;font-size:clamp(52px,12vw,124px);line-height:.92;font-weight:700;letter-spacing:-2px;direction:ltr;text-align:right}
+  h2.sec{margin:0 0 6px;font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1}
+  .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .eyebrow div:last-child{flex:1;height:2px;background:rgba(255,255,255,.15)}
+  .lede{margin:0 0 36px;font-size:clamp(18px,2.6vw,28px);line-height:1.5;font-weight:500;color:rgba(255,255,255,.78);max-width:720px;text-wrap:pretty}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .stat{padding:20px}
+  .stat .n{font-family:Oswald,sans-serif;font-size:clamp(40px,6vw,60px);font-weight:700;line-height:1}
+  .stat .l{font-size:18px;font-weight:700;margin-top:6px}
+  .hd{border-bottom:5px solid #00FF85;padding-bottom:14px;margin-bottom:22px}
+  .hd .s{font-size:18px;font-weight:700;color:#00FF85}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+  .champ{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:#46124F;border-right:6px solid #00FF85;padding:13px 16px;cursor:pointer}
+  .champ:hover{background:#5A1A67}
+  .recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .rec{padding:24px}
+  .rec .k{font-size:18px;font-weight:700;margin-bottom:12px}
+  .rec .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-bottom:10px}
+  .rec .who{font-size:26px;font-weight:900}
+  .rec .big{font-family:Oswald,sans-serif;font-size:56px;font-weight:700;line-height:.9}
+  .thead,.trow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 14px}
+  .thead{background:#2A002E;font-size:15px;font-weight:800;color:rgba(255,255,255,.7);border-bottom:3px solid #E90052}
+  .trow{background:#431350;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
+  .trow:hover{background:#55195F}
+  .c-rank{flex:0 0 40px;font-family:Oswald,sans-serif;font-size:22px;font-weight:700}
+  .c-name{flex:1 1 140px;min-width:0}
+  .c-name b{font-size:19px;font-weight:800;line-height:1.25;display:block}
+  .c-name span{font-size:15px;font-weight:500;color:rgba(255,255,255,.55)}
+  .c-pts{flex:0 0 84px;font-family:Oswald,sans-serif;font-size:21px;font-weight:600}
+  .c-sub{flex:0 0 92px;font-family:Oswald,sans-serif;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)}
+  .rows{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .scard{background:#46124F;border-bottom:5px solid #00FF85;padding:18px;cursor:pointer}
+  .scard:hover{background:#5A1A67}
+  .mcard{background:#46124F;padding:16px;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
+  .mcard:hover{background:#5A1A67}
+  .back{display:inline-block;font-size:16px;font-weight:700;color:#04F5FF;margin-bottom:18px;cursor:pointer}
+  .btn{font-size:16px;font-weight:700;padding:10px 16px;background:rgba(255,255,255,.1);cursor:pointer;border:0;color:#fff;font-family:inherit}
+  .btn:hover{background:#E90052}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:30px}
+  .tile{padding:18px;background:#46124F;border:2px solid rgba(255,255,255,.18)}
+  .tile .n{font-family:Oswald,sans-serif;font-size:40px;font-weight:700;line-height:1}
+  .tile .l{font-size:16px;font-weight:700;margin-top:4px}
+  select{width:100%;background:#46124F;color:#fff;padding:12px 14px;font-family:Tajawal,sans-serif;font-size:19px;font-weight:800;direction:rtl}
+  .cmp-hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:12px;background:#2A002E;padding:12px 14px;border-bottom:3px solid #04F5FF}
+  .cmp-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:12px;background:#431350;padding:12px 14px}
+  .foot{border-top:3px solid #E90052;background:#2A002E;margin-top:40px}
+  .foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+  .bars{display:flex;gap:8px}
+  .bars i{width:24px;height:9px;display:block}
+  section.pad{padding-top:clamp(32px,5vw,60px)}
+</style>
+</head>
+<body>
+<div class="nav"><div class="wrap">
+  <div class="logo" data-go="home"><div class="dot"></div><b>BEST IN <span style="color:#00FF85">Q8</span></b></div>
+  <div class="tabs">
+    <button class="tab" data-go="home">الرئيسية</button>
+    <button class="tab" data-go="seasons">المواسم</button>
+    <button class="tab" data-go="managers">المشتركين</button>
+    <button class="tab" data-go="compare">مقارنة</button>
+  </div>
+</div></div>
+
+<div id="app"></div>
+
+<div class="foot"><div class="wrap">
+  <div style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap">Best in Q8 · 2013 — 2026</div>
+  <div class="bars"><i style="background:#E90052"></i><i style="background:#00FF85"></i><i style="background:#04F5FF"></i></div>
+</div></div>
+
+<script>
+var AR = {"Madi Alkhamis":"ماضي الخميس","HAMAD ALKHAMEES":"حمد الخميس","meshary alderah":"مشاري الدرعة","Musaed Al_Husaini":"مساعد الحسيني","Thamer Alhumaidhi":"ثامر الحميضي","Mohammad R":"محمد الرهيماني","Yousef KH":"يوسف الخميس","mohammad fahad":"محمد الفهد","Ahmed K":"أحمد الخميس","Ali Alkhamees":"علي الخميس","Ali Alkhames":"علي الخميس","Abdullah Alkhamees":"عبدالله الخميس","Abdullah Alkhames":"عبدالله الخميس","Naser Alkhamees":"ناصر الخميس","Nasser T Alkhamis":"ناصر الخميس","fahad alsha6y":"فهد الشطي","Abdulaziz Al Khamees":"عبدالعزيز الخميس","Hussain Bin Mattar":"حسين بن مطر","Saud Alkhamis":"سعود الخميس","nawaf alkhamis":"نواف الخميس","Abdullah Alsultan":"عبدالله السلطان","Homoud Alkhalifah":"حمود الخليفة","Turki Alkhamis":"تركي الخميس","Khaled Alfahed":"خالد الفهد","Fahad Alkhamis":"فهد الخميس","Meshary Alkhamees":"مشاري الخميس","Mubarak Almutairi":"مبارك المطيري","Meshary Abdullah":"مشاري عبدالله"};
+
+var ROWS = [
+  ["2013/14",1,"Madi Alkhamis","القصيعة يونايتد",2408,8000],
+  ["2013/14",2,"Thamer Alhumaidhi","Bo Ya3qoub",2182,347779],
+  ["2013/14",3,"meshary alderah","فريق meshary",2133,519260],
+  ["2013/14",4,"Musaed Al_Husaini","Al Redz",2123,556881],
+  ["2013/14",5,"HAMAD ALKHAMEES","20 Times",2117,578231],
+  ["2013/14",6,"Mohammad R","Mohammad's Team",2105,624980],
+  ["2013/14",7,"Ali Alkhamees","امبراطور الشمس",2073,750439],
+  ["2013/14",8,"fahad alsha6y","Liverpool",1986,1094249],
+  ["2013/14",9,"Abdulaziz Al Khamees","Bos3yid X11",1931,1296318],
+  ["2014/15",1,"meshary alderah","فريق meshary",2188,11859],
+  ["2014/15",2,"Madi Alkhamis","القصيعة يونايتد",2172,15968],
+  ["2014/15",3,"Mohammad R","Mohammad's Team",2098,55241],
+  ["2014/15",4,"HAMAD ALKHAMEES","20 Times",1983,260336],
+  ["2014/15",5,"Ali Alkhamees","امبراطور الشمس",1934,435109],
+  ["2014/15",6,"Thamer Alhumaidhi","Bo Ya3qoub",1812,1047893],
+  ["2014/15",7,"Musaed Al_Husaini","Al Redz",1800,1112772],
+  ["2014/15",8,"Abdulaziz Al Khamees","Bos3yid X11",1782,1204878],
+  ["2014/15",9,"fahad alsha6y","Liverpool",1727,1486791],
+  ["2014/15",10,"Abdullah Alkhamees","Nerds FC",1521,2469786],
+  ["2015/16",1,"Yousef KH","Stockfish",2113,187331],
+  ["2015/16",2,"Thamer Alhumaidhi","Bo Ya3qoub",2104,212097],
+  ["2015/16",3,"Hussain Bin Mattar","Bin Mattar FC",2103,213473],
+  ["2015/16",4,"Ali Alkhamees","امبراطور الشمس",2103,213744],
+  ["2015/16",5,"Mohammad R","Mohammad's Team",2056,379120],
+  ["2015/16",6,"HAMAD ALKHAMEES","20 Times",2027,509848],
+  ["2015/16",7,"Saud Alkhamis","Azooz@Anfield",2020,545474],
+  ["2015/16",8,"nawaf alkhamis","madrak$hesale7",2008,606789],
+  ["2015/16",9,"Abdullah Alkhamees","Nerds FC",2001,643849],
+  ["2015/16",10,"Meshary Abdullah","mshary",1981,752868],
+  ["2015/16",11,"Musaed Al_Husaini","Al Redz",1972,802337],
+  ["2015/16",12,"meshary alderah","فريق meshary",1966,838592],
+  ["2015/16",13,"Madi Alkhamis","القصيعة يونايتد",1940,989654],
+  ["2015/16",14,"Abdullah Alsultan","Abdullah Alsultan",1921,1103922],
+  ["2015/16",15,"Abdulaziz Al Khamees","Bos3yid X11",1817,1699738],
+  ["2015/16",16,"fahad alsha6y","Liverpool",1638,2443628],
+  ["2016/17",1,"Mohammad R","Mohammad's Team",2392,1044],
+  ["2016/17",2,"Thamer Alhumaidhi","Bo Ya3qoub",2270,20892],
+  ["2016/17",3,"Madi Alkhamis","القصيعة يونايتد",2240,35627],
+  ["2016/17",4,"meshary alderah","فريق meshary",2231,41709],
+  ["2016/17",5,"HAMAD ALKHAMEES","20 Times",2230,42480],
+  ["2016/17",6,"Yousef KH","Stockfish",2201,66780],
+  ["2016/17",7,"Abdullah Alkhamees","Nerds FC",2084,285225],
+  ["2016/17",8,"Saud Alkhamis","Azooz@Anfield",2066,341016],
+  ["2016/17",9,"Abdullah Alsultan","Abdullah Alsultan",2034,457808],
+  ["2016/17",10,"Ali Alkhamees","امبراطور الشمس",2021,509161],
+  ["2016/17",11,"nawaf alkhamis","madrak$hesale7",1993,641089],
+  ["2016/17",12,"Homoud Alkhalifah","halkhalifah",1943,903234],
+  ["2016/17",13,"Abdulaziz Al Khamees","Bos3yid X11",1930,979987],
+  ["2016/17",14,"Musaed Al_Husaini","Al Redz",1889,1238300],
+  ["2016/17",15,"fahad alsha6y","Liverpool",1887,1247475],
+  ["2016/17",16,"Hussain Bin Mattar","Bin Mattar FC",1864,1400323],
+  ["2016/17",17,"Turki Alkhamis","Q8 Dream",1443,3687485],
+  ["2017/18",1,"Madi Alkhamis","القصيعة يونايتد",2310,11030],
+  ["2017/18",2,"Abdulaziz Al Khamees","Bos3yid X11",2277,26360],
+  ["2017/18",3,"Mohammad R","Mohammad's Team",2258,40594],
+  ["2017/18",4,"Yousef KH","Stockfish",2256,42627],
+  ["2017/18",5,"meshary alderah","فريق meshary",2233,69343],
+  ["2017/18",6,"Musaed Al_Husaini","Al Redz",2215,96631],
+  ["2017/18",7,"Thamer Alhumaidhi","Bo Ya3qoub",2204,117184],
+  ["2017/18",8,"mohammad fahad","mohammad fahad",2152,260798],
+  ["2017/18",9,"fahad alsha6y","Liverpool",2147,277473],
+  ["2017/18",10,"Saud Alkhamis","Azooz@Anfield",2116,410064],
+  ["2017/18",11,"Hussain Bin Mattar","Bin Mattar FC",2099,493178],
+  ["2017/18",12,"Ahmed K","ahmed k",2069,670997],
+  ["2017/18",13,"Abdullah Alsultan","Abdullah Alsultan",2067,687291],
+  ["2017/18",14,"Khaled Alfahed","KAF",2065,696443],
+  ["2017/18",15,"HAMAD ALKHAMEES","20 Times",2045,836922],
+  ["2017/18",16,"nawaf alkhamis","madrak$hesale7",2004,1148750],
+  ["2017/18",17,"Ali Alkhamees","امبراطور الشمس",1863,2317178],
+  ["2017/18",18,"Homoud Alkhalifah","halkhalifah",1858,2355448],
+  ["2017/18",19,"Abdullah Alkhamees","Nerds FC",1818,2675056],
+  ["2017/18",20,"Turki Alkhamis","Q8 Dream",1589,4306138],
+  ["2018/19",1,"Yousef KH","Stockfish",2387,9488],
+  ["2018/19",2,"mohammad fahad","mohammad fahad",2366,15712],
+  ["2018/19",3,"Madi Alkhamis","القصيعة يونايتد",2271,96406],
+  ["2018/19",4,"Saud Alkhamis","Azooz@Anfield",2211,234904],
+  ["2018/19",5,"Ali Alkhamees","امبراطور الشمس",2196,284859],
+  ["2018/19",6,"HAMAD ALKHAMEES","20 Times",2190,309873],
+  ["2018/19",7,"Turki Alkhamis","Q8 Dream",2167,410566],
+  ["2018/19",8,"meshary alderah","فريق meshary",2163,431364],
+  ["2018/19",9,"fahad alsha6y","Liverpool",2151,492622],
+  ["2018/19",10,"Abdullah Alkhamees","Nerds FC",2126,649429],
+  ["2018/19",11,"Abdulaziz Al Khamees","Bos3yid X11",2125,658173],
+  ["2018/19",12,"Khaled Alfahed","KAF",2107,789580],
+  ["2018/19",13,"Musaed Al_Husaini","Al Redz",2085,975933],
+  ["2018/19",14,"Thamer Alhumaidhi","Bo Ya3qoub",2060,1214288],
+  ["2018/19",15,"nawaf alkhamis","madrak$hesale7",2060,1215953],
+  ["2018/19",16,"Fahad Alkhamis","Totti",2052,1296143],
+  ["2018/19",17,"Mohammad R","Mohammad's Team",2047,1345858],
+  ["2018/19",18,"Ahmed K","ahmed k",2040,1423973],
+  ["2018/19",19,"Meshary Alkhamees","Romanista",2027,1567517],
+  ["2018/19",20,"Abdullah Alsultan","Abdullah Alsultan",2022,1626826],
+  ["2018/19",21,"Hussain Bin Mattar","Bin Mattar FC",2012,1738566],
+  ["2018/19",22,"Homoud Alkhalifah","halkhalifah",1997,1917963],
+  ["2018/19",23,"Nasser T Alkhamis","Shadow Strikers",1662,4915160],
+  ["2018/19",24,"Meshary Abdullah","mshary",78,6285873],
+  ["2019/20",1,"Yousef KH","Stockfish",2344,15784],
+  ["2019/20",2,"HAMAD ALKHAMEES","20 Times",2339,18346],
+  ["2019/20",3,"mohammad fahad","mohammad fahad",2332,22252],
+  ["2019/20",4,"Turki Alkhamis","Q8 Dream",2330,23569],
+  ["2019/20",5,"Musaed Al_Husaini","Al Redz",2263,106175],
+  ["2019/20",6,"Saud Alkhamis","Azooz@Anfield",2249,136157],
+  ["2019/20",7,"meshary alderah","فريق meshary",2233,180265],
+  ["2019/20",8,"Thamer Alhumaidhi","Bo Ya3qoub",2226,200426],
+  ["2019/20",9,"Khaled Alfahed","KAF",2211,249725],
+  ["2019/20",10,"Meshary Alkhamees","Romanista",2202,285712],
+  ["2019/20",11,"Fahad Alkhamis","Totti",2185,359863],
+  ["2019/20",12,"Madi Alkhamis","القصيعة يونايتد",2169,443996],
+  ["2019/20",13,"Meshary Abdullah","mshary",2147,573522],
+  ["2019/20",14,"Homoud Alkhalifah","halkhalifah",2132,670521],
+  ["2019/20",15,"Abdulaziz Al Khamees","Bos3yid X11",2105,873623],
+  ["2019/20",16,"nawaf alkhamis","madrak$hesale7",2094,965547],
+  ["2019/20",17,"Abdullah Alkhamees","Nerds FC",2087,1024436],
+  ["2019/20",18,"Ali Alkhamees","امبراطور الشمس",2068,1189765],
+  ["2019/20",19,"Ahmed K","ahmed k",2065,1221566],
+  ["2019/20",20,"Nasser T Alkhamis","Shadow Strikers",2048,1383817],
+  ["2019/20",21,"fahad alsha6y","Liverpool",2040,1465763],
+  ["2019/20",22,"Mohammad R","Mohammad's Team",2018,1696099],
+  ["2019/20",23,"Abdullah Alsultan","Abdullah Alsultan",2003,1865523],
+  ["2019/20",24,"Hussain Bin Mattar","Bin Mattar FC",1786,4439784],
+  ["2019/20",25,"Mubarak Almutairi","MUBARAK TM",539,7414662],
+  ["2020/21",1,"Meshary Alkhamees","Romanista",2585,274],
+  ["2020/21",2,"HAMAD ALKHAMEES","20 Times",2460,24227],
+  ["2020/21",3,"Fahad Alkhamis","Totti",2436,42331],
+  ["2020/21",4,"Khaled Alfahed","KAF",2434,44316],
+  ["2020/21",5,"nawaf alkhamis","madrak$hesale7",2434,44843],
+  ["2020/21",6,"Thamer Alhumaidhi","Bo Ya3qoub",2423,55550],
+  ["2020/21",7,"Mohammad R","Mohammad's Team",2398,89521],
+  ["2020/21",8,"Musaed Al_Husaini","Al Redz",2344,210512],
+  ["2020/21",9,"mohammad fahad","mohammad fahad",2334,241635],
+  ["2020/21",10,"Madi Alkhamis","القصيعة يونايتد",2318,294242],
+  ["2020/21",11,"Abdulaziz Al Khamees","Bos3yid X11",2299,367918],
+  ["2020/21",12,"Turki Alkhamis","Q8 Dream",2266,516655],
+  ["2020/21",13,"Abdullah Alsultan","Abdullah Alsultan",2249,610584],
+  ["2020/21",14,"meshary alderah","فريق meshary",2242,649433],
+  ["2020/21",15,"Ahmed K","ahmed k",2240,661279],
+  ["2020/21",16,"Meshary Abdullah","mshary",2157,1227261],
+  ["2020/21",17,"Saud Alkhamis","Azooz@Anfield",2141,1353112],
+  ["2020/21",18,"Yousef KH","Stockfish",2139,1369573],
+  ["2020/21",19,"Hussain Bin Mattar","Bin Mattar FC",2106,1643027],
+  ["2020/21",20,"Abdullah Alkhamees","Nerds FC",2088,1803334],
+  ["2020/21",21,"fahad alsha6y","Liverpool",2013,2494571],
+  ["2020/21",22,"Mubarak Almutairi","MUBARAK TM",1958,3027333],
+  ["2020/21",23,"Homoud Alkhalifah","halkhalifah",1847,4075987],
+  ["2020/21",24,"Nasser T Alkhamis","Shadow Strikers",1837,4165324],
+  ["2021/22",1,"Musaed Al_Husaini","Al Redz",2523,77312],
+  ["2021/22",2,"Khaled Alfahed","KAF",2500,105679],
+  ["2021/22",3,"mohammad fahad","mohammad fahad",2465,163750],
+  ["2021/22",4,"Fahad Alkhamis","Totti",2459,174350],
+  ["2021/22",5,"Yousef KH","Stockfish",2434,226721],
+  ["2021/22",6,"meshary alderah","فريق meshary",2429,238025],
+  ["2021/22",7,"Abdulaziz Al Khamees","Bos3yid X11",2418,263252],
+  ["2021/22",8,"Turki Alkhamis","Q8 Dream",2414,271618],
+  ["2021/22",9,"Abdullah Alsultan","Abdullah Alsultan",2405,296510],
+  ["2021/22",10,"HAMAD ALKHAMEES","20 Times",2393,329223],
+  ["2021/22",11,"Meshary Alkhamees","Romanista",2387,345058],
+  ["2021/22",12,"Thamer Alhumaidhi","Bo Ya3qoub",2378,370792],
+  ["2021/22",13,"Madi Alkhamis","القصيعة يونايتد",2365,412771],
+  ["2021/22",14,"Ahmed K","ahmed k",2330,537021],
+  ["2021/22",15,"Ali Alkhamees","امبراطور الشمس",2305,636609],
+  ["2021/22",16,"nawaf alkhamis","madrak$hesale7",2301,657189],
+  ["2021/22",17,"Saud Alkhamis","Azooz@Anfield",2269,805263],
+  ["2021/22",18,"Hussain Bin Mattar","Bin Mattar FC",2240,956588],
+  ["2021/22",19,"fahad alsha6y","Liverpool",2017,2635821],
+  ["2021/22",20,"Mohammad R","Mohammad's Team",1985,2930210],
+  ["2021/22",21,"Abdullah Alkhamees","Nerds FC",1975,3029241],
+  ["2021/22",22,"Abdullah Alkhames","alkhames86",1870,4080776],
+  ["2021/22",23,"Homoud Alkhalifah","halkhalifah",1844,4345571],
+  ["2021/22",24,"Mubarak Almutairi","MUBARAK TM",1779,5019676],
+  ["2021/22",25,"Nasser T Alkhamis","Shadow Strikers",1592,6752392],
+  ["2021/22",26,"Naser Alkhamees","Naser",537,8969823],
+  ["2022/23",1,"mohammad fahad","mohammad fahad",2583,22800],
+  ["2022/23",2,"Madi Alkhamis","القصيعة يونايتد",2537,80679],
+  ["2022/23",3,"meshary alderah","فريق meshary",2515,130074],
+  ["2022/23",4,"Musaed Al_Husaini","Al Redz",2514,132930],
+  ["2022/23",5,"Hussain Bin Mattar","Bin Mattar FC",2475,257148],
+  ["2022/23",6,"Thamer Alhumaidhi","Bo Ya3qoub",2467,288380],
+  ["2022/23",7,"Meshary Alkhamees","Romanista",2461,314438],
+  ["2022/23",8,"Ali Alkhamees","امبراطور الشمس",2434,444768],
+  ["2022/23",9,"Fahad Alkhamis","Totti",2427,484809],
+  ["2022/23",10,"HAMAD ALKHAMEES","20 Times",2416,554347],
+  ["2022/23",11,"nawaf alkhamis","madrak$hesale7",2415,560541],
+  ["2022/23",12,"Abdullah Alsultan","Abdullah Alsultan",2407,610017],
+  ["2022/23",13,"Abdulaziz Al Khamees","Bos3yid X11",2395,690445],
+  ["2022/23",14,"Turki Alkhamis","Q8 Dream",2387,744909],
+  ["2022/23",15,"Khaled Alfahed","KAF",2375,835998],
+  ["2022/23",16,"Ahmed K","ahmed k",2355,1001625],
+  ["2022/23",17,"Yousef KH","Stockfish",2305,1477674],
+  ["2022/23",18,"Saud Alkhamis","Azooz@Anfield",2253,2053288],
+  ["2022/23",19,"Abdullah Alkhamees","Nerds FC",2182,2922435],
+  ["2022/23",20,"Abdullah Alkhames","alkhames86",2163,3169538],
+  ["2022/23",21,"fahad alsha6y","Liverpool",2082,4206958],
+  ["2022/23",22,"Homoud Alkhalifah","halkhalifah",2007,5158668],
+  ["2022/23",23,"Mohammad R","Mohammad's Team",1938,5995824],
+  ["2022/23",24,"Mubarak Almutairi","MUBARAK TM",1926,6140390],
+  ["2022/23",25,"Nasser T Alkhamis","Shadow Strikers",1717,8319831],
+  ["2022/23",26,"Naser Alkhamees","Naser",1652,8852732],
+  ["2022/23",27,"Meshary Abdullah","mshary",1464,9950166],
+  ["2023/24",1,"Musaed Al_Husaini","Al Redz",2536,32530],
+  ["2023/24",2,"HAMAD ALKHAMEES","20 Times",2462,152985],
+  ["2023/24",3,"Fahad Alkhamis","Totti",2447,191081],
+  ["2023/24",4,"Hussain Bin Mattar","Bin Mattar FC",2431,241090],
+  ["2023/24",5,"meshary alderah","فريق meshary",2395,387168],
+  ["2023/24",6,"Meshary Alkhamees","Romanista",2391,403592],
+  ["2023/24",7,"Turki Alkhamis","Q8 Dream",2374,491992],
+  ["2023/24",8,"Yousef KH","Stockfish",2374,495000],
+  ["2023/24",9,"Madi Alkhamis","القصيعة يونايتد",2360,577182],
+  ["2023/24",10,"Meshary Abdullah","mshary",2356,603631],
+  ["2023/24",11,"Abdullah Alsultan","Abdullah Alsultan",2343,691610],
+  ["2023/24",12,"Khaled Alfahed","KAF",2339,714856],
+  ["2023/24",13,"Abdullah Alkhamees","Nerds FC",2318,884030],
+  ["2023/24",14,"mohammad fahad","mohammad fahad",2314,917802],
+  ["2023/24",15,"Abdulaziz Al Khamees","Bos3yid X11",2309,960086],
+  ["2023/24",16,"nawaf alkhamis","madrak$hesale7",2308,970133],
+  ["2023/24",17,"Thamer Alhumaidhi","Bo Ya3qoub",2277,1265178],
+  ["2023/24",18,"Ali Alkhames","arsenal",2256,1497070],
+  ["2023/24",19,"fahad alsha6y","Liverpool",2205,2117661],
+  ["2023/24",20,"Abdullah Alkhames","alkhames86",2166,2643132],
+  ["2023/24",21,"Saud Alkhamis","Azooz@Anfield",2157,2767834],
+  ["2023/24",22,"Ali Alkhamees","امبراطور الشمس",2111,3383455],
+  ["2023/24",23,"Ahmed K","ahmed k",2104,3481825],
+  ["2023/24",24,"Homoud Alkhalifah","halkhalifah",1975,5091565],
+  ["2023/24",25,"Mohammad R","Mohammad's Team",1886,6163451],
+  ["2023/24",26,"Mubarak Almutairi","MUBARAK TM",1732,7967063],
+  ["2024/25",1,"Musaed Al_Husaini","Al Redz",2548,44146],
+  ["2024/25",2,"Ali Alkhames","arsenal",2525,76534],
+  ["2024/25",3,"HAMAD ALKHAMEES","20 Times",2490,152480],
+  ["2024/25",4,"mohammad fahad","mohammad fahad",2481,179511],
+  ["2024/25",5,"Yousef KH","Stockfish",2450,295362],
+  ["2024/25",6,"Abdulaziz Al Khamees","Bos3yid X11",2406,531377],
+  ["2024/25",7,"meshary alderah","فريق meshary",2404,548593],
+  ["2024/25",8,"Madi Alkhamis","القصيعة يونايتد",2398,587793],
+  ["2024/25",9,"Ahmed K","ahmed k",2381,711181],
+  ["2024/25",10,"Saud Alkhamis","Azooz@Anfield",2377,742382],
+  ["2024/25",11,"Khaled Alfahed","KAF",2375,756127],
+  ["2024/25",12,"Hussain Bin Mattar","Bin Mattar FC",2368,813300],
+  ["2024/25",13,"Thamer Alhumaidhi","Bo Ya3qoub",2362,865682],
+  ["2024/25",14,"Fahad Alkhamis","Totti",2265,1942298],
+  ["2024/25",15,"Nasser T Alkhamis","Shadow Strikers",2250,2137445],
+  ["2024/25",16,"Meshary Alkhamees","Romanista",2238,2305652],
+  ["2024/25",17,"Meshary Abdullah","mshary",2214,2654343],
+  ["2024/25",18,"Turki Alkhamis","Q8 Dream",2173,3239326],
+  ["2024/25",19,"Abdullah Alkhames","alkhames86",2142,3694234],
+  ["2024/25",20,"Homoud Alkhalifah","halkhalifah",2130,3863221],
+  ["2024/25",21,"Abdullah Alsultan","Abdullah Alsultan",2117,4050584],
+  ["2024/25",22,"Naser Alkhamees","Naser",2007,5428050],
+  ["2024/25",23,"Mubarak Almutairi","MUBARAK TM",1973,5785545],
+  ["2024/25",24,"Abdullah Alkhamees","Nerds FC",1931,6209663],
+  ["2024/25",25,"nawaf alkhamis","madrak$hesale7",1895,6568083],
+  ["2024/25",26,"Ali Alkhamees","امبراطور الشمس",1875,6761483],
+  ["2024/25",27,"fahad alsha6y","Liverpool",1742,8080975],
+  ["2024/25",28,"Mohammad R","Mohammad's Team",1657,8850085],
+  ["2025/26",1,"Yousef KH","Stockfish",2356,44218],
+  ["2025/26",2,"Madi Alkhamis","القصيعة يونايتد",2312,141737],
+  ["2025/26",3,"Musaed Al_Husaini","Al Redz",2283,257167],
+  ["2025/26",4,"HAMAD ALKHAMEES","20 Times",2277,290825],
+  ["2025/26",5,"Hussain Bin Mattar","Bin Mattar FC",2244,496413],
+  ["2025/26",6,"Thamer Alhumaidhi","Bo Ya3qoub",2228,623925],
+  ["2025/26",7,"meshary alderah","فريق meshary",2205,849171],
+  ["2025/26",8,"Ahmed K","ahmed k",2190,1003027],
+  ["2025/26",9,"mohammad fahad","mohammad fahad",2177,1161450],
+  ["2025/26",10,"nawaf alkhamis","madrak$hesale7",2172,1226873],
+  ["2025/26",11,"Fahad Alkhamis","Totti",2159,1389505],
+  ["2025/26",12,"Nasser T Alkhamis","Shadow Strikers",2152,1482315],
+  ["2025/26",13,"Meshary Alkhamees","Romanista",2134,1738249],
+  ["2025/26",14,"Ali Alkhames","arsenal",2124,1896092],
+  ["2025/26",15,"Meshary Abdullah","mshary",2096,2341565],
+  ["2025/26",16,"Naser Alkhamees","Naser",2094,2375223],
+  ["2025/26",17,"Khaled Alfahed","KAF",2086,2504903],
+  ["2025/26",18,"Abdullah Alsultan","Abdullah Alsultan",2067,2835901],
+  ["2025/26",19,"Turki Alkhamis","Q8 Dream",2064,2878471],
+  ["2025/26",20,"Abdulaziz Al Khamees","Bos3yid X11",2053,3081246],
+  ["2025/26",21,"Saud Alkhamis","Azooz@Anfield",2046,3205523],
+  ["2025/26",22,"Abdullah Alkhamees","Nerds FC",2005,3944163],
+  ["2025/26",23,"Ali Alkhamees","امبراطور الشمس",1998,4082662],
+  ["2025/26",24,"Homoud Alkhalifah","halkhalifah",1984,4342300],
+  ["2025/26",25,"Abdullah Alkhames","alkhames86",1930,5357362],
+  ["2025/26",26,"fahad alsha6y","Liverpool",1865,6540392],
+  ["2025/26",27,"Mohammad R","Mohammad's Team",1579,10503960],
+  ["2025/26",28,"Mubarak Almutairi","MUBARAK TM",1165,12282160]
+];
+
+
+var app = document.getElementById('app');
+var label = function (s) { return s.slice(2, 4) + '/' + s.slice(5); };
+var fmt = function (n) { return n.toLocaleString('en-US'); };
+var accent = function (p) { return p === 1 ? '#FFD166' : p === 2 ? '#D6E0EB' : p === 3 ? '#E09468' : 'rgba(255,255,255,0.14)'; };
+var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+
+var seasons = [], mgrs = {}, allTime = [];
+(function () {
+  var seen = {};
+  ROWS.forEach(function (r) { if (!seen[r[0]]) { seen[r[0]] = 1; seasons.push(r[0]); } });
+  ROWS.forEach(function (r) {
+    var m = mgrs[r[2]] || (mgrs[r[2]] = { en: r[2], ar: AR[r[2]], team: r[3], rows: [] });
+    m.team = r[3];
+    m.rows.push({ season: r[0], pos: r[1], pts: r[4], rank: r[5] });
+  });
+  var arSets = {};
+  Object.keys(mgrs).forEach(function (k) {
+    var m = mgrs[k];
+    (arSets[m.ar] = arSets[m.ar] || []).push(k);
+  });
+  Object.keys(mgrs).forEach(function (k) {
+    var m = mgrs[k];
+    m.total = m.rows.reduce(function (a, r) { return a + r.pts; }, 0);
+    m.count = m.rows.length;
+    m.titles = m.rows.filter(function (r) { return r.pos === 1; }).length;
+    m.podiums = m.rows.filter(function (r) { return r.pos <= 3; }).length;
+    m.best = Math.min.apply(null, m.rows.map(function (r) { return r.pos; }));
+    m.avg = (m.rows.reduce(function (a, r) { return a + r.pos; }, 0) / m.count).toFixed(2);
+    m.bestRank = Math.min.apply(null, m.rows.map(function (r) { return r.rank; }));
+    m.display = arSets[m.ar].length > 1 ? m.ar + ' — ' + m.team : m.ar;
+    allTime.push(m);
+  });
+  allTime.sort(function (a, b) { return b.total - a.total; });
+  allTime.forEach(function (m, i) { m.allRank = i + 1; });
+})();
+
+var seasonRows = function (s) {
+  return allTime.map(function (m) {
+    var r = null;
+    m.rows.forEach(function (x) { if (x.season === s) r = x; });
+    return r ? { m: m, r: r } : null;
+  }).filter(Boolean).sort(function (a, b) { return a.r.pos - b.r.pos; });
+};
+
+function homeView() {
+  var champs = seasons.map(function (s) {
+    var t = seasonRows(s)[0];
+    return '<div class="champ" data-season="' + s + '">' +
+      '<div class="num" style="flex:0 0 74px;font-size:26px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
+      '<div style="flex:1 1 140px;min-width:0"><div style="font-size:22px;font-weight:800;line-height:1.2">' + esc(t.m.ar) + '</div>' +
+      '<div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(t.m.team) + '</div></div>' +
+      '<div class="num" style="flex:0 0 66px;font-size:26px;font-weight:700">' + t.r.pts + '</div></div>';
+  }).join('');
+
+  var table = allTime.map(function (m) {
+    var a = accent(m.allRank);
+    return '<div class="trow" data-mgr="' + esc(m.en) + '" style="border-right-color:' + a + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + m.allRank + '</div>' +
+      '<div class="c-name"><b>' + esc(m.display) + '</b><span>' + esc(m.team) + '</span></div>' +
+      '<div class="c-pts">' + fmt(m.total) + '</div>' +
+      '<div class="c-sub">' + m.count + '</div></div>';
+  }).join('');
+
+  return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,84px) 0 clamp(36px,6vw,64px)"><div class="wrap">' +
+    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
+    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
+    '<p class="lede">كل الأبطال، وكل الأرقام، وكل الخيبات — من موسم 13/14 إلى 25/26. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.</p>' +
+    '<div class="stats">' +
+      '<div class="stat" style="background:#E90052"><div class="n">13</div><div class="l">موسم</div></div>' +
+      '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">28</div><div class="l">مشترك</div></div>' +
+      '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">7</div><div class="l">أبطال مختلفين</div></div>' +
+      '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">2585</div><div class="l">أعلى نقاط بموسم</div></div>' +
+    '</div></div></div>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">لوحة الأبطال</h2><div class="s">اضغط الموسم لترتيب الدوري كامل</div></div>' +
+    '<div class="cards">' + champs + '</div></div></section>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">أرقام ما تنسى</h2><div class="s" style="color:#E90052">من صنع التاريخ؟</div></div>' +
+    '<div class="recs">' +
+      '<div class="rec" style="background:#E90052"><div class="k" style="opacity:.85">أكثر ألقاب</div>' +
+        '<div class="row"><span class="who">يوسف الخميس</span><span class="big">4</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;opacity:.9">15/16 · 18/19 · 19/20 · 25/26</div></div>' +
+      '<div class="rec" style="background:#00FF85;color:#38003C"><div class="k" style="opacity:.7;margin-bottom:4px">أكثر مرات في المراكز الثلاثة الأولى</div>' +
+        '<div style="font-size:15px;font-weight:500;opacity:.6;margin-bottom:12px">أول أو ثاني أو ثالث — أكثر واحد صعد المنصة</div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">7</span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.75">ساكن المنصة بالإيجار الطويل</div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات وصيف الدوري — تعادل ثلاثي</div>' +
+        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">مرات لكل واحد</span><span class="big" style="font-size:48px">3</span></div>' +
+        '<div style="font-size:21px;font-weight:800;line-height:1.45">ثامر الحميضي · ماضي الخميس · حمد الخميس</div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات مركز ثالث — تعادل خماسي</div>' +
+        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">مرتين لكل واحد</span><span class="big" style="font-size:48px">2</span></div>' +
+        '<div style="font-size:20px;font-weight:800;line-height:1.45">مشاري الدرعة · محمد الرهيماني · ماضي الخميس · محمد الفهد · فهد الخميس</div></div>' +
+      '<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">أفضل موسم في التاريخ</div>' +
+        '<div class="row"><span class="who">مشاري الخميس</span><span class="big" style="font-size:50px">2585</span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.8">موسم 20/21 — وأفضل ترتيب عالمي على الإطلاق: <span class="num" style="font-weight:700">274</span></div></div>' +
+      '<div class="rec" style="background:#2A002E;border:2px dashed rgba(255,255,255,.35)"><div class="k" style="color:#E90052;margin-bottom:4px">فشيلة الدوري — أكثر واحد جا الأخير</div>' +
+        '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:12px">قاعد بذيل الجدول أكثر من أي أحد</div>' +
+        '<div class="row"><span class="who">مبارك المطيري</span><span class="big">3</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;color:rgba(255,255,255,.7)">19/20 · 23/24 · 25/26</div></div>' +
+      '<div style="grid-column:1/-1;background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">' +
+        '<div style="font-size:62px;line-height:1">😅</div><div style="flex:1;min-width:240px">' +
+        '<h3 style="margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:900;line-height:1">المنحوس</h3>' +
+        '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">حمد الخميس يمتلك أفضل متوسط ترتيب في تاريخ الدوري كله — <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">5.69</span> على مدى 13 موسم — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>' +
+    '</div></div></section>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#04F5FF;margin-bottom:8px"><h2 class="sec">الترتيب التاريخي</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك لتاريخه الكامل</div></div>' +
+    '<p style="margin:0 0 18px;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)">مجموع نقاط كل مشترك في كل المواسم اللي شارك فيها — مو ترتيب الموسم الأخير.</p>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">مواسم</div></div>' +
+    '<div class="rows">' + table + '</div></div></section>';
+}
+
+function seasonsView() {
+  var cards = seasons.map(function (s) {
+    var list = seasonRows(s);
+    return '<div class="scard" data-season="' + s + '"><div class="num" style="font-size:34px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-top:8px">البطل</div>' +
+      '<div style="font-size:20px;font-weight:800">' + esc(list[0].m.ar) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55)">' + list.length + ' مشترك</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><h2 class="sec">كل المواسم</h2>' +
+    '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اختر موسم لترتيبه الكامل.</p>' +
+    '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function managersView() {
+  var cards = allTime.map(function (m) {
+    return '<div class="mcard" data-mgr="' + esc(m.en) + '" style="border-right-color:' + accent(m.allRank) + '">' +
+      '<div style="font-size:21px;font-weight:900">' + esc(m.display) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:10px">' + esc(m.team) + '</div>' +
+      '<div style="display:flex;gap:14px;align-items:baseline"><span class="num" style="font-size:22px;font-weight:700;color:#00FF85">' + fmt(m.total) + '</span>' +
+      '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5)">' + m.count + ' مواسم</span></div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><h2 class="sec">كل المشتركين</h2>' +
+    '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اضغط أي واحد لسجله في كل المواسم.</p>' +
+    '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function seasonView(s) {
+  var i = seasons.indexOf(s);
+  var rows = seasonRows(s).map(function (x) {
+    var a = accent(x.r.pos);
+    return '<div class="trow" data-mgr="' + esc(x.m.en) + '" style="border-right-color:' + a + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + x.r.pos + '</div>' +
+      '<div class="c-name"><b>' + esc(x.m.display) + '</b><span>' + esc(x.m.team) + '</span></div>' +
+      '<div class="c-pts">' + x.r.pts + '</div><div class="c-sub">' + fmt(x.r.rank) + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="home">← رجوع</div>' +
+    '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:5px solid #00FF85;padding-bottom:16px;margin-bottom:22px">' +
+    '<div><div style="font-size:18px;font-weight:700;color:#00FF85">ترتيب الموسم</div>' +
+    '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">' + label(s) + '</h2></div>' +
+    '<div style="display:flex;gap:8px">' +
+    (i > 0 ? '<button class="btn" data-season="' + seasons[i - 1] + '">الموسم السابق</button>' : '') +
+    (i < seasons.length - 1 ? '<button class="btn" data-season="' + seasons[i + 1] + '">الموسم التالي</button>' : '') +
+    '</div></div>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+    '<div class="rows">' + rows + '</div></div></section>';
+}
+
+function managerView(en) {
+  var m = mgrs[en];
+  if (!m) return homeView();
+  var tile = function (n, l, c) { return '<div class="tile"><div class="n"' + (c ? ' style="color:' + c + '"' : '') + '>' + n + '</div><div class="l">' + l + '</div></div>'; };
+  var rows = m.rows.map(function (r) {
+    var a = accent(r.pos);
+    return '<div class="trow" data-season="' + r.season + '" style="border-right-color:' + a + '">' +
+      '<div class="num" style="flex:0 0 68px;font-size:21px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(r.season) + '</div>' +
+      '<div class="num" style="flex:0 0 44px;font-size:24px;font-weight:700;color:' + a + '">' + r.pos + '</div>' +
+      '<div class="num" style="flex:1 1 80px;min-width:0;font-size:21px;font-weight:600">' + r.pts + '</div>' +
+      '<div class="c-sub">' + fmt(r.rank) + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="home">← رجوع</div>' +
+    '<div style="border-bottom:5px solid #E90052;padding-bottom:18px;margin-bottom:22px">' +
+    '<div style="font-size:18px;font-weight:700;color:#E90052">ملف المشترك</div>' +
+    '<h2 style="margin:6px 0 4px;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.05">' + esc(m.ar) + '</h2>' +
+    '<div style="font-size:20px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(m.team) + '</div></div>' +
+    '<div class="tiles">' +
+      '<div class="tile" style="background:#E90052;border:0"><div class="n">' + m.titles + '</div><div class="l">ألقاب</div></div>' +
+      '<div class="tile" style="background:#00FF85;color:#38003C;border:0"><div class="n">' + m.podiums + '</div><div class="l">مرات بالمراكز الثلاثة الأولى</div></div>' +
+      tile(m.count, 'مواسم') + tile(fmt(m.total), 'مجموع النقاط') +
+      tile(m.avg, 'متوسط الترتيب', '#04F5FF') + tile(fmt(m.bestRank), 'أفضل ترتيب عالمي', '#04F5FF') +
+    '</div>' +
+    '<div class="thead" style="border-bottom-color:#04F5FF"><div style="flex:0 0 68px">الموسم</div><div style="flex:0 0 44px">المركز</div><div style="flex:1 1 80px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+    '<div class="rows">' + rows + '</div></div></section>';
+}
+
+var cmpA = null, cmpB = null;
+function compareView() {
+  var A = mgrs[cmpA || allTime[0].en], B = mgrs[cmpB || allTime[1].en];
+  cmpA = A.en; cmpB = B.en;
+  var opts = function (sel) {
+    return allTime.map(function (m) {
+      return '<option value="' + esc(m.en) + '"' + (m.en === sel ? ' selected' : '') + '>' + esc(m.display) + '</option>';
+    }).join('');
+  };
+  var shared = A.rows.filter(function (r) { return B.rows.some(function (x) { return x.season === r.season; }); });
+  var aw = 0, bw = 0;
+  shared.forEach(function (r) {
+    var o = null; B.rows.forEach(function (x) { if (x.season === r.season) o = x; });
+    if (r.pos < o.pos) aw++; else bw++;
+  });
+  var h2h = aw === bw ? 'تعادل ' + aw + ' — ' + bw + ' 😐'
+    : (aw > bw ? A.ar : B.ar) + ' متقدم ' + Math.max(aw, bw) + ' مقابل ' + Math.min(aw, bw);
+  var G = '#00FF85', P = '#FF5C9E', N = 'rgba(255,255,255,.75)';
+  var row = function (l, a, b, hi, fa, fb) {
+    var better = a === b ? 0 : (hi ? (a > b ? 1 : 2) : (a < b ? 1 : 2));
+    return '<div class="cmp-row"><div class="num" style="font-size:24px;font-weight:700;color:' + (better === 1 ? G : N) + '">' + (fa !== undefined ? fa : a) + '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.6)">' + l + '</div>' +
+      '<div class="num" style="font-size:24px;font-weight:700;text-align:left;color:' + (better === 2 ? P : N) + '">' + (fb !== undefined ? fb : b) + '</div></div>';
+  };
+  return '<section class="pad"><div class="wrap">' +
+    '<div class="hd" style="border-bottom-color:#04F5FF"><div class="s" style="color:#04F5FF">وجه لوجه</div><h2 class="sec" style="margin-top:6px">مقارنة بين مشتركين</h2></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:24px">' +
+    '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الأول</div><select id="selA" style="border:2px solid #00FF85">' + opts(A.en) + '</select></div>' +
+    '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الثاني</div><select id="selB" style="border:2px solid #E90052">' + opts(B.en) + '</select></div></div>' +
+    '<div style="background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:22px;margin-bottom:20px">' +
+    '<div style="font-size:16px;font-weight:700;opacity:.8;margin-bottom:6px">تقابلوا في ' + shared.length + ' موسم</div>' +
+    '<div style="font-size:clamp(20px,3vw,28px);font-weight:900;line-height:1.35">' + esc(h2h) + '</div></div>' +
+    '<div class="cmp-hd"><div style="font-size:18px;font-weight:900;color:#00FF85">' + esc(A.display) + '</div>' +
+    '<div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.5)">المقارنة</div>' +
+    '<div style="font-size:18px;font-weight:900;color:#FF5C9E;text-align:left">' + esc(B.display) + '</div></div>' +
+    '<div class="rows">' +
+      row('ألقاب', A.titles, B.titles, true) +
+      row('مرات بالمراكز الثلاثة الأولى', A.podiums, B.podiums, true) +
+      row('مجموع النقاط', A.total, B.total, true, fmt(A.total), fmt(B.total)) +
+      row('مواسم', A.count, B.count, true) +
+      row('متوسط الترتيب', +A.avg, +B.avg, false, A.avg, B.avg) +
+      row('أفضل مركز', A.best, B.best, false) +
+      row('أفضل ترتيب عالمي', A.bestRank, B.bestRank, false, fmt(A.bestRank), fmt(B.bestRank)) +
+    '</div></div></section>';
+}
+
+function render() {
+  var h = location.hash.replace(/^#\/?/, '');
+  var parts = h.split('/');
+  var html, active = 'home';
+  if (parts[0] === 'season' && parts[1]) { html = seasonView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'mgr' && parts[1]) { html = managerView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'seasons') { html = seasonsView(); active = 'seasons'; }
+  else if (parts[0] === 'managers') { html = managersView(); active = 'managers'; }
+  else if (parts[0] === 'compare') { html = compareView(); active = 'compare'; }
+  else { html = homeView(); }
+  app.innerHTML = html;
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (t) {
+    t.className = 'tab' + (t.getAttribute('data-go') === active ? ' on' : '');
+  });
+  var sa = document.getElementById('selA'), sb = document.getElementById('selB');
+  if (sa) sa.onchange = function () { cmpA = sa.value; app.innerHTML = compareView(); bindSelects(); };
+  if (sb) sb.onchange = function () { cmpB = sb.value; app.innerHTML = compareView(); bindSelects(); };
+}
+function bindSelects() {
+  var sa = document.getElementById('selA'), sb = document.getElementById('selB');
+  if (sa) sa.onchange = function () { cmpA = sa.value; app.innerHTML = compareView(); bindSelects(); };
+  if (sb) sb.onchange = function () { cmpB = sb.value; app.innerHTML = compareView(); bindSelects(); };
+}
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest('[data-season],[data-mgr],[data-go]');
+  if (!el) return;
+  if (el.hasAttribute('data-season')) location.hash = '#/season/' + encodeURIComponent(el.getAttribute('data-season'));
+  else if (el.hasAttribute('data-mgr')) location.hash = '#/mgr/' + encodeURIComponent(el.getAttribute('data-mgr'));
+  else {
+    var g = el.getAttribute('data-go');
+    location.hash = g === 'home' ? '#/' : '#/' + g;
+  }
+  window.scrollTo(0, 0);
+});
+window.addEventListener('hashchange', function () { render(); window.scrollTo(0, 0); });
+render();
+</script>
+</body>
+</html>
