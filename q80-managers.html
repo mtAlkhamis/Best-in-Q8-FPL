@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=["https://claude.ai","https://preview.claude.ai","https://d86c942a-99be-4731-b7ca-1920111e3bbe.claudeusercontent.com"];var B=true;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
+</script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Q80 Managers — دوري فانتازي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#38003C;color:#fff;font-family:Tajawal,'Segoe UI',sans-serif;text-align:right}
+  body{-webkit-font-smoothing:antialiased}
+  ::selection{background:#00FF85;color:#38003C}
+  .num{font-family:Oswald,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .nav{position:sticky;top:0;z-index:20;background:rgba(42,0,46,.94);backdrop-filter:blur(10px);border-bottom:3px solid #E90052}
+  .nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+  .logo{display:flex;align-items:center;gap:10px;cursor:pointer;direction:ltr}
+  .logo b{font-family:Oswald,sans-serif;font-size:24px;font-weight:700;white-space:nowrap}
+  .dot{width:14px;height:14px;background:#00FF85}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-inline-start:auto}
+  .tab{font-size:17px;font-weight:700;padding:8px 16px;background:rgba(255,255,255,.08);cursor:pointer;border:0;color:#fff;font-family:inherit}
+  .tab:hover{background:#E90052}
+  .tab.on{background:#E90052}
+  h1.hero{margin:0 0 24px;font-family:Oswald,sans-serif;font-size:clamp(52px,12vw,124px);line-height:.92;font-weight:700;letter-spacing:-2px;direction:ltr;text-align:right}
+  h2.sec{margin:0 0 6px;font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1}
+  .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .eyebrow div:last-child{flex:1;height:2px;background:rgba(255,255,255,.15)}
+  .lede{margin:0 0 36px;font-size:clamp(18px,2.6vw,28px);line-height:1.5;font-weight:500;color:rgba(255,255,255,.78);max-width:720px;text-wrap:pretty}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .stat{padding:20px}
+  .stat .n{font-family:Oswald,sans-serif;font-size:clamp(40px,6vw,60px);font-weight:700;line-height:1}
+  .stat .l{font-size:18px;font-weight:700;margin-top:6px}
+  .hd{border-bottom:5px solid #00FF85;padding-bottom:14px;margin-bottom:22px}
+  .hd .s{font-size:18px;font-weight:700;color:#00FF85}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+  .champ{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:#46124F;border-right:6px solid #00FF85;padding:13px 16px;cursor:pointer}
+  .champ:hover{background:#5A1A67}
+  .recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .rec{padding:24px}
+  .rec .k{font-size:18px;font-weight:700;margin-bottom:12px}
+  .rec .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-bottom:10px}
+  .rec .who{font-size:26px;font-weight:900}
+  .rec .big{font-family:Oswald,sans-serif;font-size:56px;font-weight:700;line-height:.9}
+  .thead,.trow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 14px}
+  .thead{background:#2A002E;font-size:15px;font-weight:800;color:rgba(255,255,255,.7);border-bottom:3px solid #E90052}
+  .trow{background:#431350;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
+  .trow:hover{background:#55195F}
+  .c-rank{flex:0 0 40px;font-family:Oswald,sans-serif;font-size:22px;font-weight:700}
+  .c-name{flex:1 1 140px;min-width:0}
+  .c-name b{font-size:19px;font-weight:800;line-height:1.25;display:block}
+  .c-name span{font-size:15px;font-weight:500;color:rgba(255,255,255,.55)}
+  .c-pts{flex:0 0 84px;font-family:Oswald,sans-serif;font-size:21px;font-weight:600}
+  .c-sub{flex:0 0 92px;font-family:Oswald,sans-serif;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)}
+  .rows{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .scard{background:#46124F;border-bottom:5px solid #00FF85;padding:18px;cursor:pointer}
+  .scard:hover{background:#5A1A67}
+  .mcard{background:#46124F;padding:16px;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
+  .mcard:hover{background:#5A1A67}
+  .back{display:inline-block;font-size:16px;font-weight:700;color:#04F5FF;margin-bottom:18px;cursor:pointer}
+  .btn{font-size:16px;font-weight:700;padding:10px 16px;background:rgba(255,255,255,.1);cursor:pointer;border:0;color:#fff;font-family:inherit}
+  .btn:hover{background:#E90052}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:30px}
+  .tile{padding:18px;background:#46124F;border:2px solid rgba(255,255,255,.18)}
+  .tile .n{font-family:Oswald,sans-serif;font-size:40px;font-weight:700;line-height:1}
+  .tile .l{font-size:16px;font-weight:700;margin-top:4px}
+  select{width:100%;background:#46124F;color:#fff;padding:12px 14px;font-family:Tajawal,sans-serif;font-size:19px;font-weight:800;direction:rtl}
+  .cmp-hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:12px;background:#2A002E;padding:12px 14px;border-bottom:3px solid #04F5FF}
+  .cmp-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:12px;background:#431350;padding:12px 14px}
+  .foot{border-top:3px solid #E90052;background:#2A002E;margin-top:40px}
+  .foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+  .bars{display:flex;gap:8px}
+  .bars i{width:24px;height:9px;display:block}
+  section.pad{padding-top:clamp(32px,5vw,60px)}
+
+  @media (max-width:560px){
+    .nav .wrap{gap:10px}
+    .thead,.trow{flex-wrap:nowrap;gap:8px;padding:11px 10px}
+    .thead{font-size:13px}
+    .thead>div:nth-child(1){flex:0 0 24px !important}
+    .thead>div:nth-child(2){flex:1 1 40px !important}
+    .thead>div:nth-child(3){flex:0 0 56px !important}
+    .thead>div:nth-child(4){flex:0 0 70px !important}
+    .c-rank{flex:0 0 24px !important;font-size:19px}
+    .c-name{flex:1 1 40px !important}
+    .c-name b{font-size:17px}
+    .c-name span{font-size:13px}
+    .c-pts{flex:0 0 56px !important;font-size:18px}
+    .c-sub{flex:0 0 70px !important;font-size:15px}
+    .thead-m>div:nth-child(1){flex:0 0 46px !important}
+    .thead-m>div:nth-child(2){flex:0 0 26px !important}
+    .thead-m>div:nth-child(3){flex:1 1 40px !important}
+    .trow-m>div:nth-child(1){flex:0 0 46px !important;font-size:17px !important}
+    .trow-m>div:nth-child(2){flex:0 0 26px !important;font-size:19px !important}
+    .trow-m>div:nth-child(3){flex:1 1 40px !important;font-size:17px !important}
+  }
+</style>
+</head>
+<body>
+<div class="nav"><div class="wrap">
+  <div class="logo" data-go="home"><div class="dot"></div><b>Q80 <span style="color:#00FF85">MANAGERS</span></b></div>
+  <div class="tabs">
+    <button class="tab" data-go="home">الرئيسية</button>
+    <button class="tab" data-go="seasons">المواسم</button>
+    <button class="tab" data-go="managers">المشتركين</button>
+    <button class="tab" data-go="compare">مقارنة</button>
+  </div>
+</div></div>
+
+<div id="app"></div>
+
+<div class="foot"><div class="wrap">
+  <div style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap">Q80 Managers · 2018 — 2026</div>
+  <div class="bars"><i style="background:#E90052"></i><i style="background:#00FF85"></i><i style="background:#04F5FF"></i></div>
+</div></div>
+
+<script>
+var AR = {"Madi Alkhamis":"ماضي الخميس","Abdula Alkulaib":"عبدالله الكليب","Abdullatif Alsane":"عبداللطيف الصانع","Abdulaziz AlAli":"عبدالعزيز العلي","Abdulrahman al-musallam":"عبدالرحمن المسلم","BADER ALMUTAWA":"بدر المطوع","Osamah Bash":"أسامة باش","fawwaz alghanim":"فواز الغنيم","Faisal Alhazza":"فيصل الهزاع","Abdullah Alshatti":"عبدالله الشطي","Ali Al Hussaini":"علي الحسيني","Nasser AlMutawa":"ناصر المطوع","Abdulrahman J":"عبدالرحمن الجاسم","Abdulaziz Faisal":"عبدالعزيز فيصل","Abdulqader Al-Mutawa":"عبدالقادر المطوع","Faris almutawa":"فارس المطوع","Omar Almutawa":"عمر المطوع"};
+
+var ROWS = [
+  ["2018/19",1,"Madi Alkhamis","القصيعة يونايتد",2271,96406],
+  ["2018/19",2,"Osamah Bash","UNITED",2156,464845],
+  ["2018/19",3,"Abdulrahman al-musallam","Abdulrahman's Team",2148,509398],
+  ["2018/19",4,"BADER ALMUTAWA","BeLeaF",2092,916079],
+  ["2018/19",5,"Abdulaziz AlAli","THe oooLLLooo",2067,1143696],
+  ["2018/19",6,"Abdullatif Alsane","كاظمة",2062,1192177],
+  ["2018/19",7,"Abdula Alkulaib","tactation",2036,1469066],
+  ["2018/19",8,"fawwaz alghanim","Real^Madridy",2012,1745115],
+  ["2018/19",9,"Abdullah Alshatti","AbdullahQ84",1975,2190527],
+  ["2018/19",10,"Faisal Alhazza","Faisal",1475,5495430],
+  ["2019/20",1,"Abdulaziz AlAli","THe oooLLLooo",2235,174149],
+  ["2019/20",2,"Abdulrahman al-musallam","Abdulrahman's Team",2194,319081],
+  ["2019/20",3,"Madi Alkhamis","القصيعة يونايتد",2169,443996],
+  ["2019/20",4,"Abdullatif Alsane","كاظمة",2159,499023],
+  ["2019/20",5,"Abdula Alkulaib","tactation",2070,1178253],
+  ["2019/20",6,"fawwaz alghanim","Real^Madridy",2038,1492685],
+  ["2019/20",7,"BADER ALMUTAWA","BeLeaF",2031,1565059],
+  ["2019/20",8,"Osamah Bash","UNITED",1995,1950517],
+  ["2019/20",9,"Abdullah Alshatti","AbdullahQ84",1886,3258042],
+  ["2019/20",10,"Faisal Alhazza","Faisal",1766,4657969],
+  ["2020/21",1,"Abdullatif Alsane","كاظمة",2464,21473],
+  ["2020/21",2,"Abdulaziz AlAli","THe oooLLLooo",2327,263143],
+  ["2020/21",3,"Madi Alkhamis","القصيعة يونايتد",2318,294242],
+  ["2020/21",4,"Abdula Alkulaib","tactation",2292,398494],
+  ["2020/21",5,"Ali Al Hussaini","BUJENAN",2212,830254],
+  ["2020/21",6,"BADER ALMUTAWA","BeLeaF",2164,1174375],
+  ["2020/21",7,"Abdulrahman al-musallam","Abdulrahman's Team",2157,1222780],
+  ["2020/21",8,"Osamah Bash","UNITED",2139,1363698],
+  ["2020/21",9,"fawwaz alghanim","Real^Madridy",2002,2605377],
+  ["2020/21",10,"Faisal Alhazza","Faisal",1932,3279704],
+  ["2020/21",11,"Abdullah Alshatti","AbdullahQ84",1804,4459535],
+  ["2020/21",12,"Nasser AlMutawa","BELLINGHAM OVERRATED",476,8070151],
+  ["2021/22",1,"Ali Al Hussaini","BUJENAN",2401,306771],
+  ["2021/22",2,"Abdula Alkulaib","tactation",2385,352112],
+  ["2021/22",3,"Abdulaziz AlAli","THe oooLLLooo",2381,363079],
+  ["2021/22",4,"Madi Alkhamis","القصيعة يونايتد",2365,412771],
+  ["2021/22",5,"Abdullatif Alsane","كاظمة",2269,805117],
+  ["2021/22",6,"Osamah Bash","UNITED",2168,1409514],
+  ["2021/22",7,"Abdulrahman al-musallam","Abdulrahman's Team",2078,2102047],
+  ["2021/22",8,"BADER ALMUTAWA","BeLeaF",2030,2523839],
+  ["2021/22",9,"fawwaz alghanim","Real^Madridy",1978,3004649],
+  ["2021/22",10,"Faisal Alhazza","Faisal",1763,5183042],
+  ["2021/22",11,"Abdullah Alshatti","AbdullahQ84",1706,5747474],
+  ["2021/22",12,"Nasser AlMutawa","BELLINGHAM OVERRATED",1673,6061004],
+  ["2022/23",1,"Madi Alkhamis","القصيعة يونايتد",2537,80679],
+  ["2022/23",2,"Abdula Alkulaib","tactation",2505,157762],
+  ["2022/23",3,"Abdullatif Alsane","كاظمة",2426,490556],
+  ["2022/23",4,"Abdulaziz AlAli","THe oooLLLooo",2300,1529825],
+  ["2022/23",5,"Ali Al Hussaini","BUJENAN",2235,2272875],
+  ["2022/23",6,"Abdulrahman al-musallam","Abdulrahman's Team",2196,2747364],
+  ["2022/23",7,"Abdulrahman J","AJ squad",2180,2958072],
+  ["2022/23",8,"Osamah Bash","UNITED",2168,3102352],
+  ["2022/23",9,"Abdullah Alshatti","AbdullahQ84",2148,3363117],
+  ["2022/23",10,"Nasser AlMutawa","BELLINGHAM OVERRATED",2139,3484313],
+  ["2022/23",11,"BADER ALMUTAWA","BeLeaF",2093,4076573],
+  ["2022/23",12,"Faisal Alhazza","Faisal",2083,4203356],
+  ["2022/23",13,"fawwaz alghanim","Real^Madridy",1929,6112450],
+  ["2022/23",14,"Abdulaziz Faisal","Masterclass",1609,9164846],
+  ["2022/23",15,"Abdulqader Al-Mutawa","FPL Kadoor",1453,9999959],
+  ["2023/24",1,"Abdula Alkulaib","tactation",2432,238728],
+  ["2023/24",2,"Abdullatif Alsane","كاظمة",2390,408862],
+  ["2023/24",3,"Abdulrahman al-musallam","Abdulrahman's Team",2362,560874],
+  ["2023/24",4,"Madi Alkhamis","القصيعة يونايتد",2360,577182],
+  ["2023/24",5,"Abdulaziz AlAli","THe oooLLLooo",2347,661304],
+  ["2023/24",6,"Ali Al Hussaini","BUJENAN",2294,1098876],
+  ["2023/24",7,"Faisal Alhazza","Faisal",2292,1113177],
+  ["2023/24",8,"Osamah Bash","UNITED",2259,1454414],
+  ["2023/24",9,"Abdullah Alshatti","AbdullahQ84",2259,1462579],
+  ["2023/24",10,"Abdulrahman J","AJ squad",2168,2618776],
+  ["2023/24",11,"fawwaz alghanim","Real^Madridy",2154,2809422],
+  ["2023/24",12,"Abdulqader Al-Mutawa","FPL Kadoor",2124,3213879],
+  ["2023/24",13,"BADER ALMUTAWA","BeLeaF",2040,4306942],
+  ["2023/24",14,"Faris almutawa","Real madrid prime",1958,5298699],
+  ["2023/24",15,"Abdulaziz Faisal","Masterclass",1895,6064028],
+  ["2023/24",16,"Nasser AlMutawa","BELLINGHAM OVERRATED",1685,8417523],
+  ["2024/25",1,"Madi Alkhamis","القصيعة يونايتد",2398,587793],
+  ["2024/25",2,"Ali Al Hussaini","BUJENAN",2366,836442],
+  ["2024/25",3,"Faisal Alhazza","Faisal",2339,1079445],
+  ["2024/25",4,"Abdula Alkulaib","tactation",2311,1382144],
+  ["2024/25",5,"Abdulrahman al-musallam","Abdulrahman's Team",2300,1501786],
+  ["2024/25",6,"Abdullatif Alsane","كاظمة",2290,1628829],
+  ["2024/25",7,"Abdulaziz AlAli","THe oooLLLooo",2279,1765696],
+  ["2024/25",8,"BADER ALMUTAWA","BeLeaF",2263,1975988],
+  ["2024/25",9,"fawwaz alghanim","Real^Madridy",2225,2495147],
+  ["2024/25",10,"Abdulaziz Faisal","Masterclass",2210,2711778],
+  ["2024/25",11,"Abdulrahman J","AJ squad",2209,2721986],
+  ["2024/25",12,"Abdulqader Al-Mutawa","FPL Kadoor",2182,3114773],
+  ["2024/25",13,"Omar Almutawa","yes",2140,3727450],
+  ["2024/25",14,"Osamah Bash","UNITED",2117,4046995],
+  ["2024/25",15,"Abdullah Alshatti","AbdullahQ84",2085,4482077],
+  ["2024/25",16,"Faris almutawa","Real madrid prime",1941,6117067],
+  ["2024/25",17,"Nasser AlMutawa","BELLINGHAM OVERRATED",1866,6855699],
+  ["2025/26",1,"Madi Alkhamis","القصيعة يونايتد",2312,141737],
+  ["2025/26",2,"Abdulaziz AlAli","THe oooLLLooo",2311,144984],
+  ["2025/26",3,"Abdulrahman J","AJ squad",2300,182900],
+  ["2025/26",4,"Abdula Alkulaib","tactation",2282,262702],
+  ["2025/26",5,"Abdulaziz Faisal","Masterclass",2197,929655],
+  ["2025/26",6,"Abdullatif Alsane","كاظمة",2192,984535],
+  ["2025/26",7,"Faisal Alhazza","Faisal",2146,1564591],
+  ["2025/26",8,"BADER ALMUTAWA","BeLeaF",2134,1743629],
+  ["2025/26",9,"Ali Al Hussaini","BUJENAN",2118,1987362],
+  ["2025/26",10,"Abdulqader Al-Mutawa","FPL Kadoor",2072,2750059],
+  ["2025/26",11,"Nasser AlMutawa","BELLINGHAM OVERRATED",2069,2802397],
+  ["2025/26",12,"Abdullah Alshatti","AbdullahQ84",2063,2905390],
+  ["2025/26",13,"Faris almutawa","Real madrid prime",2029,3513911],
+  ["2025/26",14,"fawwaz alghanim","Real^Madridy",2007,3923613],
+  ["2025/26",15,"Abdulrahman al-musallam","Abdulrahman's Team",1983,4360971],
+  ["2025/26",16,"Osamah Bash","UNITED",1907,5784067],
+  ["2025/26",17,"Omar Almutawa","yes",1863,6577705]
+];
+
+
+var app = document.getElementById('app');
+var label = function (s) { return s.slice(2, 4) + '/' + s.slice(5); };
+var fmt = function (n) { return n.toLocaleString('en-US'); };
+var accent = function (p) { return p === 1 ? '#FFD166' : p === 2 ? '#D6E0EB' : p === 3 ? '#E09468' : 'rgba(255,255,255,0.14)'; };
+var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+
+var seasons = [], mgrs = {}, allTime = [];
+(function () {
+  var seen = {};
+  ROWS.forEach(function (r) { if (!seen[r[0]]) { seen[r[0]] = 1; seasons.push(r[0]); } });
+  ROWS.forEach(function (r) {
+    var m = mgrs[r[2]] || (mgrs[r[2]] = { en: r[2], ar: AR[r[2]], team: r[3], rows: [] });
+    m.team = r[3];
+    m.rows.push({ season: r[0], pos: r[1], pts: r[4], rank: r[5] });
+  });
+  var arSets = {};
+  Object.keys(mgrs).forEach(function (k) {
+    var m = mgrs[k];
+    (arSets[m.ar] = arSets[m.ar] || []).push(k);
+  });
+  Object.keys(mgrs).forEach(function (k) {
+    var m = mgrs[k];
+    m.total = m.rows.reduce(function (a, r) { return a + r.pts; }, 0);
+    m.count = m.rows.length;
+    m.titles = m.rows.filter(function (r) { return r.pos === 1; }).length;
+    m.podiums = m.rows.filter(function (r) { return r.pos <= 3; }).length;
+    m.best = Math.min.apply(null, m.rows.map(function (r) { return r.pos; }));
+    m.avg = (m.rows.reduce(function (a, r) { return a + r.pos; }, 0) / m.count).toFixed(2);
+    m.bestRank = Math.min.apply(null, m.rows.map(function (r) { return r.rank; }));
+    m.display = arSets[m.ar].length > 1 ? m.ar + ' — ' + m.team : m.ar;
+    allTime.push(m);
+  });
+  allTime.sort(function (a, b) { return b.total - a.total; });
+  allTime.forEach(function (m, i) { m.allRank = i + 1; });
+})();
+
+var seasonRows = function (s) {
+  return allTime.map(function (m) {
+    var r = null;
+    m.rows.forEach(function (x) { if (x.season === s) r = x; });
+    return r ? { m: m, r: r } : null;
+  }).filter(Boolean).sort(function (a, b) { return a.r.pos - b.r.pos; });
+};
+
+function homeView() {
+  var champs = seasons.map(function (s) {
+    var t = seasonRows(s)[0];
+    return '<div class="champ" data-season="' + s + '">' +
+      '<div class="num" style="flex:0 0 74px;font-size:26px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
+      '<div style="flex:1 1 140px;min-width:0"><div style="font-size:22px;font-weight:800;line-height:1.2">' + esc(t.m.ar) + '</div>' +
+      '<div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(t.m.team) + '</div></div>' +
+      '<div class="num" style="flex:0 0 66px;font-size:26px;font-weight:700">' + t.r.pts + '</div></div>';
+  }).join('');
+
+  var table = allTime.map(function (m) {
+    var a = accent(m.allRank);
+    return '<div class="trow" data-mgr="' + esc(m.en) + '" style="border-right-color:' + a + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + m.allRank + '</div>' +
+      '<div class="c-name"><b>' + esc(m.display) + '</b><span>' + esc(m.team) + '</span></div>' +
+      '<div class="c-pts">' + fmt(m.total) + '</div>' +
+      '<div class="c-sub">' + m.count + '</div></div>';
+  }).join('');
+
+  return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,84px) 0 clamp(36px,6vw,64px)"><div class="wrap">' +
+    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">8 مواسم من الفانتازي</div><div></div></div>' +
+    '<h1 class="hero">Q80<br><span style="color:#00FF85">MANAGERS</span></h1>' +
+    '<p class="lede">كل الأبطال، وكل الأرقام، وكل الخيبات — من موسم 18/19 إلى 25/26. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.</p>' +
+    '<div class="stats">' +
+      '<div class="stat" style="background:#E90052"><div class="n">8</div><div class="l">مواسم</div></div>' +
+      '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">17</div><div class="l">مشترك</div></div>' +
+      '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">5</div><div class="l">أبطال مختلفين</div></div>' +
+      '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">2537</div><div class="l">أعلى نقاط بموسم</div></div>' +
+    '</div></div></div>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">لوحة الأبطال</h2><div class="s">اضغط الموسم لترتيب الدوري كامل</div></div>' +
+    '<div class="cards">' + champs + '</div></div></section>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">أرقام ما تنسى</h2><div class="s" style="color:#E90052">من صنع التاريخ؟</div></div>' +
+    '<div class="recs">' +
+      '<div class="rec" style="background:#E90052"><div class="k" style="opacity:.85">أكثر ألقاب</div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">4</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;opacity:.9">18/19 · 22/23 · 24/25 · 25/26</div></div>' +
+      '<div class="rec" style="background:#00FF85;color:#38003C"><div class="k" style="opacity:.7;margin-bottom:4px">أكثر مرات في المراكز الثلاثة الأولى</div>' +
+        '<div style="font-size:15px;font-weight:500;opacity:.6;margin-bottom:12px">أول أو ثاني أو ثالث — أكثر واحد صعد المنصة</div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">6</span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.75">ست مواسم من ثمانية على المنصة</div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات وصيف الدوري — تعادل</div>' +
+        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">مرتين لكل واحد</span><span class="big" style="font-size:48px">2</span></div>' +
+        '<div style="font-size:21px;font-weight:800;line-height:1.45">عبدالله الكليب · عبدالعزيز العلي</div></div>' +
+      '<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">أفضل موسم في التاريخ</div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">2537</span><span style="font-size:16px;font-weight:700;opacity:.75">نقطة</span></span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.8">موسم 22/23 — بترتيب عالمي <span class="num" style="font-weight:700">80,679</span></div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أفضل ترتيب عالمي على الإطلاق</div>' +
+        '<div class="row"><span class="who">عبداللطيف الصانع</span><span class="big" style="font-size:44px">21,473</span></div>' +
+        '<div style="font-size:18px;font-weight:700;color:rgba(255,255,255,.7)">موسم 20/21 — وبطل الدوري بنفس السنة بـ 2464 نقطة</div></div>' +
+      '<div class="rec" style="background:#2A002E;border:2px dashed rgba(255,255,255,.35)"><div class="k" style="color:#E90052;margin-bottom:4px">فشيلة الدوري — أكثر واحد جا الأخير</div>' +
+        '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:12px">قاعد بذيل الجدول أكثر من أي أحد</div>' +
+        '<div class="row"><span class="who">ناصر المطوع</span><span class="big">4</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;color:rgba(255,255,255,.7)">20/21 · 21/22 · 23/24 · 24/25</div></div>' +
+      '<div style="grid-column:1/-1;background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">' +
+        '<div style="font-size:62px;line-height:1">😅</div><div style="flex:1;min-width:240px">' +
+        '<h3 style="margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:900;line-height:1">المنحوس</h3>' +
+        '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">عبدالرحمن المسلم لعب كل المواسم الثمانية، وصل وصيف مرة وثالث مرتين، ومتوسط ترتيبه <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">6.00</span> — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>' +
+    '</div></div></section>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#04F5FF;margin-bottom:8px"><h2 class="sec">الترتيب التاريخي</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك لتاريخه الكامل</div></div>' +
+    '<p style="margin:0 0 18px;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)">مجموع نقاط كل مشترك في كل المواسم اللي شارك فيها — مو ترتيب الموسم الأخير.</p>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">مواسم</div></div>' +
+    '<div class="rows">' + table + '</div></div></section>';
+}
+
+function seasonsView() {
+  var cards = seasons.map(function (s) {
+    var list = seasonRows(s);
+    return '<div class="scard" data-season="' + s + '"><div class="num" style="font-size:34px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-top:8px">البطل</div>' +
+      '<div style="font-size:20px;font-weight:800">' + esc(list[0].m.ar) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55)">' + list.length + ' مشترك</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><h2 class="sec">كل المواسم</h2>' +
+    '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اختر موسم لترتيبه الكامل.</p>' +
+    '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function managersView() {
+  var cards = allTime.map(function (m) {
+    return '<div class="mcard" data-mgr="' + esc(m.en) + '" style="border-right-color:' + accent(m.allRank) + '">' +
+      '<div style="font-size:21px;font-weight:900">' + esc(m.display) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:10px">' + esc(m.team) + '</div>' +
+      '<div style="display:flex;gap:14px;align-items:baseline"><span class="num" style="font-size:22px;font-weight:700;color:#00FF85">' + fmt(m.total) + '</span>' +
+      '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5)">' + m.count + ' مواسم</span></div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><h2 class="sec">كل المشتركين</h2>' +
+    '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اضغط أي واحد لسجله في كل المواسم.</p>' +
+    '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function seasonView(s) {
+  var i = seasons.indexOf(s);
+  var rows = seasonRows(s).map(function (x) {
+    var a = accent(x.r.pos);
+    return '<div class="trow" data-mgr="' + esc(x.m.en) + '" style="border-right-color:' + a + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + x.r.pos + '</div>' +
+      '<div class="c-name"><b>' + esc(x.m.display) + '</b><span>' + esc(x.m.team) + '</span></div>' +
+      '<div class="c-pts">' + x.r.pts + '</div><div class="c-sub">' + fmt(x.r.rank) + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="home">← رجوع</div>' +
+    '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:5px solid #00FF85;padding-bottom:16px;margin-bottom:22px">' +
+    '<div><div style="font-size:18px;font-weight:700;color:#00FF85">ترتيب الموسم</div>' +
+    '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">' + label(s) + '</h2></div>' +
+    '<div style="display:flex;gap:8px">' +
+    (i > 0 ? '<button class="btn" data-season="' + seasons[i - 1] + '">الموسم السابق</button>' : '') +
+    (i < seasons.length - 1 ? '<button class="btn" data-season="' + seasons[i + 1] + '">الموسم التالي</button>' : '') +
+    '</div></div>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+    '<div class="rows">' + rows + '</div></div></section>';
+}
+
+function managerView(en) {
+  var m = mgrs[en];
+  if (!m) return homeView();
+  var tile = function (n, l, c) { return '<div class="tile"><div class="n"' + (c ? ' style="color:' + c + '"' : '') + '>' + n + '</div><div class="l">' + l + '</div></div>'; };
+  var rows = m.rows.map(function (r) {
+    var a = accent(r.pos);
+    return '<div class="trow trow-m" data-season="' + r.season + '" style="border-right-color:' + a + '">' +
+      '<div class="num" style="flex:0 0 68px;font-size:21px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(r.season) + '</div>' +
+      '<div class="num" style="flex:0 0 44px;font-size:24px;font-weight:700;color:' + a + '">' + r.pos + '</div>' +
+      '<div class="num" style="flex:1 1 80px;min-width:0;font-size:21px;font-weight:600">' + r.pts + '</div>' +
+      '<div class="c-sub">' + fmt(r.rank) + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="home">← رجوع</div>' +
+    '<div style="border-bottom:5px solid #E90052;padding-bottom:18px;margin-bottom:22px">' +
+    '<div style="font-size:18px;font-weight:700;color:#E90052">ملف المشترك</div>' +
+    '<h2 style="margin:6px 0 4px;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.05">' + esc(m.ar) + '</h2>' +
+    '<div style="font-size:20px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(m.team) + '</div></div>' +
+    '<div class="tiles">' +
+      '<div class="tile" style="background:#E90052;border:0"><div class="n">' + m.titles + '</div><div class="l">ألقاب</div></div>' +
+      '<div class="tile" style="background:#00FF85;color:#38003C;border:0"><div class="n">' + m.podiums + '</div><div class="l">مرات بالمراكز الثلاثة الأولى</div></div>' +
+      tile(m.count, 'مواسم') + tile(fmt(m.total), 'مجموع النقاط') +
+      tile(m.avg, 'متوسط الترتيب', '#04F5FF') + tile(fmt(m.bestRank), 'أفضل ترتيب عالمي', '#04F5FF') +
+    '</div>' +
+    '<div class="thead thead-m" style="border-bottom-color:#04F5FF"><div style="flex:0 0 68px">الموسم</div><div style="flex:0 0 44px">المركز</div><div style="flex:1 1 80px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+    '<div class="rows">' + rows + '</div></div></section>';
+}
+
+var cmpA = null, cmpB = null;
+function compareView() {
+  var A = mgrs[cmpA || allTime[0].en], B = mgrs[cmpB || allTime[1].en];
+  cmpA = A.en; cmpB = B.en;
+  var opts = function (sel) {
+    return allTime.map(function (m) {
+      return '<option value="' + esc(m.en) + '"' + (m.en === sel ? ' selected' : '') + '>' + esc(m.display) + '</option>';
+    }).join('');
+  };
+  var shared = A.rows.filter(function (r) { return B.rows.some(function (x) { return x.season === r.season; }); });
+  var aw = 0, bw = 0;
+  shared.forEach(function (r) {
+    var o = null; B.rows.forEach(function (x) { if (x.season === r.season) o = x; });
+    if (r.pos < o.pos) aw++; else bw++;
+  });
+  var h2h = aw === bw ? 'تعادل ' + aw + ' — ' + bw + ' 😐'
+    : (aw > bw ? A.ar : B.ar) + ' متقدم ' + Math.max(aw, bw) + ' مقابل ' + Math.min(aw, bw);
+  var G = '#00FF85', P = '#FF5C9E', N = 'rgba(255,255,255,.75)';
+  var row = function (l, a, b, hi, fa, fb) {
+    var better = a === b ? 0 : (hi ? (a > b ? 1 : 2) : (a < b ? 1 : 2));
+    return '<div class="cmp-row"><div class="num" style="font-size:24px;font-weight:700;color:' + (better === 1 ? G : N) + '">' + (fa !== undefined ? fa : a) + '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.6)">' + l + '</div>' +
+      '<div class="num" style="font-size:24px;font-weight:700;text-align:left;color:' + (better === 2 ? P : N) + '">' + (fb !== undefined ? fb : b) + '</div></div>';
+  };
+  return '<section class="pad"><div class="wrap">' +
+    '<div class="hd" style="border-bottom-color:#04F5FF"><div class="s" style="color:#04F5FF">وجه لوجه</div><h2 class="sec" style="margin-top:6px">مقارنة بين مشتركين</h2></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:24px">' +
+    '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الأول</div><select id="selA" style="border:2px solid #00FF85">' + opts(A.en) + '</select></div>' +
+    '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الثاني</div><select id="selB" style="border:2px solid #E90052">' + opts(B.en) + '</select></div></div>' +
+    '<div style="background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:22px;margin-bottom:20px">' +
+    '<div style="font-size:16px;font-weight:700;opacity:.8;margin-bottom:6px">تقابلوا في ' + shared.length + ' موسم</div>' +
+    '<div style="font-size:clamp(20px,3vw,28px);font-weight:900;line-height:1.35">' + esc(h2h) + '</div></div>' +
+    '<div class="cmp-hd"><div style="font-size:18px;font-weight:900;color:#00FF85">' + esc(A.display) + '</div>' +
+    '<div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.5)">المقارنة</div>' +
+    '<div style="font-size:18px;font-weight:900;color:#FF5C9E;text-align:left">' + esc(B.display) + '</div></div>' +
+    '<div class="rows">' +
+      row('ألقاب', A.titles, B.titles, true) +
+      row('مرات بالمراكز الثلاثة الأولى', A.podiums, B.podiums, true) +
+      row('مجموع النقاط', A.total, B.total, true, fmt(A.total), fmt(B.total)) +
+      row('مواسم', A.count, B.count, true) +
+      row('متوسط الترتيب', +A.avg, +B.avg, false, A.avg, B.avg) +
+      row('أفضل مركز', A.best, B.best, false) +
+      row('أفضل ترتيب عالمي', A.bestRank, B.bestRank, false, fmt(A.bestRank), fmt(B.bestRank)) +
+    '</div></div></section>';
+}
+
+function render() {
+  var h = location.hash.replace(/^#\/?/, '');
+  var parts = h.split('/');
+  var html, active = 'home';
+  if (parts[0] === 'season' && parts[1]) { html = seasonView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'mgr' && parts[1]) { html = managerView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'seasons') { html = seasonsView(); active = 'seasons'; }
+  else if (parts[0] === 'managers') { html = managersView(); active = 'managers'; }
+  else if (parts[0] === 'compare') { html = compareView(); active = 'compare'; }
+  else { html = homeView(); }
+  app.innerHTML = html;
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (t) {
+    t.className = 'tab' + (t.getAttribute('data-go') === active ? ' on' : '');
+  });
+  var sa = document.getElementById('selA'), sb = document.getElementById('selB');
+  if (sa) sa.onchange = function () { cmpA = sa.value; app.innerHTML = compareView(); bindSelects(); };
+  if (sb) sb.onchange = function () { cmpB = sb.value; app.innerHTML = compareView(); bindSelects(); };
+}
+function bindSelects() {
+  var sa = document.getElementById('selA'), sb = document.getElementById('selB');
+  if (sa) sa.onchange = function () { cmpA = sa.value; app.innerHTML = compareView(); bindSelects(); };
+  if (sb) sb.onchange = function () { cmpB = sb.value; app.innerHTML = compareView(); bindSelects(); };
+}
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest('[data-season],[data-mgr],[data-go]');
+  if (!el) return;
+  if (el.hasAttribute('data-season')) location.hash = '#/season/' + encodeURIComponent(el.getAttribute('data-season'));
+  else if (el.hasAttribute('data-mgr')) location.hash = '#/mgr/' + encodeURIComponent(el.getAttribute('data-mgr'));
+  else {
+    var g = el.getAttribute('data-go');
+    location.hash = g === 'home' ? '#/' : '#/' + g;
+  }
+  window.scrollTo(0, 0);
+});
+window.addEventListener('hashchange', function () { render(); window.scrollTo(0, 0); });
+render();
+</script>
+</body>
+</html>
