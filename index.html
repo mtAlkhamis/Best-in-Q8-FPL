@@ -451,16 +451,16 @@ function gwAwards(g) {
   var cards = [
     awardCard({ k: 'نجم الجولة', who: nameAr(h.top_scorer), big: h.top_score, sub: 'أعلى واحد بالدوري هالجولة', bg: '#00FF85', fg: '#38003C' }),
     awardCard({ k: 'خيبة الجولة', who: nameAr(h.bottom_scorer), big: h.bottom_score, sub: 'الله يعوّض عليه', bg: '#E90052' }),
-    awardCard({ k: 'الكابتن الذهبي', who: nameAr(h.best_captain_manager), big: h.best_captain_points, sub: 'اختار <bdi><b style="font-weight:800">' + esc(h.best_captain_player || '') + '</b></bdi> وضبطت', bg: '#04F5FF', fg: '#38003C' }),
-    awardCard({ k: 'الكابتن المنحوس', who: nameAr(h.worst_captain_manager), big: h.worst_captain_points, sub: 'حط الشارة على <bdi><b style="font-weight:800">' + esc(h.worst_captain_player || '') + '</b></bdi> 💀', bg: '#2A002E', kc: '#FF5C9E' }),
+    awardCard({ k: 'الكابتن الذهبي', who: capWho(g, h.best_captain_player, h.best_captain_manager), big: h.best_captain_points, sub: capSub(g, h.best_captain_player), bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'الكابتن المنحوس', who: capWho(g, h.worst_captain_player, h.worst_captain_manager), big: h.worst_captain_points, sub: (capCount(g, h.worst_captain_player) > 1 ? '<span class="num" style="font-weight:800">' + capCount(g, h.worst_captain_player) + '</span> مديرين عطوه الكبتنة 💀' : 'عطاه الكبتنة <bdi><b style="font-weight:800">' + nameAr(h.worst_captain_manager) + '</b></bdi> 💀'), bg: '#2A002E', kc: '#FF5C9E' }),
     awardCard({ k: 'مقبرة الدكة', who: nameAr(h.most_wasted_bench_manager), big: h.wasted_bench_points, sub: 'نقطة قاعدة على الدكة تتفرج', bg: '#7A0B4A', kc: '#FF7FB0' }),
     awardCard({ k: 'ملك الخصايص', who: nameAr(h.chip_master_manager), big: h.chip_master_score, sub: 'لعب <bdi><b style="font-weight:800">' + (CHIP_AR[h.chip_master_chip] || h.chip_master_chip || '') + '</b></bdi> وطلع بأعلى نتيجة', bg: '#38003C', border: '#04F5FF', kc: '#04F5FF' }),
     awardCard({ k: 'أغلى تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_king_manager) : null, big: h.value_king_value, sub: 'مليون قيمة فريق — أعلى واحد بالدوري', bg: '#04F5FF', fg: '#38003C' }),
     awardCard({ k: 'أرخص تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_laggard_manager) : null, big: h.value_laggard_value, sub: 'مليون بس — يعيش على الرخيص', bg: '#46124F', border: '#FF7FB0', kc: '#FF7FB0' }),
     awardCard({ k: 'ضربة معلم', who: nameAr(h.one_move_master_manager), big: h.one_move_master_net_impact, sub: 'تبديل واحد بس — وجابها', bg: '#00FF85', fg: '#38003C' }),
     awardCard({ k: 'محارب بلا خاصية', who: nameAr(h.no_chip_warrior_manager), big: h.no_chip_warrior_score, sub: 'أعلى نتيجة بدون أي خاصية', bg: '#46124F', border: '#00FF85', kc: '#00FF85' }),
-    awardCard({ k: 'صاروخ الجولة', who: nameAr(h.biggest_riser), big: h.riser_places_gained ? '+' + h.riser_places_gained : undefined, sub: 'مركز طلعهم فوق', bg: '#00FF85', fg: '#38003C' }),
-    awardCard({ k: 'سقوط حر', who: nameAr(h.biggest_faller), big: h.faller_places_lost ? '-' + h.faller_places_lost : undefined, sub: 'مركز راحوا عليه', bg: '#E90052' }),
+    awardCard({ k: 'صاروخ الجولة', who: nameAr(h.biggest_riser), big: h.riser_places_gained ? '▲' + h.riser_places_gained : undefined, sub: 'مركز طلعهم فوق', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'سقوط حر', who: nameAr(h.biggest_faller), big: h.faller_places_lost ? '▼' + h.faller_places_lost : undefined, sub: 'مركز راحوا عليه', bg: '#E90052' }),
     awardCard({ k: 'أذكى صفقة', who: nameAr(h.sharpest_trader_manager), big: h.sharpest_trader_net_impact, sub: 'ربح صافي من التبديلات', bg: '#04F5FF', fg: '#38003C' }),
     awardCard({ k: 'لخبطة التبديلات', who: nameAr(h.transfer_tangle_manager), big: h.transfer_tangle_net_impact, sub: 'غيّر... وندم', bg: '#2A002E', border: '#E90052', kc: '#E90052' })
   ].join('');
@@ -932,9 +932,30 @@ function paintUpdated() {
   el.innerHTML = 'آخر تحديث: <span class="num" style="direction:ltr;display:inline-block">' + esc(d.toLocaleString()) + '</span>';
 }
 
+function capCount(g, player) {
+  var n = 0;
+  GW_STATS.forEach(function (r) { if (r[0] === g && r[10] === player) n++; });
+  return n;
+}
+function capTail(g, player) {
+  var n = capCount(g, player);
+  if (n < 2) return '';
+  return ' — <span class="num" style="font-weight:800">' + n + '</span> مديرين حطّوا عليه الشارة';
+}
+function capWho(g, player, manager) {
+  if (!player) return nameAr(manager);
+  return player;
+}
+function capSub(g, player, manager) {
+  if (!player) return 'ضبطت معاه الكبتنة';
+  var n = capCount(g, player);
+  if (n > 1) return '<span class="num" style="font-weight:800">' + n + '</span> مديرين عطوه الكبتنة وضبطت';
+  return 'اختاره <bdi><b style="font-weight:800">' + nameAr(manager) + '</b></bdi> وضبطت';
+}
+
 function liveNote(g) {
   if (LIVE_GW === null || LIVE_GW !== g) return '';
-  return '<div style="margin-top:10px;font-size:15px;font-weight:700;color:#04F5FF">جولة GW' + g + ' لسه شغّالة — الأرقام ممكن تتغير.</div>';
+  return '<div style="margin-top:10px;font-size:15px;font-weight:700;color:#04F5FF">جولة GW' + g + ' ليلحين شغّالة — الأرقام يمكن تتغيّر.</div>';
 }
 
 function ingest(d) {
