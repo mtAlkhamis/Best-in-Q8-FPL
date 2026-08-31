@@ -1,0 +1,46 @@
+name: Update FPL Recap Data
+
+# Manual button only (Actions tab -> this workflow -> "Run workflow").
+# No schedule, so it never runs on incomplete gameweek data - you decide
+# when a gameweek is actually done and click the button.
+on:
+  workflow_dispatch:
+    inputs:
+      league_id:
+        description: "FPL league ID"
+        required: false
+        default: "14514"
+      end_gw:
+        description: "Last finished gameweek to include (leave as 0 to auto-detect the latest finished gameweek)"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests pandas fire
+
+      - name: Run FPL data export
+        run: >
+          python scripts/export_fpl_data.py
+          --league_id=${{ github.event.inputs.league_id }}
+          --end_gw=${{ github.event.inputs.end_gw }}
+
+      - name: Commit updated data file
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update FPL recap data"
+          file_pattern: data/fpl-data.json
