@@ -1,58 +1,984 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claude Design</title>
-    <link rel="icon" type="image/png" href="/design/favicon.png" />
-    <script>
-      // FOUC guard: set data-theme before any stylesheet loads so the first
-      // paint uses the right palette. Mirrors hooks/useTheme.tsx. The stored
-      // value is JSON (usehooks-ts useLocalStorage).
-      try {
-        var raw = localStorage.getItem('om:theme');
-        // Mirror useTheme's default: usehooks-ts doesn't persist 'system'
-        // until the toggle is used, so absent = 'system'.
-        var pref = raw ? JSON.parse(raw) : 'system';
-        var dark =
-          pref === 'dark' ||
-          (pref === 'system' &&
-            matchMedia('(prefers-color-scheme: dark)').matches);
-        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-        // Pre-CSS canvas color: until tokens.css loads, the UA paints the
-        // default white canvas, which flashes on a dark hard-reload. Inline
-        // values mirror tokens.css --om-bg-app; useTheme clears this once
-        // the app mounts so the stylesheet owns the background again.
-        document.documentElement.style.background = dark
-          ? '#1c1b19'
-          : '#faf9f5';
-      } catch (e) {
-        document.documentElement.dataset.theme = 'light';
-        document.documentElement.style.background = '#faf9f5';
-      }
-    </script>
-    <script type="module" crossorigin src="https://assets-proxy.anthropic.com/design/v2/assets/v1/index-Dka2oZ6S.js"></script>
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/rolldown-runtime-CMxvf4Kt.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/preload-helper-kNaey6uv.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/react-BthIFXYf.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/dist-DOmVupLo.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/client-lite-nD8JXjHB.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/connect-lite-vzd2EiZc.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/gate-CmDAYU5o.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/backoff-BHgnPlwy.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/persisted-store-B36OabhT.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useOrg-2v6CnpGv.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useShellOverlay-Dd7TNaR2.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/stock-photo-mode-GBt0O2U-.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/cn-CuowO8_b.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/jsx-runtime-DDrWIXeu.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/trigger-context-D7VD5Mip.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/react-dom-B3-jr42p.js">
-    <link rel="modulepreload" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/ReactStore-CV9Us6Dm.js">
-    <link rel="stylesheet" crossorigin href="https://assets-proxy.anthropic.com/design/v2/assets/v1/index-CrWB6CHH.css">
-    <meta name="x-build-id" content="91b3a6449295a12f3db9a231dbf2143c52ca6e5d">
-  <link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/AttachCodebaseModal-BVBBQOyc.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/AttachmentChips-BGPhYzDk.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/Dialog-vGshgBZ7.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/ExportProgressBar-BmE7d_aj.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/FigFileModal-Bk4qmH18.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/FormList-BderPnR3.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/HistoryPanel-C-Kz2-Vi.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/Kbd-CC_Gjaky.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/LazySurface-C8OCfddj.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/LimitUpsellOptionCard-DIANgGEI.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/MetaText-q8h3RZxf.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/ModalHeader-fa3Imt1T.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/Popover-BQeN-FCt.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/ProjectPage-BsGHI7FW.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/RadioGroup-DfpbE1AS.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/Tooltip-CX6HwRdi.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/Tooltip-Ckeyz8Tu.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/api-aUTQvt-O.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/browser-BV-Pd9QF.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/client-CS2M0ubx.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/client-event-bus-CUOhmLFi.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/components--phIQmuE.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/composite-B_dWgry5.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/date-BWSQhJDa.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/desktop-auth-wait-CJ41jfJg.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/ds-self-check-Pry9bhb1.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/errMsg-CeGMLWmo.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/events-CTzgqUMH.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/externalLink-Rf2MEcPb.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/files-switcher-model-CvfkRaY_.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/fonts-0iFl9INz.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/hash-BYHBVq6L.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/host-BwlQdwMG.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/link-url-DU13lBmb.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/media-DWH8CzpZ.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/path-4EdI4_uJ.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/presenterChannel-CIItyV0C.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/previewIngress-O3HfzQis.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/project-client-Vp6Qaolf.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/questions-hybrid-CJOxYglj.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/questions-v3-ask-Z-Nr0SXv.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/selection-7hkrYyfE.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/shared-D2Kdveil.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/slashSuggestion-CW1qsdcv.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/sourcePersistence-Cm7asuaD.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/spark-Dsjn2FeT.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/template-build-state-DNNMI-d_.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useAnchoredPopupScrollLock-Cc-Zs058.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useAriaLabelledBy-Chl2PxFi.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useCanvasExport-Ccedcl_z.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useEverTrue-Cf0GQz0v.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useFigmaStatus-CMwOldcr.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useGithubStatus-BBB8x51Q.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useModelSelection-DSb82CrN.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useOnboardingSimpleFlow-yMW-Gce3.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useOrgProjects-C17o7qQ3.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/usePositioner-BUDbjkzx.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useProjectDesignSystems-C9E64SAl.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useQuery-BEA397xZ.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/useUserSettings-ub7eFMdc.js"><link rel="modulepreload" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/viewer-handle-EplMQMga.js"><link rel="preload" as="style" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/FormList-DPI5FmbR.css"><link rel="preload" as="style" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/ProjectPage-D36IL5mP.css"><link rel="preload" as="style" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/components-BMAjw28g.css"><link rel="preload" as="style" crossorigin fetchpriority="low" href="https://assets-proxy.anthropic.com/design/v2/assets/v1/template-build-state-CZmMb9kD.css"></head>
-  <body>
-    <script type="application/json" id="omelette-me">{"accountUuid":"b0921266-c3d4-4865-9019-76483e497218","organizationUuid":"c6c0bcb5-b328-4e82-ab35-87e17bc50c4a","email":"m.alkhamis@sh.com.kw","displayName":"Madi","orgName":"The Securities House","growthbookPayload":"{\"features\":{\"1151484512\":{\"defaultValue\":false},\"1196304285\":{\"defaultValue\":false},\"1205725625\":{\"defaultValue\":false},\"1215264673\":{\"defaultValue\":true},\"1275614373\":{\"defaultValue\":false},\"1310291137\":{\"defaultValue\":true},\"1396658271\":{\"defaultValue\":\"\",\"rules\":[{\"force\":\"\",\"tracks\":[{\"experiment\":{\"hashAttribute\":\"id\",\"key\":\"omelette_design_guidance_1\",\"variations\":[\"\",\"# Additional design guidance\\n\\n- If user gives you text to put in a design, do not rewrite it. Keep it verbatim. Add formatting and design it nicely, but do not rewrite unless user asks.\\n- When writing your own text, write cleanly, clearly and matter-of-factly. Avoid AI tropes like \\\"this, not that\\\", excessive em dashes, overly short pithy sentences, excessive emphasis (genuinely, central claim, honest...). Avoid metadiscourse (here's why X matters...). Think about your story arc up front.\\n- Convey the information that is provided to you; do not editorialize. Spend your words on clear explanations, facts and direct quotes, not speculation about implications. Direct the reader's attention subtly.\\n- Avoid over-zealously interpreting user's editing instructions. If you get feedback on a design, and it's unclear what the user wants, clarify or make a small targeted change, rather than making sweeping changes. \\n- You cannot generate images. You can make SVGs, but they're not great. Users may be expecting AI image gen; tell them you can't do this, and ask if they still want you to try. Refer to your images as diagrams, sketches or wireframes.\\n- If given multiple instructions at once, use your todo list to remember them all.\\n- Err on the side of whitespace and minimalism; this counters your tendency to fill the page with cruft, and saves time and tokens. Add only what the user asks you to add.\\n- Always err on the side of clarifying questions. Better to understand what the user wants than spend tokens on something that didn't expect.\\n- People remark that all your designs feel similar because you start with fresh context each time, so decisions that feel original have actually been made thousands of times before. To alleviate this, use the script tool as a RNG to make 2-3 decisions from small sets of options. E.g. pick 5 diverse primary fonts and main colors, draw one of each, then build your design around those.\"]},\"result\":{\"featureId\":\"1396658271\",\"hashAttribute\":\"id\",\"hashUsed\":true,\"hashValue\":\"b0921266-c3d4-4865-9019-76483e497218\",\"inExperiment\":true,\"key\":\"0\",\"value\":\"\",\"variationId\":0}}]}]},\"1401580970\":{\"defaultValue\":\"control\"},\"1416894336\":{\"defaultValue\":true},\"1451936328\":{\"defaultValue\":true},\"1510407645\":{\"defaultValue\":false},\"1512845023\":{\"defaultValue\":{}},\"1515141647\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqgslqr3\"}]},\"1561180886\":{\"defaultValue\":false},\"1624903831\":{\"defaultValue\":true},\"1640367735\":{\"defaultValue\":\"full\"},\"1649941334\":{\"defaultValue\":true},\"1664257458\":{\"defaultValue\":false},\"167478287\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqaouksv\"}]},\"1718071824\":{\"defaultValue\":true},\"1780946029\":{\"defaultValue\":true},\"1819818117\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fbe61835-fcc4-4d16-9da4-78a591bd03dd\"}]},\"1823167981\":{\"defaultValue\":false},\"182608835\":{\"defaultValue\":{\"models\":[\"claude-opus-4-8\"]},\"rules\":[{\"force\":{\"models\":[\"claude-opus-4-8\"]},\"id\":\"fr_mqgrq45w\"}]},\"1829988897\":{\"defaultValue\":true},\"1863617938\":{\"defaultValue\":true},\"1882977060\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"tracks\":[{\"experiment\":{\"hashAttribute\":\"id\",\"key\":\"omelette_finish_and_park\",\"variations\":[false,true]},\"result\":{\"featureId\":\"1882977060\",\"hashAttribute\":\"id\",\"hashUsed\":true,\"hashValue\":\"b0921266-c3d4-4865-9019-76483e497218\",\"inExperiment\":true,\"key\":\"1\",\"value\":true,\"variationId\":1}}]}]},\"1886700156\":{\"defaultValue\":false},\"1918306838\":{\"defaultValue\":true},\"196263551\":{\"defaultValue\":false},\"1964418062\":{\"defaultValue\":false},\"1969402870\":{\"defaultValue\":false},\"1992383354\":{\"defaultValue\":{\"entries\":[{\"body\":\"start a project from a built-in design system in the composer or the design systems tab.\",\"date\":\"2026-07-22\",\"title\":\"Built-in design systems\"},{\"body\":\"choose the page size when exporting to PDF, in the export dialog.\",\"date\":\"2026-07-20\",\"title\":\"PDF page sizes\"},{\"body\":\"publish a design to the web from the export menu. Anyone with the link can view.\",\"date\":\"2026-07-16\",\"title\":\"Publish publicly as artifact\"},{\"body\":\"send a slide deck directly to Google Slides from the export menu.\",\"date\":\"2026-07-16\",\"title\":\"Send to Google Slides\"},{\"body\":\"pan by dragging the background, with middle-mouse drag, or by holding space and dragging.\",\"date\":\"2026-07-16\",\"title\":\"Canvas panning\"}]}},\"1995367228\":{\"defaultValue\":false},\"2047721102\":{\"defaultValue\":true},\"2047781190\":{\"defaultValue\":false},\"2070955731\":{\"defaultValue\":false},\"2092971980\":{\"defaultValue\":true},\"2108531094\":{\"defaultValue\":true},\"2149436205\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqgp93yh\"}]},\"2151263030\":{\"defaultValue\":false},\"216810105\":{\"defaultValue\":false},\"223124753\":{\"defaultValue\":\"control\"},\"2245129288\":{\"defaultValue\":\"Claude Code\"},\"2319326955\":{\"defaultValue\":{\"minProjectCount\":1,\"placements\":{\"chin\":false,\"postExport\":false,\"postShare\":false,\"settings\":false}}},\"2334228495\":{\"defaultValue\":\"https://docs.google.com/forms/d/e/1FAIpQLSfKN7e_F4B8erZWBl3gjnVsNE1RRo5eiN_KhmXyiefUEZ71rQ/viewform\",\"rules\":[{\"force\":\"https://docs.google.com/forms/d/e/1FAIpQLSfKN7e_F4B8erZWBl3gjnVsNE1RRo5eiN_KhmXyiefUEZ71rQ/viewform\",\"id\":\"fr_mnwalz96\"}]},\"234466526\":{\"defaultValue\":false},\"2352858198\":{\"defaultValue\":false},\"2365775426\":{\"defaultValue\":false},\"2374642242\":{\"defaultValue\":true},\"2384113377\":{\"defaultValue\":false},\"2408657372\":{\"defaultValue\":true},\"2412179225\":{\"defaultValue\":\"on_without_toggle\"},\"2420051580\":{\"defaultValue\":false},\"2469959517\":{\"defaultValue\":\"no_create\"},\"2517469676\":{\"defaultValue\":false},\"2564600833\":{\"defaultValue\":true},\"2644104971\":{\"defaultValue\":false},\"2698841507\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"5zN5zjtnBsBlbqzIZAb6Zc:100.00:2\"}]},\"289426011\":{\"defaultValue\":\"progress\"},\"2904391744\":{\"defaultValue\":false},\"2932278662\":{\"defaultValue\":{\"classes\":[\"fable-5\"],\"description\":\"\",\"label\":\"Claude Fable 5\",\"mode\":\"subscription\",\"model_id\":\"claude-fable-5\"},\"rules\":[{\"force\":{\"classes\":[\"fable-5\"],\"description\":\"\",\"label\":\"Claude Fable 5\",\"mode\":\"subscription\",\"model_id\":\"claude-fable-5\"},\"id\":\"fr_mqrkzml6\"}]},\"2963865248\":{\"defaultValue\":false},\"2969120656\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"tracks\":[{\"experiment\":{\"hashAttribute\":\"id\",\"key\":\"omelette_chat_inline_commit\",\"variations\":[false,true]},\"result\":{\"featureId\":\"2969120656\",\"hashAttribute\":\"id\",\"hashUsed\":true,\"hashValue\":\"b0921266-c3d4-4865-9019-76483e497218\",\"inExperiment\":true,\"key\":\"1\",\"value\":true,\"variationId\":1}}]}]},\"299168588\":{\"defaultValue\":false},\"3013591026\":{\"defaultValue\":true},\"3032265515\":{\"defaultValue\":true},\"3040570973\":{\"defaultValue\":true},\"3042803878\":{\"defaultValue\":true},\"3049740115\":{\"defaultValue\":false},\"3070778810\":{\"defaultValue\":{\"admin-capability-tooltip\":{\"enabled\":true,\"paths\":[\"/admin-settings/capabilities\"]},\"chat-tooltip\":{\"enabled\":true,\"paths\":[\"/new\"]},\"clint-interview\":{\"enabled\":true,\"paths\":[\"/new\",\"/task/new\"]},\"coachmark\":{\"enabled\":true,\"paths\":[\"/*\"]},\"console-spotlight\":{\"enabled\":true,\"paths\":[\"/*\"]},\"corner-card\":{\"enabled\":true,\"paths\":[\"/new\",\"/chat/*\",\"/code/*\",\"/epitaxy/*\"]},\"corner-nudge\":{\"enabled\":true,\"paths\":[\"/*\"]},\"cowork\":{\"enabled\":true,\"paths\":[\"/task/new\"]},\"dashboard-banner\":{\"enabled\":true,\"paths\":[\"/dashboard\"]},\"dashboard-promo-banner\":{\"enabled\":true,\"paths\":[\"/dashboard\"]},\"design-chat-tooltip\":{\"enabled\":true,\"paths\":[\"/p/*\"]},\"design-guest-pass-home\":{\"enabled\":true,\"paths\":[\"/\"]},\"design-nudge\":{\"enabled\":true,\"paths\":[\"/\",\"/*\"]},\"design-onboarding\":{\"enabled\":true,\"paths\":[\"/*\"]},\"design-spotlight\":{\"enabled\":true,\"paths\":[\"/*\"]},\"global-banner\":{\"enabled\":true,\"paths\":[\"/new\",\"/chat/*\"]},\"home-banner\":{\"enabled\":true,\"paths\":[\"/new\"]},\"home-nudge\":{\"enabled\":true,\"paths\":[\"/new\",\"/task/new\",\"/epitaxy/*\"]},\"sidebar-callout\":{\"enabled\":true,\"paths\":[\"/*\"]},\"sidebar-popover\":{\"enabled\":true,\"paths\":[\"/*\"]},\"sidebar-product-badge\":{\"enabled\":true,\"paths\":[\"/*\"]},\"sidebar-row\":{\"enabled\":true,\"paths\":[\"/*\"]},\"spotlight\":{\"enabled\":true,\"paths\":[\"/new\",\"/task/new\",\"/code\",\"/epitaxy\"]}}},\"3070976585\":{\"defaultValue\":false},\"3123903501\":{\"defaultValue\":false},\"3136180827\":{\"defaultValue\":\"builtin\"},\"323017277\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqel09wq\"}]},\"3235437222\":{\"defaultValue\":[\"snake\",\"stack\",\"koi\",\"catch\"]},\"3252999076\":{\"defaultValue\":\"template_tray\"},\"3257275742\":{\"defaultValue\":false},\"3259014779\":{\"defaultValue\":\"medium\",\"rules\":[{\"force\":\"medium\",\"tracks\":[{\"experiment\":{\"hashAttribute\":\"id\",\"key\":\"omelette_adaptive_effort\",\"variations\":[\"high\",\"medium\"]},\"result\":{\"featureId\":\"3259014779\",\"hashAttribute\":\"id\",\"hashUsed\":true,\"hashValue\":\"b0921266-c3d4-4865-9019-76483e497218\",\"inExperiment\":true,\"key\":\"1\",\"value\":\"medium\",\"variationId\":1}}]}]},\"3275324994\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqgs4fnv\"}]},\"3287211636\":{\"defaultValue\":true},\"328903105\":{\"defaultValue\":\"off\"},\"3290303989\":{\"defaultValue\":\"Claude Design\"},\"3387678531\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqfyn30u\"}]},\"3423339596\":{\"defaultValue\":false,\"rules\":[{\"force\":false,\"id\":\"fr_3smt4nmngjlnbj\"}]},\"3489167219\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mprhvxaa\"}]},\"3516190332\":{\"defaultValue\":false},\"359051158\":{\"defaultValue\":true},\"3647087589\":{\"defaultValue\":true},\"3669825161\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mq5ocxpr\"}]},\"375802038\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqtkj38a\"}]},\"3791348052\":{\"defaultValue\":false},\"3803514950\":{\"defaultValue\":false},\"3813248442\":{\"defaultValue\":false},\"3846130249\":{\"defaultValue\":true},\"3846466805\":{\"defaultValue\":true},\"3855458502\":{\"defaultValue\":false},\"3866414195\":{\"defaultValue\":true},\"3885738648\":{\"defaultValue\":false},\"390418843\":{\"defaultValue\":false},\"3925004608\":{\"defaultValue\":true},\"3925648405\":{\"defaultValue\":true},\"3956844404\":{\"defaultValue\":false},\"4018804765\":{\"defaultValue\":true},\"4043533131\":{\"defaultValue\":false},\"4068229310\":{\"defaultValue\":\"random\",\"rules\":[{\"force\":\"random\",\"tracks\":[{\"experiment\":{\"hashAttribute\":\"id\",\"key\":\"omelette_waiting_game\",\"variations\":[\"off\",\"random\"]},\"result\":{\"featureId\":\"4068229310\",\"hashAttribute\":\"id\",\"hashUsed\":true,\"hashValue\":\"b0921266-c3d4-4865-9019-76483e497218\",\"inExperiment\":true,\"key\":\"1\",\"value\":\"random\",\"variationId\":1}}]}]},\"4144006237\":{\"defaultValue\":true},\"4158685222\":{\"defaultValue\":false},\"4227212264\":{\"defaultValue\":false},\"4263200068\":{\"defaultValue\":true},\"4264699976\":{\"defaultValue\":true},\"4292285061\":{\"defaultValue\":false},\"435512568\":{\"defaultValue\":false},\"520603182\":{\"defaultValue\":\"takeover_chips\",\"rules\":[{\"force\":\"takeover_chips\",\"id\":\"fr_fspnmqfiwl2u\"}]},\"60631086\":{\"defaultValue\":false},\"615499191\":{\"defaultValue\":false},\"617433922\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_mqfckmfe\"}]},\"656403323\":{\"defaultValue\":false},\"657312184\":{\"defaultValue\":false},\"664173016\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"id\":\"fr_1h4b0onmnaw2adf\"}]},\"715846303\":{\"defaultValue\":false},\"728811919\":{\"defaultValue\":false},\"737652865\":{\"defaultValue\":false},\"744768643\":{\"defaultValue\":false},\"927442302\":{\"defaultValue\":false},\"986693436\":{\"defaultValue\":true}},\"hashing_algorithm\":\"djb2\"}","modelPresets":[{"id":"claude-fable-5","label":"Fable 5","maxTokens":1000000,"supportsAdaptiveThinking":true,"description":"For your toughest challenges","effortOptions":[{"id":"low","name":"Low"},{"id":"medium","name":"Medium"},{"id":"high","name":"High","recommended":true},{"id":"max","name":"Max"}],"badge":{"message":"Requires usage credits","variant":"neutral"}},{"id":"claude-opus-5","label":"Opus 5","maxTokens":1000000,"supportsAdaptiveThinking":true,"description":"For complex tasks","effortOptions":[{"id":"low","name":"Low"},{"id":"medium","name":"Medium"},{"id":"high","name":"High","recommended":true},{"id":"max","name":"Max"}]},{"id":"claude-sonnet-5","label":"Sonnet 5","maxTokens":1000000,"supportsAdaptiveThinking":true,"description":"Most efficient for everyday tasks","effortOptions":[{"id":"low","name":"Low"},{"id":"medium","name":"Medium","recommended":true},{"id":"high","name":"High"},{"id":"max","name":"Max"}]},{"id":"claude-haiku-4-5-20251001","label":"Haiku 4.5","maxTokens":200000,"description":"Fastest for quick answers"},{"id":"claude-opus-4-8","label":"Opus 4.8","maxTokens":1000000,"supportsAdaptiveThinking":true,"overflow":true,"effortOptions":[{"id":"low","name":"Low"},{"id":"medium","name":"Medium"},{"id":"high","name":"High","recommended":true},{"id":"max","name":"Max"}]},{"id":"claude-opus-4-7","label":"Opus 4.7","maxTokens":1000000,"supportsAdaptiveThinking":true,"overflow":true,"effortOptions":[{"id":"low","name":"Low"},{"id":"medium","name":"Medium"},{"id":"high","name":"High","recommended":true},{"id":"max","name":"Max"}]},{"id":"claude-opus-4-6","label":"Opus 4.6","maxTokens":1000000,"supportsAdaptiveThinking":true,"overflow":true,"effortOptions":[{"id":"low","name":"Low"},{"id":"medium","name":"Medium","recommended":true},{"id":"high","name":"High"},{"id":"max","name":"Max"}]},{"id":"claude-3-opus-20240229","label":"Opus 3","maxTokens":200000,"supportsAdaptiveThinking":true,"overflow":true},{"id":"claude-sonnet-4-6","label":"Sonnet 4.6","maxTokens":1000000,"supportsAdaptiveThinking":true,"overflow":true,"effortOptions":[{"id":"low","name":"Low","recommended":true},{"id":"medium","name":"Medium"},{"id":"high","name":"High"},{"id":"max","name":"Max"}]}],"defaultModelId":"claude-opus-5","accessLevel":"ACCESS_LEVEL_FULL","canManageDs":true,"memberships":[{"uuid":"c6c0bcb5-b328-4e82-ab35-87e17bc50c4a","name":"The Securities House"}],"canManageBilling":true,"orgScopeSharingAllowed":true,"localCacheAllowed":true,"canManageOrgSharing":true,"modelSelectorConfigJson":"{\"id\":\"design\",\"models\":[{\"id\":\"claude-fable-5\",\"name\":\"Fable 5\",\"short_name\":\"Fable\",\"description\":\"For your toughest challenges\",\"section\":\"main\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\"},{\"id\":\"high\",\"name\":\"High\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"xhigh\",\"name\":\"Extra\"},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"auto\",\"name\":\"Thinking\",\"description\":\"Can think for more complex tasks\"}]},\"hard_limit\":449000,\"safeguard_fallback_by_category\":{\"bio\":\"claude-opus-5\",\"cyber\":\"claude-opus-4-8\",\"frontier_llm\":\"claude-opus-5\"},\"badge\":{\"message\":\"Requires usage credits\",\"variant\":\"neutral\"},\"tooltip\":{\"content\":\"Fable 5 runs on usage credits, billed separately from your plan.\"},\"quick_select\":true},{\"id\":\"claude-opus-5\",\"name\":\"Opus 5\",\"short_name\":\"Opus\",\"description\":\"For complex tasks\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"main\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\"},{\"id\":\"high\",\"name\":\"High\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"xhigh\",\"name\":\"Extra\"},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"auto\",\"name\":\"Thinking\",\"description\":\"Can think for more complex tasks\"}],\"always_on\":true},\"hard_limit\":950000,\"supports_fast_mode\":true,\"safeguard_fallback_model\":\"claude-opus-4-8\",\"safeguard_fallback_by_category\":{\"cyber\":\"claude-opus-4-8\"},\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false},\"quick_select\":true},{\"id\":\"claude-sonnet-5\",\"name\":\"Sonnet 5\",\"short_name\":\"Sonnet\",\"description\":\"Most efficient for everyday tasks\",\"section\":\"main\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"high\",\"name\":\"High\"},{\"id\":\"xhigh\",\"name\":\"Extra\"},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"auto\",\"name\":\"Thinking\",\"description\":\"Can think for more complex tasks\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":950000,\"quick_select\":true},{\"id\":\"claude-haiku-4-5-20251001\",\"name\":\"Haiku 4.5\",\"short_name\":\"Haiku\",\"description\":\"Fastest for quick answers\",\"section\":\"main\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"mode\",\"mode_options\":[{\"id\":\"extended\",\"name\":\"Extended\",\"description\":\"Always uses deep reasoning\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":190000,\"quick_select\":true},{\"id\":\"claude-opus-4-8\",\"name\":\"Opus 4.8\",\"short_name\":\"Opus\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"overflow\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\"},{\"id\":\"high\",\"name\":\"High\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"xhigh\",\"name\":\"Extra\"},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"auto\",\"name\":\"Thinking\",\"description\":\"Can think for more complex tasks\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":950000,\"supports_fast_mode\":true,\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false}},{\"id\":\"claude-opus-4-7\",\"name\":\"Opus 4.7\",\"short_name\":\"Opus\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"overflow\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\"},{\"id\":\"high\",\"name\":\"High\"},{\"id\":\"xhigh\",\"name\":\"Extra\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"auto\",\"name\":\"Thinking\",\"description\":\"Can think for more complex tasks\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":449000,\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false}},{\"id\":\"claude-opus-4-6\",\"name\":\"Opus 4.6\",\"short_name\":\"Opus\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"overflow\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"high\",\"name\":\"High\"},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"extended\",\"name\":\"Extended\",\"description\":\"Always uses deep reasoning\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":449000,\"supports_fast_mode\":true,\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false}},{\"id\":\"claude-3-opus-20240229\",\"name\":\"Opus 3\",\"short_name\":\"Opus 3\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"overflow\",\"thinking\":{\"type\":\"none\"},\"hard_limit\":190000,\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false}},{\"id\":\"claude-sonnet-4-6\",\"name\":\"Sonnet 4.6\",\"short_name\":\"Sonnet\",\"section\":\"overflow\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}},{\"id\":\"medium\",\"name\":\"Medium\"},{\"id\":\"high\",\"name\":\"High\"},{\"id\":\"max\",\"name\":\"Max\",\"tooltip\":{\"content\":\"May use excessive tokens resulting in long response times and may hit token limits. Use sparingly for the hardest tasks.\"}}],\"mode_options\":[{\"id\":\"auto\",\"name\":\"Thinking\",\"description\":\"Can think for more complex tasks\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":449000},{\"id\":\"claude-opus-4-5-20251101\",\"name\":\"Opus 4.5\",\"short_name\":\"Opus\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"deprecated\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"effort_and_mode\",\"description\":\"Higher effort means more thorough responses, but takes longer and uses your limits faster.\",\"effort_options\":[{\"id\":\"low\",\"name\":\"Low\"},{\"id\":\"medium\",\"name\":\"Medium\"},{\"id\":\"high\",\"name\":\"High\",\"recommended\":true,\"badge\":{\"message\":\"Default\",\"variant\":\"neutral\"}}],\"mode_options\":[{\"id\":\"extended\",\"name\":\"Extended\",\"description\":\"Always uses deep reasoning\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":190000,\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false},\"disabled\":true},{\"id\":\"claude-opus-4-1-20250805-claude-ai\",\"name\":\"Opus 4.1\",\"short_name\":\"Opus\",\"notice_text\":\"Opus consumes usage limits faster than other models\",\"section\":\"deprecated\",\"capabilities\":{\"compass\":true,\"gsuite_tools\":true,\"mm_images\":true,\"mm_pdf\":true,\"web_search\":true},\"thinking\":{\"type\":\"mode\",\"mode_options\":[{\"id\":\"extended\",\"name\":\"Extended\",\"description\":\"Always uses deep reasoning\"},{\"id\":\"off\",\"name\":\"Off\"}]},\"hard_limit\":190000,\"notice\":{\"title\":null,\"text\":\"Opus consumes usage limits faster than other models\",\"cta\":null,\"is_dismissible\":false},\"disabled\":true}],\"settings_vocabulary\":{\"create_mode\":{\"default\":1},\"effort_level\":{\"high\":3,\"low\":1,\"max\":5,\"medium\":2,\"xhigh\":4},\"thinking_mode\":{\"auto\":2,\"extended\":1,\"off\":3}}}","modelSelectorStateJson":"{\"id\":\"design\",\"model\":\"claude-opus-5\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"},\"thinking_by_model\":[{\"id\":\"claude-fable-5\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"}},{\"id\":\"claude-opus-5\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"}},{\"id\":\"claude-sonnet-5\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"}},{\"id\":\"claude-haiku-4-5-20251001\",\"thinking\":{\"type\":\"mode\",\"mode\":\"extended\"}},{\"id\":\"claude-opus-4-8\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"}},{\"id\":\"claude-opus-4-7\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"}},{\"id\":\"claude-opus-4-6\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"extended\"}},{\"id\":\"claude-sonnet-4-6\",\"thinking\":{\"type\":\"effort_and_mode\",\"effort\":\"medium\",\"mode\":\"auto\"}}],\"selection_source\":\"global_default\"}"}</script><div id="root"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Best in Q8 — دوري فانتازي الأصدقاء</title>
+<meta name="ext-resource-dependency" content="./data/fpl-data.json" data-resource-id="fplData" />
+<template id="__bundler_thumbnail" data-bg-color="#38003C">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#38003C"/>
+    <rect x="0" y="0" width="1200" height="28" fill="#E90052"/>
+    <rect x="150" y="250" width="380" height="300" fill="#00FF85"/>
+    <rect x="570" y="250" width="180" height="300" fill="#04F5FF"/>
+    <rect x="790" y="250" width="260" height="300" fill="#E90052"/>
+    <text x="600" y="700" font-family="Oswald,sans-serif" font-size="120" font-weight="700" fill="#ffffff" text-anchor="middle">Q8</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#38003C;color:#fff;font-family:Tajawal,'Segoe UI',sans-serif;text-align:right}
+  body{-webkit-font-smoothing:antialiased}
+  ::selection{background:#00FF85;color:#38003C}
+  .num{font-family:Oswald,sans-serif}
+  bdi{unicode-bidi:isolate}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .nav{position:sticky;top:0;z-index:20;background:rgba(42,0,46,.94);backdrop-filter:blur(10px);border-bottom:3px solid #E90052}
+  .nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+  .logo{display:flex;align-items:center;gap:10px;cursor:pointer;direction:ltr}
+  .logo b{font-family:Oswald,sans-serif;font-size:24px;font-weight:700;white-space:nowrap}
+  .dot{width:14px;height:14px;background:#00FF85}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-inline-start:auto}
+  .tab{font-size:17px;font-weight:700;padding:8px 16px;background:rgba(255,255,255,.08);cursor:pointer;border:0;color:#fff;font-family:inherit}
+  .tab:hover{background:#E90052}
+  .tab.on{background:#E90052}
+  h1.hero{margin:0 0 24px;font-family:Oswald,sans-serif;font-size:clamp(52px,12vw,124px);line-height:.92;font-weight:700;letter-spacing:-2px;direction:ltr;text-align:right}
+  h2.sec{margin:0 0 6px;font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1}
+  .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .eyebrow div:last-child{flex:1;height:2px;background:rgba(255,255,255,.15)}
+  .lede{margin:0 0 36px;font-size:clamp(18px,2.6vw,28px);line-height:1.5;font-weight:500;color:rgba(255,255,255,.78);max-width:720px;text-wrap:pretty}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .stat{padding:20px}
+  .stat .n{font-family:Oswald,sans-serif;font-size:clamp(40px,6vw,60px);font-weight:700;line-height:1}
+  .stat .l{font-size:18px;font-weight:700;margin-top:6px}
+  .hd{border-bottom:5px solid #00FF85;padding-bottom:14px;margin-bottom:22px}
+  .hd .s{font-size:18px;font-weight:700;color:#00FF85}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+  .champ{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:#46124F;border-right:6px solid #00FF85;padding:13px 16px;cursor:pointer}
+  .champ:hover{background:#5A1A67}
+  .recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .rec{padding:24px}
+  .rec .k{font-size:18px;font-weight:700;margin-bottom:12px}
+  .rec .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-bottom:10px}
+  .rec .who{font-size:26px;font-weight:900}
+  .rec .big{font-family:Oswald,sans-serif;font-size:56px;font-weight:700;line-height:.9}
+  .thead,.trow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 14px}
+  .thead{background:#2A002E;font-size:15px;font-weight:800;color:rgba(255,255,255,.7);border-bottom:3px solid #E90052}
+  .trow{background:#431350;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
+  .trow:hover{background:#55195F}
+  .c-rank{flex:0 0 40px;font-family:Oswald,sans-serif;font-size:22px;font-weight:700}
+  .c-name{flex:1 1 140px;min-width:0}
+  .c-name b{font-size:19px;font-weight:800;line-height:1.25;display:block}
+  .c-name span{font-size:15px;font-weight:500;color:rgba(255,255,255,.55)}
+  .c-pts{flex:0 0 84px;font-family:Oswald,sans-serif;font-size:21px;font-weight:600}
+  .c-sub{flex:0 0 92px;font-family:Oswald,sans-serif;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)}
+  .rows{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .scard{background:#46124F;border-bottom:5px solid #00FF85;padding:18px;cursor:pointer}
+  .scard:hover{background:#5A1A67}
+  .mcard{background:#46124F;padding:16px;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
+  .mcard:hover{background:#5A1A67}
+  .back{display:inline-block;font-size:16px;font-weight:700;color:#04F5FF;margin-bottom:18px;cursor:pointer}
+  .btn{font-size:16px;font-weight:700;padding:10px 16px;background:rgba(255,255,255,.1);cursor:pointer;border:0;color:#fff;font-family:inherit}
+  .btn:hover{background:#E90052}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:30px}
+  .tile{padding:18px;background:#46124F;border:2px solid rgba(255,255,255,.18)}
+  .tile .n{font-family:Oswald,sans-serif;font-size:40px;font-weight:700;line-height:1}
+  .tile .l{font-size:16px;font-weight:700;margin-top:4px}
+  select{width:100%;background:#46124F;color:#fff;padding:12px 14px;font-family:Tajawal,sans-serif;font-size:19px;font-weight:800;direction:rtl}
+  .cmp-hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:12px;background:#2A002E;padding:12px 14px;border-bottom:3px solid #04F5FF}
+  .cmp-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:12px;background:#431350;padding:12px 14px}
+  .foot{border-top:3px solid #E90052;background:#2A002E;margin-top:40px}
+  .foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+  .bars{display:flex;gap:8px}
+  .bars i{width:24px;height:9px;display:block}
+  section.pad{padding-top:clamp(32px,5vw,60px)}
+
+  @media (max-width:560px){
+    .nav .wrap{gap:10px}
+    .thead,.trow{flex-wrap:nowrap;gap:8px;padding:11px 10px}
+    .thead{font-size:13px}
+    .thead>div:nth-child(1){flex:0 0 24px !important}
+    .thead>div:nth-child(2){flex:1 1 40px !important}
+    .thead>div:nth-child(3){flex:0 0 56px !important}
+    .thead>div:nth-child(4){flex:0 0 70px !important}
+    .c-rank{flex:0 0 24px !important;font-size:19px}
+    .c-name{flex:1 1 40px !important}
+    .c-name b{font-size:17px}
+    .c-name span{font-size:13px}
+    .c-pts{flex:0 0 56px !important;font-size:18px}
+    .c-sub{flex:0 0 70px !important;font-size:15px}
+    .gw-mv{display:none !important}
+    .thead-m>div:nth-child(1){flex:0 0 46px !important}
+    .thead-m>div:nth-child(2){flex:0 0 26px !important}
+    .thead-m>div:nth-child(3){flex:1 1 40px !important}
+    .trow-m>div:nth-child(1){flex:0 0 46px !important;font-size:17px !important}
+    .trow-m>div:nth-child(2){flex:0 0 26px !important;font-size:19px !important}
+    .trow-m>div:nth-child(3){flex:1 1 40px !important;font-size:17px !important}
+  }
+</style>
+</head>
+<body>
+<div class="nav"><div class="wrap">
+  <div class="logo" data-go="home"><div class="dot"></div><b>BEST IN <span style="color:#00FF85">Q8</span></b></div>
+  <div class="tabs">
+    <button class="tab" data-go="home">الرئيسية</button>
+    <button class="tab" data-go="gw">الموسم الحالي</button>
+    <button class="tab" data-go="archive">الأرشيف</button>
+    <button class="tab" data-go="seasons">المواسم</button>
+    <button class="tab" data-go="managers">المشتركين</button>
+    <button class="tab" data-go="compare">مقارنة</button>
+  </div>
+</div></div>
+
+<div id="app"></div>
+
+<div class="foot"><div class="wrap">
+  <div style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap">Best in Q8 · 2013 — 2026</div>
+  <div id="lastUpdated" style="font-size:15px;font-weight:700;color:rgba(255,255,255,.42)"></div>
+  <div class="bars"><i style="background:#E90052"></i><i style="background:#00FF85"></i><i style="background:#04F5FF"></i></div>
+</div></div>
+
+<script>
+var AR = {"Madi Alkhamis":"ماضي الخميس","HAMAD ALKHAMEES":"حمد الخميس","meshary alderah":"مشاري الدرعة","Musaed Al_Husaini":"مساعد الحسيني","Thamer Alhumaidhi":"ثامر الحميضي","Mohammad R":"محمد الرهيماني","Yousef KH":"يوسف الخميس","mohammad fahad":"محمد الفهد","Ahmed K":"أحمد الخميس","Ali Alkhamees":"علي الخميس","Ali Alkhames":"علي الخميس","Abdullah Alkhamees":"عبدالله الخميس","Abdullah Alkhames":"عبدالله الخميس","Naser Alkhamees":"ناصر الخميس","Nasser T Alkhamis":"ناصر الخميس","fahad alsha6y":"فهد الشطي","Abdulaziz Al Khamees":"عبدالعزيز الخميس","Hussain Bin Mattar":"حسين بن مطر","Saud Alkhamis":"سعود الخميس","nawaf alkhamis":"نواف الخميس","Abdullah Alsultan":"عبدالله السلطان","Homoud Alkhalifah":"حمود الخليفة","Turki Alkhamis":"تركي الخميس","Khaled Alfahed":"خالد الفهد","Fahad Alkhamis":"فهد الخميس","Meshary Alkhamees":"مشاري الخميس","Mubarak Almutairi":"مبارك المطيري","Meshary Abdullah":"مشاري عبدالله","Alwaleed Alfelaij":"وليد الفليج"};
+
+var ROWS = [
+  ["2013/14",1,"Madi Alkhamis","القصيعة يونايتد",2408,8000],
+  ["2013/14",2,"Thamer Alhumaidhi","Bo Ya3qoub",2182,347779],
+  ["2013/14",3,"meshary alderah","فريق meshary",2133,519260],
+  ["2013/14",4,"Musaed Al_Husaini","Al Redz",2123,556881],
+  ["2013/14",5,"HAMAD ALKHAMEES","20 Times",2117,578231],
+  ["2013/14",6,"Mohammad R","Mohammad's Team",2105,624980],
+  ["2013/14",7,"Ali Alkhamees","امبراطور الشمس",2073,750439],
+  ["2013/14",8,"fahad alsha6y","Liverpool",1986,1094249],
+  ["2013/14",9,"Abdulaziz Al Khamees","Bos3yid X11",1931,1296318],
+  ["2014/15",1,"meshary alderah","فريق meshary",2188,11859],
+  ["2014/15",2,"Madi Alkhamis","القصيعة يونايتد",2172,15968],
+  ["2014/15",3,"Mohammad R","Mohammad's Team",2098,55241],
+  ["2014/15",4,"HAMAD ALKHAMEES","20 Times",1983,260336],
+  ["2014/15",5,"Ali Alkhamees","امبراطور الشمس",1934,435109],
+  ["2014/15",6,"Thamer Alhumaidhi","Bo Ya3qoub",1812,1047893],
+  ["2014/15",7,"Musaed Al_Husaini","Al Redz",1800,1112772],
+  ["2014/15",8,"Abdulaziz Al Khamees","Bos3yid X11",1782,1204878],
+  ["2014/15",9,"fahad alsha6y","Liverpool",1727,1486791],
+  ["2014/15",10,"Abdullah Alkhamees","Nerds FC",1521,2469786],
+  ["2015/16",1,"Yousef KH","Stockfish",2113,187331],
+  ["2015/16",2,"Thamer Alhumaidhi","Bo Ya3qoub",2104,212097],
+  ["2015/16",3,"Hussain Bin Mattar","Bin Mattar FC",2103,213473],
+  ["2015/16",4,"Ali Alkhamees","امبراطور الشمس",2103,213744],
+  ["2015/16",5,"Mohammad R","Mohammad's Team",2056,379120],
+  ["2015/16",6,"HAMAD ALKHAMEES","20 Times",2027,509848],
+  ["2015/16",7,"Saud Alkhamis","Azooz@Anfield",2020,545474],
+  ["2015/16",8,"nawaf alkhamis","madrak$hesale7",2008,606789],
+  ["2015/16",9,"Abdullah Alkhamees","Nerds FC",2001,643849],
+  ["2015/16",10,"Meshary Abdullah","mshary",1981,752868],
+  ["2015/16",11,"Musaed Al_Husaini","Al Redz",1972,802337],
+  ["2015/16",12,"meshary alderah","فريق meshary",1966,838592],
+  ["2015/16",13,"Madi Alkhamis","القصيعة يونايتد",1940,989654],
+  ["2015/16",14,"Abdullah Alsultan","Abdullah Alsultan",1921,1103922],
+  ["2015/16",15,"Abdulaziz Al Khamees","Bos3yid X11",1817,1699738],
+  ["2015/16",16,"fahad alsha6y","Liverpool",1638,2443628],
+  ["2016/17",1,"Mohammad R","Mohammad's Team",2392,1044],
+  ["2016/17",2,"Thamer Alhumaidhi","Bo Ya3qoub",2270,20892],
+  ["2016/17",3,"Madi Alkhamis","القصيعة يونايتد",2240,35627],
+  ["2016/17",4,"meshary alderah","فريق meshary",2231,41709],
+  ["2016/17",5,"HAMAD ALKHAMEES","20 Times",2230,42480],
+  ["2016/17",6,"Yousef KH","Stockfish",2201,66780],
+  ["2016/17",7,"Abdullah Alkhamees","Nerds FC",2084,285225],
+  ["2016/17",8,"Saud Alkhamis","Azooz@Anfield",2066,341016],
+  ["2016/17",9,"Abdullah Alsultan","Abdullah Alsultan",2034,457808],
+  ["2016/17",10,"Ali Alkhamees","امبراطور الشمس",2021,509161],
+  ["2016/17",11,"nawaf alkhamis","madrak$hesale7",1993,641089],
+  ["2016/17",12,"Homoud Alkhalifah","halkhalifah",1943,903234],
+  ["2016/17",13,"Abdulaziz Al Khamees","Bos3yid X11",1930,979987],
+  ["2016/17",14,"Musaed Al_Husaini","Al Redz",1889,1238300],
+  ["2016/17",15,"fahad alsha6y","Liverpool",1887,1247475],
+  ["2016/17",16,"Hussain Bin Mattar","Bin Mattar FC",1864,1400323],
+  ["2016/17",17,"Turki Alkhamis","Q8 Dream",1443,3687485],
+  ["2017/18",1,"Madi Alkhamis","القصيعة يونايتد",2310,11030],
+  ["2017/18",2,"Abdulaziz Al Khamees","Bos3yid X11",2277,26360],
+  ["2017/18",3,"Mohammad R","Mohammad's Team",2258,40594],
+  ["2017/18",4,"Yousef KH","Stockfish",2256,42627],
+  ["2017/18",5,"meshary alderah","فريق meshary",2233,69343],
+  ["2017/18",6,"Musaed Al_Husaini","Al Redz",2215,96631],
+  ["2017/18",7,"Thamer Alhumaidhi","Bo Ya3qoub",2204,117184],
+  ["2017/18",8,"mohammad fahad","mohammad fahad",2152,260798],
+  ["2017/18",9,"fahad alsha6y","Liverpool",2147,277473],
+  ["2017/18",10,"Saud Alkhamis","Azooz@Anfield",2116,410064],
+  ["2017/18",11,"Hussain Bin Mattar","Bin Mattar FC",2099,493178],
+  ["2017/18",12,"Ahmed K","ahmed k",2069,670997],
+  ["2017/18",13,"Abdullah Alsultan","Abdullah Alsultan",2067,687291],
+  ["2017/18",14,"Khaled Alfahed","KAF",2065,696443],
+  ["2017/18",15,"HAMAD ALKHAMEES","20 Times",2045,836922],
+  ["2017/18",16,"nawaf alkhamis","madrak$hesale7",2004,1148750],
+  ["2017/18",17,"Ali Alkhamees","امبراطور الشمس",1863,2317178],
+  ["2017/18",18,"Homoud Alkhalifah","halkhalifah",1858,2355448],
+  ["2017/18",19,"Abdullah Alkhamees","Nerds FC",1818,2675056],
+  ["2017/18",20,"Turki Alkhamis","Q8 Dream",1589,4306138],
+  ["2018/19",1,"Yousef KH","Stockfish",2387,9488],
+  ["2018/19",2,"mohammad fahad","mohammad fahad",2366,15712],
+  ["2018/19",3,"Madi Alkhamis","القصيعة يونايتد",2271,96406],
+  ["2018/19",4,"Saud Alkhamis","Azooz@Anfield",2211,234904],
+  ["2018/19",5,"Ali Alkhamees","امبراطور الشمس",2196,284859],
+  ["2018/19",6,"HAMAD ALKHAMEES","20 Times",2190,309873],
+  ["2018/19",7,"Turki Alkhamis","Q8 Dream",2167,410566],
+  ["2018/19",8,"meshary alderah","فريق meshary",2163,431364],
+  ["2018/19",9,"fahad alsha6y","Liverpool",2151,492622],
+  ["2018/19",10,"Abdullah Alkhamees","Nerds FC",2126,649429],
+  ["2018/19",11,"Abdulaziz Al Khamees","Bos3yid X11",2125,658173],
+  ["2018/19",12,"Khaled Alfahed","KAF",2107,789580],
+  ["2018/19",13,"Musaed Al_Husaini","Al Redz",2085,975933],
+  ["2018/19",14,"Thamer Alhumaidhi","Bo Ya3qoub",2060,1214288],
+  ["2018/19",15,"nawaf alkhamis","madrak$hesale7",2060,1215953],
+  ["2018/19",16,"Fahad Alkhamis","Totti",2052,1296143],
+  ["2018/19",17,"Mohammad R","Mohammad's Team",2047,1345858],
+  ["2018/19",18,"Ahmed K","ahmed k",2040,1423973],
+  ["2018/19",19,"Meshary Alkhamees","Romanista",2027,1567517],
+  ["2018/19",20,"Abdullah Alsultan","Abdullah Alsultan",2022,1626826],
+  ["2018/19",21,"Hussain Bin Mattar","Bin Mattar FC",2012,1738566],
+  ["2018/19",22,"Homoud Alkhalifah","halkhalifah",1997,1917963],
+  ["2018/19",23,"Nasser T Alkhamis","Shadow Strikers",1662,4915160],
+  ["2018/19",24,"Meshary Abdullah","mshary",78,6285873],
+  ["2019/20",1,"Yousef KH","Stockfish",2344,15784],
+  ["2019/20",2,"HAMAD ALKHAMEES","20 Times",2339,18346],
+  ["2019/20",3,"mohammad fahad","mohammad fahad",2332,22252],
+  ["2019/20",4,"Turki Alkhamis","Q8 Dream",2330,23569],
+  ["2019/20",5,"Musaed Al_Husaini","Al Redz",2263,106175],
+  ["2019/20",6,"Saud Alkhamis","Azooz@Anfield",2249,136157],
+  ["2019/20",7,"meshary alderah","فريق meshary",2233,180265],
+  ["2019/20",8,"Thamer Alhumaidhi","Bo Ya3qoub",2226,200426],
+  ["2019/20",9,"Khaled Alfahed","KAF",2211,249725],
+  ["2019/20",10,"Meshary Alkhamees","Romanista",2202,285712],
+  ["2019/20",11,"Fahad Alkhamis","Totti",2185,359863],
+  ["2019/20",12,"Madi Alkhamis","القصيعة يونايتد",2169,443996],
+  ["2019/20",13,"Meshary Abdullah","mshary",2147,573522],
+  ["2019/20",14,"Homoud Alkhalifah","halkhalifah",2132,670521],
+  ["2019/20",15,"Abdulaziz Al Khamees","Bos3yid X11",2105,873623],
+  ["2019/20",16,"nawaf alkhamis","madrak$hesale7",2094,965547],
+  ["2019/20",17,"Abdullah Alkhamees","Nerds FC",2087,1024436],
+  ["2019/20",18,"Ali Alkhamees","امبراطور الشمس",2068,1189765],
+  ["2019/20",19,"Ahmed K","ahmed k",2065,1221566],
+  ["2019/20",20,"Nasser T Alkhamis","Shadow Strikers",2048,1383817],
+  ["2019/20",21,"fahad alsha6y","Liverpool",2040,1465763],
+  ["2019/20",22,"Mohammad R","Mohammad's Team",2018,1696099],
+  ["2019/20",23,"Abdullah Alsultan","Abdullah Alsultan",2003,1865523],
+  ["2019/20",24,"Hussain Bin Mattar","Bin Mattar FC",1786,4439784],
+  ["2019/20",25,"Mubarak Almutairi","MUBARAK TM",539,7414662],
+  ["2020/21",1,"Meshary Alkhamees","Romanista",2585,274],
+  ["2020/21",2,"HAMAD ALKHAMEES","20 Times",2460,24227],
+  ["2020/21",3,"Fahad Alkhamis","Totti",2436,42331],
+  ["2020/21",4,"Khaled Alfahed","KAF",2434,44316],
+  ["2020/21",5,"nawaf alkhamis","madrak$hesale7",2434,44843],
+  ["2020/21",6,"Thamer Alhumaidhi","Bo Ya3qoub",2423,55550],
+  ["2020/21",7,"Mohammad R","Mohammad's Team",2398,89521],
+  ["2020/21",8,"Musaed Al_Husaini","Al Redz",2344,210512],
+  ["2020/21",9,"mohammad fahad","mohammad fahad",2334,241635],
+  ["2020/21",10,"Madi Alkhamis","القصيعة يونايتد",2318,294242],
+  ["2020/21",11,"Abdulaziz Al Khamees","Bos3yid X11",2299,367918],
+  ["2020/21",12,"Turki Alkhamis","Q8 Dream",2266,516655],
+  ["2020/21",13,"Abdullah Alsultan","Abdullah Alsultan",2249,610584],
+  ["2020/21",14,"meshary alderah","فريق meshary",2242,649433],
+  ["2020/21",15,"Ahmed K","ahmed k",2240,661279],
+  ["2020/21",16,"Meshary Abdullah","mshary",2157,1227261],
+  ["2020/21",17,"Saud Alkhamis","Azooz@Anfield",2141,1353112],
+  ["2020/21",18,"Yousef KH","Stockfish",2139,1369573],
+  ["2020/21",19,"Hussain Bin Mattar","Bin Mattar FC",2106,1643027],
+  ["2020/21",20,"Abdullah Alkhamees","Nerds FC",2088,1803334],
+  ["2020/21",21,"fahad alsha6y","Liverpool",2013,2494571],
+  ["2020/21",22,"Mubarak Almutairi","MUBARAK TM",1958,3027333],
+  ["2020/21",23,"Homoud Alkhalifah","halkhalifah",1847,4075987],
+  ["2020/21",24,"Nasser T Alkhamis","Shadow Strikers",1837,4165324],
+  ["2021/22",1,"Musaed Al_Husaini","Al Redz",2523,77312],
+  ["2021/22",2,"Khaled Alfahed","KAF",2500,105679],
+  ["2021/22",3,"mohammad fahad","mohammad fahad",2465,163750],
+  ["2021/22",4,"Fahad Alkhamis","Totti",2459,174350],
+  ["2021/22",5,"Yousef KH","Stockfish",2434,226721],
+  ["2021/22",6,"meshary alderah","فريق meshary",2429,238025],
+  ["2021/22",7,"Abdulaziz Al Khamees","Bos3yid X11",2418,263252],
+  ["2021/22",8,"Turki Alkhamis","Q8 Dream",2414,271618],
+  ["2021/22",9,"Abdullah Alsultan","Abdullah Alsultan",2405,296510],
+  ["2021/22",10,"HAMAD ALKHAMEES","20 Times",2393,329223],
+  ["2021/22",11,"Meshary Alkhamees","Romanista",2387,345058],
+  ["2021/22",12,"Thamer Alhumaidhi","Bo Ya3qoub",2378,370792],
+  ["2021/22",13,"Madi Alkhamis","القصيعة يونايتد",2365,412771],
+  ["2021/22",14,"Ahmed K","ahmed k",2330,537021],
+  ["2021/22",15,"Ali Alkhamees","امبراطور الشمس",2305,636609],
+  ["2021/22",16,"nawaf alkhamis","madrak$hesale7",2301,657189],
+  ["2021/22",17,"Saud Alkhamis","Azooz@Anfield",2269,805263],
+  ["2021/22",18,"Hussain Bin Mattar","Bin Mattar FC",2240,956588],
+  ["2021/22",19,"fahad alsha6y","Liverpool",2017,2635821],
+  ["2021/22",20,"Mohammad R","Mohammad's Team",1985,2930210],
+  ["2021/22",21,"Abdullah Alkhamees","Nerds FC",1975,3029241],
+  ["2021/22",22,"Abdullah Alkhames","alkhames86",1870,4080776],
+  ["2021/22",23,"Homoud Alkhalifah","halkhalifah",1844,4345571],
+  ["2021/22",24,"Mubarak Almutairi","MUBARAK TM",1779,5019676],
+  ["2021/22",25,"Nasser T Alkhamis","Shadow Strikers",1592,6752392],
+  ["2021/22",26,"Naser Alkhamees","Naser",537,8969823],
+  ["2022/23",1,"mohammad fahad","mohammad fahad",2583,22800],
+  ["2022/23",2,"Madi Alkhamis","القصيعة يونايتد",2537,80679],
+  ["2022/23",3,"meshary alderah","فريق meshary",2515,130074],
+  ["2022/23",4,"Musaed Al_Husaini","Al Redz",2514,132930],
+  ["2022/23",5,"Hussain Bin Mattar","Bin Mattar FC",2475,257148],
+  ["2022/23",6,"Thamer Alhumaidhi","Bo Ya3qoub",2467,288380],
+  ["2022/23",7,"Meshary Alkhamees","Romanista",2461,314438],
+  ["2022/23",8,"Ali Alkhamees","امبراطور الشمس",2434,444768],
+  ["2022/23",9,"Fahad Alkhamis","Totti",2427,484809],
+  ["2022/23",10,"HAMAD ALKHAMEES","20 Times",2416,554347],
+  ["2022/23",11,"nawaf alkhamis","madrak$hesale7",2415,560541],
+  ["2022/23",12,"Abdullah Alsultan","Abdullah Alsultan",2407,610017],
+  ["2022/23",13,"Abdulaziz Al Khamees","Bos3yid X11",2395,690445],
+  ["2022/23",14,"Turki Alkhamis","Q8 Dream",2387,744909],
+  ["2022/23",15,"Khaled Alfahed","KAF",2375,835998],
+  ["2022/23",16,"Ahmed K","ahmed k",2355,1001625],
+  ["2022/23",17,"Yousef KH","Stockfish",2305,1477674],
+  ["2022/23",18,"Saud Alkhamis","Azooz@Anfield",2253,2053288],
+  ["2022/23",19,"Abdullah Alkhamees","Nerds FC",2182,2922435],
+  ["2022/23",20,"Abdullah Alkhames","alkhames86",2163,3169538],
+  ["2022/23",21,"fahad alsha6y","Liverpool",2082,4206958],
+  ["2022/23",22,"Homoud Alkhalifah","halkhalifah",2007,5158668],
+  ["2022/23",23,"Mohammad R","Mohammad's Team",1938,5995824],
+  ["2022/23",24,"Mubarak Almutairi","MUBARAK TM",1926,6140390],
+  ["2022/23",25,"Nasser T Alkhamis","Shadow Strikers",1717,8319831],
+  ["2022/23",26,"Naser Alkhamees","Naser",1652,8852732],
+  ["2022/23",27,"Meshary Abdullah","mshary",1464,9950166],
+  ["2023/24",1,"Musaed Al_Husaini","Al Redz",2536,32530],
+  ["2023/24",2,"HAMAD ALKHAMEES","20 Times",2462,152985],
+  ["2023/24",3,"Fahad Alkhamis","Totti",2447,191081],
+  ["2023/24",4,"Hussain Bin Mattar","Bin Mattar FC",2431,241090],
+  ["2023/24",5,"meshary alderah","فريق meshary",2395,387168],
+  ["2023/24",6,"Meshary Alkhamees","Romanista",2391,403592],
+  ["2023/24",7,"Turki Alkhamis","Q8 Dream",2374,491992],
+  ["2023/24",8,"Yousef KH","Stockfish",2374,495000],
+  ["2023/24",9,"Madi Alkhamis","القصيعة يونايتد",2360,577182],
+  ["2023/24",10,"Meshary Abdullah","mshary",2356,603631],
+  ["2023/24",11,"Abdullah Alsultan","Abdullah Alsultan",2343,691610],
+  ["2023/24",12,"Khaled Alfahed","KAF",2339,714856],
+  ["2023/24",13,"Abdullah Alkhamees","Nerds FC",2318,884030],
+  ["2023/24",14,"mohammad fahad","mohammad fahad",2314,917802],
+  ["2023/24",15,"Abdulaziz Al Khamees","Bos3yid X11",2309,960086],
+  ["2023/24",16,"nawaf alkhamis","madrak$hesale7",2308,970133],
+  ["2023/24",17,"Thamer Alhumaidhi","Bo Ya3qoub",2277,1265178],
+  ["2023/24",18,"Ali Alkhames","arsenal",2256,1497070],
+  ["2023/24",19,"fahad alsha6y","Liverpool",2205,2117661],
+  ["2023/24",20,"Abdullah Alkhames","alkhames86",2166,2643132],
+  ["2023/24",21,"Saud Alkhamis","Azooz@Anfield",2157,2767834],
+  ["2023/24",22,"Ali Alkhamees","امبراطور الشمس",2111,3383455],
+  ["2023/24",23,"Ahmed K","ahmed k",2104,3481825],
+  ["2023/24",24,"Homoud Alkhalifah","halkhalifah",1975,5091565],
+  ["2023/24",25,"Mohammad R","Mohammad's Team",1886,6163451],
+  ["2023/24",26,"Mubarak Almutairi","MUBARAK TM",1732,7967063],
+  ["2024/25",1,"Musaed Al_Husaini","Al Redz",2548,44146],
+  ["2024/25",2,"Ali Alkhames","arsenal",2525,76534],
+  ["2024/25",3,"HAMAD ALKHAMEES","20 Times",2490,152480],
+  ["2024/25",4,"mohammad fahad","mohammad fahad",2481,179511],
+  ["2024/25",5,"Yousef KH","Stockfish",2450,295362],
+  ["2024/25",6,"Abdulaziz Al Khamees","Bos3yid X11",2406,531377],
+  ["2024/25",7,"meshary alderah","فريق meshary",2404,548593],
+  ["2024/25",8,"Madi Alkhamis","القصيعة يونايتد",2398,587793],
+  ["2024/25",9,"Ahmed K","ahmed k",2381,711181],
+  ["2024/25",10,"Saud Alkhamis","Azooz@Anfield",2377,742382],
+  ["2024/25",11,"Khaled Alfahed","KAF",2375,756127],
+  ["2024/25",12,"Hussain Bin Mattar","Bin Mattar FC",2368,813300],
+  ["2024/25",13,"Thamer Alhumaidhi","Bo Ya3qoub",2362,865682],
+  ["2024/25",14,"Fahad Alkhamis","Totti",2265,1942298],
+  ["2024/25",15,"Nasser T Alkhamis","Shadow Strikers",2250,2137445],
+  ["2024/25",16,"Meshary Alkhamees","Romanista",2238,2305652],
+  ["2024/25",17,"Meshary Abdullah","mshary",2214,2654343],
+  ["2024/25",18,"Turki Alkhamis","Q8 Dream",2173,3239326],
+  ["2024/25",19,"Abdullah Alkhames","alkhames86",2142,3694234],
+  ["2024/25",20,"Homoud Alkhalifah","halkhalifah",2130,3863221],
+  ["2024/25",21,"Abdullah Alsultan","Abdullah Alsultan",2117,4050584],
+  ["2024/25",22,"Naser Alkhamees","Naser",2007,5428050],
+  ["2024/25",23,"Mubarak Almutairi","MUBARAK TM",1973,5785545],
+  ["2024/25",24,"Abdullah Alkhamees","Nerds FC",1931,6209663],
+  ["2024/25",25,"nawaf alkhamis","madrak$hesale7",1895,6568083],
+  ["2024/25",26,"Ali Alkhamees","امبراطور الشمس",1875,6761483],
+  ["2024/25",27,"fahad alsha6y","Liverpool",1742,8080975],
+  ["2024/25",28,"Mohammad R","Mohammad's Team",1657,8850085],
+  ["2025/26",1,"Yousef KH","Stockfish",2356,44218],
+  ["2025/26",2,"Madi Alkhamis","القصيعة يونايتد",2312,141737],
+  ["2025/26",3,"Musaed Al_Husaini","Al Redz",2283,257167],
+  ["2025/26",4,"HAMAD ALKHAMEES","20 Times",2277,290825],
+  ["2025/26",5,"Hussain Bin Mattar","Bin Mattar FC",2244,496413],
+  ["2025/26",6,"Thamer Alhumaidhi","Bo Ya3qoub",2228,623925],
+  ["2025/26",7,"meshary alderah","فريق meshary",2205,849171],
+  ["2025/26",8,"Ahmed K","ahmed k",2190,1003027],
+  ["2025/26",9,"mohammad fahad","mohammad fahad",2177,1161450],
+  ["2025/26",10,"nawaf alkhamis","madrak$hesale7",2172,1226873],
+  ["2025/26",11,"Fahad Alkhamis","Totti",2159,1389505],
+  ["2025/26",12,"Nasser T Alkhamis","Shadow Strikers",2152,1482315],
+  ["2025/26",13,"Meshary Alkhamees","Romanista",2134,1738249],
+  ["2025/26",14,"Ali Alkhames","arsenal",2124,1896092],
+  ["2025/26",15,"Meshary Abdullah","mshary",2096,2341565],
+  ["2025/26",16,"Naser Alkhamees","Naser",2094,2375223],
+  ["2025/26",17,"Khaled Alfahed","KAF",2086,2504903],
+  ["2025/26",18,"Abdullah Alsultan","Abdullah Alsultan",2067,2835901],
+  ["2025/26",19,"Turki Alkhamis","Q8 Dream",2064,2878471],
+  ["2025/26",20,"Abdulaziz Al Khamees","Bos3yid X11",2053,3081246],
+  ["2025/26",21,"Saud Alkhamis","Azooz@Anfield",2046,3205523],
+  ["2025/26",22,"Abdullah Alkhamees","Nerds FC",2005,3944163],
+  ["2025/26",23,"Ali Alkhamees","امبراطور الشمس",1998,4082662],
+  ["2025/26",24,"Homoud Alkhalifah","halkhalifah",1984,4342300],
+  ["2025/26",25,"Abdullah Alkhames","alkhames86",1930,5357362],
+  ["2025/26",26,"fahad alsha6y","Liverpool",1865,6540392],
+  ["2025/26",27,"Mohammad R","Mohammad's Team",1579,10503960],
+  ["2025/26",28,"Mubarak Almutairi","MUBARAK TM",1165,12282160]
+];
+
+
+var GW_STATS = [], GW_HL = [], GW_POP = {}, GW_SQUAD = [], SEASON_SUMMARY = [], GENERATED_AT = null, LIVE_GW = null;
+
+var CHIP_AR = {bboost:'بنش بوست', '3xc':'كابتن ثلاثي', wildcard:'وايلد كارد', freehit:'فري هت'};
+var GWS = [], LAST_GW = null;
+function computeGws() {
+  GWS = [];
+  GW_STATS.forEach(function (r) { if (GWS.indexOf(r[0]) < 0) GWS.push(r[0]); });
+  GWS.sort(function (a, b) { return a - b; });
+  LAST_GW = GWS[GWS.length - 1];
+}
+var nameAr = function (en) { return AR[en] || en; };
+var gwRows = function (g) {
+  return GW_STATS.filter(function (r) { return r[0] === g; })
+    .sort(function (a, b) { return a[12] - b[12] || b[3] - a[3]; });
+};
+var gwHl = function (g) { var o = null; GW_HL.forEach(function (h) { if (h.gameweek === g) o = h; }); return o || {}; };
+
+var awardCard = function (o) {
+  if (!o.who && !o.who2) return '';
+  return '<div style="background:' + o.bg + ';color:' + (o.fg || '#fff') + ';padding:20px;display:flex;flex-direction:column;gap:6px' + (o.border ? ';border:2px solid ' + o.border : '') + '">' +
+    '<div style="font-size:16px;font-weight:800;' + (o.kc ? 'color:' + o.kc : 'opacity:.75') + '">' + o.k + '</div>' +
+    '<div style="font-size:clamp(21px,3vw,26px);font-weight:900;line-height:1.15">' + esc(o.who) + '</div>' +
+    (o.sub ? '<div style="font-size:16px;font-weight:600;opacity:.8;line-height:1.4">' + o.sub + '</div>' : '') +
+    (o.big !== undefined ? '<div class="num" style="font-size:44px;font-weight:700;line-height:1;margin-top:2px">' + o.big + '</div>' : '') +
+    '</div>';
+};
+
+function gwAwards(g) {
+  var h = gwHl(g);
+  var cards = [
+    awardCard({ k: 'نجم الجولة', who: nameAr(h.top_scorer), big: h.top_score, sub: 'أعلى واحد بالدوري هالجولة', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'خيبة الجولة', who: nameAr(h.bottom_scorer), big: h.bottom_score, sub: 'الله يعوّض عليه', bg: '#E90052' }),
+    awardCard({ k: 'الكابتن الذهبي', who: nameAr(h.best_captain_manager), big: h.best_captain_points, sub: 'اختار <bdi><b style="font-weight:800">' + esc(h.best_captain_player || '') + '</b></bdi> وضبطت', bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'الكابتن المنحوس', who: nameAr(h.worst_captain_manager), big: h.worst_captain_points, sub: 'حط الشارة على <bdi><b style="font-weight:800">' + esc(h.worst_captain_player || '') + '</b></bdi> 💀', bg: '#2A002E', kc: '#FF5C9E' }),
+    awardCard({ k: 'مقبرة الدكة', who: nameAr(h.most_wasted_bench_manager), big: h.wasted_bench_points, sub: 'نقطة قاعدة على الدكة تتفرج', bg: '#7A0B4A', kc: '#FF7FB0' }),
+    awardCard({ k: 'ملك الخصايص', who: nameAr(h.chip_master_manager), big: h.chip_master_score, sub: 'لعب <bdi><b style="font-weight:800">' + (CHIP_AR[h.chip_master_chip] || h.chip_master_chip || '') + '</b></bdi> وطلع بأعلى نتيجة', bg: '#38003C', border: '#04F5FF', kc: '#04F5FF' }),
+    awardCard({ k: 'أغلى تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_king_manager) : null, big: h.value_king_value, sub: 'مليون قيمة فريق — أعلى واحد بالدوري', bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'أرخص تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_laggard_manager) : null, big: h.value_laggard_value, sub: 'مليون بس — يعيش على الرخيص', bg: '#46124F', border: '#FF7FB0', kc: '#FF7FB0' }),
+    awardCard({ k: 'ضربة معلم', who: nameAr(h.one_move_master_manager), big: h.one_move_master_net_impact, sub: 'تبديل واحد بس — وجابها', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'محارب بلا خاصية', who: nameAr(h.no_chip_warrior_manager), big: h.no_chip_warrior_score, sub: 'أعلى نتيجة بدون أي خاصية', bg: '#46124F', border: '#00FF85', kc: '#00FF85' }),
+    awardCard({ k: 'صاروخ الجولة', who: nameAr(h.biggest_riser), big: h.riser_places_gained ? '+' + h.riser_places_gained : undefined, sub: 'مركز طلعهم فوق', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'سقوط حر', who: nameAr(h.biggest_faller), big: h.faller_places_lost ? '-' + h.faller_places_lost : undefined, sub: 'مركز راحوا عليه', bg: '#E90052' }),
+    awardCard({ k: 'أذكى صفقة', who: nameAr(h.sharpest_trader_manager), big: h.sharpest_trader_net_impact, sub: 'ربح صافي من التبديلات', bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'لخبطة التبديلات', who: nameAr(h.transfer_tangle_manager), big: h.transfer_tangle_net_impact, sub: 'غيّر... وندم', bg: '#2A002E', border: '#E90052', kc: '#E90052' })
+  ].join('');
+  var crowd = '';
+  if (h.most_captained_player || h.most_owned_player) {
+    crowd =
+      (h.most_captained_player ? '<div style="background:linear-gradient(120deg,#04F5FF 0%,#00A8B5 100%);color:#38003C;padding:24px">' +
+        '<div style="font-size:16px;font-weight:800;opacity:.8">كابتن الشعب</div>' +
+        '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(h.most_captained_player) + '</div>' +
+        '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(h.most_captained_pct) + '%</span> من الدوري عطوه الكبتنة</div></div>' : '') +
+      (h.most_owned_player ? '<div style="background:linear-gradient(120deg,#00FF85 0%,#00C463 100%);color:#38003C;padding:24px">' +
+        '<div style="font-size:16px;font-weight:800;opacity:.8">لاعب ما يغيب عن أي فريق</div>' +
+        '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(h.most_owned_player) + '</div>' +
+        '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(h.most_owned_pct) + '%</span> من الفرق فيها هذا اللاعب</div></div>' : '');
+  }
+  return cards + crowd;
+}
+
+var gwSort = 'total', gwOpen = null, gwCur = null;
+var POS_AR = { GKP: 'حراسة', DEF: 'دفاع', MID: 'وسط', FWD: 'هجوم' };
+
+function playerCard(p, dim) {
+  var cap = p[6] ? 'C' : (p[7] ? 'V' : '');
+  var pts = p[8] === 0 ? p[9] : p[10];
+  var ptsBg = pts >= 10 ? '#00FF85' : pts >= 5 ? 'rgba(0,255,133,.2)' : pts <= 1 ? 'rgba(233,0,82,.28)' : 'rgba(255,255,255,.07)';
+  var ptsFg = pts >= 10 ? '#38003C' : '#fff';
+  return '<div style="display:flex;align-items:center;gap:6px;background:' + (p[6] ? 'rgba(0,255,133,.14)' : '#2A002E') + ';padding:0 0 0 0;' + (dim ? 'opacity:.6;' : '') + '">' +
+    '<bdi style="flex:1;min-width:0;padding:5px 9px;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(p[2]) + '</bdi>' +
+    (cap ? '<span class="num" style="font-size:11px;font-weight:700;background:' + (p[6] ? '#00FF85' : 'rgba(255,255,255,.18)') + ';color:' + (p[6] ? '#38003C' : '#fff') + ';padding:0 4px;line-height:15px">' + cap + '</span>' : '') +
+    '<span class="num" style="flex:0 0 auto;font-size:12px;font-weight:600;color:rgba(255,255,255,.42)">' + Math.round(p[11]) + '%</span>' +
+    '<span class="num" style="flex:0 0 34px;text-align:center;padding:5px 0;font-size:16px;font-weight:700;background:' + ptsBg + ';color:' + ptsFg + '">' + pts + '</span>' +
+    '</div>';
+}
+
+function squadPanel(g, r) {
+  var sq = GW_SQUAD.filter(function (x) { return x[0] === g && x[1] === r[14]; });
+  if (!sq.length) return '<div style="background:#2A002E;padding:18px;font-size:17px;font-weight:700;color:rgba(255,255,255,.5)">ما فيه تفاصيل تشكيلة لهالجولة.</div>';
+  var order = { GKP: 0, DEF: 1, MID: 2, FWD: 3 };
+  var start = sq.filter(function (x) { return x[5] === 'Starting'; }).sort(function (a, b) { return order[a[3]] - order[b[3]]; });
+  var bench = sq.filter(function (x) { return x[5] !== 'Starting'; }).sort(function (a, b) { return order[a[3]] - order[b[3]]; });
+  var lines = ['GKP', 'DEF', 'MID', 'FWD'].map(function (pz) {
+    var g2 = start.filter(function (x) { return x[3] === pz; });
+    if (!g2.length) return '';
+    return '<div style="margin-bottom:8px"><div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.38);margin-bottom:4px">' + POS_AR[pz] + '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px">' +
+      g2.map(function (p) { return playerCard(p, false); }).join('') + '</div></div>';
+  }).join('');
+  var pill = function (l, v, c) {
+    return '<div style="background:rgba(255,255,255,.08);padding:6px 12px;display:flex;gap:7px;align-items:baseline">' +
+      '<span style="font-size:13px;font-weight:700;color:rgba(255,255,255,.5)">' + l + '</span>' +
+      '<span class="num" style="font-size:17px;font-weight:700' + (c ? ';color:' + c : '') + '">' + v + '</span></div>';
+  };
+  return '<div style="background:#38003C;border-right:6px solid #00FF85;padding:16px">' +
+    '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px">' +
+      pill('نقاط الجولة', r[3], '#00FF85') +
+      pill('الترتيب العالمي', fmt(r[6])) +
+      pill('الدكة', r[5], r[5] > 8 ? '#FF5C9E' : null) +
+      pill('الكابتن', esc(r[10])) +
+      (r[7] ? pill('تبديلات', r[7] + (r[8] ? ' (-' + r[8] + ')' : '')) : '') +
+      (r[9] ? '<div style="background:#04F5FF;color:#38003C;padding:6px 12px;font-size:15px;font-weight:800">' + (CHIP_AR[r[9]] || r[9]) + '</div>' : '') +
+    '</div>' + lines +
+    (bench.length ? '<div><div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.38);margin-bottom:4px">الدكة' + (r[9] === 'bboost' ? ' <span style="color:#00FF85">— محسوبة (بنش بوست)</span>' : ' <span style="color:rgba(255,255,255,.3)">— غير محسوبة</span>') + '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px">' +
+      bench.map(function (p) { return playerCard(p, true); }).join('') + '</div></div>' : '') +
+    '</div>';
+}
+
+function gwView(g) {
+  g = g || LAST_GW;
+  gwCur = g;
+  var rows = gwRows(g);
+  var pop = (GW_POP[g] || []).slice(0, 10);
+  var picker = GWS.slice().reverse().map(function (x) {
+    return '<button class="btn' + (x === g ? ' on' : '') + '" data-gw="' + x + '" style="' + (x === g ? 'background:#00FF85;color:#38003C' : '') + '">GW' + x + '</button>';
+  }).join('');
+  if (gwSort === 'gw') rows = rows.slice().sort(function (a, b) { return b[3] - a[3]; });
+  var table = rows.map(function (r, i) {
+    var pos = gwSort === 'gw' ? i + 1 : r[12];
+    var a = accent(pos);
+    var ch = r[13];
+    var mv = ch === null || ch === 0 ? '<span style="color:rgba(255,255,255,.35)">—</span>'
+      : ch > 0 ? '<span style="color:#00FF85">▲' + ch + '</span>' : '<span style="color:#FF5C9E">▼' + Math.abs(ch) + '</span>';
+    var open = gwOpen === r[14];
+    return '<div class="trow" data-open="' + r[14] + '" style="border-right-color:' + a + (open ? ';background:#5A1A67' : '') + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + pos + '</div>' +
+      '<div class="c-name"><b>' + esc(nameAr(r[1])) + ' <span style="font-size:14px;color:' + (open ? '#00FF85' : 'rgba(255,255,255,.4)') + '">' + (open ? '▲' : '▼') + '</span></b><span><bdi>' + esc(r[2]) + '</bdi>' + (r[9] ? ' · <bdi>' + (CHIP_AR[r[9]] || r[9]) + '</bdi>' : '') + '</span></div>' +
+      '<div class="c-pts"' + (gwSort === 'gw' ? ' style="color:#00FF85"' : '') + '>' + r[3] + '</div>' +
+      '<div class="c-sub"' + (gwSort === 'total' ? ' style="color:#00FF85;font-weight:700"' : '') + '>' + fmt(r[4]) + '</div>' +
+      '<div class="c-sub gw-mv" style="flex:0 0 54px;font-weight:700">' + mv + '</div></div>' +
+      (open ? squadPanel(g, r) : '');
+  }).join('');
+  var sortBar = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">' +
+    '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);align-self:center">رتّب حسب</span>' +
+    '<button class="btn" data-sort="total" style="' + (gwSort === 'total' ? 'background:#00FF85;color:#38003C' : '') + '">إجمالي النقاط</button>' +
+    '<button class="btn" data-sort="gw" style="' + (gwSort === 'gw' ? 'background:#00FF85;color:#38003C' : '') + '">نقاط الجولة</button></div>';
+  var popList = pop.map(function (p) {
+    return '<div style="display:flex;align-items:center;gap:10px;background:#46124F;padding:10px 14px">' +
+      '<div style="flex:1;min-width:0;font-size:18px;font-weight:800;direction:ltr;text-align:right">' + esc(p[0]) + '</div>' +
+      '<div class="num" style="flex:0 0 62px;font-size:19px;font-weight:700;color:#00FF85">' + Math.round(p[1]) + '%</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap">' +
+    '<div style="border-bottom:5px solid #00FF85;padding-bottom:16px;margin-bottom:20px">' +
+    '<div style="font-size:18px;font-weight:700;color:#00FF85">ملخص الجولة</div>' +
+    '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">GW' + g + '</h2>' + liveNote(g) + '</div>' +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">' + picker + '</div>' +
+    '<div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">جوائز الجولة</h2><div class="s" style="color:#E90052">منو لمع ومنو احترق</div></div>' +
+    '<div class="cards" style="margin-bottom:36px">' + gwAwards(g) + '</div>' +
+    '<div class="hd" style="border-bottom-color:#04F5FF"><h2 class="sec">ترتيب الجولة</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك تشوف تشكيلته</div></div>' +
+    sortBar +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك · اضغط للتشكيلة</div><div style="flex:0 0 84px">الجولة</div><div style="flex:0 0 92px">المجموع</div><div class="gw-mv" style="flex:0 0 54px">حركة</div></div>' +
+    '<div class="rows" style="margin-bottom:36px">' + table + '</div>' +
+    (popList ? '<div class="hd" style="border-bottom-color:#00FF85"><h2 class="sec">لاعبين الكل شاريهم</h2><div class="s" style="color:#00FF85">نسبة ملكيتهم داخل الدوري</div></div>' +
+      '<div class="rows">' + popList + '</div>' : '') +
+    '</div></section>';
+}
+
+var app = document.getElementById('app');
+var label = function (s) { return s.slice(2, 4) + '/' + s.slice(5); };
+var fmt = function (n) { return n.toLocaleString('en-US'); };
+var accent = function (p) { return p === 1 ? '#FFD166' : p === 2 ? '#D6E0EB' : p === 3 ? '#E09468' : 'rgba(255,255,255,0.14)'; };
+var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+
+var seasons = [], mgrs = {}, allTime = [];
+(function () {
+  var seen = {};
+  ROWS.forEach(function (r) { if (!seen[r[0]]) { seen[r[0]] = 1; seasons.push(r[0]); } });
+  ROWS.forEach(function (r) {
+    var m = mgrs[r[2]] || (mgrs[r[2]] = { en: r[2], ar: AR[r[2]], team: r[3], rows: [] });
+    m.team = r[3];
+    m.rows.push({ season: r[0], pos: r[1], pts: r[4], rank: r[5] });
+  });
+  var arSets = {};
+  Object.keys(mgrs).forEach(function (k) {
+    var m = mgrs[k];
+    (arSets[m.ar] = arSets[m.ar] || []).push(k);
+  });
+  Object.keys(mgrs).forEach(function (k) {
+    var m = mgrs[k];
+    m.total = m.rows.reduce(function (a, r) { return a + r.pts; }, 0);
+    m.count = m.rows.length;
+    m.titles = m.rows.filter(function (r) { return r.pos === 1; }).length;
+    m.podiums = m.rows.filter(function (r) { return r.pos <= 3; }).length;
+    m.best = Math.min.apply(null, m.rows.map(function (r) { return r.pos; }));
+    m.avg = (m.rows.reduce(function (a, r) { return a + r.pos; }, 0) / m.count).toFixed(2);
+    m.bestRank = Math.min.apply(null, m.rows.map(function (r) { return r.rank; }));
+    m.display = arSets[m.ar].length > 1 ? m.ar + ' — ' + m.team : m.ar;
+    allTime.push(m);
+  });
+  allTime.sort(function (a, b) { return b.total - a.total; });
+  allTime.forEach(function (m, i) { m.allRank = i + 1; });
+})();
+
+var seasonRows = function (s) {
+  return allTime.map(function (m) {
+    var r = null;
+    m.rows.forEach(function (x) { if (x.season === s) r = x; });
+    return r ? { m: m, r: r } : null;
+  }).filter(Boolean).sort(function (a, b) { return a.r.pos - b.r.pos; });
+};
+
+function landingView() {
+  var g = LAST_GW, hl = gwHl(g);
+  var champ = seasonRows(seasons[seasons.length - 1])[0];
+  var card = function (o) {
+    return '<div data-go="' + o.go + '" style="cursor:pointer;background:' + o.bg + ';color:' + o.fg + ';padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;gap:14px;min-height:clamp(300px,42vw,400px);border-top:8px solid ' + o.bar + '">' +
+      '<div style="font-size:17px;font-weight:800;opacity:.7">' + o.eyebrow + '</div>' +
+      '<h2 style="margin:0;font-size:clamp(34px,5.4vw,54px);font-weight:900;line-height:1">' + o.title + '</h2>' +
+      '<p style="margin:0;font-size:clamp(17px,2.2vw,21px);font-weight:500;line-height:1.5;opacity:.85;text-wrap:pretty">' + o.body + '</p>' +
+      '<div style="margin-top:auto;display:flex;gap:10px;flex-wrap:wrap">' + o.chips + '</div>' +
+      '<div style="font-size:19px;font-weight:900;opacity:.9">' + o.cta + ' ←</div></div>';
+  };
+  var chip = function (n, l, dark) {
+    return '<div style="background:' + (dark ? 'rgba(0,0,0,.14)' : 'rgba(255,255,255,.12)') + ';padding:10px 14px;min-width:96px;display:flex;flex-direction:column;justify-content:center">' +
+      '<div style="font-size:' + (String(n).length > 6 ? 'clamp(19px,2.4vw,23px)' : '28px') + ';font-weight:' + (String(n).length > 6 ? '900' : '700') + ';line-height:1.15;font-family:' + (String(n).length > 6 ? 'inherit' : 'Oswald,sans-serif') + '">' + n + '</div>' +
+      '<div style="font-size:14px;font-weight:700;opacity:.75;margin-top:2px">' + l + '</div></div>';
+  };
+  return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,80px) 0 clamp(30px,5vw,50px)"><div class="wrap">' +
+    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
+    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
+    '<p class="lede" style="margin-bottom:0">وين تبي تروح؟ تابع الموسم الجاري جولة بجولة، أو نبش بالأرشيف وشوف منو صنع التاريخ.</p>' +
+    '</div></div>' +
+    '<section class="pad"><div class="wrap">' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">' +
+    card({ go: 'gw', bg: '#00FF85', fg: '#38003C', bar: '#38003C', eyebrow: 'مباشر اللحين', title: 'الموسم الحالي', cta: 'ادخل ملخص الجولات',
+      body: 'ملخص كل جولة: جوائز، ترتيب، خصايص، ومنو كابتنه ضيّعه. آخر تحديث بعد الجولة ' + g + '.',
+      chips: chip('GW' + g, 'آخر جولة', 1) + chip(hl.top_score, 'أعلى نقاط', 1) + chip(esc(nameAr(hl.top_scorer)), 'نجم الجولة', 1) }) +
+    card({ go: 'archive', bg: '#46124F', fg: '#fff', bar: '#E90052', eyebrow: '2013 — 2026', title: 'أرشيف المواسم', cta: 'ادخل الأرشيف',
+      body: 'كل الأبطال، الترتيب التاريخي، أرقام ما تنسى، وملف كامل لكل مشترك — ومقارنة وجه لوجه.',
+      chips: chip(seasons.length, 'موسم') + chip(allTime.length, 'مشترك') + chip(esc(champ.m.ar), 'آخر بطل') }) +
+    '</div></div></section>';
+}
+
+function gwBand() {
+  var g = LAST_GW, h = gwHl(g), rows = gwRows(g).slice(0, 3);
+  var top = rows.map(function (r) {
+    var a = accent(r[12]);
+    return '<div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);padding:10px 14px;border-right:5px solid ' + a + '">' +
+      '<div class="num" style="flex:0 0 26px;font-size:22px;font-weight:700;color:' + a + '">' + r[12] + '</div>' +
+      '<div style="flex:1;min-width:0;font-size:19px;font-weight:800">' + esc(nameAr(r[1])) + '</div>' +
+      '<div class="num" style="font-size:22px;font-weight:700;color:#00FF85">' + r[3] + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap">' +
+    '<div style="background:#2A002E;border-top:5px solid #00FF85;padding:clamp(22px,4vw,34px)">' +
+    '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px">' +
+    '<div><div style="font-size:17px;font-weight:800;color:#00FF85">آخر جولة في الموسم الحالي</div>' +
+    '<h2 class="num" style="margin:2px 0 0;font-size:clamp(40px,8vw,68px);font-weight:700;line-height:.95;direction:ltr;text-align:right">GW' + g + '</h2>' + liveNote(g) + '</div>' +
+    '<button class="btn" data-go="gw" style="background:#00FF85;color:#38003C">كل تفاصيل الجولة ←</button></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px">' +
+    '<div style="background:#00FF85;color:#38003C;padding:18px"><div style="font-size:16px;font-weight:800;opacity:.75">نجم الجولة</div>' +
+    '<div style="font-size:clamp(22px,3vw,28px);font-weight:900;line-height:1.15">' + esc(nameAr(h.top_scorer)) + '</div>' +
+    '<div class="num" style="font-size:42px;font-weight:700;line-height:1">' + h.top_score + '</div></div>' +
+    '<div style="background:#E90052;padding:18px"><div style="font-size:16px;font-weight:800;opacity:.8">خيبة الجولة</div>' +
+    '<div style="font-size:clamp(22px,3vw,28px);font-weight:900;line-height:1.15">' + esc(nameAr(h.bottom_scorer)) + '</div>' +
+    '<div class="num" style="font-size:42px;font-weight:700;line-height:1">' + h.bottom_score + '</div></div>' +
+    '<div style="display:flex;flex-direction:column;gap:6px">' + top + '</div>' +
+    '</div></div></div></section>';
+}
+
+function homeView() {
+  var champs = seasons.map(function (s) {
+    var t = seasonRows(s)[0];
+    return '<div class="champ" data-season="' + s + '">' +
+      '<div class="num" style="flex:0 0 74px;font-size:26px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
+      '<div style="flex:1 1 140px;min-width:0"><div style="font-size:22px;font-weight:800;line-height:1.2">' + esc(t.m.ar) + '</div>' +
+      '<div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(t.m.team) + '</div></div>' +
+      '<div class="num" style="flex:0 0 66px;font-size:26px;font-weight:700">' + t.r.pts + '</div></div>';
+  }).join('');
+
+  var table = allTime.map(function (m) {
+    var a = accent(m.allRank);
+    return '<div class="trow" data-mgr="' + esc(m.en) + '" style="border-right-color:' + a + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + m.allRank + '</div>' +
+      '<div class="c-name"><b>' + esc(m.display) + '</b><span>' + esc(m.team) + '</span></div>' +
+      '<div class="c-pts">' + fmt(m.total) + '</div>' +
+      '<div class="c-sub">' + m.count + '</div></div>';
+  }).join('');
+
+  return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,84px) 0 clamp(36px,6vw,64px)"><div class="wrap">' +
+    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
+    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
+    '<p class="lede">كل الأبطال، وكل الأرقام، وكل الخيبات — من موسم 13/14 إلى 25/26. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.</p>' +
+    '<div class="stats">' +
+      '<div class="stat" style="background:#E90052"><div class="n">13</div><div class="l">موسم</div></div>' +
+      '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">28</div><div class="l">مشترك</div></div>' +
+      '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">7</div><div class="l">أبطال مختلفين</div></div>' +
+      '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">2585</div><div class="l">أعلى نقاط بموسم</div></div>' +
+    '</div></div></div>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">لوحة الأبطال</h2><div class="s">اضغط الموسم لترتيب الدوري كامل</div></div>' +
+    '<div class="cards">' + champs + '</div></div></section>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">أرقام ما تنسى</h2><div class="s" style="color:#E90052">من صنع التاريخ؟</div></div>' +
+    '<div class="recs">' +
+      '<div class="rec" style="background:#E90052"><div class="k" style="opacity:.85">أكثر ألقاب</div>' +
+        '<div class="row"><span class="who">يوسف الخميس</span><span class="big">4</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;opacity:.9">15/16 · 18/19 · 19/20 · 25/26</div></div>' +
+      '<div class="rec" style="background:#00FF85;color:#38003C"><div class="k" style="opacity:.7;margin-bottom:4px">أكثر مرات في المراكز الثلاثة الأولى</div>' +
+        '<div style="font-size:15px;font-weight:500;opacity:.6;margin-bottom:12px">أول أو ثاني أو ثالث — أكثر واحد صعد المنصة</div>' +
+        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">7</span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.75">ساكن المنصة بالإيجار الطويل</div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات وصيف الدوري — تعادل ثلاثي</div>' +
+        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">ثلاث مرات لكل واحد</span><span class="big" style="font-size:48px">3</span></div>' +
+        '<div style="font-size:21px;font-weight:800;line-height:1.45">ثامر الحميضي · ماضي الخميس · حمد الخميس</div></div>' +
+      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات مركز ثالث — تعادل خماسي</div>' +
+        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">مرتين لكل واحد</span><span class="big" style="font-size:48px">2</span></div>' +
+        '<div style="font-size:20px;font-weight:800;line-height:1.45">مشاري الدرعة · محمد الرهيماني · ماضي الخميس · محمد الفهد · فهد الخميس</div></div>' +
+      '<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">أفضل موسم في التاريخ</div>' +
+        '<div class="row"><span class="who">مشاري الخميس</span><span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">2585</span><span style="font-size:16px;font-weight:700;opacity:.75">نقطة</span></span></div>' +
+        '<div style="font-size:18px;font-weight:700;opacity:.8">موسم 20/21 — وأفضل ترتيب عالمي على الإطلاق: <span class="num" style="font-weight:700">274</span></div></div>' +
+      '<div class="rec" style="background:#2A002E;border:2px dashed rgba(255,255,255,.35)"><div class="k" style="color:#E90052;margin-bottom:4px">فشيلة الدوري — أكثر واحد جا الأخير</div>' +
+        '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:12px">قاعد بذيل الجدول أكثر من أي أحد</div>' +
+        '<div class="row"><span class="who">مبارك المطيري</span><span class="big">3</span></div>' +
+        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;color:rgba(255,255,255,.7)">19/20 · 23/24 · 25/26</div></div>' +
+      '<div style="grid-column:1/-1;background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">' +
+        '<div style="font-size:62px;line-height:1">😅</div><div style="flex:1;min-width:240px">' +
+        '<h3 style="margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:900;line-height:1">المنحوس</h3>' +
+        '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">حمد الخميس يمتلك أفضل متوسط ترتيب في تاريخ الدوري كله — <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">5.69</span> على مدى 13 موسم — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>' +
+    '</div></div></section>' +
+
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#04F5FF;margin-bottom:8px"><h2 class="sec">الترتيب التاريخي</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك لتاريخه الكامل</div></div>' +
+    '<p style="margin:0 0 18px;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)">مجموع نقاط كل مشترك في كل المواسم اللي شارك فيها — مو ترتيب الموسم الأخير.</p>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">مواسم</div></div>' +
+    '<div class="rows">' + table + '</div></div></section>';
+}
+
+function seasonsView() {
+  var cards = seasons.map(function (s) {
+    var list = seasonRows(s);
+    return '<div class="scard" data-season="' + s + '"><div class="num" style="font-size:34px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-top:8px">البطل</div>' +
+      '<div style="font-size:20px;font-weight:800">' + esc(list[0].m.ar) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55)">' + list.length + ' مشترك</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><h2 class="sec">كل المواسم</h2>' +
+    '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اختر موسم لترتيبه الكامل.</p>' +
+    '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function managersView() {
+  var cards = allTime.map(function (m) {
+    return '<div class="mcard" data-mgr="' + esc(m.en) + '" style="border-right-color:' + accent(m.allRank) + '">' +
+      '<div style="font-size:21px;font-weight:900">' + esc(m.display) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:10px">' + esc(m.team) + '</div>' +
+      '<div style="display:flex;gap:14px;align-items:baseline"><span class="num" style="font-size:22px;font-weight:700;color:#00FF85">' + fmt(m.total) + '</span>' +
+      '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5)">' + m.count + ' مواسم</span></div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><h2 class="sec">كل المشتركين</h2>' +
+    '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اضغط أي واحد لسجله في كل المواسم.</p>' +
+    '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function seasonView(s) {
+  var i = seasons.indexOf(s);
+  var rows = seasonRows(s).map(function (x) {
+    var a = accent(x.r.pos);
+    return '<div class="trow" data-mgr="' + esc(x.m.en) + '" style="border-right-color:' + a + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + x.r.pos + '</div>' +
+      '<div class="c-name"><b>' + esc(x.m.display) + '</b><span>' + esc(x.m.team) + '</span></div>' +
+      '<div class="c-pts">' + x.r.pts + '</div><div class="c-sub">' + fmt(x.r.rank) + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="archive">← رجوع</div>' +
+    '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:5px solid #00FF85;padding-bottom:16px;margin-bottom:22px">' +
+    '<div><div style="font-size:18px;font-weight:700;color:#00FF85">ترتيب الموسم</div>' +
+    '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">' + label(s) + '</h2></div>' +
+    '<div style="display:flex;gap:8px">' +
+    (i > 0 ? '<button class="btn" data-season="' + seasons[i - 1] + '">الموسم السابق</button>' : '') +
+    (i < seasons.length - 1 ? '<button class="btn" data-season="' + seasons[i + 1] + '">الموسم التالي</button>' : '') +
+    '</div></div>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+    '<div class="rows">' + rows + '</div></div></section>';
+}
+
+function managerView(en) {
+  var m = mgrs[en];
+  if (!m) return landingView();
+  var tile = function (n, l, c) { return '<div class="tile"><div class="n"' + (c ? ' style="color:' + c + '"' : '') + '>' + n + '</div><div class="l">' + l + '</div></div>'; };
+  var rows = m.rows.map(function (r) {
+    var a = accent(r.pos);
+    return '<div class="trow trow-m" data-season="' + r.season + '" style="border-right-color:' + a + '">' +
+      '<div class="num" style="flex:0 0 68px;font-size:21px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(r.season) + '</div>' +
+      '<div class="num" style="flex:0 0 44px;font-size:24px;font-weight:700;color:' + a + '">' + r.pos + '</div>' +
+      '<div class="num" style="flex:1 1 80px;min-width:0;font-size:21px;font-weight:600">' + r.pts + '</div>' +
+      '<div class="c-sub">' + fmt(r.rank) + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="archive">← رجوع</div>' +
+    '<div style="border-bottom:5px solid #E90052;padding-bottom:18px;margin-bottom:22px">' +
+    '<div style="font-size:18px;font-weight:700;color:#E90052">ملف المشترك</div>' +
+    '<h2 style="margin:6px 0 4px;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.05">' + esc(m.ar) + '</h2>' +
+    '<div style="font-size:20px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(m.team) + '</div></div>' +
+    '<div class="tiles">' +
+      '<div class="tile" style="background:#E90052;border:0"><div class="n">' + m.titles + '</div><div class="l">ألقاب</div></div>' +
+      '<div class="tile" style="background:#00FF85;color:#38003C;border:0"><div class="n">' + m.podiums + '</div><div class="l">مرات بالمراكز الثلاثة الأولى</div></div>' +
+      tile(m.count, 'مواسم') + tile(fmt(m.total), 'مجموع النقاط') +
+      tile(m.avg, 'متوسط الترتيب', '#04F5FF') + tile(fmt(m.bestRank), 'أفضل ترتيب عالمي', '#04F5FF') +
+    '</div>' +
+    '<div class="thead thead-m" style="border-bottom-color:#04F5FF"><div style="flex:0 0 68px">الموسم</div><div style="flex:0 0 44px">المركز</div><div style="flex:1 1 80px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+    '<div class="rows">' + rows + '</div></div></section>';
+}
+
+var cmpA = null, cmpB = null;
+function compareView() {
+  var A = mgrs[cmpA || allTime[0].en], B = mgrs[cmpB || allTime[1].en];
+  cmpA = A.en; cmpB = B.en;
+  var opts = function (sel) {
+    return allTime.map(function (m) {
+      return '<option value="' + esc(m.en) + '"' + (m.en === sel ? ' selected' : '') + '>' + esc(m.display) + '</option>';
+    }).join('');
+  };
+  var shared = A.rows.filter(function (r) { return B.rows.some(function (x) { return x.season === r.season; }); });
+  var aw = 0, bw = 0;
+  shared.forEach(function (r) {
+    var o = null; B.rows.forEach(function (x) { if (x.season === r.season) o = x; });
+    if (r.pos < o.pos) aw++; else bw++;
+  });
+  var h2h = aw === bw ? 'تعادل ' + aw + ' — ' + bw + ' 😐'
+    : (aw > bw ? A.ar : B.ar) + ' متقدم ' + Math.max(aw, bw) + ' مقابل ' + Math.min(aw, bw);
+  var G = '#00FF85', P = '#FF5C9E', N = 'rgba(255,255,255,.75)';
+  var row = function (l, a, b, hi, fa, fb) {
+    var better = a === b ? 0 : (hi ? (a > b ? 1 : 2) : (a < b ? 1 : 2));
+    return '<div class="cmp-row"><div class="num" style="font-size:24px;font-weight:700;color:' + (better === 1 ? G : N) + '">' + (fa !== undefined ? fa : a) + '</div>' +
+      '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.6)">' + l + '</div>' +
+      '<div class="num" style="font-size:24px;font-weight:700;text-align:left;color:' + (better === 2 ? P : N) + '">' + (fb !== undefined ? fb : b) + '</div></div>';
+  };
+  return '<section class="pad"><div class="wrap">' +
+    '<div class="hd" style="border-bottom-color:#04F5FF"><div class="s" style="color:#04F5FF">وجه لوجه</div><h2 class="sec" style="margin-top:6px">مقارنة بين مشتركين</h2></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:24px">' +
+    '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الأول</div><select id="selA" style="border:2px solid #00FF85">' + opts(A.en) + '</select></div>' +
+    '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الثاني</div><select id="selB" style="border:2px solid #E90052">' + opts(B.en) + '</select></div></div>' +
+    '<div style="background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:22px;margin-bottom:20px">' +
+    '<div style="font-size:16px;font-weight:700;opacity:.8;margin-bottom:6px">تقابلوا في ' + shared.length + ' موسم</div>' +
+    '<div style="font-size:clamp(20px,3vw,28px);font-weight:900;line-height:1.35">' + esc(h2h) + '</div></div>' +
+    '<div class="cmp-hd"><div style="font-size:18px;font-weight:900;color:#00FF85">' + esc(A.display) + '</div>' +
+    '<div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.5)">المقارنة</div>' +
+    '<div style="font-size:18px;font-weight:900;color:#FF5C9E;text-align:left">' + esc(B.display) + '</div></div>' +
+    '<div class="rows">' +
+      row('ألقاب', A.titles, B.titles, true) +
+      row('مرات بالمراكز الثلاثة الأولى', A.podiums, B.podiums, true) +
+      row('مجموع النقاط', A.total, B.total, true, fmt(A.total), fmt(B.total)) +
+      row('مواسم', A.count, B.count, true) +
+      row('متوسط الترتيب', +A.avg, +B.avg, false, A.avg, B.avg) +
+      row('أفضل مركز', A.best, B.best, false) +
+      row('أفضل ترتيب عالمي', A.bestRank, B.bestRank, false, fmt(A.bestRank), fmt(B.bestRank)) +
+    '</div></div></section>';
+}
+
+function render() {
+  var h = location.hash.replace(/^#\/?/, '');
+  var parts = h.split('/');
+  var html, active = 'home';
+  if (parts[0] === 'season' && parts[1]) { html = seasonView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'mgr' && parts[1]) { html = managerView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'gw') { html = gwView(parts[1] ? +parts[1] : LAST_GW); active = 'gw'; }
+  else if (parts[0] === 'archive') { html = homeView(); active = 'archive'; }
+  else if (parts[0] === 'seasons') { html = seasonsView(); active = 'seasons'; }
+  else if (parts[0] === 'managers') { html = managersView(); active = 'managers'; }
+  else if (parts[0] === 'compare') { html = compareView(); active = 'compare'; }
+  else { html = landingView(); }
+  app.innerHTML = html;
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (t) {
+    t.className = 'tab' + (t.getAttribute('data-go') === active ? ' on' : '');
+  });
+  var sa = document.getElementById('selA'), sb = document.getElementById('selB');
+  if (sa) sa.onchange = function () { cmpA = sa.value; app.innerHTML = compareView(); bindSelects(); };
+  if (sb) sb.onchange = function () { cmpB = sb.value; app.innerHTML = compareView(); bindSelects(); };
+}
+function bindSelects() {
+  var sa = document.getElementById('selA'), sb = document.getElementById('selB');
+  if (sa) sa.onchange = function () { cmpA = sa.value; app.innerHTML = compareView(); bindSelects(); };
+  if (sb) sb.onchange = function () { cmpB = sb.value; app.innerHTML = compareView(); bindSelects(); };
+}
+
+document.addEventListener('click', function (e) {
+  var ctl = e.target.closest('[data-sort],[data-open]');
+  if (ctl) {
+    if (ctl.hasAttribute('data-sort')) gwSort = ctl.getAttribute('data-sort');
+    else { var id = +ctl.getAttribute('data-open'); gwOpen = gwOpen === id ? null : id; }
+    var y = window.scrollY;
+    app.innerHTML = gwView(gwCur || LAST_GW);
+    window.scrollTo(0, y);
+    return;
+  }
+  var el = e.target.closest('[data-gw],[data-season],[data-mgr],[data-go]');
+  if (!el) return;
+  if (el.hasAttribute('data-gw')) location.hash = '#/gw/' + el.getAttribute('data-gw');
+  else if (el.hasAttribute('data-season')) location.hash = '#/season/' + encodeURIComponent(el.getAttribute('data-season'));
+  else if (el.hasAttribute('data-mgr')) location.hash = '#/mgr/' + encodeURIComponent(el.getAttribute('data-mgr'));
+  else {
+    var g = el.getAttribute('data-go');
+    location.hash = g === 'home' ? '#/' : '#/' + g;
+  }
+  window.scrollTo(0, 0);
+});
+window.addEventListener('hashchange', function () { render(); window.scrollTo(0, 0); });
+
+var toNum = function (v) {
+  if (v === '' || v === null || v === undefined) return null;
+  if (typeof v === 'number') return v;
+  var n = Number(v);
+  return isNaN(n) ? v : n;
+};
+var toBool = function (v) { return v === true || v === 1 || v === 'True' || v === 'true' || v === '1'; };
+
+function paintUpdated() {
+  var el = document.getElementById('lastUpdated');
+  if (!el) return;
+  if (!GENERATED_AT) { el.textContent = ''; return; }
+  var d = new Date(GENERATED_AT);
+  if (isNaN(d)) { el.textContent = ''; return; }
+  el.innerHTML = 'آخر تحديث: <span class="num" style="direction:ltr;display:inline-block">' + esc(d.toLocaleString()) + '</span>';
+}
+
+function liveNote(g) {
+  if (LIVE_GW === null || LIVE_GW !== g) return '';
+  return '<div style="margin-top:10px;font-size:15px;font-weight:700;color:#04F5FF">جولة GW' + g + ' لسه شغّالة — الأرقام ممكن تتغير.</div>';
+}
+
+function ingest(d) {
+  GW_STATS = (d.manager_gameweek_stats || []).map(function (r) {
+    return [toNum(r.gameweek), r.manager_name, r.team_name, toNum(r.gw_points), toNum(r.cumulative_points),
+      toNum(r.bench_points) || 0, toNum(r.overall_rank), toNum(r.num_transfers) || 0, toNum(r.transfer_cost) || 0,
+      r.chip_played || null, r.captain_name || null, toNum(r.captain_multiplier), toNum(r.league_rank),
+      r.rank_change === null || r.rank_change === undefined || r.rank_change === '' ? null : toNum(r.rank_change),
+      toNum(r.entry_id)];
+  });
+  GW_HL = (d.gameweek_highlights || []).map(function (h) {
+    var o = {};
+    Object.keys(h).forEach(function (k) { o[k] = h[k] === '' ? null : h[k]; });
+    o.gameweek = toNum(o.gameweek);
+    return o;
+  });
+  GW_POP = {};
+  (d.player_gameweek_popularity || []).forEach(function (p) {
+    var g = toNum(p.gameweek);
+    if (!GW_POP[g]) GW_POP[g] = [];
+    GW_POP[g].push([p.player_name, toNum(p.pct_owned) || 0, toNum(p.pct_captained) || 0]);
+  });
+  Object.keys(GW_POP).forEach(function (g) { GW_POP[g].sort(function (a, b) { return b[1] - a[1]; }); });
+  GW_SQUAD = (d.manager_squad_detail || []).map(function (q) {
+    return [toNum(q.gameweek), toNum(q.entry_id), q.player_name, q.position, q.pl_team, q.squad_slot,
+      toBool(q.is_captain) ? 1 : 0, toBool(q.is_vice_captain) ? 1 : 0, toNum(q.multiplier),
+      toNum(q.gw_points_raw) || 0, toNum(q.gw_points_total) || 0, toNum(q.pct_owned) || 0];
+  });
+  SEASON_SUMMARY = d.season_summary || [];
+  GENERATED_AT = d.generated_at || null;
+  LIVE_GW = d.live_gw === undefined || d.live_gw === null || d.live_gw === '' ? null : toNum(d.live_gw);
+  computeGws();
+  paintUpdated();
+}
+
+fetch((window.__resources && window.__resources.fplData) || 'data/fpl-data.json')
+  .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(function (d) { ingest(d); render(); })
+  .catch(function (err) {
+    computeGws();
+    render();
+    console.error('fpl-data.json load failed', err);
+    app.insertAdjacentHTML('afterbegin', '<section class="pad"><div class="wrap"><div style="background:#E90052;padding:18px;font-size:17px;font-weight:800">ما قدرنا نقرأ ملف البيانات <span style="direction:ltr;display:inline-block">data/fpl-data.json</span> — بيانات الجولات ما راح تظهر.</div></div></section>');
+  });
+</script>
+</body>
 </html>
