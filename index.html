@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=["https://claude.ai","https://preview.claude.ai","https://d86c942a-99be-4731-b7ca-1920111e3bbe.claudeusercontent.com"];var B=true;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
-</script>
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Best in Q8 — دوري فانتازي الأصدقاء</title>
@@ -16,6 +13,7 @@
   body{-webkit-font-smoothing:antialiased}
   ::selection{background:#00FF85;color:#38003C}
   .num{font-family:Oswald,sans-serif}
+  bdi{unicode-bidi:isolate}
   .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
   .nav{position:sticky;top:0;z-index:20;background:rgba(42,0,46,.94);backdrop-filter:blur(10px);border-bottom:3px solid #E90052}
   .nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
@@ -92,6 +90,7 @@
     .c-name span{font-size:13px}
     .c-pts{flex:0 0 56px !important;font-size:18px}
     .c-sub{flex:0 0 70px !important;font-size:15px}
+    .gw-mv{display:none !important}
     .thead-m>div:nth-child(1){flex:0 0 46px !important}
     .thead-m>div:nth-child(2){flex:0 0 26px !important}
     .thead-m>div:nth-child(3){flex:1 1 40px !important}
@@ -106,6 +105,8 @@
   <div class="logo" data-go="home"><div class="dot"></div><b>BEST IN <span style="color:#00FF85">Q8</span></b></div>
   <div class="tabs">
     <button class="tab" data-go="home">الرئيسية</button>
+    <button class="tab" data-go="gw">الموسم الحالي</button>
+    <button class="tab" data-go="archive">الأرشيف</button>
     <button class="tab" data-go="seasons">المواسم</button>
     <button class="tab" data-go="managers">المشتركين</button>
     <button class="tab" data-go="compare">مقارنة</button>
@@ -120,7 +121,7 @@
 </div></div>
 
 <script>
-var AR = {"Madi Alkhamis":"ماضي الخميس","HAMAD ALKHAMEES":"حمد الخميس","meshary alderah":"مشاري الدرعة","Musaed Al_Husaini":"مساعد الحسيني","Thamer Alhumaidhi":"ثامر الحميضي","Mohammad R":"محمد الرهيماني","Yousef KH":"يوسف الخميس","mohammad fahad":"محمد الفهد","Ahmed K":"أحمد الخميس","Ali Alkhamees":"علي الخميس","Ali Alkhames":"علي الخميس","Abdullah Alkhamees":"عبدالله الخميس","Abdullah Alkhames":"عبدالله الخميس","Naser Alkhamees":"ناصر الخميس","Nasser T Alkhamis":"ناصر الخميس","fahad alsha6y":"فهد الشطي","Abdulaziz Al Khamees":"عبدالعزيز الخميس","Hussain Bin Mattar":"حسين بن مطر","Saud Alkhamis":"سعود الخميس","nawaf alkhamis":"نواف الخميس","Abdullah Alsultan":"عبدالله السلطان","Homoud Alkhalifah":"حمود الخليفة","Turki Alkhamis":"تركي الخميس","Khaled Alfahed":"خالد الفهد","Fahad Alkhamis":"فهد الخميس","Meshary Alkhamees":"مشاري الخميس","Mubarak Almutairi":"مبارك المطيري","Meshary Abdullah":"مشاري عبدالله"};
+var AR = {"Madi Alkhamis":"ماضي الخميس","HAMAD ALKHAMEES":"حمد الخميس","meshary alderah":"مشاري الدرعة","Musaed Al_Husaini":"مساعد الحسيني","Thamer Alhumaidhi":"ثامر الحميضي","Mohammad R":"محمد الرهيماني","Yousef KH":"يوسف الخميس","mohammad fahad":"محمد الفهد","Ahmed K":"أحمد الخميس","Ali Alkhamees":"علي الخميس","Ali Alkhames":"علي الخميس","Abdullah Alkhamees":"عبدالله الخميس","Abdullah Alkhames":"عبدالله الخميس","Naser Alkhamees":"ناصر الخميس","Nasser T Alkhamis":"ناصر الخميس","fahad alsha6y":"فهد الشطي","Abdulaziz Al Khamees":"عبدالعزيز الخميس","Hussain Bin Mattar":"حسين بن مطر","Saud Alkhamis":"سعود الخميس","nawaf alkhamis":"نواف الخميس","Abdullah Alsultan":"عبدالله السلطان","Homoud Alkhalifah":"حمود الخليفة","Turki Alkhamis":"تركي الخميس","Khaled Alfahed":"خالد الفهد","Fahad Alkhamis":"فهد الخميس","Meshary Alkhamees":"مشاري الخميس","Mubarak Almutairi":"مبارك المطيري","Meshary Abdullah":"مشاري عبدالله","Alwaleed Alfelaij":"وليد الفليج"};
 
 var ROWS = [
   ["2013/14",1,"Madi Alkhamis","القصيعة يونايتد",2408,8000],
@@ -406,6 +407,633 @@ var ROWS = [
 ];
 
 
+var GW_STATS = [
+  [1,"Ahmed K","ahmed k",87,87,0,25708,0,0,"bboost","Haaland",2,1,null,2672807],
+  [1,"HAMAD ALKHAMEES","20 Times",74,74,0,279827,0,0,"bboost","B.Fernandes",2,2,null,26303],
+  [1,"Madi Alkhamis","القصيعة يونايتد",73,73,0,344108,0,0,"bboost","B.Fernandes",2,3,null,70811],
+  [1,"Alwaleed Alfelaij","Bokhaled",70,70,10,529735,0,0,"","Haaland",2,4,null,8097311],
+  [1,"Turki Alkhamis","Q8 Dream",68,68,0,691183,0,0,"bboost","Haaland",2,5,null,574859],
+  [1,"Homoud Alkhalifah","halkhalifah",61,61,0,1605173,0,0,"bboost","Haaland",2,6,null,2586183],
+  [1,"Saud Alkhamis","Azooz@Anfield",61,61,5,1605173,0,0,"","Semenyo",2,6,null,4900926],
+  [1,"Abdulaziz Al Khamees","Bos3yid X11",59,59,0,1987556,0,0,"bboost","Haaland",2,8,null,677433],
+  [1,"Ali Alkhames","arsenal",59,59,0,1987556,0,0,"bboost","Haaland",2,8,null,971334],
+  [1,"mohammad fahad","mohammad fahad",58,58,12,2201654,0,0,"","Haaland",2,10,null,3388158],
+  [1,"Naser Alkhamees","Naser",58,58,3,2201654,0,0,"","Haaland",2,10,null,7774505],
+  [1,"fahad alsha6y","Liverpool",57,57,1,2434397,0,0,"","Haaland",2,12,null,1272313],
+  [1,"Meshary Alkhamees","Romanista",57,57,9,2434397,0,0,"","B.Fernandes",2,12,null,3393908],
+  [1,"nawaf alkhamis","madrak$hesale7",57,57,0,2434397,0,0,"bboost","Haaland",2,12,null,3947636],
+  [1,"Meshary Abdullah","mshary",57,57,1,2434397,0,0,"","Havertz",2,12,null,4949682],
+  [1,"Yousef KH","Stockfish",55,55,16,2935782,0,0,"","Haaland",2,16,null,1723009],
+  [1,"Abdullah Alkhames","alkhames86",55,55,0,2935782,0,0,"","Richarlison",2,16,null,7667973],
+  [1,"Khaled Alfahed","KAF",53,53,14,3482299,0,0,"","B.Fernandes",2,18,null,3205884],
+  [1,"Abdullah Alkhamees","Nerds FC",51,51,0,4087187,0,0,"","Watkins",1,19,null,2948045],
+  [1,"Nasser T Alkhamis","Shadow Strikers",51,51,5,4087187,0,0,"","Haaland",2,19,null,3581670],
+  [1,"meshary alderah","فريق meshary",50,50,9,4383525,0,0,"","Haaland",2,21,null,2908279],
+  [1,"Fahad Alkhamis","Totti",50,50,11,4383525,0,0,"","Haaland",2,21,null,7782200],
+  [1,"Mohammad R","Mohammad's Team",49,49,8,4673927,0,0,"","Isak",2,23,null,6529579],
+  [1,"Thamer Alhumaidhi","Bo Ya3qoub",48,48,10,4969899,0,0,"","Haaland",2,24,null,2180361],
+  [1,"Musaed Al_Husaini","Al Redz",48,48,17,4969899,0,0,"","Haaland",2,24,null,4634908],
+  [1,"Hussain Bin Mattar","Bin Mattar FC",46,46,5,5572584,0,0,"","B.Fernandes",2,26,null,4463568],
+  [1,"Abdullah Alsultan","Abdullah Alsultan",43,43,22,6382778,0,0,"","Haaland",2,27,null,6397101],
+  [1,"Mubarak Almutairi","MUBARAK TM",39,39,7,7295417,0,0,"","Haaland",2,28,null,8882786],
+  [1,"Ali Alkhamees","امبراطور الشمس",37,37,4,7658231,0,0,"","Haaland",2,29,null,4224105]
+];
+
+var GW_HL = [ { "gameweek": 1, "top_scorer": "Ahmed K", "top_score": 87, "bottom_scorer": "Ali Alkhamees", "bottom_score": 37, "best_captain_manager": "Meshary Abdullah", "best_captain_player": "Havertz", "best_captain_points": 12, "worst_captain_manager": "Abdullah Alkhamees", "worst_captain_player": "Watkins", "worst_captain_points": 0, "most_wasted_bench_manager": "Abdullah Alsultan", "wasted_bench_points": 22, "value_king_manager": "Ahmed K", "value_king_value": 100, "value_laggard_manager": "Ahmed K", "value_laggard_value": 100, "chip_master_manager": "Ahmed K", "chip_master_chip": "bboost", "chip_master_score": 87, "no_chip_warrior_manager": "Alwaleed Alfelaij", "no_chip_warrior_score": 70, "most_captained_player": "Haaland", "most_captained_pct": 65.5, "most_owned_player": "João Pedro", "most_owned_pct": 79.3, "chips_played": "Ahmed K (bboost); HAMAD ALKHAMEES (bboost); Madi Alkhamis (bboost); Turki Alkhamis (bboost); Homoud Alkhalifah (bboost); Abdulaziz Al Khamees (bboost); Ali Alkhames (bboost); nawaf alkhamis (bboost)" } ];
+
+var GW_POP = {"1":[["João Pedro",79.3,0],["Haaland",79.3,65.5],["Mbeumo",69,0],["Calvert-Lewin",65.5,0],["Calafiori",62.1,0],["B.Fernandes",62.1,17.2],["Tzolis",62.1,0],["Kinsky",51.7,0],["Shaw",51.7,0],["Szoboszlai",48.3,0],["Verbruggen",41.4,0],["Maguire",37.9,0]]};
+
+var GW_SQUAD = [
+  [1,26303,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,26303,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,26303,"Rodon","DEF","LEE","Starting",0,0,1,6,6,10.3],
+  [1,26303,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,26303,"B.Fernandes","MID","MUN","Starting",1,0,2,2,4,62.1],
+  [1,26303,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,26303,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,26303,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,26303,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,26303,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,26303,"Haaland","FWD","MCI","Starting",0,1,1,2,2,79.3],
+  [1,26303,"Verbruggen","GKP","BHA","Bench",0,0,1,6,6,41.4],
+  [1,26303,"Gomez","MID","BHA","Bench",0,0,1,6,6,24.1],
+  [1,26303,"Ajer","DEF","BRE","Bench",0,0,1,8,8,10.3],
+  [1,26303,"Diop","DEF","IPS","Bench",0,0,1,2,2,20.7],
+  [1,8097311,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,8097311,"White","DEF","ARS","Starting",0,0,1,11,11,27.6],
+  [1,8097311,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,8097311,"Davis","DEF","IPS","Starting",0,0,1,2,2,20.7],
+  [1,8097311,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,8097311,"Dewsbury-Hall","MID","EVE","Starting",0,0,1,11,11,3.4],
+  [1,8097311,"Gomez","MID","BHA","Starting",0,0,1,6,6,24.1],
+  [1,8097311,"Rogers","MID","CHE","Starting",0,0,1,8,8,20.7],
+  [1,8097311,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,8097311,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,8097311,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,8097311,"Verbruggen","GKP","BHA","Bench",0,0,0,6,0,41.4],
+  [1,8097311,"van Ewijk","DEF","COV","Bench",0,0,0,1,0,20.7],
+  [1,8097311,"Hume","DEF","SUN","Bench",0,0,0,2,0,37.9],
+  [1,8097311,"Beto","FWD","EVE","Bench",0,0,0,1,0,3.4],
+  [1,70811,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,70811,"White","DEF","ARS","Starting",0,0,1,11,11,27.6],
+  [1,70811,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,70811,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,70811,"B.Fernandes","MID","MUN","Starting",1,0,2,2,4,62.1],
+  [1,70811,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,70811,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,70811,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,70811,"Thiago","FWD","BRE","Starting",0,1,1,0,0,17.2],
+  [1,70811,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,70811,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,70811,"Verbruggen","GKP","BHA","Bench",0,0,1,6,6,41.4],
+  [1,70811,"E.Le Fée","MID","SUN","Bench",0,0,1,2,2,17.2],
+  [1,70811,"Tarkowski","DEF","EVE","Bench",0,0,1,6,6,6.9],
+  [1,70811,"O'Shea","DEF","IPS","Bench",0,0,1,4,4,3.4],
+  [1,2672807,"Trafford","GKP","LEE","Starting",0,1,1,9,9,3.4],
+  [1,2672807,"Kerkez","DEF","LIV","Starting",0,0,1,0,0,6.9],
+  [1,2672807,"Hume","DEF","SUN","Starting",0,0,1,2,2,37.9],
+  [1,2672807,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,2672807,"Palmer","MID","CHE","Starting",0,0,1,13,13,6.9],
+  [1,2672807,"Wirtz","MID","LIV","Starting",0,0,1,2,2,20.7],
+  [1,2672807,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,2672807,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,2672807,"Gomez","MID","BHA","Starting",0,0,1,6,6,24.1],
+  [1,2672807,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,2672807,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,2672807,"Kinsky","GKP","TOT","Bench",0,0,1,2,2,51.7],
+  [1,2672807,"Calvert-Lewin","FWD","LEE","Bench",0,0,1,1,1,65.5],
+  [1,2672807,"De Cuyper","DEF","BHA","Bench",0,0,1,17,17,3.4],
+  [1,2672807,"Robertson","DEF","TOT","Bench",0,0,1,3,3,6.9],
+  [1,574859,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,574859,"Hume","DEF","SUN","Starting",0,0,1,2,2,37.9],
+  [1,574859,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,574859,"Virgil","DEF","LIV","Starting",0,0,1,2,2,3.4],
+  [1,574859,"Ndiaye","MID","EVE","Starting",0,0,1,9,9,24.1],
+  [1,574859,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,574859,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,574859,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,574859,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,574859,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,574859,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,574859,"Verbruggen","GKP","BHA","Bench",0,0,1,6,6,41.4],
+  [1,574859,"Davis","DEF","IPS","Bench",0,0,1,2,2,20.7],
+  [1,574859,"Hughes","MID","CRY","Bench",0,0,1,0,0,17.2],
+  [1,574859,"Ajer","DEF","BRE","Bench",0,0,1,8,8,10.3],
+  [1,3393908,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,3393908,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,3393908,"White","DEF","ARS","Starting",0,0,1,11,11,27.6],
+  [1,3393908,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,3393908,"B.Fernandes","MID","MUN","Starting",1,0,2,2,4,62.1],
+  [1,3393908,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,3393908,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,3393908,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,3393908,"Haaland","FWD","MCI","Starting",0,1,1,2,2,79.3],
+  [1,3393908,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,3393908,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,3393908,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,3393908,"Gomez","MID","BHA","Bench",0,0,0,6,0,24.1],
+  [1,3393908,"Hume","DEF","SUN","Bench",0,0,0,2,0,37.9],
+  [1,3393908,"van Ewijk","DEF","COV","Bench",0,0,0,1,0,20.7],
+  [1,677433,"Verbruggen","GKP","BHA","Starting",0,0,1,6,6,41.4],
+  [1,677433,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,677433,"Van Hecke","DEF","TOT","Starting",0,0,1,1,1,10.3],
+  [1,677433,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,677433,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,677433,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,677433,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,677433,"Xhaka","MID","SUN","Starting",0,0,1,9,9,3.4],
+  [1,677433,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,677433,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,677433,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,677433,"Kinsky","GKP","TOT","Bench",0,0,1,2,2,51.7],
+  [1,677433,"Hughes","MID","CRY","Bench",0,0,1,0,0,17.2],
+  [1,677433,"Calvert-Lewin","FWD","LEE","Bench",0,0,1,1,1,65.5],
+  [1,677433,"Diop","DEF","IPS","Bench",0,0,1,2,2,20.7],
+  [1,4634908,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,4634908,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,4634908,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,4634908,"Hume","DEF","SUN","Starting",0,0,1,2,2,37.9],
+  [1,4634908,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,4634908,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,4634908,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,4634908,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,4634908,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,4634908,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,4634908,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,4634908,"Verbruggen","GKP","BHA","Bench",0,0,0,6,0,41.4],
+  [1,4634908,"Groß","MID","BHA","Bench",0,0,0,2,0,17.2],
+  [1,4634908,"Ajer","DEF","BRE","Bench",0,0,0,8,0,10.3],
+  [1,4634908,"van Ewijk","DEF","COV","Bench",0,0,0,1,0,20.7],
+  [1,3205884,"Kelleher","GKP","BRE","Starting",0,0,1,7,7,10.3],
+  [1,3205884,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,3205884,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,3205884,"Hume","DEF","SUN","Starting",0,0,1,2,2,37.9],
+  [1,3205884,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,3205884,"B.Fernandes","MID","MUN","Starting",1,0,2,2,4,62.1],
+  [1,3205884,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,3205884,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,3205884,"Haaland","FWD","MCI","Starting",0,1,1,2,2,79.3],
+  [1,3205884,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,3205884,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,3205884,"Steele","GKP","BHA","Bench",0,0,0,0,0,3.4],
+  [1,3205884,"Diop","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,3205884,"Gomez","MID","BHA","Bench",0,0,0,6,0,24.1],
+  [1,3205884,"Vuskovic","DEF","BHA","Bench",0,0,0,6,0,3.4],
+  [1,3388158,"Verbruggen","GKP","BHA","Starting",0,0,1,6,6,41.4],
+  [1,3388158,"Hume","DEF","SUN","Starting",0,0,1,2,2,37.9],
+  [1,3388158,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,3388158,"Mosquera","DEF","ARS","Starting",0,0,1,6,6,10.3],
+  [1,3388158,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,3388158,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,3388158,"Ndiaye","MID","EVE","Starting",0,0,1,9,9,24.1],
+  [1,3388158,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,3388158,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,3388158,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,3388158,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,3388158,"Kinsky","GKP","TOT","Bench",0,0,0,2,0,51.7],
+  [1,3388158,"Groß","MID","BHA","Bench",0,0,0,2,0,17.2],
+  [1,3388158,"Rodon","DEF","LEE","Bench",0,0,0,6,0,10.3],
+  [1,3388158,"Davis","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,7782200,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,7782200,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,7782200,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,7782200,"Ballard","DEF","SUN","Starting",0,0,1,0,0,3.4],
+  [1,7782200,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,7782200,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,7782200,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,7782200,"Gomez","MID","BHA","Starting",0,0,1,6,6,24.1],
+  [1,7782200,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,7782200,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,7782200,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,7782200,"Verbruggen","GKP","BHA","Bench",0,0,0,6,0,41.4],
+  [1,7782200,"Schlager","MID","NFO","Bench",0,0,0,1,0,3.4],
+  [1,7782200,"Davis","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,7782200,"Hume","DEF","SUN","Bench",0,0,0,2,0,37.9],
+  [1,2180361,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,2180361,"Hume","DEF","SUN","Starting",0,0,1,2,2,37.9],
+  [1,2180361,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,2180361,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,2180361,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,2180361,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,2180361,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,2180361,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,2180361,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,2180361,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,2180361,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,2180361,"Verbruggen","GKP","BHA","Bench",0,0,0,6,0,41.4],
+  [1,2180361,"Groß","MID","BHA","Bench",0,0,0,2,0,17.2],
+  [1,2180361,"Davis","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,2180361,"Konsa","DEF","ARS","Bench",0,0,0,0,0,13.8],
+  [1,3947636,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,3947636,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,3947636,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,3947636,"O'Reilly","DEF","MCI","Starting",0,0,1,2,2,6.9],
+  [1,3947636,"Mykolenko","DEF","EVE","Starting",0,0,1,6,6,3.4],
+  [1,3947636,"White","DEF","ARS","Starting",0,0,1,11,11,27.6],
+  [1,3947636,"E.Le Fée","MID","SUN","Starting",0,0,1,2,2,17.2],
+  [1,3947636,"Ndiaye","MID","EVE","Starting",0,0,1,9,9,24.1],
+  [1,3947636,"Gibbs-White","MID","NFO","Starting",0,1,1,2,2,10.3],
+  [1,3947636,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,3947636,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,3947636,"Verbruggen","GKP","BHA","Bench",0,0,1,6,6,41.4],
+  [1,3947636,"Mbeumo","MID","MUN","Bench",0,0,1,2,2,69],
+  [1,3947636,"Tzolis","MID","ARS","Bench",0,0,1,6,6,62.1],
+  [1,3947636,"Isak","FWD","LIV","Bench",0,0,1,2,2,17.2],
+  [1,4224105,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,4224105,"Gabriel","DEF","ARS","Starting",0,0,1,5,5,13.8],
+  [1,4224105,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,4224105,"Van Hecke","DEF","TOT","Starting",0,0,1,1,1,10.3],
+  [1,4224105,"B.Fernandes","MID","MUN","Starting",0,0,1,2,2,62.1],
+  [1,4224105,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,4224105,"Groß","MID","BHA","Starting",0,0,1,2,2,17.2],
+  [1,4224105,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,4224105,"João Pedro","FWD","CHE","Starting",0,1,1,11,11,79.3],
+  [1,4224105,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,4224105,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,4224105,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,4224105,"van Ewijk","DEF","COV","Bench",0,0,0,1,0,20.7],
+  [1,4224105,"Hughes","MID","CRY","Bench",0,0,0,0,0,17.2],
+  [1,4224105,"Thomas","DEF","COV","Bench",0,0,0,3,0,6.9],
+  [1,4949682,"A.Becker","GKP","LIV","Starting",0,0,1,2,2,6.9],
+  [1,4949682,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,4949682,"Milenković","DEF","NFO","Starting",0,0,1,2,2,3.4],
+  [1,4949682,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,4949682,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,4949682,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,4949682,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,4949682,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,4949682,"Rogers","MID","CHE","Starting",0,0,1,8,8,20.7],
+  [1,4949682,"Havertz","FWD","ARS","Starting",1,0,2,6,12,6.9],
+  [1,4949682,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,4949682,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,4949682,"Frimpong","DEF","LIV","Bench",0,0,0,0,0,6.9],
+  [1,4949682,"Walle Egeli","FWD","IPS","Bench",0,0,0,1,0,3.4],
+  [1,4949682,"A.García","DEF","AVL","Bench",0,0,0,0,0,3.4],
+  [1,4463568,"Kelleher","GKP","BRE","Starting",0,0,1,7,7,10.3],
+  [1,4463568,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,4463568,"Gabriel","DEF","ARS","Starting",0,0,1,5,5,13.8],
+  [1,4463568,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,4463568,"Gomez","MID","BHA","Starting",0,0,1,6,6,24.1],
+  [1,4463568,"E.Le Fée","MID","SUN","Starting",0,0,1,2,2,17.2],
+  [1,4463568,"B.Fernandes","MID","MUN","Starting",1,0,2,2,4,62.1],
+  [1,4463568,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,4463568,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,4463568,"Haaland","FWD","MCI","Starting",0,1,1,2,2,79.3],
+  [1,4463568,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,4463568,"Kinsky","GKP","TOT","Bench",0,0,0,2,0,51.7],
+  [1,4463568,"Sarr","MID","CRY","Bench",0,0,0,0,0,6.9],
+  [1,4463568,"Diop","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,4463568,"van Ewijk","DEF","COV","Bench",0,0,0,1,0,20.7],
+  [1,2908279,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,2908279,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,2908279,"Rodon","DEF","LEE","Starting",0,0,1,6,6,10.3],
+  [1,2908279,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,2908279,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,2908279,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,2908279,"Wirtz","MID","LIV","Starting",0,0,1,2,2,20.7],
+  [1,2908279,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,2908279,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,2908279,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,2908279,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,2908279,"Matthews","GKP","CRY","Bench",0,0,0,0,0,3.4],
+  [1,2908279,"Davis","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,2908279,"Slater","MID","HUL","Bench",0,0,0,6,0,3.4],
+  [1,2908279,"van Ewijk","DEF","COV","Bench",0,0,0,1,0,20.7],
+  [1,7774505,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,7774505,"Gabriel","DEF","ARS","Starting",0,0,1,5,5,13.8],
+  [1,7774505,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,7774505,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,7774505,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,7774505,"Ndiaye","MID","EVE","Starting",0,0,1,9,9,24.1],
+  [1,7774505,"Foden","MID","MCI","Starting",0,0,1,1,1,6.9],
+  [1,7774505,"E.Le Fée","MID","SUN","Starting",0,0,1,2,2,17.2],
+  [1,7774505,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,7774505,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,7774505,"Barry","FWD","EVE","Starting",0,0,1,8,8,3.4],
+  [1,7774505,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,7774505,"Hughes","MID","CRY","Bench",0,0,0,0,0,17.2],
+  [1,7774505,"Diop","DEF","IPS","Bench",0,0,0,2,0,20.7],
+  [1,7774505,"O'Nien","DEF","SUN","Bench",0,0,0,1,0,3.4],
+  [1,1723009,"Verbruggen","GKP","BHA","Starting",0,0,1,6,6,41.4],
+  [1,1723009,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,1723009,"Van Hecke","DEF","TOT","Starting",0,0,1,1,1,10.3],
+  [1,1723009,"Thomas","DEF","COV","Starting",0,0,1,3,3,6.9],
+  [1,1723009,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,1723009,"Gibbs-White","MID","NFO","Starting",0,0,1,2,2,10.3],
+  [1,1723009,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,1723009,"Ndiaye","MID","EVE","Starting",0,0,1,9,9,24.1],
+  [1,1723009,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,1723009,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,1723009,"Havertz","FWD","ARS","Starting",0,1,1,6,6,6.9],
+  [1,1723009,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,1723009,"Hinshelwood","MID","BHA","Bench",0,0,0,16,0,3.4],
+  [1,1723009,"Konsa","DEF","ARS","Bench",0,0,0,0,0,13.8],
+  [1,1723009,"Palestra","DEF","CHE","Bench",0,0,0,0,0,3.4],
+  [1,971334,"Lammens","GKP","MUN","Starting",0,0,1,1,1,6.9],
+  [1,971334,"O'Reilly","DEF","MCI","Starting",0,0,1,2,2,6.9],
+  [1,971334,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,971334,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,971334,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,971334,"E.Le Fée","MID","SUN","Starting",0,0,1,2,2,17.2],
+  [1,971334,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,971334,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,971334,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,971334,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,971334,"João Pedro","FWD","CHE","Starting",0,1,1,11,11,79.3],
+  [1,971334,"Kinsky","GKP","TOT","Bench",0,0,1,2,2,51.7],
+  [1,971334,"Aaronson","MID","LEE","Bench",0,0,1,3,3,3.4],
+  [1,971334,"White","DEF","ARS","Bench",0,0,1,11,11,27.6],
+  [1,971334,"Hume","DEF","SUN","Bench",0,0,1,2,2,37.9],
+  [1,3581670,"Lammens","GKP","MUN","Starting",0,0,1,1,1,6.9],
+  [1,3581670,"Gvardiol","DEF","MCI","Starting",0,0,1,9,9,10.3],
+  [1,3581670,"White","DEF","ARS","Starting",0,0,1,11,11,27.6],
+  [1,3581670,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,3581670,"Groß","MID","BHA","Starting",0,0,1,2,2,17.2],
+  [1,3581670,"Mbeumo","MID","MUN","Starting",0,1,1,2,2,69],
+  [1,3581670,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,3581670,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,3581670,"Wirtz","MID","LIV","Starting",0,0,1,2,2,20.7],
+  [1,3581670,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,3581670,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,3581670,"Kinsky","GKP","TOT","Bench",0,0,0,2,0,51.7],
+  [1,3581670,"Hume","DEF","SUN","Bench",0,0,0,2,0,37.9],
+  [1,3581670,"Solanke","FWD","TOT","Bench",0,0,0,1,0,3.4],
+  [1,3581670,"Konsa","DEF","ARS","Bench",0,0,0,0,0,13.8],
+  [1,2586183,"Pickford","GKP","EVE","Starting",0,0,1,7,7,3.4],
+  [1,2586183,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,2586183,"Mosquera","DEF","ARS","Starting",0,0,1,6,6,10.3],
+  [1,2586183,"Muharemović","DEF","LEE","Starting",0,0,1,6,6,3.4],
+  [1,2586183,"Gibbs-White","MID","NFO","Starting",0,0,1,2,2,10.3],
+  [1,2586183,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,2586183,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,2586183,"Ndiaye","MID","EVE","Starting",0,0,1,9,9,24.1],
+  [1,2586183,"Tonali","MID","TOT","Starting",0,1,1,2,2,6.9],
+  [1,2586183,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,2586183,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,2586183,"Kinsky","GKP","TOT","Bench",0,0,1,2,2,51.7],
+  [1,2586183,"Isak","FWD","LIV","Bench",0,0,1,2,2,17.2],
+  [1,2586183,"White","DEF","ARS","Bench",0,0,1,11,11,27.6],
+  [1,2586183,"Konsa","DEF","ARS","Bench",0,0,1,0,0,13.8],
+  [1,8882786,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,8882786,"Diop","DEF","IPS","Starting",0,0,1,2,2,20.7],
+  [1,8882786,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,8882786,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,8882786,"B.Fernandes","MID","MUN","Starting",0,1,1,2,2,62.1],
+  [1,8882786,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,8882786,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,8882786,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,8882786,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,8882786,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,8882786,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,8882786,"Forster","GKP","BOU","Bench",0,0,0,0,0,6.9],
+  [1,8882786,"Coyle","DEF","HUL","Bench",0,0,0,6,0,3.4],
+  [1,8882786,"Targett","DEF","HUL","Bench",0,0,0,1,0,3.4],
+  [1,8882786,"Kusi-Asare","FWD","FUL","Bench",0,0,0,0,0,3.4],
+  [1,4900926,"Raya","GKP","ARS","Starting",0,0,1,6,6,24.1],
+  [1,4900926,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,4900926,"Gvardiol","DEF","MCI","Starting",0,0,1,9,9,10.3],
+  [1,4900926,"Maguire","DEF","MUN","Starting",0,0,1,1,1,37.9],
+  [1,4900926,"Mbeumo","MID","MUN","Starting",0,1,1,2,2,69],
+  [1,4900926,"Rogers","MID","CHE","Starting",0,0,1,8,8,20.7],
+  [1,4900926,"Saka","MID","ARS","Starting",0,0,1,9,9,6.9],
+  [1,4900926,"Semenyo","MID","MCI","Starting",1,0,2,2,4,31],
+  [1,4900926,"Thiago","FWD","BRE","Starting",0,0,1,0,0,17.2],
+  [1,4900926,"Isak","FWD","LIV","Starting",0,0,1,2,2,17.2],
+  [1,4900926,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,4900926,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,4900926,"Wilson","MID","LEE","Bench",0,0,0,3,0,3.4],
+  [1,4900926,"Jacquet","DEF","LIV","Bench",0,0,0,1,0,6.9],
+  [1,4900926,"Reinildo","DEF","SUN","Bench",0,0,0,1,0,3.4],
+  [1,6397101,"Verbruggen","GKP","BHA","Starting",0,0,1,6,6,41.4],
+  [1,6397101,"Cash","DEF","AVL","Starting",0,0,1,-1,-1,3.4],
+  [1,6397101,"Shaw","DEF","MUN","Starting",0,0,1,1,1,51.7],
+  [1,6397101,"Calafiori","DEF","ARS","Starting",0,0,1,9,9,62.1],
+  [1,6397101,"Tzolis","MID","ARS","Starting",0,0,1,6,6,62.1],
+  [1,6397101,"Tonali","MID","TOT","Starting",0,0,1,2,2,6.9],
+  [1,6397101,"B.Fernandes","MID","MUN","Starting",0,0,1,2,2,62.1],
+  [1,6397101,"Wirtz","MID","LIV","Starting",0,0,1,2,2,20.7],
+  [1,6397101,"Calvert-Lewin","FWD","LEE","Starting",0,0,1,1,1,65.5],
+  [1,6397101,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,6397101,"João Pedro","FWD","CHE","Starting",0,1,1,11,11,79.3],
+  [1,6397101,"Kelleher","GKP","BRE","Bench",0,0,0,7,0,10.3],
+  [1,6397101,"Aina","DEF","NFO","Bench",0,0,0,5,0,3.4],
+  [1,6397101,"Ndiaye","MID","EVE","Bench",0,0,0,9,0,24.1],
+  [1,6397101,"Jacquet","DEF","LIV","Bench",0,0,0,1,0,6.9],
+  [1,1272313,"Kinsky","GKP","TOT","Starting",0,0,1,2,2,51.7],
+  [1,1272313,"Mosquera","DEF","ARS","Starting",0,0,1,6,6,10.3],
+  [1,1272313,"Robertson","DEF","TOT","Starting",0,0,1,3,3,6.9],
+  [1,1272313,"Guéhi","DEF","MCI","Starting",0,0,1,10,10,10.3],
+  [1,1272313,"Frimpong","DEF","LIV","Starting",0,0,1,0,0,6.9],
+  [1,1272313,"Saka","MID","ARS","Starting",0,0,1,9,9,6.9],
+  [1,1272313,"Wirtz","MID","LIV","Starting",0,0,1,2,2,20.7],
+  [1,1272313,"Rogers","MID","CHE","Starting",0,0,1,8,8,20.7],
+  [1,1272313,"Haaland","FWD","MCI","Starting",1,0,2,2,4,79.3],
+  [1,1272313,"João Pedro","FWD","CHE","Starting",0,0,1,11,11,79.3],
+  [1,1272313,"Isak","FWD","LIV","Starting",0,1,1,2,2,17.2],
+  [1,1272313,"Dubravka","GKP","TOT","Bench",0,0,0,0,0,24.1],
+  [1,1272313,"Shaw","DEF","MUN","Bench",0,0,0,1,0,51.7],
+  [1,1272313,"Hughes","MID","CRY","Bench",0,0,0,0,0,17.2],
+  [1,1272313,"Yates","MID","NFO","Bench",0,0,0,0,0,3.4],
+  [1,6529579,"A.Becker","GKP","LIV","Starting",0,1,1,2,2,6.9],
+  [1,6529579,"Senesi","DEF","TOT","Starting",0,0,1,3,3,6.9],
+  [1,6529579,"Guéhi","DEF","MCI","Starting",0,0,1,10,10,10.3],
+  [1,6529579,"Lacroix","DEF","CHE","Starting",0,0,1,6,6,6.9],
+  [1,6529579,"Murillo","DEF","NFO","Starting",0,0,1,4,4,3.4],
+  [1,6529579,"Cherki","MID","MCI","Starting",0,0,1,8,8,3.4],
+  [1,6529579,"Rogers","MID","CHE","Starting",0,0,1,8,8,20.7],
+  [1,6529579,"Rice","MID","ARS","Starting",0,0,1,3,3,3.4],
+  [1,6529579,"Foden","MID","MCI","Starting",0,0,1,1,1,6.9],
+  [1,6529579,"Isak","FWD","LIV","Starting",1,0,2,2,4,17.2],
+  [1,6529579,"Thiago","FWD","BRE","Starting",0,0,1,0,0,17.2],
+  [1,6529579,"Phillips","GKP","HUL","Bench",0,0,0,0,0,3.4],
+  [1,6529579,"Pedro Porro","DEF","TOT","Bench",0,0,0,0,0,3.4],
+  [1,6529579,"Szoboszlai","MID","LIV","Bench",0,0,0,8,0,48.3],
+  [1,6529579,"Watkins","FWD","AVL","Bench",0,0,0,0,0,6.9],
+  [1,2948045,"Donnarumma","GKP","MCI","Starting",0,1,2,3,6,6.9],
+  [1,2948045,"Senesi","DEF","TOT","Starting",0,0,1,3,3,6.9],
+  [1,2948045,"Tarkowski","DEF","EVE","Starting",0,0,1,6,6,6.9],
+  [1,2948045,"Guéhi","DEF","MCI","Starting",0,0,1,10,10,10.3],
+  [1,2948045,"Lacroix","DEF","CHE","Starting",0,0,1,6,6,6.9],
+  [1,2948045,"Semenyo","MID","MCI","Starting",0,0,1,2,2,31],
+  [1,2948045,"Wirtz","MID","LIV","Starting",0,0,1,2,2,20.7],
+  [1,2948045,"Rogers","MID","CHE","Starting",0,0,1,8,8,20.7],
+  [1,2948045,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,2948045,"Watkins","FWD","AVL","Starting",1,0,1,0,0,6.9],
+  [1,2948045,"Thiago","FWD","BRE","Starting",0,0,1,0,0,17.2],
+  [1,2948045,"Lecomte","GKP","FUL","Bench",0,0,0,0,0,3.4],
+  [1,2948045,"Mukiele","DEF","SUN","Bench",0,0,0,0,0,3.4],
+  [1,2948045,"Bruno G.","MID","ARS","Bench",0,0,0,0,0,3.4],
+  [1,2948045,"Gyökeres","FWD","ARS","Bench",0,0,0,0,0,6.9],
+  [1,7667973,"Donnarumma","GKP","MCI","Starting",0,1,1,3,3,6.9],
+  [1,7667973,"White","DEF","ARS","Starting",0,0,1,11,11,27.6],
+  [1,7667973,"Gabriel","DEF","ARS","Starting",0,0,1,5,5,13.8],
+  [1,7667973,"James","DEF","CHE","Starting",0,0,1,0,0,3.4],
+  [1,7667973,"Gvardiol","DEF","MCI","Starting",0,0,1,9,9,10.3],
+  [1,7667973,"Kerkez","DEF","LIV","Starting",0,0,1,0,0,6.9],
+  [1,7667973,"Palmer","MID","CHE","Starting",0,0,1,13,13,6.9],
+  [1,7667973,"Mbeumo","MID","MUN","Starting",0,0,1,2,2,69],
+  [1,7667973,"Szoboszlai","MID","LIV","Starting",0,0,1,8,8,48.3],
+  [1,7667973,"Richarlison","FWD","TOT","Starting",1,0,2,2,4,3.4],
+  [1,7667973,"Thiago","FWD","BRE","Starting",0,0,1,0,0,17.2],
+  [1,7667973,"Forster","GKP","BOU","Bench",0,0,0,0,0,6.9],
+  [1,7667973,"Gyökeres","FWD","ARS","Bench",0,0,0,0,0,6.9],
+  [1,7667973,"Doku","MID","MCI","Bench",0,0,0,0,0,3.4],
+  [1,7667973,"Sarr","MID","CRY","Bench",0,0,0,0,0,6.9]
+];
+
+var CHIP_AR = {bboost:'بنش بوست', '3xc':'كابتن ثلاثي', wildcard:'وايلد كارد', freehit:'فري هت'};
+var GWS = [];
+GW_STATS.forEach(function (r) { if (GWS.indexOf(r[0]) < 0) GWS.push(r[0]); });
+GWS.sort(function (a, b) { return a - b; });
+var LAST_GW = GWS[GWS.length - 1];
+var nameAr = function (en) { return AR[en] || en; };
+var gwRows = function (g) {
+  return GW_STATS.filter(function (r) { return r[0] === g; })
+    .sort(function (a, b) { return a[12] - b[12] || b[3] - a[3]; });
+};
+var gwHl = function (g) { var o = null; GW_HL.forEach(function (h) { if (h.gameweek === g) o = h; }); return o || {}; };
+
+var awardCard = function (o) {
+  if (!o.who && !o.who2) return '';
+  return '<div style="background:' + o.bg + ';color:' + (o.fg || '#fff') + ';padding:20px;display:flex;flex-direction:column;gap:6px' + (o.border ? ';border:2px solid ' + o.border : '') + '">' +
+    '<div style="font-size:16px;font-weight:800;' + (o.kc ? 'color:' + o.kc : 'opacity:.75') + '">' + o.k + '</div>' +
+    '<div style="font-size:clamp(21px,3vw,26px);font-weight:900;line-height:1.15">' + esc(o.who) + '</div>' +
+    (o.sub ? '<div style="font-size:16px;font-weight:600;opacity:.8;line-height:1.4">' + o.sub + '</div>' : '') +
+    (o.big !== undefined ? '<div class="num" style="font-size:44px;font-weight:700;line-height:1;margin-top:2px">' + o.big + '</div>' : '') +
+    '</div>';
+};
+
+function gwAwards(g) {
+  var h = gwHl(g);
+  var cards = [
+    awardCard({ k: 'نجم الجولة', who: nameAr(h.top_scorer), big: h.top_score, sub: 'أعلى واحد بالدوري هالجولة', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'خيبة الجولة', who: nameAr(h.bottom_scorer), big: h.bottom_score, sub: 'الله يعوّض عليه', bg: '#E90052' }),
+    awardCard({ k: 'الكابتن الذهبي', who: nameAr(h.best_captain_manager), big: h.best_captain_points, sub: 'اختار <bdi><b style="font-weight:800">' + esc(h.best_captain_player || '') + '</b></bdi> وضبطت', bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'الكابتن المنحوس', who: nameAr(h.worst_captain_manager), big: h.worst_captain_points, sub: 'حط الشارة على <bdi><b style="font-weight:800">' + esc(h.worst_captain_player || '') + '</b></bdi> 💀', bg: '#2A002E', kc: '#FF5C9E' }),
+    awardCard({ k: 'مقبرة الدكة', who: nameAr(h.most_wasted_bench_manager), big: h.wasted_bench_points, sub: 'نقطة قاعدة على الدكة تتفرج', bg: '#7A0B4A', kc: '#FF7FB0' }),
+    awardCard({ k: 'ملك الخصايص', who: nameAr(h.chip_master_manager), big: h.chip_master_score, sub: 'لعب <bdi><b style="font-weight:800">' + (CHIP_AR[h.chip_master_chip] || h.chip_master_chip || '') + '</b></bdi> وطلع بأعلى نتيجة', bg: '#38003C', border: '#04F5FF', kc: '#04F5FF' }),
+    awardCard({ k: 'أغلى تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_king_manager) : null, big: h.value_king_value, sub: 'مليون قيمة فريق — أعلى واحد بالدوري', bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'أرخص تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_laggard_manager) : null, big: h.value_laggard_value, sub: 'مليون بس — يعيش على الرخيص', bg: '#46124F', border: '#FF7FB0', kc: '#FF7FB0' }),
+    awardCard({ k: 'ضربة معلم', who: nameAr(h.one_move_master_manager), big: h.one_move_master_net_impact, sub: 'تبديل واحد بس — وجابها', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'محارب بلا خاصية', who: nameAr(h.no_chip_warrior_manager), big: h.no_chip_warrior_score, sub: 'أعلى نتيجة بدون أي خاصية', bg: '#46124F', border: '#00FF85', kc: '#00FF85' }),
+    awardCard({ k: 'صاروخ الجولة', who: nameAr(h.biggest_riser), big: h.riser_places_gained ? '+' + h.riser_places_gained : undefined, sub: 'مركز طلعهم فوق', bg: '#00FF85', fg: '#38003C' }),
+    awardCard({ k: 'سقوط حر', who: nameAr(h.biggest_faller), big: h.faller_places_lost ? '-' + h.faller_places_lost : undefined, sub: 'مركز راحوا عليه', bg: '#E90052' }),
+    awardCard({ k: 'أذكى صفقة', who: nameAr(h.sharpest_trader_manager), big: h.sharpest_trader_net_impact, sub: 'ربح صافي من التبديلات', bg: '#04F5FF', fg: '#38003C' }),
+    awardCard({ k: 'لخبطة التبديلات', who: nameAr(h.transfer_tangle_manager), big: h.transfer_tangle_net_impact, sub: 'غيّر... وندم', bg: '#2A002E', border: '#E90052', kc: '#E90052' })
+  ].join('');
+  var crowd = '';
+  if (h.most_captained_player || h.most_owned_player) {
+    crowd =
+      (h.most_captained_player ? '<div style="background:linear-gradient(120deg,#04F5FF 0%,#00A8B5 100%);color:#38003C;padding:24px">' +
+        '<div style="font-size:16px;font-weight:800;opacity:.8">كابتن الشعب</div>' +
+        '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(h.most_captained_player) + '</div>' +
+        '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(h.most_captained_pct) + '%</span> من الدوري عطوه الكبتنة</div></div>' : '') +
+      (h.most_owned_player ? '<div style="background:linear-gradient(120deg,#00FF85 0%,#00C463 100%);color:#38003C;padding:24px">' +
+        '<div style="font-size:16px;font-weight:800;opacity:.8">لاعب ما يغيب عن أي فريق</div>' +
+        '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(h.most_owned_player) + '</div>' +
+        '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(h.most_owned_pct) + '%</span> من الفرق فيها هذا اللاعب</div></div>' : '');
+  }
+  return cards + crowd;
+}
+
+var gwSort = 'total', gwOpen = null, gwCur = null;
+var POS_AR = { GKP: 'حراسة', DEF: 'دفاع', MID: 'وسط', FWD: 'هجوم' };
+
+function playerCard(p, dim) {
+  var cap = p[6] ? 'C' : (p[7] ? 'V' : '');
+  var pts = p[8] === 0 ? p[9] : p[10];
+  var ptsBg = pts >= 10 ? '#00FF85' : pts >= 5 ? 'rgba(0,255,133,.2)' : pts <= 1 ? 'rgba(233,0,82,.28)' : 'rgba(255,255,255,.07)';
+  var ptsFg = pts >= 10 ? '#38003C' : '#fff';
+  return '<div style="display:flex;align-items:center;gap:6px;background:' + (p[6] ? 'rgba(0,255,133,.14)' : '#2A002E') + ';padding:0 0 0 0;' + (dim ? 'opacity:.6;' : '') + '">' +
+    '<bdi style="flex:1;min-width:0;padding:5px 9px;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(p[2]) + '</bdi>' +
+    (cap ? '<span class="num" style="font-size:11px;font-weight:700;background:' + (p[6] ? '#00FF85' : 'rgba(255,255,255,.18)') + ';color:' + (p[6] ? '#38003C' : '#fff') + ';padding:0 4px;line-height:15px">' + cap + '</span>' : '') +
+    '<span class="num" style="flex:0 0 auto;font-size:12px;font-weight:600;color:rgba(255,255,255,.42)">' + p[11] + '%</span>' +
+    '<span class="num" style="flex:0 0 34px;text-align:center;padding:5px 0;font-size:16px;font-weight:700;background:' + ptsBg + ';color:' + ptsFg + '">' + pts + '</span>' +
+    '</div>';
+}
+
+function squadPanel(g, r) {
+  var sq = GW_SQUAD.filter(function (x) { return x[0] === g && x[1] === r[14]; });
+  if (!sq.length) return '<div style="background:#2A002E;padding:18px;font-size:17px;font-weight:700;color:rgba(255,255,255,.5)">ما فيه تفاصيل تشكيلة لهالجولة.</div>';
+  var order = { GKP: 0, DEF: 1, MID: 2, FWD: 3 };
+  var start = sq.filter(function (x) { return x[5] === 'Starting'; }).sort(function (a, b) { return order[a[3]] - order[b[3]]; });
+  var bench = sq.filter(function (x) { return x[5] !== 'Starting'; }).sort(function (a, b) { return order[a[3]] - order[b[3]]; });
+  var lines = ['GKP', 'DEF', 'MID', 'FWD'].map(function (pz) {
+    var g2 = start.filter(function (x) { return x[3] === pz; });
+    if (!g2.length) return '';
+    return '<div style="margin-bottom:8px"><div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.38);margin-bottom:4px">' + POS_AR[pz] + '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px">' +
+      g2.map(function (p) { return playerCard(p, false); }).join('') + '</div></div>';
+  }).join('');
+  var pill = function (l, v, c) {
+    return '<div style="background:rgba(255,255,255,.08);padding:6px 12px;display:flex;gap:7px;align-items:baseline">' +
+      '<span style="font-size:13px;font-weight:700;color:rgba(255,255,255,.5)">' + l + '</span>' +
+      '<span class="num" style="font-size:17px;font-weight:700' + (c ? ';color:' + c : '') + '">' + v + '</span></div>';
+  };
+  return '<div style="background:#38003C;border-right:6px solid #00FF85;padding:16px">' +
+    '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px">' +
+      pill('نقاط الجولة', r[3], '#00FF85') +
+      pill('الترتيب العالمي', fmt(r[6])) +
+      pill('الدكة', r[5], r[5] > 8 ? '#FF5C9E' : null) +
+      pill('الكابتن', esc(r[10])) +
+      (r[7] ? pill('تبديلات', r[7] + (r[8] ? ' (-' + r[8] + ')' : '')) : '') +
+      (r[9] ? '<div style="background:#04F5FF;color:#38003C;padding:6px 12px;font-size:15px;font-weight:800">' + (CHIP_AR[r[9]] || r[9]) + '</div>' : '') +
+    '</div>' + lines +
+    (bench.length ? '<div><div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.38);margin-bottom:4px">الدكة' + (r[9] === 'bboost' ? ' <span style="color:#00FF85">— محسوبة (بنش بوست)</span>' : ' <span style="color:rgba(255,255,255,.3)">— غير محسوبة</span>') + '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px">' +
+      bench.map(function (p) { return playerCard(p, true); }).join('') + '</div></div>' : '') +
+    '</div>';
+}
+
+function gwView(g) {
+  g = g || LAST_GW;
+  gwCur = g;
+  var rows = gwRows(g);
+  var pop = (GW_POP[g] || []).slice(0, 10);
+  var picker = GWS.slice().reverse().map(function (x) {
+    return '<button class="btn' + (x === g ? ' on' : '') + '" data-gw="' + x + '" style="' + (x === g ? 'background:#00FF85;color:#38003C' : '') + '">GW' + x + '</button>';
+  }).join('');
+  if (gwSort === 'gw') rows = rows.slice().sort(function (a, b) { return b[3] - a[3]; });
+  var table = rows.map(function (r, i) {
+    var pos = gwSort === 'gw' ? i + 1 : r[12];
+    var a = accent(pos);
+    var ch = r[13];
+    var mv = ch === null || ch === 0 ? '<span style="color:rgba(255,255,255,.35)">—</span>'
+      : ch > 0 ? '<span style="color:#00FF85">▲' + ch + '</span>' : '<span style="color:#FF5C9E">▼' + Math.abs(ch) + '</span>';
+    var open = gwOpen === r[14];
+    return '<div class="trow" data-open="' + r[14] + '" style="border-right-color:' + a + (open ? ';background:#5A1A67' : '') + '">' +
+      '<div class="c-rank" style="color:' + a + '">' + pos + '</div>' +
+      '<div class="c-name"><b>' + esc(nameAr(r[1])) + ' <span style="font-size:14px;color:' + (open ? '#00FF85' : 'rgba(255,255,255,.4)') + '">' + (open ? '▲' : '▼') + '</span></b><span><bdi>' + esc(r[2]) + '</bdi>' + (r[9] ? ' · <bdi>' + (CHIP_AR[r[9]] || r[9]) + '</bdi>' : '') + '</span></div>' +
+      '<div class="c-pts"' + (gwSort === 'gw' ? ' style="color:#00FF85"' : '') + '>' + r[3] + '</div>' +
+      '<div class="c-sub"' + (gwSort === 'total' ? ' style="color:#00FF85;font-weight:700"' : '') + '>' + fmt(r[4]) + '</div>' +
+      '<div class="c-sub gw-mv" style="flex:0 0 54px;font-weight:700">' + mv + '</div></div>' +
+      (open ? squadPanel(g, r) : '');
+  }).join('');
+  var sortBar = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">' +
+    '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);align-self:center">رتّب حسب</span>' +
+    '<button class="btn" data-sort="total" style="' + (gwSort === 'total' ? 'background:#00FF85;color:#38003C' : '') + '">إجمالي النقاط</button>' +
+    '<button class="btn" data-sort="gw" style="' + (gwSort === 'gw' ? 'background:#00FF85;color:#38003C' : '') + '">نقاط الجولة</button></div>';
+  var popList = pop.map(function (p) {
+    return '<div style="display:flex;align-items:center;gap:10px;background:#46124F;padding:10px 14px">' +
+      '<div style="flex:1;min-width:0;font-size:18px;font-weight:800;direction:ltr;text-align:right">' + esc(p[0]) + '</div>' +
+      '<div class="num" style="flex:0 0 62px;font-size:19px;font-weight:700;color:#00FF85">' + Math.round(p[1]) + '%</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap">' +
+    '<div style="border-bottom:5px solid #00FF85;padding-bottom:16px;margin-bottom:20px">' +
+    '<div style="font-size:18px;font-weight:700;color:#00FF85">ملخص الجولة</div>' +
+    '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">GW' + g + '</h2></div>' +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">' + picker + '</div>' +
+    '<div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">جوائز الجولة</h2><div class="s" style="color:#E90052">منو لمع ومنو احترق</div></div>' +
+    '<div class="cards" style="margin-bottom:36px">' + gwAwards(g) + '</div>' +
+    '<div class="hd" style="border-bottom-color:#04F5FF"><h2 class="sec">ترتيب الجولة</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك تشوف تشكيلته</div></div>' +
+    sortBar +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك · اضغط للتشكيلة</div><div style="flex:0 0 84px">الجولة</div><div style="flex:0 0 92px">المجموع</div><div class="gw-mv" style="flex:0 0 54px">حركة</div></div>' +
+    '<div class="rows" style="margin-bottom:36px">' + table + '</div>' +
+    (popList ? '<div class="hd" style="border-bottom-color:#00FF85"><h2 class="sec">لاعبين الكل شاريهم</h2><div class="s" style="color:#00FF85">نسبة ملكيتهم داخل الدوري</div></div>' +
+      '<div class="rows">' + popList + '</div>' : '') +
+    '</div></section>';
+}
+
 var app = document.getElementById('app');
 var label = function (s) { return s.slice(2, 4) + '/' + s.slice(5); };
 var fmt = function (n) { return n.toLocaleString('en-US'); };
@@ -449,6 +1077,64 @@ var seasonRows = function (s) {
     return r ? { m: m, r: r } : null;
   }).filter(Boolean).sort(function (a, b) { return a.r.pos - b.r.pos; });
 };
+
+function landingView() {
+  var g = LAST_GW, hl = gwHl(g);
+  var champ = seasonRows(seasons[seasons.length - 1])[0];
+  var card = function (o) {
+    return '<div data-go="' + o.go + '" style="cursor:pointer;background:' + o.bg + ';color:' + o.fg + ';padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;gap:14px;min-height:clamp(300px,42vw,400px);border-top:8px solid ' + o.bar + '">' +
+      '<div style="font-size:17px;font-weight:800;opacity:.7">' + o.eyebrow + '</div>' +
+      '<h2 style="margin:0;font-size:clamp(34px,5.4vw,54px);font-weight:900;line-height:1">' + o.title + '</h2>' +
+      '<p style="margin:0;font-size:clamp(17px,2.2vw,21px);font-weight:500;line-height:1.5;opacity:.85;text-wrap:pretty">' + o.body + '</p>' +
+      '<div style="margin-top:auto;display:flex;gap:10px;flex-wrap:wrap">' + o.chips + '</div>' +
+      '<div style="font-size:19px;font-weight:900;opacity:.9">' + o.cta + ' ←</div></div>';
+  };
+  var chip = function (n, l, dark) {
+    return '<div style="background:' + (dark ? 'rgba(0,0,0,.14)' : 'rgba(255,255,255,.12)') + ';padding:10px 14px;min-width:96px;display:flex;flex-direction:column;justify-content:center">' +
+      '<div style="font-size:' + (String(n).length > 6 ? 'clamp(19px,2.4vw,23px)' : '28px') + ';font-weight:' + (String(n).length > 6 ? '900' : '700') + ';line-height:1.15;font-family:' + (String(n).length > 6 ? 'inherit' : 'Oswald,sans-serif') + '">' + n + '</div>' +
+      '<div style="font-size:14px;font-weight:700;opacity:.75;margin-top:2px">' + l + '</div></div>';
+  };
+  return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,80px) 0 clamp(30px,5vw,50px)"><div class="wrap">' +
+    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
+    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
+    '<p class="lede" style="margin-bottom:0">وين تبي تروح؟ تابع الموسم الجاري جولة بجولة، أو نبش بالأرشيف وشوف منو صنع التاريخ.</p>' +
+    '</div></div>' +
+    '<section class="pad"><div class="wrap">' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">' +
+    card({ go: 'gw', bg: '#00FF85', fg: '#38003C', bar: '#38003C', eyebrow: 'مباشر اللحين', title: 'الموسم الحالي', cta: 'ادخل ملخص الجولات',
+      body: 'ملخص كل جولة: جوائز، ترتيب، خصايص، ومنو كابتنه ضيّعه. آخر تحديث بعد الجولة ' + g + '.',
+      chips: chip('GW' + g, 'آخر جولة', 1) + chip(hl.top_score, 'أعلى نقاط', 1) + chip(esc(nameAr(hl.top_scorer)), 'نجم الجولة', 1) }) +
+    card({ go: 'archive', bg: '#46124F', fg: '#fff', bar: '#E90052', eyebrow: '2013 — 2026', title: 'أرشيف المواسم', cta: 'ادخل الأرشيف',
+      body: 'كل الأبطال، الترتيب التاريخي، أرقام ما تنسى، وملف كامل لكل مشترك — ومقارنة وجه لوجه.',
+      chips: chip(seasons.length, 'موسم') + chip(allTime.length, 'مشترك') + chip(esc(champ.m.ar), 'آخر بطل') }) +
+    '</div></div></section>';
+}
+
+function gwBand() {
+  var g = LAST_GW, h = gwHl(g), rows = gwRows(g).slice(0, 3);
+  var top = rows.map(function (r) {
+    var a = accent(r[12]);
+    return '<div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);padding:10px 14px;border-right:5px solid ' + a + '">' +
+      '<div class="num" style="flex:0 0 26px;font-size:22px;font-weight:700;color:' + a + '">' + r[12] + '</div>' +
+      '<div style="flex:1;min-width:0;font-size:19px;font-weight:800">' + esc(nameAr(r[1])) + '</div>' +
+      '<div class="num" style="font-size:22px;font-weight:700;color:#00FF85">' + r[3] + '</div></div>';
+  }).join('');
+  return '<section class="pad"><div class="wrap">' +
+    '<div style="background:#2A002E;border-top:5px solid #00FF85;padding:clamp(22px,4vw,34px)">' +
+    '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px">' +
+    '<div><div style="font-size:17px;font-weight:800;color:#00FF85">آخر جولة في الموسم الحالي</div>' +
+    '<h2 class="num" style="margin:2px 0 0;font-size:clamp(40px,8vw,68px);font-weight:700;line-height:.95;direction:ltr;text-align:right">GW' + g + '</h2></div>' +
+    '<button class="btn" data-go="gw" style="background:#00FF85;color:#38003C">كل تفاصيل الجولة ←</button></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px">' +
+    '<div style="background:#00FF85;color:#38003C;padding:18px"><div style="font-size:16px;font-weight:800;opacity:.75">نجم الجولة</div>' +
+    '<div style="font-size:clamp(22px,3vw,28px);font-weight:900;line-height:1.15">' + esc(nameAr(h.top_scorer)) + '</div>' +
+    '<div class="num" style="font-size:42px;font-weight:700;line-height:1">' + h.top_score + '</div></div>' +
+    '<div style="background:#E90052;padding:18px"><div style="font-size:16px;font-weight:800;opacity:.8">خيبة الجولة</div>' +
+    '<div style="font-size:clamp(22px,3vw,28px);font-weight:900;line-height:1.15">' + esc(nameAr(h.bottom_scorer)) + '</div>' +
+    '<div class="num" style="font-size:42px;font-weight:700;line-height:1">' + h.bottom_score + '</div></div>' +
+    '<div style="display:flex;flex-direction:column;gap:6px">' + top + '</div>' +
+    '</div></div></div></section>';
+}
 
 function homeView() {
   var champs = seasons.map(function (s) {
@@ -552,7 +1238,7 @@ function seasonView(s) {
       '<div class="c-name"><b>' + esc(x.m.display) + '</b><span>' + esc(x.m.team) + '</span></div>' +
       '<div class="c-pts">' + x.r.pts + '</div><div class="c-sub">' + fmt(x.r.rank) + '</div></div>';
   }).join('');
-  return '<section class="pad"><div class="wrap"><div class="back" data-go="home">← رجوع</div>' +
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="archive">← رجوع</div>' +
     '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:5px solid #00FF85;padding-bottom:16px;margin-bottom:22px">' +
     '<div><div style="font-size:18px;font-weight:700;color:#00FF85">ترتيب الموسم</div>' +
     '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">' + label(s) + '</h2></div>' +
@@ -566,7 +1252,7 @@ function seasonView(s) {
 
 function managerView(en) {
   var m = mgrs[en];
-  if (!m) return homeView();
+  if (!m) return landingView();
   var tile = function (n, l, c) { return '<div class="tile"><div class="n"' + (c ? ' style="color:' + c + '"' : '') + '>' + n + '</div><div class="l">' + l + '</div></div>'; };
   var rows = m.rows.map(function (r) {
     var a = accent(r.pos);
@@ -576,7 +1262,7 @@ function managerView(en) {
       '<div class="num" style="flex:1 1 80px;min-width:0;font-size:21px;font-weight:600">' + r.pts + '</div>' +
       '<div class="c-sub">' + fmt(r.rank) + '</div></div>';
   }).join('');
-  return '<section class="pad"><div class="wrap"><div class="back" data-go="home">← رجوع</div>' +
+  return '<section class="pad"><div class="wrap"><div class="back" data-go="archive">← رجوع</div>' +
     '<div style="border-bottom:5px solid #E90052;padding-bottom:18px;margin-bottom:22px">' +
     '<div style="font-size:18px;font-weight:700;color:#E90052">ملف المشترك</div>' +
     '<h2 style="margin:6px 0 4px;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.05">' + esc(m.ar) + '</h2>' +
@@ -643,10 +1329,12 @@ function render() {
   var html, active = 'home';
   if (parts[0] === 'season' && parts[1]) { html = seasonView(decodeURIComponent(parts[1])); }
   else if (parts[0] === 'mgr' && parts[1]) { html = managerView(decodeURIComponent(parts[1])); }
+  else if (parts[0] === 'gw') { html = gwView(parts[1] ? +parts[1] : LAST_GW); active = 'gw'; }
+  else if (parts[0] === 'archive') { html = homeView(); active = 'archive'; }
   else if (parts[0] === 'seasons') { html = seasonsView(); active = 'seasons'; }
   else if (parts[0] === 'managers') { html = managersView(); active = 'managers'; }
   else if (parts[0] === 'compare') { html = compareView(); active = 'compare'; }
-  else { html = homeView(); }
+  else { html = landingView(); }
   app.innerHTML = html;
   Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (t) {
     t.className = 'tab' + (t.getAttribute('data-go') === active ? ' on' : '');
@@ -662,9 +1350,19 @@ function bindSelects() {
 }
 
 document.addEventListener('click', function (e) {
-  var el = e.target.closest('[data-season],[data-mgr],[data-go]');
+  var ctl = e.target.closest('[data-sort],[data-open]');
+  if (ctl) {
+    if (ctl.hasAttribute('data-sort')) gwSort = ctl.getAttribute('data-sort');
+    else { var id = +ctl.getAttribute('data-open'); gwOpen = gwOpen === id ? null : id; }
+    var y = window.scrollY;
+    app.innerHTML = gwView(gwCur || LAST_GW);
+    window.scrollTo(0, y);
+    return;
+  }
+  var el = e.target.closest('[data-gw],[data-season],[data-mgr],[data-go]');
   if (!el) return;
-  if (el.hasAttribute('data-season')) location.hash = '#/season/' + encodeURIComponent(el.getAttribute('data-season'));
+  if (el.hasAttribute('data-gw')) location.hash = '#/gw/' + el.getAttribute('data-gw');
+  else if (el.hasAttribute('data-season')) location.hash = '#/season/' + encodeURIComponent(el.getAttribute('data-season'));
   else if (el.hasAttribute('data-mgr')) location.hash = '#/mgr/' + encodeURIComponent(el.getAttribute('data-mgr'));
   else {
     var g = el.getAttribute('data-go');
