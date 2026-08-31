@@ -6,9 +6,12 @@ instead of five CSVs, meant to be run by a GitHub Actions workflow and
 committed into the repo so a static site (e.g. GitHub Pages) can fetch it
 same-origin - no CORS issue, no manual re-upload each week.
 
-If --end_gw is left at 0 (the default), it auto-detects the most recent
-FINISHED gameweek from the FPL API, so you don't need to track/update a
-gameweek number by hand - just run the workflow.
+If --end_gw is left at 0 (the default), it auto-detects which gameweek to
+pull: if one is currently IN PROGRESS (deadline passed, matches not all
+done), it includes that one and marks it "live_gw" in the output JSON -
+so cards can show a "LIVE" badge and viewers know bonus points etc. may
+still shift. Otherwise it falls back to the latest fully FINISHED
+gameweek. Either way, no gameweek number needs to be tracked by hand.
 
 Usage (matches what the GitHub Actions workflow calls):
     python3 export_fpl_data.py --league_id=14514 --end_gw=0
@@ -54,6 +57,30 @@ def get_latest_finished_gw(bootstrap):
     if not finished:
         raise RuntimeError("No finished gameweeks yet this season.")
     return max(finished)
+
+
+def resolve_end_gw(bootstrap):
+    """Decide which gameweek to pull up to when --end_gw=0 (auto).
+
+    Returns (end_gw, is_live):
+      - If a gameweek is currently in progress (deadline passed, matches
+        not all finished yet), include it and report is_live=True - its
+        numbers (especially bonus points) can still shift until FPL marks
+        it finished.
+      - Otherwise, fall back to the latest fully-finished gameweek,
+        is_live=False.
+    """
+    events = bootstrap["events"]
+    finished = [e["id"] for e in events if e.get("finished")]
+    latest_finished = max(finished) if finished else 0
+
+    current = next((e for e in events if e.get("is_current")), None)
+    if current and not current.get("finished"):
+        return current["id"], True
+
+    if not latest_finished:
+        raise RuntimeError("No finished or in-progress gameweeks yet this season.")
+    return latest_finished, False
 
 
 def get_league_entries(session, league_id):
@@ -366,9 +393,11 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
     entries = get_league_entries(session, league_id)
     print(f"Found {len(entries)} managers in the league.")
 
+    is_live = False
     if not end_gw:
-        end_gw = get_latest_finished_gw(bootstrap)
-        print(f"Auto-detected latest finished gameweek: {end_gw}")
+        end_gw, is_live = resolve_end_gw(bootstrap)
+        status = "IN PROGRESS - numbers may still shift" if is_live else "finished"
+        print(f"Auto-detected gameweek {end_gw} ({status})")
 
     print(f"Pulling gameweeks {start_gw}-{end_gw} (this can take a minute)...")
     rows, popularity_rows, squad_detail_rows = build_manager_gameweek_rows(
@@ -385,6 +414,7 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
         "league_id": league_id,
         "start_gw": start_gw,
         "end_gw": end_gw,
+        "live_gw": end_gw if is_live else None,
         "manager_gameweek_stats": df_records(df),
         "player_gameweek_popularity": df_records(popularity_df),
         "gameweek_highlights": df_records(highlights_df),
