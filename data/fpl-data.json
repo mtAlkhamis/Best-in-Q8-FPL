@@ -2,8 +2,8 @@
   "league_id": 14514,
   "start_gw": 1,
   "end_gw": 3,
-  "live_gw": 3,
-  "generated_at": "2026-09-07T11:35:57.713225+00:00",
+  "live_gw": null,
+  "generated_at": "2026-09-07T20:23:33.489379+00:00",
   "manager_gameweek_stats": [
     {
       "gameweek": 1,
@@ -6154,5 +6154,669 @@
       "current_cumulative_points": 33,
       "current_league_rank": 31
     }
-  ]
+  ],
+  "season_history": {
+    "current_season": null,
+    "seasons_completed": 13,
+    "past_seasons": [
+      {
+        "season": "2025/26",
+        "num_managers": 30,
+        "champion": {
+          "manager_name": "Yousef KH",
+          "team_name": "Stockfish",
+          "points": 2356
+        },
+        "runner_up": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2312
+        },
+        "third_place": {
+          "manager_name": "Musaed Al_Husaini",
+          "team_name": "Al Redz",
+          "points": 2283
+        },
+        "wooden_spoon": {
+          "manager_name": "Mubarak Almutairi",
+          "team_name": "MUBARAK TM",
+          "points": 1165
+        }
+      },
+      {
+        "season": "2024/25",
+        "num_managers": 29,
+        "champion": {
+          "manager_name": "Musaed Al_Husaini",
+          "team_name": "Al Redz",
+          "points": 2548
+        },
+        "runner_up": {
+          "manager_name": "Ali Alkhames",
+          "team_name": "arsenal",
+          "points": 2525
+        },
+        "third_place": {
+          "manager_name": "HAMAD ALKHAMEES",
+          "team_name": "20 Times",
+          "points": 2490
+        },
+        "wooden_spoon": {
+          "manager_name": "Mohammad R",
+          "team_name": "Mohammad's Team",
+          "points": 1657
+        }
+      },
+      {
+        "season": "2023/24",
+        "num_managers": 27,
+        "champion": {
+          "manager_name": "Musaed Al_Husaini",
+          "team_name": "Al Redz",
+          "points": 2536
+        },
+        "runner_up": {
+          "manager_name": "HAMAD ALKHAMEES",
+          "team_name": "20 Times",
+          "points": 2462
+        },
+        "third_place": {
+          "manager_name": "Fahad Alkhamis",
+          "team_name": "Totti",
+          "points": 2447
+        },
+        "wooden_spoon": {
+          "manager_name": "Mubarak Almutairi",
+          "team_name": "MUBARAK TM",
+          "points": 1732
+        }
+      },
+      {
+        "season": "2022/23",
+        "num_managers": 28,
+        "champion": {
+          "manager_name": "mohammad fahad",
+          "team_name": "mohammad fahad",
+          "points": 2583
+        },
+        "runner_up": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2537
+        },
+        "third_place": {
+          "manager_name": "meshary alderah",
+          "team_name": "\u0641\u0631\u064a\u0642 meshary",
+          "points": 2515
+        },
+        "wooden_spoon": {
+          "manager_name": "Meshary Abdullah",
+          "team_name": "mshary",
+          "points": 1464
+        }
+      },
+      {
+        "season": "2021/22",
+        "num_managers": 27,
+        "champion": {
+          "manager_name": "Musaed Al_Husaini",
+          "team_name": "Al Redz",
+          "points": 2523
+        },
+        "runner_up": {
+          "manager_name": "Khaled Alfahed",
+          "team_name": "KAF",
+          "points": 2500
+        },
+        "third_place": {
+          "manager_name": "mohammad fahad",
+          "team_name": "mohammad fahad",
+          "points": 2465
+        },
+        "wooden_spoon": {
+          "manager_name": "Naser Alkhamees",
+          "team_name": "Naser",
+          "points": 537
+        }
+      },
+      {
+        "season": "2020/21",
+        "num_managers": 25,
+        "champion": {
+          "manager_name": "Meshary Alkhamees",
+          "team_name": "Romanista",
+          "points": 2585
+        },
+        "runner_up": {
+          "manager_name": "HAMAD ALKHAMEES",
+          "team_name": "20 Times",
+          "points": 2460
+        },
+        "third_place": {
+          "manager_name": "Fahad Alkhamis",
+          "team_name": "Totti",
+          "points": 2436
+        },
+        "wooden_spoon": {
+          "manager_name": "Nasser T Alkhamis",
+          "team_name": "Shadow Strikers",
+          "points": 1837
+        }
+      },
+      {
+        "season": "2019/20",
+        "num_managers": 26,
+        "champion": {
+          "manager_name": "Yousef KH",
+          "team_name": "Stockfish",
+          "points": 2344
+        },
+        "runner_up": {
+          "manager_name": "HAMAD ALKHAMEES",
+          "team_name": "20 Times",
+          "points": 2339
+        },
+        "third_place": {
+          "manager_name": "mohammad fahad",
+          "team_name": "mohammad fahad",
+          "points": 2332
+        },
+        "wooden_spoon": {
+          "manager_name": "Mubarak Almutairi",
+          "team_name": "MUBARAK TM",
+          "points": 539
+        }
+      },
+      {
+        "season": "2018/19",
+        "num_managers": 25,
+        "champion": {
+          "manager_name": "Yousef KH",
+          "team_name": "Stockfish",
+          "points": 2387
+        },
+        "runner_up": {
+          "manager_name": "mohammad fahad",
+          "team_name": "mohammad fahad",
+          "points": 2366
+        },
+        "third_place": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2271
+        },
+        "wooden_spoon": {
+          "manager_name": "Meshary Abdullah",
+          "team_name": "mshary",
+          "points": 78
+        }
+      },
+      {
+        "season": "2017/18",
+        "num_managers": 21,
+        "champion": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2310
+        },
+        "runner_up": {
+          "manager_name": "Abdulaziz Al Khamees",
+          "team_name": "Bos3yid X11",
+          "points": 2277
+        },
+        "third_place": {
+          "manager_name": "Mohammad R",
+          "team_name": "Mohammad's Team",
+          "points": 2258
+        },
+        "wooden_spoon": {
+          "manager_name": "Turki Alkhamis",
+          "team_name": "Q8 Dream",
+          "points": 1589
+        }
+      },
+      {
+        "season": "2016/17",
+        "num_managers": 18,
+        "champion": {
+          "manager_name": "Mohammad R",
+          "team_name": "Mohammad's Team",
+          "points": 2392
+        },
+        "runner_up": {
+          "manager_name": "Thamer Alhumaidhi",
+          "team_name": "Bo Ya3qoub",
+          "points": 2270
+        },
+        "third_place": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2240
+        },
+        "wooden_spoon": {
+          "manager_name": "Turki Alkhamis",
+          "team_name": "Q8 Dream",
+          "points": 1443
+        }
+      },
+      {
+        "season": "2015/16",
+        "num_managers": 17,
+        "champion": {
+          "manager_name": "Yousef KH",
+          "team_name": "Stockfish",
+          "points": 2113
+        },
+        "runner_up": {
+          "manager_name": "Thamer Alhumaidhi",
+          "team_name": "Bo Ya3qoub",
+          "points": 2104
+        },
+        "third_place": {
+          "manager_name": "Ali Alkhamees",
+          "team_name": "\u0627\u0645\u0628\u0631\u0627\u0637\u0648\u0631 \u0627\u0644\u0634\u0645\u0633",
+          "points": 2103
+        },
+        "wooden_spoon": {
+          "manager_name": "fahad alsha6y",
+          "team_name": "Liverpool",
+          "points": 1638
+        }
+      },
+      {
+        "season": "2014/15",
+        "num_managers": 10,
+        "champion": {
+          "manager_name": "meshary alderah",
+          "team_name": "\u0641\u0631\u064a\u0642 meshary",
+          "points": 2188
+        },
+        "runner_up": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2172
+        },
+        "third_place": {
+          "manager_name": "Mohammad R",
+          "team_name": "Mohammad's Team",
+          "points": 2098
+        },
+        "wooden_spoon": {
+          "manager_name": "Abdullah Alkhamees",
+          "team_name": "Nerds FC",
+          "points": 1521
+        }
+      },
+      {
+        "season": "2013/14",
+        "num_managers": 9,
+        "champion": {
+          "manager_name": "Madi Alkhamis",
+          "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+          "points": 2408
+        },
+        "runner_up": {
+          "manager_name": "Thamer Alhumaidhi",
+          "team_name": "Bo Ya3qoub",
+          "points": 2182
+        },
+        "third_place": {
+          "manager_name": "meshary alderah",
+          "team_name": "\u0641\u0631\u064a\u0642 meshary",
+          "points": 2133
+        },
+        "wooden_spoon": {
+          "manager_name": "Abdulaziz Al Khamees",
+          "team_name": "Bos3yid X11",
+          "points": 1931
+        }
+      }
+    ],
+    "hall_of_fame": [
+      {
+        "manager_name": "Yousef KH",
+        "seasons_played": 11,
+        "titles": 4,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 4,
+        "best_finish": 1,
+        "best_finish_season": "2015/16",
+        "career_total_points": 25359,
+        "average_points": 2305.4
+      },
+      {
+        "manager_name": "Musaed Al_Husaini",
+        "seasons_played": 13,
+        "titles": 3,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 4,
+        "best_finish": 1,
+        "best_finish_season": "2021/22",
+        "career_total_points": 29095,
+        "average_points": 2238.1
+      },
+      {
+        "manager_name": "Madi Alkhamis",
+        "seasons_played": 13,
+        "titles": 2,
+        "runner_up_finishes": 3,
+        "top_3_finishes": 7,
+        "best_finish": 1,
+        "best_finish_season": "2013/14",
+        "career_total_points": 29800,
+        "average_points": 2292.3
+      },
+      {
+        "manager_name": "mohammad fahad",
+        "seasons_played": 9,
+        "titles": 1,
+        "runner_up_finishes": 1,
+        "top_3_finishes": 4,
+        "best_finish": 1,
+        "best_finish_season": "2022/23",
+        "career_total_points": 21204,
+        "average_points": 2356.0
+      },
+      {
+        "manager_name": "meshary alderah",
+        "seasons_played": 13,
+        "titles": 1,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 3,
+        "best_finish": 1,
+        "best_finish_season": "2014/15",
+        "career_total_points": 29337,
+        "average_points": 2256.7
+      },
+      {
+        "manager_name": "Mohammad R",
+        "seasons_played": 13,
+        "titles": 1,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 3,
+        "best_finish": 1,
+        "best_finish_season": "2016/17",
+        "career_total_points": 26417,
+        "average_points": 2032.1
+      },
+      {
+        "manager_name": "Meshary Alkhamees",
+        "seasons_played": 8,
+        "titles": 1,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 1,
+        "best_finish": 1,
+        "best_finish_season": "2020/21",
+        "career_total_points": 18425,
+        "average_points": 2303.1
+      },
+      {
+        "manager_name": "HAMAD ALKHAMEES",
+        "seasons_played": 13,
+        "titles": 0,
+        "runner_up_finishes": 3,
+        "top_3_finishes": 4,
+        "best_finish": 2,
+        "best_finish_season": "2019/20",
+        "career_total_points": 29429,
+        "average_points": 2263.8
+      },
+      {
+        "manager_name": "Thamer Alhumaidhi",
+        "seasons_played": 13,
+        "titles": 0,
+        "runner_up_finishes": 3,
+        "top_3_finishes": 3,
+        "best_finish": 2,
+        "best_finish_season": "2013/14",
+        "career_total_points": 28993,
+        "average_points": 2230.2
+      },
+      {
+        "manager_name": "Fahad Alkhamis",
+        "seasons_played": 8,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 2,
+        "best_finish": 3,
+        "best_finish_season": "2020/21",
+        "career_total_points": 18430,
+        "average_points": 2303.8
+      },
+      {
+        "manager_name": "Abdulaziz Al Khamees",
+        "seasons_played": 13,
+        "titles": 0,
+        "runner_up_finishes": 1,
+        "top_3_finishes": 1,
+        "best_finish": 2,
+        "best_finish_season": "2017/18",
+        "career_total_points": 27847,
+        "average_points": 2142.1
+      },
+      {
+        "manager_name": "Ali Alkhamees",
+        "seasons_played": 12,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 1,
+        "best_finish": 3,
+        "best_finish_season": "2015/16",
+        "career_total_points": 24981,
+        "average_points": 2081.8
+      },
+      {
+        "manager_name": "Hussain Bin Mattar",
+        "seasons_played": 11,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 1,
+        "best_finish": 3,
+        "best_finish_season": "2015/16",
+        "career_total_points": 23728,
+        "average_points": 2157.1
+      },
+      {
+        "manager_name": "Khaled Alfahed",
+        "seasons_played": 9,
+        "titles": 0,
+        "runner_up_finishes": 1,
+        "top_3_finishes": 1,
+        "best_finish": 2,
+        "best_finish_season": "2021/22",
+        "career_total_points": 20492,
+        "average_points": 2276.9
+      },
+      {
+        "manager_name": "Ali Alkhames",
+        "seasons_played": 3,
+        "titles": 0,
+        "runner_up_finishes": 1,
+        "top_3_finishes": 1,
+        "best_finish": 2,
+        "best_finish_season": "2024/25",
+        "career_total_points": 6905,
+        "average_points": 2301.7
+      },
+      {
+        "manager_name": "fahad alsha6y",
+        "seasons_played": 13,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 8,
+        "best_finish_season": "2013/14",
+        "career_total_points": 25500,
+        "average_points": 1961.5
+      },
+      {
+        "manager_name": "Abdullah Alkhamees",
+        "seasons_played": 12,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 7,
+        "best_finish_season": "2016/17",
+        "career_total_points": 24136,
+        "average_points": 2011.3
+      },
+      {
+        "manager_name": "Saud Alkhamis",
+        "seasons_played": 11,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 4,
+        "best_finish_season": "2018/19",
+        "career_total_points": 23905,
+        "average_points": 2173.2
+      },
+      {
+        "manager_name": "nawaf alkhamis",
+        "seasons_played": 11,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 4,
+        "best_finish_season": "2020/21",
+        "career_total_points": 23684,
+        "average_points": 2153.1
+      },
+      {
+        "manager_name": "Abdullah Alsultan",
+        "seasons_played": 11,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 9,
+        "best_finish_season": "2016/17",
+        "career_total_points": 23635,
+        "average_points": 2148.6
+      },
+      {
+        "manager_name": "Mohammed Al-Khamees",
+        "seasons_played": 11,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 5,
+        "best_finish_season": "2015/16",
+        "career_total_points": 22939,
+        "average_points": 2085.4
+      },
+      {
+        "manager_name": "Turki Alkhamis",
+        "seasons_played": 10,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 4,
+        "best_finish_season": "2019/20",
+        "career_total_points": 21207,
+        "average_points": 2120.7
+      },
+      {
+        "manager_name": "Ahmed K",
+        "seasons_played": 9,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 8,
+        "best_finish_season": "2025/26",
+        "career_total_points": 19774,
+        "average_points": 2197.1
+      },
+      {
+        "manager_name": "Homoud Alkhalifah",
+        "seasons_played": 10,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 12,
+        "best_finish_season": "2016/17",
+        "career_total_points": 19717,
+        "average_points": 1971.7
+      },
+      {
+        "manager_name": "Meshary Abdullah",
+        "seasons_played": 8,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 11,
+        "best_finish_season": "2015/16",
+        "career_total_points": 14493,
+        "average_points": 1811.6
+      },
+      {
+        "manager_name": "Nasser T Alkhamis",
+        "seasons_played": 7,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 12,
+        "best_finish_season": "2025/26",
+        "career_total_points": 13258,
+        "average_points": 1894.0
+      },
+      {
+        "manager_name": "Mubarak Almutairi",
+        "seasons_played": 7,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 23,
+        "best_finish_season": "2020/21",
+        "career_total_points": 11072,
+        "average_points": 1581.7
+      },
+      {
+        "manager_name": "Abdullah Alkhames",
+        "seasons_played": 5,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 20,
+        "best_finish_season": "2024/25",
+        "career_total_points": 10271,
+        "average_points": 2054.2
+      },
+      {
+        "manager_name": "Naser Alkhamees",
+        "seasons_played": 4,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 16,
+        "best_finish_season": "2025/26",
+        "career_total_points": 6290,
+        "average_points": 1572.5
+      },
+      {
+        "manager_name": "Sami Alkhamis",
+        "seasons_played": 1,
+        "titles": 0,
+        "runner_up_finishes": 0,
+        "top_3_finishes": 0,
+        "best_finish": 26,
+        "best_finish_season": "2025/26",
+        "career_total_points": 1917,
+        "average_points": 1917.0
+      }
+    ],
+    "highest_single_season_score": {
+      "manager_name": "Meshary Alkhamees",
+      "team_name": "Romanista",
+      "season": "2020/21",
+      "points": 2585
+    },
+    "most_improved_season": {
+      "manager_name": "Ali Alkhames",
+      "from_season": "2023/24",
+      "to_season": "2024/25",
+      "from_position": 19,
+      "to_position": 2,
+      "places_gained": 17
+    }
+  }
 }
