@@ -38,6 +38,14 @@ BOOTSTRAP_URL = FPL_URL + "bootstrap-static/"
 LEAGUE_CLASSIC_URL = FPL_URL + "leagues-classic/"
 LIVE_URL = FPL_URL + "event/{gw}/live/"
 PICKS_URL = FPL_URL + "entry/{entry_id}/event/{gw}/picks/"
+TRANSFERS_URL = FPL_URL + "entry/{entry_id}/transfers/"
+HISTORY_URL = FPL_URL + "entry/{entry_id}/history/"
+
+# Chips that let a manager swap most/all of their squad in a way that isn't
+# a normal, considered transfer decision - free hit is temporary (the squad
+# reverts automatically the following gameweek) and wildcard is a full
+# rebuild. Neither should be eligible for the transfer awards.
+SQUAD_OVERHAUL_CHIPS = {"wildcard", "freehit"}
 
 
 def get_bootstrap(session):
@@ -123,27 +131,74 @@ def get_entry_gw_picks(session, entry_id, gw):
     return session.get(PICKS_URL.format(entry_id=entry_id, gw=gw)).json()
 
 
+def get_entry_transfers(session, entry_id):
+    """Every transfer this entry has ever made, tagged with which gameweek
+    ("event") it happened in. This is FPL's own transfer ledger - unlike
+    diffing one gameweek's squad against the last, it does NOT record a
+    free hit's temporary swap (or its automatic reversion the following
+    week) as transfers, because it isn't one.
+    """
+    return session.get(TRANSFERS_URL.format(entry_id=entry_id)).json()
+
+
+def get_entry_history(session, entry_id):
+    """This entry's full season history in one call - current[] has one row
+    per gameweek with the authoritative event_transfers / event_transfers_cost
+    for that week (including free-hit weeks, where the picks endpoint's own
+    entry_history has been seen to under-report the transfer count).
+    """
+    return session.get(HISTORY_URL.format(entry_id=entry_id)).json()
+
+
 FPL_ENTRY_URL = "https://fantasy.premierleague.com/entry/{entry_id}/event/{gw}"
 
 
 def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info):
     rows, popularity_rows = [], []
-    prev_squads = {}
     season_transfers = {}  # entry_id -> cumulative transfers made so far this season
+
+    # Transfers and per-gameweek history are each fetched ONCE per manager
+    # (both endpoints already return full-season data) rather than diffing
+    # picks between consecutive gameweeks. A picks diff can't tell a real
+    # transfer apart from a free hit's temporary squad swap - which reverts
+    # automatically the following gameweek - so it was reporting 11-13
+    # phantom "transfers" on free-hit weeks, and again the week after when
+    # the squad snaps back. FPL's own transfer ledger doesn't have that
+    # problem: free hit and wildcard swaps just aren't recorded as transfers
+    # there unless they actually are.
+    transfers_by_entry_gw = {}
+    history_by_entry_gw = {}
+    for entry in entries:
+        entry_id = entry["entry_id"]
+        by_gw = {}
+        for t in get_entry_transfers(session, entry_id):
+            by_gw.setdefault(t["event"], []).append(t)
+        transfers_by_entry_gw[entry_id] = by_gw
+        history = get_entry_history(session, entry_id)
+        history_by_entry_gw[entry_id] = {row["event"]: row for row in history.get("current", [])}
 
     for gw in range(start_gw, end_gw + 1):
         gw_player_points = get_gw_live_points(session, gw)
-        squads_this_gw = {}
         captain_counts = Counter()
         owned_counts = Counter()
         num_managers_this_gw = 0
 
         for entry in entries:
-            data = get_entry_gw_picks(session, entry["entry_id"], gw)
-            hist = data.get("entry_history")
-            if not hist:
+            entry_id = entry["entry_id"]
+            data = get_entry_gw_picks(session, entry_id, gw)
+            picks_hist = data.get("entry_history")
+            if not picks_hist:
                 continue
             num_managers_this_gw += 1
+
+            # event_transfers / event_transfers_cost come from the season
+            # history endpoint, not the picks endpoint's own entry_history -
+            # the latter has been seen to under-report the transfer count on
+            # free-hit weeks specifically. Fall back to the picks endpoint's
+            # value only if history doesn't have this gw yet for some reason.
+            gw_hist = history_by_entry_gw.get(entry_id, {}).get(gw, picks_hist)
+            num_transfers = gw_hist["event_transfers"]
+            transfer_cost = gw_hist["event_transfers_cost"]
 
             picks = data.get("picks", [])
             squad_ids = {p["element"] for p in picks}
@@ -164,57 +219,69 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
             bench_points_computed = sum(
                 gw_player_points.get(p["element"], 0) for p in picks if p["multiplier"] == 0
             )
-            points_delta = gw_points_computed - hist["points"]
+            points_delta = gw_points_computed - picks_hist["points"]
 
-            season_transfers[entry["entry_id"]] = (
-                season_transfers.get(entry["entry_id"], 0) + hist["event_transfers"]
-            )
+            season_transfers[entry_id] = season_transfers.get(entry_id, 0) + num_transfers
 
             for pid in squad_ids:
                 owned_counts[pid] += 1
             if captain_id:
                 captain_counts[captain_id] += 1
 
-            prev_squad = prev_squads.get(entry["entry_id"])
-            if prev_squad is not None:
-                transferred_in = squad_ids - prev_squad
-                transferred_out = prev_squad - squad_ids
-                points_in = sum(gw_player_points.get(pid, 0) for pid in transferred_in)
-                points_out = sum(gw_player_points.get(pid, 0) for pid in transferred_out)
-                net_transfer_impact = points_in - points_out - hist["event_transfers_cost"]
-                transferred_in_names = ", ".join(
-                    player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_in
+            # Real transfers for this gameweek, straight from FPL's ledger -
+            # each record is one player out, one player in.
+            gw_transfers = transfers_by_entry_gw.get(entry_id, {}).get(gw, [])
+            transferred_in_ids = [t["element_in"] for t in gw_transfers]
+            transferred_out_ids = [t["element_out"] for t in gw_transfers]
+
+            if len(gw_transfers) != num_transfers:
+                # Ledger and history disagree on the count - don't guess at
+                # which players were involved, just flag it and leave the
+                # transfer fields empty for this row.
+                print(
+                    f"WARNING: transfer count mismatch for entry {entry_id} "
+                    f"({entry['manager_name']}) gw{gw}: {len(gw_transfers)} "
+                    f"transfer record(s) vs event_transfers={num_transfers}"
                 )
-                transferred_out_names = ", ".join(
-                    player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_out
-                )
-            else:
+                transferred_in_names = ""
+                transferred_out_names = ""
                 points_in = None
                 points_out = None
                 net_transfer_impact = None
-                transferred_in_names = ""
-                transferred_out_names = ""
+            else:
+                transferred_in_names = ", ".join(
+                    player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_in_ids
+                )
+                transferred_out_names = ", ".join(
+                    player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_out_ids
+                )
+                # Raw points, no captain multiplier - these are the players'
+                # own gameweek scores, not what they'd have contributed to
+                # this manager's squad.
+                points_in = sum(gw_player_points.get(pid, 0) for pid in transferred_in_ids)
+                points_out = sum(gw_player_points.get(pid, 0) for pid in transferred_out_ids)
+                net_transfer_impact = points_in - points_out - transfer_cost
 
             rows.append(
                 {
                     "gameweek": gw,
-                    "entry_id": entry["entry_id"],
+                    "entry_id": entry_id,
                     "manager_name": entry["manager_name"],
                     "team_name": entry["team_name"],
                     "gw_points": gw_points_computed,
-                    "cumulative_points": hist["total_points"] + points_delta,
+                    "cumulative_points": picks_hist["total_points"] + points_delta,
                     "bench_points": bench_points_computed,
-                    "team_value": hist["value"] / 10,
-                    "bank": hist["bank"] / 10,
-                    "overall_rank": hist["overall_rank"],
-                    "num_transfers": hist["event_transfers"],
-                    "transfer_cost": hist["event_transfers_cost"],
+                    "team_value": picks_hist["value"] / 10,
+                    "bank": picks_hist["bank"] / 10,
+                    "overall_rank": picks_hist["overall_rank"],
+                    "num_transfers": num_transfers,
+                    "transfer_cost": transfer_cost,
                     "net_transfer_impact": net_transfer_impact,
                     "transferred_in": transferred_in_names,
                     "transferred_out": transferred_out_names,
                     "transfer_points_in": points_in,
                     "transfer_points_out": points_out,
-                    "season_transfers_to_date": season_transfers[entry["entry_id"]],
+                    "season_transfers_to_date": season_transfers[entry_id],
                     "chip_played": data.get("active_chip"),
                     "captain_id": captain_id,
                     "captain_name": player_info.get(captain_id, {}).get("name", "Unknown"),
@@ -226,13 +293,9 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                     # week. A link to the manager's own team page on FPL's site
                     # covers the same "who did they play" need on demand, without
                     # carrying the data ourselves.
-                    "team_link": FPL_ENTRY_URL.format(entry_id=entry["entry_id"], gw=gw),
+                    "team_link": FPL_ENTRY_URL.format(entry_id=entry_id, gw=gw),
                 }
             )
-
-            squads_this_gw[entry["entry_id"]] = squad_ids
-
-        prev_squads = squads_this_gw
 
         for pid, owned_count in owned_counts.items():
             popularity_rows.append(
@@ -312,16 +375,27 @@ def build_gameweek_highlights(df, popularity_df):
         # actually made a transfer THIS gameweek are eligible for the
         # transfer awards - an otherwise-active manager who simply didn't
         # transfer this particular week still nets exactly 0, which isn't a
-        # "transfer" to award.
+        # "transfer" to award. Free hit and wildcard weeks are excluded too:
+        # both let a manager swap most/all of their squad at once, which
+        # isn't a "best transfer" in the sense these awards mean, and free
+        # hit's automatic reversion the following week is exactly what used
+        # to produce a phantom 11-13 name transfer list under this label.
         transfer_rows = active_df.dropna(subset=["net_transfer_impact"])
         transfer_rows = transfer_rows[transfer_rows["num_transfers"] > 0]
+        transfer_rows = transfer_rows[~transfer_rows["chip_played"].isin(SQUAD_OVERHAUL_CHIPS)]
         if not transfer_rows.empty:
             sharpest_trader = transfer_rows.loc[transfer_rows["net_transfer_impact"].idxmax()]
             transfer_tangle = transfer_rows.loc[transfer_rows["net_transfer_impact"].idxmin()]
         else:
             sharpest_trader = transfer_tangle = None
 
+        # "Best single transfer" is stricter still: exactly one transfer AND
+        # no chip played at all that gameweek (not just no wildcard/free
+        # hit) - a bench boost or triple captain played the same week
+        # doesn't corrupt the transfer itself, but this award is meant to
+        # showcase one clean swap on its own, not one muddied by a chip.
         one_move_rows = transfer_rows[transfer_rows["num_transfers"] == 1]
+        one_move_rows = one_move_rows[one_move_rows["chip_played"].isna()]
         one_move_rows = one_move_rows[one_move_rows["net_transfer_impact"] > 0]
         one_move_master = (
             one_move_rows.loc[one_move_rows["net_transfer_impact"].idxmax()]
@@ -455,6 +529,47 @@ def df_records(df):
     return json.loads(df.to_json(orient="records"))
 
 
+def validate_transfer_consistency(df):
+    """Final sanity pass before writing the JSON out - catches an entire bug
+    class rather than relying on individual bad rows being noticed later.
+    Logs any issue found; never raises, so one manager's bad data doesn't
+    block the whole weekly export from running.
+    """
+    issues = []
+
+    for _, row in df.iterrows():
+        in_names = [n for n in row["transferred_in"].split(", ") if n]
+        out_names = [n for n in row["transferred_out"].split(", ") if n]
+        # A mismatch row deliberately has both fields blank (see the
+        # WARNING logged where it's built) - nothing to check there.
+        if not in_names and not out_names:
+            continue
+        if len(in_names) != len(out_names) or len(in_names) != row["num_transfers"]:
+            issues.append(
+                f"entry {row['entry_id']} ({row['manager_name']}) gw{row['gameweek']}: "
+                f"in={len(in_names)} out={len(out_names)} num_transfers={row['num_transfers']}"
+            )
+
+    prev_by_entry = {}
+    for _, row in df.sort_values(["entry_id", "gameweek"]).iterrows():
+        entry_id = row["entry_id"]
+        prev = prev_by_entry.get(entry_id)
+        if prev is not None and row["season_transfers_to_date"] < prev:
+            issues.append(
+                f"entry {entry_id} ({row['manager_name']}): season_transfers_to_date "
+                f"dropped from {prev} to {row['season_transfers_to_date']} at gw{row['gameweek']}"
+            )
+        prev_by_entry[entry_id] = row["season_transfers_to_date"]
+
+    if issues:
+        print(f"Transfer consistency check found {len(issues)} issue(s):")
+        for issue in issues:
+            print(f"  - {issue}")
+    else:
+        print("Transfer consistency check passed - all rows agree.")
+    return issues
+
+
 def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"):
     session = requests.session()
 
@@ -476,6 +591,7 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
     )
     df = pd.DataFrame(rows)
     df = add_league_rank_and_movement(df)
+    validate_transfer_consistency(df)
     popularity_df = pd.DataFrame(popularity_rows)
     highlights_df = build_gameweek_highlights(df, popularity_df)
     season_df = build_season_summary(df)
