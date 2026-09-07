@@ -415,32 +415,49 @@ def build_gameweek_highlights(df, popularity_df):
         else:
             sharpest_trader = transfer_tangle = None
 
-        # "Best single transfer" is stricter still: exactly one transfer AND
-        # no chip played at all that gameweek (not just no wildcard/free
-        # hit) - a bench boost or triple captain played the same week
-        # doesn't corrupt the transfer itself, but this award is meant to
-        # showcase one clean swap on its own, not one muddied by a chip.
-        one_move_rows = transfer_rows[transfer_rows["num_transfers"] == 1]
-        one_move_rows = one_move_rows[one_move_rows["chip_played"].isna()]
-        one_move_rows = one_move_rows[one_move_rows["net_transfer_impact"] > 0]
-        one_move_master = (
-            one_move_rows.loc[one_move_rows["net_transfer_impact"].idxmax()]
-            if not one_move_rows.empty
-            else None
-        )
+        # "Best single transfer" / "worst single transfer" - the single best
+        # (and worst) individual swap ANYWHERE in the league that gameweek,
+        # not aggregated per manager. A manager who made several transfers
+        # is still eligible via whichever one of their own swaps was best
+        # (or worst) - unlike the old rule, they're not excluded just for
+        # having made more than one move. Uses the same population as
+        # sharpest_trader/transfer_tangle above (transfer_rows already has
+        # season-long ghosts and wildcard/free-hit weeks excluded), just
+        # scored per individual swap rather than per manager's net total for
+        # the gameweek. No transfer-cost deduction here: cost is charged
+        # once for the whole gameweek, not attributable to one swap out of
+        # possibly several, so this is a plain points_in - points_out.
+        best_swap = None
+        worst_swap = None
+        for _, row in transfer_rows.iterrows():
+            for pin, pout in zip(row["transfer_detail_in"], row["transfer_detail_out"]):
+                swap = {
+                    "manager_name": row["manager_name"],
+                    "player_in": pin["name"],
+                    "points_in": pin["points"],
+                    "player_out": pout["name"],
+                    "points_out": pout["points"],
+                    "net_impact": pin["points"] - pout["points"],
+                }
+                if best_swap is None or swap["net_impact"] > best_swap["net_impact"]:
+                    best_swap = swap
+                if worst_swap is None or swap["net_impact"] < worst_swap["net_impact"]:
+                    worst_swap = swap
 
-        # Sanity check the per-player detail behind each transfer award
-        # before it goes anywhere near the JSON: array lengths must match
-        # num_transfers, and the per-player points must sum to the side
-        # totals already computed above. These should always hold by
-        # construction (both come from the same transfer_detail_in/out
-        # built alongside transfer_points_in/out) - fail loudly rather than
-        # silently write a file where a page-rendered breakdown wouldn't
-        # add up to its own total.
+        # Sanity check the per-player detail behind sharpest_trader/
+        # transfer_tangle before it goes anywhere near the JSON: array
+        # lengths must match num_transfers, and the per-player points must
+        # sum to the side totals already computed above. These should
+        # always hold by construction (both come from the same
+        # transfer_detail_in/out built alongside transfer_points_in/out) -
+        # fail loudly rather than silently write a file where a
+        # page-rendered breakdown wouldn't add up to its own total.
+        # (one_move_master/one_move_disaster are built directly from the
+        # same per-player dicts above, so there's nothing separate to
+        # cross-check for them.)
         for award_label, award_row in (
             ("sharpest_trader", sharpest_trader),
             ("transfer_tangle", transfer_tangle),
-            ("one_move_master", one_move_master),
         ):
             if award_row is None:
                 continue
@@ -549,29 +566,33 @@ def build_gameweek_highlights(df, popularity_df):
                 "transfer_tangle_in": transfer_tangle["transfer_detail_in"]
                 if transfer_tangle is not None
                 else [],
-                # "Best single transfer" - exactly one player out, one player in.
-                "one_move_master_manager": name_or_blank(one_move_master),
-                "one_move_master_net_impact": one_move_master["net_transfer_impact"]
-                if one_move_master is not None
-                else None,
-                "one_move_master_player_in": one_move_master["transferred_in"]
-                if one_move_master is not None
-                else "",
-                "one_move_master_player_out": one_move_master["transferred_out"]
-                if one_move_master is not None
-                else "",
-                "one_move_master_points_in": one_move_master["transfer_points_in"]
-                if one_move_master is not None
-                else None,
-                "one_move_master_points_out": one_move_master["transfer_points_out"]
-                if one_move_master is not None
-                else None,
-                "one_move_master_out": one_move_master["transfer_detail_out"]
-                if one_move_master is not None
-                else [],
-                "one_move_master_in": one_move_master["transfer_detail_in"]
-                if one_move_master is not None
-                else [],
+                # "Best single transfer" / "worst single transfer" - the one
+                # best (and worst) individual swap in the whole league this
+                # gameweek, win from best_swap/worst_swap above.
+                "one_move_master_manager": best_swap["manager_name"] if best_swap else "",
+                "one_move_master_net_impact": best_swap["net_impact"] if best_swap else None,
+                "one_move_master_player_in": best_swap["player_in"] if best_swap else "",
+                "one_move_master_player_out": best_swap["player_out"] if best_swap else "",
+                "one_move_master_points_in": best_swap["points_in"] if best_swap else None,
+                "one_move_master_points_out": best_swap["points_out"] if best_swap else None,
+                "one_move_master_out": [
+                    {"name": best_swap["player_out"], "points": best_swap["points_out"]}
+                ] if best_swap else [],
+                "one_move_master_in": [
+                    {"name": best_swap["player_in"], "points": best_swap["points_in"]}
+                ] if best_swap else [],
+                "one_move_disaster_manager": worst_swap["manager_name"] if worst_swap else "",
+                "one_move_disaster_net_impact": worst_swap["net_impact"] if worst_swap else None,
+                "one_move_disaster_player_in": worst_swap["player_in"] if worst_swap else "",
+                "one_move_disaster_player_out": worst_swap["player_out"] if worst_swap else "",
+                "one_move_disaster_points_in": worst_swap["points_in"] if worst_swap else None,
+                "one_move_disaster_points_out": worst_swap["points_out"] if worst_swap else None,
+                "one_move_disaster_out": [
+                    {"name": worst_swap["player_out"], "points": worst_swap["points_out"]}
+                ] if worst_swap else [],
+                "one_move_disaster_in": [
+                    {"name": worst_swap["player_in"], "points": worst_swap["points_in"]}
+                ] if worst_swap else [],
                 "most_captained_player": most_captained["player_name"] if most_captained is not None else "",
                 "most_captained_pct": most_captained["pct_captained"] if most_captained is not None else None,
                 "most_owned_player": most_owned["player_name"] if most_owned is not None else "",
