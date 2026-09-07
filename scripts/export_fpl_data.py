@@ -129,6 +129,7 @@ FPL_ENTRY_URL = "https://fantasy.premierleague.com/entry/{entry_id}/event/{gw}"
 def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info):
     rows, popularity_rows = [], []
     prev_squads = {}
+    season_transfers = {}  # entry_id -> cumulative transfers made so far this season
 
     for gw in range(start_gw, end_gw + 1):
         gw_player_points = get_gw_live_points(session, gw)
@@ -165,6 +166,10 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
             )
             points_delta = gw_points_computed - hist["points"]
 
+            season_transfers[entry["entry_id"]] = (
+                season_transfers.get(entry["entry_id"], 0) + hist["event_transfers"]
+            )
+
             for pid in squad_ids:
                 owned_counts[pid] += 1
             if captain_id:
@@ -184,6 +189,8 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                     player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_out
                 )
             else:
+                points_in = None
+                points_out = None
                 net_transfer_impact = None
                 transferred_in_names = ""
                 transferred_out_names = ""
@@ -205,6 +212,9 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                     "net_transfer_impact": net_transfer_impact,
                     "transferred_in": transferred_in_names,
                     "transferred_out": transferred_out_names,
+                    "transfer_points_in": points_in,
+                    "transfer_points_out": points_out,
+                    "season_transfers_to_date": season_transfers[entry["entry_id"]],
                     "chip_played": data.get("active_chip"),
                     "captain_id": captain_id,
                     "captain_name": player_info.get(captain_id, {}).get("name", "Unknown"),
@@ -257,30 +267,54 @@ def add_league_rank_and_movement(df):
 
 
 def build_gameweek_highlights(df, popularity_df):
+    first_gw = df["gameweek"].min()
     highlight_rows = []
     for gw, gw_df in df.groupby("gameweek"):
-        top = gw_df.loc[gw_df["gw_points"].idxmax()]
-        bottom = gw_df.loc[gw_df["gw_points"].idxmin()]
+        if gw == first_gw:
+            # Everyone's squad is brand new on the very first tracked
+            # gameweek - nobody's had a chance to be a "ghost" yet, so
+            # nobody is excluded here.
+            active_df = gw_df
+        else:
+            # A "ghost" - a manager who has made zero transfers all season -
+            # is still running whatever squad they set on gw1. That can go
+            # stale in ways that quietly "win" awards they shouldn't: e.g. a
+            # captain who's since left the Premier League entirely and now
+            # scores 0 forever, making them a lock for "worst captain" every
+            # week. Exclude ghosts from every comparison below, not just the
+            # transfer ones.
+            active_df = gw_df[gw_df["season_transfers_to_date"] > 0]
+            if active_df.empty:  # everyone happens to be a ghost - don't blank the gw
+                active_df = gw_df
 
-        movers = gw_df.dropna(subset=["rank_change"])
+        top = active_df.loc[active_df["gw_points"].idxmax()]
+        bottom = active_df.loc[active_df["gw_points"].idxmin()]
+
+        movers = active_df.dropna(subset=["rank_change"])
         riser = movers.loc[movers["rank_change"].idxmax()] if not movers.empty else None
         faller = movers.loc[movers["rank_change"].idxmin()] if not movers.empty else None
 
-        best_cap = gw_df.loc[gw_df["captain_contribution"].idxmax()]
-        worst_cap = gw_df.loc[gw_df["captain_contribution"].idxmin()]
-        most_wasted = gw_df.loc[gw_df["bench_points"].idxmax()]
+        best_cap = active_df.loc[active_df["captain_contribution"].idxmax()]
+        worst_cap = active_df.loc[active_df["captain_contribution"].idxmin()]
+        most_wasted = active_df.loc[active_df["bench_points"].idxmax()]
 
-        value_king = gw_df.loc[gw_df["team_value"].idxmax()]
-        value_laggard = gw_df.loc[gw_df["team_value"].idxmin()]
+        value_king = active_df.loc[active_df["team_value"].idxmax()]
+        value_laggard = active_df.loc[active_df["team_value"].idxmin()]
 
-        chip_rows = gw_df[gw_df["chip_played"].notna()]
+        chip_rows = active_df[active_df["chip_played"].notna()]
         chip_master = chip_rows.loc[chip_rows["gw_points"].idxmax()] if not chip_rows.empty else None
-        no_chip_rows = gw_df[gw_df["chip_played"].isna()]
+        no_chip_rows = active_df[active_df["chip_played"].isna()]
         no_chip_warrior = (
             no_chip_rows.loc[no_chip_rows["gw_points"].idxmax()] if not no_chip_rows.empty else None
         )
 
-        transfer_rows = gw_df.dropna(subset=["net_transfer_impact"])
+        # On top of the season-long ghost exclusion above, only managers who
+        # actually made a transfer THIS gameweek are eligible for the
+        # transfer awards - an otherwise-active manager who simply didn't
+        # transfer this particular week still nets exactly 0, which isn't a
+        # "transfer" to award.
+        transfer_rows = active_df.dropna(subset=["net_transfer_impact"])
+        transfer_rows = transfer_rows[transfer_rows["num_transfers"] > 0]
         if not transfer_rows.empty:
             sharpest_trader = transfer_rows.loc[transfer_rows["net_transfer_impact"].idxmax()]
             transfer_tangle = transfer_rows.loc[transfer_rows["net_transfer_impact"].idxmin()]
@@ -336,16 +370,55 @@ def build_gameweek_highlights(df, popularity_df):
                 "no_chip_warrior_score": no_chip_warrior["gw_points"]
                 if no_chip_warrior is not None
                 else None,
+                # "Total best transfer" - best net impact regardless of how many
+                # moves it took; players_in/out list everyone who moved that gw.
                 "sharpest_trader_manager": name_or_blank(sharpest_trader),
                 "sharpest_trader_net_impact": sharpest_trader["net_transfer_impact"]
+                if sharpest_trader is not None
+                else None,
+                "sharpest_trader_players_in": sharpest_trader["transferred_in"]
+                if sharpest_trader is not None
+                else "",
+                "sharpest_trader_players_out": sharpest_trader["transferred_out"]
+                if sharpest_trader is not None
+                else "",
+                "sharpest_trader_points_in": sharpest_trader["transfer_points_in"]
+                if sharpest_trader is not None
+                else None,
+                "sharpest_trader_points_out": sharpest_trader["transfer_points_out"]
                 if sharpest_trader is not None
                 else None,
                 "transfer_tangle_manager": name_or_blank(transfer_tangle),
                 "transfer_tangle_net_impact": transfer_tangle["net_transfer_impact"]
                 if transfer_tangle is not None
                 else None,
+                "transfer_tangle_players_in": transfer_tangle["transferred_in"]
+                if transfer_tangle is not None
+                else "",
+                "transfer_tangle_players_out": transfer_tangle["transferred_out"]
+                if transfer_tangle is not None
+                else "",
+                "transfer_tangle_points_in": transfer_tangle["transfer_points_in"]
+                if transfer_tangle is not None
+                else None,
+                "transfer_tangle_points_out": transfer_tangle["transfer_points_out"]
+                if transfer_tangle is not None
+                else None,
+                # "Best single transfer" - exactly one player out, one player in.
                 "one_move_master_manager": name_or_blank(one_move_master),
                 "one_move_master_net_impact": one_move_master["net_transfer_impact"]
+                if one_move_master is not None
+                else None,
+                "one_move_master_player_in": one_move_master["transferred_in"]
+                if one_move_master is not None
+                else "",
+                "one_move_master_player_out": one_move_master["transferred_out"]
+                if one_move_master is not None
+                else "",
+                "one_move_master_points_in": one_move_master["transfer_points_in"]
+                if one_move_master is not None
+                else None,
+                "one_move_master_points_out": one_move_master["transfer_points_out"]
                 if one_move_master is not None
                 else None,
                 "most_captained_player": most_captained["player_name"] if most_captained is not None else "",
