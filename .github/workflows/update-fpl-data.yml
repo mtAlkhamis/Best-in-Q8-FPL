@@ -1,22 +1,18 @@
 name: Update FPL Recap Data
 
-# Manual button only (Actions tab -> this workflow -> "Run workflow").
-# No schedule, so it never runs on incomplete gameweek data - you decide
-# when a gameweek is actually done and click the button.
 on:
-  workflow_dispatch:
-    inputs:
-      league_id:
-        description: "FPL league ID"
-        required: false
-        default: "14514"
-      end_gw:
-        description: "Last finished gameweek to include (leave as 0 to auto-detect the latest finished gameweek)"
-        required: false
-        default: "0"
+  workflow_dispatch:  # run manually from the Actions tab whenever you want fresh data
 
 permissions:
-  contents: write
+  contents: write  # needed so the commit step below can push data/fpl-data.json back to the repo
+
+concurrency:
+  # If this gets triggered twice close together (e.g. clicking "Run workflow"
+  # twice, or a second manual run before the first finishes), queue the
+  # second one instead of letting both race to push at the same time - that
+  # race is what caused the "non-fast-forward" push rejection.
+  group: update-fpl-data
+  cancel-in-progress: false
 
 jobs:
   update-data:
@@ -31,15 +27,17 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests pandas fire
+        run: pip install pandas requests fire
 
-      - name: Run FPL data export
-        run: >
-          python scripts/export_fpl_data.py
-          --league_id=${{ github.event.inputs.league_id }}
-          --end_gw=${{ github.event.inputs.end_gw }}
+      - name: Run export script
+        # League ID 14514 - Best in Q8's league. Script lives in the
+        # scripts/ folder of this repo. season_history_earliest_season
+        # caps the past-seasons archive at this league's own first season
+        # (2013/14) so members' personal FPL history from before this
+        # league existed doesn't show up as if it were part of it.
+        run: python3 scripts/export_fpl_data.py --league_id=14514 --end_gw=0 --season_history_earliest_season=2013/14
 
-      - name: Commit updated data file
+      - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update FPL recap data"
