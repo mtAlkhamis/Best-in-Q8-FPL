@@ -3,7 +3,7 @@
   "start_gw": 1,
   "end_gw": 3,
   "live_gw": 3,
-  "generated_at": "2026-09-07T11:04:21.326189+00:00",
+  "generated_at": "2026-09-07T11:15:11.987928+00:00",
   "manager_gameweek_stats": [
     {
       "gameweek": 1,
@@ -5532,6 +5532,14 @@
       "one_move_master_points_out": null,
       "one_move_master_out": [],
       "one_move_master_in": [],
+      "one_move_disaster_manager": "",
+      "one_move_disaster_net_impact": null,
+      "one_move_disaster_player_in": "",
+      "one_move_disaster_player_out": "",
+      "one_move_disaster_points_in": null,
+      "one_move_disaster_points_out": null,
+      "one_move_disaster_out": [],
+      "one_move_disaster_in": [],
       "most_captained_player": "Haaland",
       "most_captained_pct": 65.5,
       "most_owned_player": "Jo\u00e3o Pedro",
@@ -5617,6 +5625,24 @@
         {
           "name": "Rogers",
           "points": 5
+        }
+      ],
+      "one_move_disaster_manager": "Khaled Alfahed",
+      "one_move_disaster_net_impact": -6.0,
+      "one_move_disaster_player_in": "Gonzalo",
+      "one_move_disaster_player_out": "Calvert-Lewin",
+      "one_move_disaster_points_in": 2.0,
+      "one_move_disaster_points_out": 8.0,
+      "one_move_disaster_out": [
+        {
+          "name": "Calvert-Lewin",
+          "points": 8
+        }
+      ],
+      "one_move_disaster_in": [
+        {
+          "name": "Gonzalo",
+          "points": 2
         }
       ],
       "most_captained_player": "Haaland",
@@ -5712,22 +5738,40 @@
           "points": 0
         }
       ],
-      "one_move_master_manager": "Saud Alkhamis",
-      "one_move_master_net_impact": 3.0,
-      "one_move_master_player_in": "Verbruggen",
-      "one_move_master_player_out": "Dubravka",
-      "one_move_master_points_in": 3.0,
-      "one_move_master_points_out": 0.0,
+      "one_move_master_manager": "Mubarak Almutairi",
+      "one_move_master_net_impact": 12.0,
+      "one_move_master_player_in": "Isak",
+      "one_move_master_player_out": "Calvert-Lewin",
+      "one_move_master_points_in": 13.0,
+      "one_move_master_points_out": 1.0,
       "one_move_master_out": [
         {
-          "name": "Dubravka",
-          "points": 0
+          "name": "Calvert-Lewin",
+          "points": 1
         }
       ],
       "one_move_master_in": [
         {
-          "name": "Verbruggen",
-          "points": 3
+          "name": "Isak",
+          "points": 13
+        }
+      ],
+      "one_move_disaster_manager": "meshary alderah",
+      "one_move_disaster_net_impact": -6.0,
+      "one_move_disaster_player_in": "Schade",
+      "one_move_disaster_player_out": "Mbeumo",
+      "one_move_disaster_points_in": 2.0,
+      "one_move_disaster_points_out": 8.0,
+      "one_move_disaster_out": [
+        {
+          "name": "Mbeumo",
+          "points": 8
+        }
+      ],
+      "one_move_disaster_in": [
+        {
+          "name": "Schade",
+          "points": 2
         }
       ],
       "most_captained_player": "Haaland",
