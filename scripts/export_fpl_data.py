@@ -123,8 +123,11 @@ def get_entry_gw_picks(session, entry_id, gw):
     return session.get(PICKS_URL.format(entry_id=entry_id, gw=gw)).json()
 
 
+FPL_ENTRY_URL = "https://fantasy.premierleague.com/entry/{entry_id}/event/{gw}"
+
+
 def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info):
-    rows, popularity_rows, squad_detail_rows = [], [], []
+    rows, popularity_rows = [], []
     prev_squads = {}
 
     for gw in range(start_gw, end_gw + 1):
@@ -147,6 +150,20 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
             captain_id = captain_pick["element"] if captain_pick else None
             captain_multiplier = captain_pick["multiplier"] if captain_pick else 0
             captain_raw_points = gw_player_points.get(captain_id, 0) if captain_id else 0
+
+            # FPL's own "points" field on entry_history (picks endpoint) can lag
+            # behind the live per-player stats endpoint - especially right after
+            # a match finishes, while bonus points are still being finalized.
+            # Rather than trust that separately-cached total, compute it
+            # ourselves from the same live per-player data used for the squad
+            # breakdown below, so the two always agree and both stay fresh.
+            gw_points_computed = sum(
+                gw_player_points.get(p["element"], 0) * p["multiplier"] for p in picks
+            )
+            bench_points_computed = sum(
+                gw_player_points.get(p["element"], 0) for p in picks if p["multiplier"] == 0
+            )
+            points_delta = gw_points_computed - hist["points"]
 
             for pid in squad_ids:
                 owned_counts[pid] += 1
@@ -177,9 +194,9 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                     "entry_id": entry["entry_id"],
                     "manager_name": entry["manager_name"],
                     "team_name": entry["team_name"],
-                    "gw_points": hist["points"],
-                    "cumulative_points": hist["total_points"],
-                    "bench_points": hist["points_on_bench"],
+                    "gw_points": gw_points_computed,
+                    "cumulative_points": hist["total_points"] + points_delta,
+                    "bench_points": bench_points_computed,
                     "team_value": hist["value"] / 10,
                     "bank": hist["bank"] / 10,
                     "overall_rank": hist["overall_rank"],
@@ -193,32 +210,15 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                     "captain_name": player_info.get(captain_id, {}).get("name", "Unknown"),
                     "captain_multiplier": captain_multiplier,
                     "captain_contribution": captain_raw_points * captain_multiplier,
+                    # Full per-player squad detail used to be included here as its
+                    # own dataset (every player, every manager, every gameweek) -
+                    # that's the bulk of the file's size and it only grows every
+                    # week. A link to the manager's own team page on FPL's site
+                    # covers the same "who did they play" need on demand, without
+                    # carrying the data ourselves.
+                    "team_link": FPL_ENTRY_URL.format(entry_id=entry["entry_id"], gw=gw),
                 }
             )
-
-            for p in picks:
-                pid = p["element"]
-                info = player_info.get(pid, {})
-                raw_points = gw_player_points.get(pid, 0)
-                mult = p["multiplier"]
-                squad_detail_rows.append(
-                    {
-                        "gameweek": gw,
-                        "entry_id": entry["entry_id"],
-                        "manager_name": entry["manager_name"],
-                        "team_name": entry["team_name"],
-                        "player_id": pid,
-                        "player_name": info.get("name", "Unknown"),
-                        "position": info.get("position", "?"),
-                        "pl_team": info.get("team", "?"),
-                        "squad_slot": "Starting" if p["position"] <= 11 else "Bench",
-                        "is_captain": p["is_captain"],
-                        "is_vice_captain": p["is_vice_captain"],
-                        "multiplier": mult,
-                        "gw_points_raw": raw_points,
-                        "gw_points_total": raw_points * mult,
-                    }
-                )
 
             squads_this_gw[entry["entry_id"]] = squad_ids
 
@@ -241,7 +241,7 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                 }
             )
 
-    return rows, popularity_rows, squad_detail_rows
+    return rows, popularity_rows
 
 
 def add_league_rank_and_movement(df):
@@ -377,14 +377,6 @@ def build_season_summary(df):
     return summary.sort_values("current_league_rank").reset_index(drop=True)
 
 
-def add_ownership_to_squad_detail(squad_detail_df, popularity_df):
-    return squad_detail_df.merge(
-        popularity_df[["gameweek", "player_id", "pct_owned", "pct_captained"]],
-        on=["gameweek", "player_id"],
-        how="left",
-    )
-
-
 def df_records(df):
     """Convert a DataFrame to plain JSON-safe records (NaN -> null)."""
     return json.loads(df.to_json(orient="records"))
@@ -406,13 +398,12 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
         print(f"Auto-detected gameweek {end_gw} ({status})")
 
     print(f"Pulling gameweeks {start_gw}-{end_gw} (this can take a minute)...")
-    rows, popularity_rows, squad_detail_rows = build_manager_gameweek_rows(
+    rows, popularity_rows = build_manager_gameweek_rows(
         session, entries, start_gw, end_gw, player_info
     )
     df = pd.DataFrame(rows)
     df = add_league_rank_and_movement(df)
     popularity_df = pd.DataFrame(popularity_rows)
-    squad_detail_df = add_ownership_to_squad_detail(pd.DataFrame(squad_detail_rows), popularity_df)
     highlights_df = build_gameweek_highlights(df, popularity_df)
     season_df = build_season_summary(df)
 
@@ -426,7 +417,6 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
         "player_gameweek_popularity": df_records(popularity_df),
         "gameweek_highlights": df_records(highlights_df),
         "season_summary": df_records(season_df),
-        "manager_squad_detail": df_records(squad_detail_df),
     }
 
     out_path = Path(output_path)
