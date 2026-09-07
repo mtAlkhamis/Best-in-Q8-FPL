@@ -47,6 +47,11 @@
   .hd{border-bottom:5px solid #00FF85;padding-bottom:14px;margin-bottom:22px}
   .hd .s{font-size:18px;font-weight:700;color:#00FF85}
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+  .awards{display:flex;flex-direction:column;gap:10px}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pair.solo{grid-template-columns:1fr}
+  .pair>*{min-width:0}
+  @media (max-width:720px){.pair{grid-template-columns:1fr}}
   .champ{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:#46124F;border-right:6px solid #00FF85;padding:13px 16px;cursor:pointer}
   .champ:hover{background:#5A1A67}
   .recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
@@ -61,6 +66,20 @@
   .trow:hover{background:#55195F}
   .c-rank{flex:0 0 40px;font-family:Oswald,sans-serif;font-size:22px;font-weight:700}
   .c-name{flex:1 1 140px;min-width:0;overflow:hidden}
+  .tcard{padding:20px;display:flex;flex-direction:column;gap:6px}
+  .tpairs{display:grid;grid-template-columns:minmax(0,1fr) 32px 20px minmax(0,1fr) 32px;gap:6px 8px;align-items:center;margin-top:6px}
+  .tpair{display:contents}
+  .tpair .nm{font-size:17px;font-weight:800;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tpair .out{text-decoration:line-through;opacity:.6}
+  .tpair .arw{font-size:20px;opacity:.75;text-align:center}
+  .tpair .p{font-family:Oswald,sans-serif;font-size:15px;font-weight:700;padding:2px 0;text-align:center}
+  @media (max-width:560px){
+    .tpairs{grid-template-columns:minmax(0,1fr) 28px 18px minmax(0,1fr) 28px;gap:5px 6px}
+    .tpair .nm{font-size:15px}
+  }
+  .ttot{display:flex;gap:16px;flex-wrap:wrap;font-size:15px;font-weight:700;opacity:.75;margin-top:6px}
+  .ttot .num{font-size:17px}
+  .thit{font-size:14px;font-weight:800;opacity:.75}
   a.gw-lnk{display:block;margin-top:3px;font-size:14px;font-weight:800;color:#04F5FF;text-decoration:none;overflow:hidden;text-overflow:ellipsis}
   a.gw-lnk:hover{text-decoration:underline}
   .c-name b{font-size:19px;font-weight:800;line-height:1.25;display:block}
@@ -449,37 +468,111 @@ var awardCard = function (o) {
     '</div>';
 };
 
+function tChips(list) {
+  return String(list || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean)
+    .map(function (x) { return '<span class="tchip">' + esc(x) + '</span>'; }).join('');
+}
+function signed(n) { return (n > 0 ? '+' : '') + n; }
+
+function moveCard(o) {
+  if (!o.manager) return '';
+  var pin = String(o.pIn || ''), pout = String(o.pOut || '');
+  if (pin.indexOf(',') >= 0 || pout.indexOf(',') >= 0) return '';
+  var hit = ((+o.ptsIn) - (+o.ptsOut)) - (+o.net);
+  return '<div style="background:' + o.bg + ';' + (o.fg ? 'color:' + o.fg + ';' : '') + (o.border ? 'border:2px solid ' + o.border + ';' : '') + 'padding:20px;display:flex;flex-direction:column;gap:6px">' +
+    '<div style="font-size:16px;font-weight:800;' + (o.kc ? 'color:' + o.kc : 'opacity:.7') + '">' + o.k + '</div>' +
+    '<div style="font-size:clamp(21px,3vw,26px);font-weight:900;line-height:1.15">' + esc(nameAr(o.manager)) + '</div>' +
+    '<div class="tpairs"><div class="tpair">' +
+      '<span class="nm out">' + esc(pout) + '</span>' +
+      '<span class="p" style="background:rgba(' + (o.fg ? '56,0,60' : '255,255,255') + ',.12);opacity:.75">' + o.ptsOut + '</span>' +
+      '<span class="arw">←</span>' +
+      '<span class="nm">' + esc(pin) + '</span>' +
+      '<span class="p" style="background:' + o.chip + ';color:' + o.chipFg + '">' + o.ptsIn + '</span>' +
+    '</div></div>' +
+    '<div class="num" style="font-size:44px;font-weight:700;line-height:1;margin-top:8px;direction:ltr;text-align:right' + (o.netColor ? ';color:' + o.netColor : '') + '">' + signed(o.net) + '</div>' +
+    '<div style="font-size:15px;font-weight:700;opacity:.7">محصلة التبديل' +
+      (hit ? ' (مع <span class="num" style="direction:ltr;display:inline-block">' + signed(-hit) + '</span>)' : '') + '</div></div>';
+}
+
+function tList(v) {
+  return String(v || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean);
+}
+
+function tObjs(arr, str) {
+  if (arr && arr.length) return arr.map(function (x) { return { name: x.name, points: x.points }; });
+  return tList(str).map(function (n) { return { name: n, points: null }; });
+}
+
+function tradeCard(o) {
+  if (!o.manager) return '';
+  var outs = tObjs(o.outArr, o.out), ins = tObjs(o['in' + 'Arr'], o['in']);
+  if (outs.length < 2 && ins.length < 2 && o.twinManager === o.manager && (+o.twinNet) === (+o.net)) return '';
+  var raw = (+o.ptsIn) - (+o.ptsOut);
+  var hit = raw - (+o.net);
+  var n = Math.max(outs.length, ins.length);
+  var pairs = '';
+  for (var i = 0; i < n; i++) {
+    var a = outs[i], b = ins[i];
+    pairs += '<div class="tpair">' +
+      '<span class="nm out">' + esc(a ? a.name : '—') + '</span>' +
+      '<span class="p" style="background:rgba(255,255,255,.1);opacity:.7">' + (a && a.points !== null ? a.points : '') + '</span>' +
+      '<span class="arw">←</span>' +
+      '<span class="nm">' + esc(b ? b.name : '—') + '</span>' +
+      '<span class="p" style="background:' + o.line + ';color:#38003C">' + (b && b.points !== null ? b.points : '') + '</span>' +
+      '</div>';
+  }
+  return '<div class="tcard" style="background:' + o.bg + ';border:2px solid ' + o.line + '">' +
+    '<div style="font-size:16px;font-weight:800;color:' + o.line + '">' + o.k + '</div>' +
+    '<div style="font-size:clamp(21px,3vw,26px);font-weight:900;line-height:1.15">' + esc(nameAr(o.manager)) + '</div>' +
+    '<div class="tpairs">' + pairs + '</div>' +
+    '<div class="num" style="font-size:44px;font-weight:700;line-height:1;margin-top:2px;direction:ltr;text-align:right;color:' + o.line + '">' + signed(o.net) + '</div>' +
+    '<div style="font-size:15px;font-weight:700;opacity:.7">المحصلة' +
+      (hit ? ' (مع <span class="num" style="direction:ltr;display:inline-block">' + signed(-hit) + '</span>)' : '') + '</div></div>';
+}
+
 function gwAwards(g) {
   var h = gwHl(g);
-  var cards = [
-    awardCard({ k: 'نجم الجولة', who: nameAr(h.top_scorer), big: h.top_score, sub: 'أعلى واحد بالدوري هالجولة', bg: '#00FF85', fg: '#38003C' }),
-    awardCard({ k: 'خيبة الجولة', who: nameAr(h.bottom_scorer), big: h.bottom_score, sub: 'الله يعوّض عليه', bg: '#E90052' }),
-    awardCard({ k: 'الكابتن الذهبي', who: capWho(g, h.best_captain_player, h.best_captain_manager), big: h.best_captain_points, sub: capSub(g, h.best_captain_player), bg: '#04F5FF', fg: '#38003C' }),
-    awardCard({ k: 'الكابتن المنحوس', who: capWho(g, h.worst_captain_player, h.worst_captain_manager), big: h.worst_captain_points, sub: (capCount(g, h.worst_captain_player) > 1 ? '<span class="num" style="font-weight:800">' + capCount(g, h.worst_captain_player) + '</span> مديرين عطوه الكبتنة 💀' : 'عطاه الكبتنة <bdi><b style="font-weight:800">' + nameAr(h.worst_captain_manager) + '</b></bdi> 💀'), bg: '#2A002E', kc: '#FF5C9E' }),
-    awardCard({ k: 'مقبرة الدكة', who: nameAr(h.most_wasted_bench_manager), big: h.wasted_bench_points, sub: 'نقطة قاعدة على الدكة تتفرج', bg: '#7A0B4A', kc: '#FF7FB0' }),
-    awardCard({ k: 'ملك الخصايص', who: nameAr(h.chip_master_manager), big: h.chip_master_score, sub: 'لعب <bdi><b style="font-weight:800">' + (CHIP_AR[h.chip_master_chip] || h.chip_master_chip || '') + '</b></bdi> وطلع بأعلى نتيجة', bg: '#38003C', border: '#04F5FF', kc: '#04F5FF' }),
-    awardCard({ k: 'أغلى تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_king_manager) : null, big: h.value_king_value, sub: 'مليون قيمة فريق — أعلى واحد بالدوري', bg: '#04F5FF', fg: '#38003C' }),
-    awardCard({ k: 'أرخص تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_laggard_manager) : null, big: h.value_laggard_value, sub: 'مليون بس — يعيش على الرخيص', bg: '#46124F', border: '#FF7FB0', kc: '#FF7FB0' }),
-    awardCard({ k: 'ضربة معلم', who: nameAr(h.one_move_master_manager), big: h.one_move_master_net_impact, sub: 'تبديل واحد بس — وجابها', bg: '#00FF85', fg: '#38003C' }),
-    awardCard({ k: 'محارب بلا خاصية', who: nameAr(h.no_chip_warrior_manager), big: h.no_chip_warrior_score, sub: 'أعلى نتيجة بدون أي خاصية', bg: '#46124F', border: '#00FF85', kc: '#00FF85' }),
-    awardCard({ k: 'صاروخ الجولة', who: nameAr(h.biggest_riser), big: h.riser_places_gained ? '▲' + h.riser_places_gained : undefined, sub: 'مركز طلعهم فوق', bg: '#00FF85', fg: '#38003C' }),
-    awardCard({ k: 'سقوط حر', who: nameAr(h.biggest_faller), big: h.faller_places_lost ? '▼' + h.faller_places_lost : undefined, sub: 'مركز راحوا عليه', bg: '#E90052' }),
-    awardCard({ k: 'أذكى صفقة', who: nameAr(h.sharpest_trader_manager), big: h.sharpest_trader_net_impact, sub: 'ربح صافي من التبديلات', bg: '#04F5FF', fg: '#38003C' }),
-    awardCard({ k: 'لخبطة التبديلات', who: nameAr(h.transfer_tangle_manager), big: h.transfer_tangle_net_impact, sub: 'غيّر... وندم', bg: '#2A002E', border: '#E90052', kc: '#E90052' })
-  ].join('');
-  var crowd = '';
-  if (h.most_captained_player || h.most_owned_player) {
-    crowd =
-      (h.most_captained_player ? '<div style="background:linear-gradient(120deg,#04F5FF 0%,#00A8B5 100%);color:#38003C;padding:24px">' +
-        '<div style="font-size:16px;font-weight:800;opacity:.8">كابتن الشعب</div>' +
-        '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(h.most_captained_player) + '</div>' +
-        '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(h.most_captained_pct) + '%</span> من الدوري عطوه الكبتنة</div></div>' : '') +
-      (h.most_owned_player ? '<div style="background:linear-gradient(120deg,#00FF85 0%,#00C463 100%);color:#38003C;padding:24px">' +
-        '<div style="font-size:16px;font-weight:800;opacity:.8">لاعب ما يغيب عن أي فريق</div>' +
-        '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(h.most_owned_player) + '</div>' +
-        '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(h.most_owned_pct) + '%</span> من الفرق فيها هذا اللاعب</div></div>' : '');
-  }
-  return cards + crowd;
+  var pair = function (a, b) {
+    var have = [a, b].filter(Boolean);
+    if (!have.length) return '';
+    return '<div class="pair' + (have.length === 1 ? ' solo' : '') + '">' + have.join('') + '</div>';
+  };
+  var crowdCard = function (k, player, pct, sub, bg) {
+    if (!player) return '';
+    return '<div style="background:' + bg + ';color:#38003C;padding:24px">' +
+      '<div style="font-size:16px;font-weight:800;opacity:.8">' + k + '</div>' +
+      '<div style="font-size:clamp(26px,4vw,34px);font-weight:900;direction:ltr;text-align:right">' + esc(player) + '</div>' +
+      '<div style="font-size:17px;font-weight:600;opacity:.85"><span class="num" style="font-weight:700">' + Math.round(pct) + '%</span> ' + sub + '</div></div>';
+  };
+  return '<div class="awards">' +
+    pair(
+      awardCard({ k: 'نجم الجولة', who: nameAr(h.top_scorer), big: h.top_score, sub: 'أعلى واحد بالدوري هالجولة', bg: '#00FF85', fg: '#38003C' }),
+      awardCard({ k: 'خيبة الجولة', who: nameAr(h.bottom_scorer), big: h.bottom_score, sub: 'الله يعوّض عليه', bg: '#E90052' })) +
+    pair(
+      awardCard({ k: 'الكابتن الذهبي', who: capWho(g, h.best_captain_player, h.best_captain_manager), big: h.best_captain_points, sub: capSub(g, h.best_captain_player, h.best_captain_manager), bg: '#04F5FF', fg: '#38003C' }),
+      awardCard({ k: 'الكابتن المنحوس', who: capWho(g, h.worst_captain_player, h.worst_captain_manager), big: h.worst_captain_points, sub: (capCount(g, h.worst_captain_player) > 1 ? '<span class="num" style="font-weight:800">' + capCount(g, h.worst_captain_player) + '</span> ' + mgrWord(capCount(g, h.worst_captain_player)) + ' عطوه الكبتنة 💀' : 'عطاه الكبتنة <bdi><b style="font-weight:800">' + nameAr(h.worst_captain_manager) + '</b></bdi> 💀'), bg: '#2A002E', kc: '#FF5C9E' })) +
+    pair(
+      awardCard({ k: 'صاروخ الجولة', who: nameAr(h.biggest_riser), big: h.riser_places_gained ? '▲' + h.riser_places_gained : undefined, sub: 'مركز طلعهم فوق', bg: '#00FF85', fg: '#38003C' }),
+      awardCard({ k: 'سقوط حر', who: nameAr(h.biggest_faller), big: h.faller_places_lost ? '▼' + h.faller_places_lost : undefined, sub: 'مركز راحوا عليه', bg: '#E90052' })) +
+    pair(
+      moveCard({ k: 'ضربة معلم — أقوى صفقة فردية', manager: h.one_move_master_manager, pOut: h.one_move_master_player_out, pIn: h.one_move_master_player_in, ptsOut: h.one_move_master_points_out, ptsIn: h.one_move_master_points_in, net: h.one_move_master_net_impact, bg: '#00FF85', fg: '#38003C', chip: '#38003C', chipFg: '#00FF85' }),
+      moveCard({ k: 'أسوأ صفقة — تبديل واحد', manager: h.one_move_disaster_manager, pOut: h.one_move_disaster_player_out, pIn: h.one_move_disaster_player_in, ptsOut: h.one_move_disaster_points_out, ptsIn: h.one_move_disaster_points_in, net: h.one_move_disaster_net_impact, bg: '#2A002E', border: '#FF5C9E', kc: '#FF5C9E', chip: '#FF5C9E', chipFg: '#38003C', netColor: '#FF5C9E' })) +
+    pair(
+      tradeCard({ k: 'أذكى صفقات الجولة — كل التبديلات', manager: h.sharpest_trader_manager, out: h.sharpest_trader_players_out, in: h.sharpest_trader_players_in, outArr: h.sharpest_trader_out, inArr: h.sharpest_trader_in, ptsOut: h.sharpest_trader_points_out, ptsIn: h.sharpest_trader_points_in, net: h.sharpest_trader_net_impact, twinManager: h.one_move_master_manager, twinNet: h.one_move_master_net_impact, bg: '#38003C', line: '#04F5FF' }),
+      tradeCard({ k: 'لخبطة التبديلات — غيّر وندم', manager: h.transfer_tangle_manager, out: h.transfer_tangle_players_out, in: h.transfer_tangle_players_in, outArr: h.transfer_tangle_out, inArr: h.transfer_tangle_in, ptsOut: h.transfer_tangle_points_out, ptsIn: h.transfer_tangle_points_in, net: h.transfer_tangle_net_impact, twinManager: h.one_move_disaster_manager, twinNet: h.one_move_disaster_net_impact, bg: '#2A002E', line: '#FF5C9E' })) +
+    pair(
+      awardCard({ k: 'أغلى تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_king_manager) : null, big: h.value_king_value, sub: 'مليون قيمة فريق — أعلى واحد بالدوري', bg: '#04F5FF', fg: '#38003C' }),
+      awardCard({ k: 'أرخص تشكيلة', who: h.value_king_value !== h.value_laggard_value ? nameAr(h.value_laggard_manager) : null, big: h.value_laggard_value, sub: 'مليون بس — يعيش على الرخيص', bg: '#46124F', border: '#FF7FB0', kc: '#FF7FB0' })) +
+    pair(
+      awardCard({ k: 'ملك الخصايص', who: nameAr(h.chip_master_manager), big: h.chip_master_score, sub: 'لعب <bdi><b style="font-weight:800">' + (CHIP_AR[h.chip_master_chip] || h.chip_master_chip || '') + '</b></bdi> وطلع بأعلى نتيجة', bg: '#38003C', border: '#04F5FF', kc: '#04F5FF' }),
+      awardCard({ k: 'محارب بلا خاصية', who: nameAr(h.no_chip_warrior_manager), big: h.no_chip_warrior_score, sub: 'أعلى نتيجة بدون أي خاصية', bg: '#46124F', border: '#00FF85', kc: '#00FF85' })) +
+    pair(
+      crowdCard('كابتن الشعب', h.most_captained_player, h.most_captained_pct, 'من الدوري عطوه الكبتنة', 'linear-gradient(120deg,#04F5FF 0%,#00A8B5 100%)'),
+      crowdCard('لاعب ما يغيب عن أي فريق', h.most_owned_player, h.most_owned_pct, 'من الفرق فيها هذا اللاعب', 'linear-gradient(120deg,#00FF85 0%,#00C463 100%)')) +
+    pair(
+      awardCard({ k: 'مقبرة الدكة', who: nameAr(h.most_wasted_bench_manager), big: h.wasted_bench_points, sub: 'نقطة قاعدة على الدكة تتفرج', bg: '#7A0B4A', kc: '#FF7FB0' }),
+      '') +
+    '</div>';
 }
 
 var gwSort = 'total', gwCur = null;
@@ -527,7 +620,7 @@ function gwView(g) {
     '<h2 class="num" style="margin:4px 0 0;font-size:clamp(44px,9vw,82px);font-weight:700;line-height:.95;direction:ltr;text-align:right">GW' + g + '</h2>' + liveNote(g) + '</div>' +
     '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">' + picker + '</div>' +
     '<div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">جوائز الجولة</h2><div class="s" style="color:#E90052">منو لمع ومنو احترق</div></div>' +
-    '<div class="cards" style="margin-bottom:36px">' + gwAwards(g) + '</div>' +
+    '<div style="margin-bottom:36px">' + gwAwards(g) + '</div>' +
     '<div class="hd" style="border-bottom-color:#04F5FF"><h2 class="sec">ترتيب الجولة</h2><div class="s" style="color:#04F5FF">اضغط «شوف الفريق» تشوف تشكيلته في موقع الفانتازي</div></div>' +
     sortBar +
     '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">الجولة</div><div style="flex:0 0 92px">المجموع</div><div class="gw-mv" style="flex:0 0 54px">حركة</div></div>' +
@@ -901,6 +994,7 @@ function capTail(g, player) {
   if (n < 2) return '';
   return ' — <span class="num" style="font-weight:800">' + n + '</span> مديرين حطّوا عليه الشارة';
 }
+function mgrWord(n) { return n >= 11 ? 'مدير' : 'مديرين'; }
 function capWho(g, player, manager) {
   if (!player) return nameAr(manager);
   return player;
@@ -908,7 +1002,7 @@ function capWho(g, player, manager) {
 function capSub(g, player, manager) {
   if (!player) return 'ضبطت معاه الكبتنة';
   var n = capCount(g, player);
-  if (n > 1) return '<span class="num" style="font-weight:800">' + n + '</span> مديرين عطوه الكبتنة وضبطت';
+  if (n > 1) return '<span class="num" style="font-weight:800">' + n + '</span> ' + mgrWord(n) + ' عطوه الكبتنة وضبطت';
   return 'اختاره <bdi><b style="font-weight:800">' + nameAr(manager) + '</b></bdi> وضبطت';
 }
 
@@ -923,7 +1017,8 @@ function ingest(d) {
       toNum(r.bench_points) || 0, toNum(r.overall_rank), toNum(r.num_transfers) || 0, toNum(r.transfer_cost) || 0,
       r.chip_played || null, r.captain_name || null, toNum(r.captain_multiplier), toNum(r.league_rank),
       r.rank_change === null || r.rank_change === undefined || r.rank_change === '' ? null : toNum(r.rank_change),
-      toNum(r.entry_id), r.team_link || null];
+      toNum(r.entry_id), r.team_link || null, r.transferred_in || '', r.transferred_out || '',
+      toNum(r.transfer_points_in), toNum(r.transfer_points_out), toNum(r.net_transfer_impact)];
   });
   GW_HL = (d.gameweek_highlights || []).map(function (h) {
     var o = {};
