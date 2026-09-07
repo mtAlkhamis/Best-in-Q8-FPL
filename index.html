@@ -60,7 +60,9 @@
   .trow{background:#431350;cursor:pointer;border-right:6px solid rgba(255,255,255,.14)}
   .trow:hover{background:#55195F}
   .c-rank{flex:0 0 40px;font-family:Oswald,sans-serif;font-size:22px;font-weight:700}
-  .c-name{flex:1 1 140px;min-width:0}
+  .c-name{flex:1 1 140px;min-width:0;overflow:hidden}
+  a.gw-lnk{display:block;margin-top:3px;font-size:14px;font-weight:800;color:#04F5FF;text-decoration:none;overflow:hidden;text-overflow:ellipsis}
+  a.gw-lnk:hover{text-decoration:underline}
   .c-name b{font-size:19px;font-weight:800;line-height:1.25;display:block}
   .c-name span{font-size:15px;font-weight:500;color:rgba(255,255,255,.55)}
   .c-pts{flex:0 0 84px;font-family:Oswald,sans-serif;font-size:21px;font-weight:600}
@@ -102,6 +104,7 @@
     .c-pts{flex:0 0 56px !important;font-size:18px}
     .c-sub{flex:0 0 70px !important;font-size:15px}
     .gw-mv{display:none !important}
+
     .thead-m>div:nth-child(1){flex:0 0 46px !important}
     .thead-m>div:nth-child(2){flex:0 0 26px !important}
     .thead-m>div:nth-child(3){flex:1 1 40px !important}
@@ -419,7 +422,7 @@ var ROWS = [
 ];
 
 
-var GW_STATS = [], GW_HL = [], GW_POP = {}, GW_SQUAD = [], SEASON_SUMMARY = [], GENERATED_AT = null, LIVE_GW = null;
+var GW_STATS = [], GW_HL = [], GW_POP = {}, SEASON_SUMMARY = [], GENERATED_AT = null, LIVE_GW = null;
 
 var CHIP_AR = {bboost:'بنش بوست', '3xc':'كابتن ثلاثي', wildcard:'وايلد كارد', freehit:'فري هت'};
 var GWS = [], LAST_GW = null;
@@ -479,53 +482,12 @@ function gwAwards(g) {
   return cards + crowd;
 }
 
-var gwSort = 'total', gwOpen = null, gwCur = null;
-var POS_AR = { GKP: 'حراسة', DEF: 'دفاع', MID: 'وسط', FWD: 'هجوم' };
+var gwSort = 'total', gwCur = null;
 
-function playerCard(p, dim) {
-  var cap = p[6] ? 'C' : (p[7] ? 'V' : '');
-  var pts = p[8] === 0 ? p[9] : p[10];
-  var ptsBg = pts >= 10 ? '#00FF85' : pts >= 5 ? 'rgba(0,255,133,.2)' : pts <= 1 ? 'rgba(233,0,82,.28)' : 'rgba(255,255,255,.07)';
-  var ptsFg = pts >= 10 ? '#38003C' : '#fff';
-  return '<div style="display:flex;align-items:center;gap:6px;background:' + (p[6] ? 'rgba(0,255,133,.14)' : '#2A002E') + ';padding:0 0 0 0;' + (dim ? 'opacity:.6;' : '') + '">' +
-    '<bdi style="flex:1;min-width:0;padding:5px 9px;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(p[2]) + '</bdi>' +
-    (cap ? '<span class="num" style="font-size:11px;font-weight:700;background:' + (p[6] ? '#00FF85' : 'rgba(255,255,255,.18)') + ';color:' + (p[6] ? '#38003C' : '#fff') + ';padding:0 4px;line-height:15px">' + cap + '</span>' : '') +
-    '<span class="num" style="flex:0 0 auto;font-size:12px;font-weight:600;color:rgba(255,255,255,.42)">' + Math.round(p[11]) + '%</span>' +
-    '<span class="num" style="flex:0 0 34px;text-align:center;padding:5px 0;font-size:16px;font-weight:700;background:' + ptsBg + ';color:' + ptsFg + '">' + pts + '</span>' +
-    '</div>';
-}
-
-function squadPanel(g, r) {
-  var sq = GW_SQUAD.filter(function (x) { return x[0] === g && x[1] === r[14]; });
-  if (!sq.length) return '<div style="background:#2A002E;padding:18px;font-size:17px;font-weight:700;color:rgba(255,255,255,.5)">ما فيه تفاصيل تشكيلة لهالجولة.</div>';
-  var order = { GKP: 0, DEF: 1, MID: 2, FWD: 3 };
-  var start = sq.filter(function (x) { return x[5] === 'Starting'; }).sort(function (a, b) { return order[a[3]] - order[b[3]]; });
-  var bench = sq.filter(function (x) { return x[5] !== 'Starting'; }).sort(function (a, b) { return order[a[3]] - order[b[3]]; });
-  var lines = ['GKP', 'DEF', 'MID', 'FWD'].map(function (pz) {
-    var g2 = start.filter(function (x) { return x[3] === pz; });
-    if (!g2.length) return '';
-    return '<div style="margin-bottom:8px"><div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.38);margin-bottom:4px">' + POS_AR[pz] + '</div>' +
-      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px">' +
-      g2.map(function (p) { return playerCard(p, false); }).join('') + '</div></div>';
-  }).join('');
-  var pill = function (l, v, c) {
-    return '<div style="background:rgba(255,255,255,.08);padding:6px 12px;display:flex;gap:7px;align-items:baseline">' +
-      '<span style="font-size:13px;font-weight:700;color:rgba(255,255,255,.5)">' + l + '</span>' +
-      '<span class="num" style="font-size:17px;font-weight:700' + (c ? ';color:' + c : '') + '">' + v + '</span></div>';
-  };
-  return '<div style="background:#38003C;border-right:6px solid #00FF85;padding:16px">' +
-    '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px">' +
-      pill('نقاط الجولة', r[3], '#00FF85') +
-      pill('الترتيب العالمي', fmt(r[6])) +
-      pill('الدكة', r[5], r[5] > 8 ? '#FF5C9E' : null) +
-      pill('الكابتن', esc(r[10])) +
-      (r[7] ? pill('تبديلات', r[7] + (r[8] ? ' (-' + r[8] + ')' : '')) : '') +
-      (r[9] ? '<div style="background:#04F5FF;color:#38003C;padding:6px 12px;font-size:15px;font-weight:800">' + (CHIP_AR[r[9]] || r[9]) + '</div>' : '') +
-    '</div>' + lines +
-    (bench.length ? '<div><div style="font-size:12px;font-weight:800;color:rgba(255,255,255,.38);margin-bottom:4px">الدكة' + (r[9] === 'bboost' ? ' <span style="color:#00FF85">— محسوبة (بنش بوست)</span>' : ' <span style="color:rgba(255,255,255,.3)">— غير محسوبة</span>') + '</div>' +
-      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px">' +
-      bench.map(function (p) { return playerCard(p, true); }).join('') + '</div></div>' : '') +
-    '</div>';
+function teamLink(g, r) {
+  var url = r[15] || (r[14] ? 'https://fantasy.premierleague.com/entry/' + r[14] + '/event/' + g : null);
+  if (!url) return '';
+  return '<a class="gw-lnk" href="' + esc(url) + '" target="_blank" rel="noopener">شوف الفريق ↗</a>';
 }
 
 function gwView(g) {
@@ -543,14 +505,12 @@ function gwView(g) {
     var ch = r[13];
     var mv = ch === null || ch === 0 ? '<span style="color:rgba(255,255,255,.35)">—</span>'
       : ch > 0 ? '<span style="color:#00FF85">▲' + ch + '</span>' : '<span style="color:#FF5C9E">▼' + Math.abs(ch) + '</span>';
-    var open = gwOpen === r[14];
-    return '<div class="trow" data-open="' + r[14] + '" style="border-right-color:' + a + (open ? ';background:#5A1A67' : '') + '">' +
+    return '<div class="trow" style="border-right-color:' + a + '">' +
       '<div class="c-rank" style="color:' + a + '">' + pos + '</div>' +
-      '<div class="c-name"><b>' + esc(nameAr(r[1])) + ' <span style="font-size:14px;color:' + (open ? '#00FF85' : 'rgba(255,255,255,.4)') + '">' + (open ? '▲' : '▼') + '</span></b><span><bdi>' + esc(r[2]) + '</bdi>' + (r[9] ? ' · <bdi>' + (CHIP_AR[r[9]] || r[9]) + '</bdi>' : '') + '</span></div>' +
+      '<div class="c-name"><b>' + esc(nameAr(r[1])) + '</b><span><bdi>' + esc(r[2]) + '</bdi>' + (r[9] ? ' · <bdi>' + (CHIP_AR[r[9]] || r[9]) + '</bdi>' : '') + teamLink(g, r) + '</span></div>' +
       '<div class="c-pts"' + (gwSort === 'gw' ? ' style="color:#00FF85"' : '') + '>' + r[3] + '</div>' +
       '<div class="c-sub"' + (gwSort === 'total' ? ' style="color:#00FF85;font-weight:700"' : '') + '>' + fmt(r[4]) + '</div>' +
-      '<div class="c-sub gw-mv" style="flex:0 0 54px;font-weight:700">' + mv + '</div></div>' +
-      (open ? squadPanel(g, r) : '');
+      '<div class="c-sub gw-mv" style="flex:0 0 54px;font-weight:700">' + mv + '</div></div>';
   }).join('');
   var sortBar = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">' +
     '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);align-self:center">رتّب حسب</span>' +
@@ -568,9 +528,9 @@ function gwView(g) {
     '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">' + picker + '</div>' +
     '<div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">جوائز الجولة</h2><div class="s" style="color:#E90052">منو لمع ومنو احترق</div></div>' +
     '<div class="cards" style="margin-bottom:36px">' + gwAwards(g) + '</div>' +
-    '<div class="hd" style="border-bottom-color:#04F5FF"><h2 class="sec">ترتيب الجولة</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك تشوف تشكيلته</div></div>' +
+    '<div class="hd" style="border-bottom-color:#04F5FF"><h2 class="sec">ترتيب الجولة</h2><div class="s" style="color:#04F5FF">اضغط «شوف الفريق» تشوف تشكيلته في موقع الفانتازي</div></div>' +
     sortBar +
-    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك · اضغط للتشكيلة</div><div style="flex:0 0 84px">الجولة</div><div style="flex:0 0 92px">المجموع</div><div class="gw-mv" style="flex:0 0 54px">حركة</div></div>' +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">الجولة</div><div style="flex:0 0 92px">المجموع</div><div class="gw-mv" style="flex:0 0 54px">حركة</div></div>' +
     '<div class="rows" style="margin-bottom:36px">' + table + '</div>' +
     (popList ? '<div class="hd" style="border-bottom-color:#00FF85"><h2 class="sec">لاعبين الكل شاريهم</h2><div class="s" style="color:#00FF85">نسبة ملكيتهم داخل الدوري</div></div>' +
       '<div class="rows">' + popList + '</div>' : '') +
@@ -893,10 +853,9 @@ function bindSelects() {
 }
 
 document.addEventListener('click', function (e) {
-  var ctl = e.target.closest('[data-sort],[data-open]');
+  var ctl = e.target.closest('[data-sort]');
   if (ctl) {
-    if (ctl.hasAttribute('data-sort')) gwSort = ctl.getAttribute('data-sort');
-    else { var id = +ctl.getAttribute('data-open'); gwOpen = gwOpen === id ? null : id; }
+    gwSort = ctl.getAttribute('data-sort');
     var y = window.scrollY;
     app.innerHTML = gwView(gwCur || LAST_GW);
     window.scrollTo(0, y);
@@ -964,7 +923,7 @@ function ingest(d) {
       toNum(r.bench_points) || 0, toNum(r.overall_rank), toNum(r.num_transfers) || 0, toNum(r.transfer_cost) || 0,
       r.chip_played || null, r.captain_name || null, toNum(r.captain_multiplier), toNum(r.league_rank),
       r.rank_change === null || r.rank_change === undefined || r.rank_change === '' ? null : toNum(r.rank_change),
-      toNum(r.entry_id)];
+      toNum(r.entry_id), r.team_link || null];
   });
   GW_HL = (d.gameweek_highlights || []).map(function (h) {
     var o = {};
@@ -979,11 +938,6 @@ function ingest(d) {
     GW_POP[g].push([p.player_name, toNum(p.pct_owned) || 0, toNum(p.pct_captained) || 0]);
   });
   Object.keys(GW_POP).forEach(function (g) { GW_POP[g].sort(function (a, b) { return b[1] - a[1]; }); });
-  GW_SQUAD = (d.manager_squad_detail || []).map(function (q) {
-    return [toNum(q.gameweek), toNum(q.entry_id), q.player_name, q.position, q.pl_team, q.squad_slot,
-      toBool(q.is_captain) ? 1 : 0, toBool(q.is_vice_captain) ? 1 : 0, toNum(q.multiplier),
-      toNum(q.gw_points_raw) || 0, toNum(q.gw_points_total) || 0, toNum(q.pct_owned) || 0];
-  });
   SEASON_SUMMARY = d.season_summary || [];
   GENERATED_AT = d.generated_at || null;
   LIVE_GW = d.live_gw === undefined || d.live_gw === null || d.live_gw === '' ? null : toNum(d.live_gw);
@@ -991,7 +945,7 @@ function ingest(d) {
   paintUpdated();
 }
 
-fetch((window.__resources && window.__resources.fplData) || 'data/fpl-data.json')
+fetch((window.__resources && window.__resources.fplData) || 'data/fpl-data.json', { cache: 'no-store' })
   .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(function (d) { ingest(d); render(); })
   .catch(function (err) {
