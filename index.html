@@ -4,7 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Best in Q8 — دوري فانتازي الأصدقاء</title>
-<meta name="ext-resource-dependency" content="./data/fpl-data.json" data-resource-id="fplData" />
+<meta name="league-slug" content="q8" />
+<meta name="ext-resource-dependency" content="./data/q8/fpl-data.json" data-resource-id="fplData" />
+<meta name="ext-resource-dependency" content="./data/q8/league.json" data-resource-id="leagueData" />
 <template id="__bundler_thumbnail" data-bg-color="#38003C">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
     <rect width="1200" height="800" fill="#38003C"/>
@@ -135,7 +137,7 @@
 </head>
 <body>
 <div class="nav"><div class="wrap">
-  <div class="logo" data-go="home"><div class="dot"></div><b>BEST IN <span style="color:#00FF85">Q8</span></b></div>
+  <div class="logo" data-go="home"><div class="dot"></div><b id="brandNav"></b></div>
   <div class="tabs">
     <button class="tab" data-go="home">الرئيسية</button>
     <button class="tab" data-go="gw">الموسم الحالي</button>
@@ -149,296 +151,14 @@
 <div id="app"></div>
 
 <div class="foot"><div class="wrap">
-  <div style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap">Best in Q8 · 2013 — 2026</div>
+  <div id="brandFoot" style="font-size:17px;font-weight:700;color:rgba(255,255,255,.55);white-space:nowrap"></div>
   <div id="lastUpdated" style="font-size:15px;font-weight:700;color:rgba(255,255,255,.42)"></div>
   <div class="bars"><i style="background:#E90052"></i><i style="background:#00FF85"></i><i style="background:#04F5FF"></i></div>
 </div></div>
 
 <script>
-var AR = {"Madi Alkhamis":"ماضي الخميس","HAMAD ALKHAMEES":"حمد الخميس","meshary alderah":"مشاري الدرعة","Musaed Al_Husaini":"مساعد الحسيني","Thamer Alhumaidhi":"ثامر الحميضي","Mohammad R":"محمد الرهيماني","Yousef KH":"يوسف الخميس","mohammad fahad":"محمد الفهد","Ahmed K":"أحمد الخميس","Ali Alkhamees":"علي الخميس","Ali Alkhames":"علي الخميس","Abdullah Alkhamees":"عبدالله الخميس","Abdullah Alkhames":"عبدالله الخميس","Naser Alkhamees":"ناصر الخميس","Nasser T Alkhamis":"ناصر الخميس","fahad alsha6y":"فهد الشطي","Abdulaziz Al Khamees":"عبدالعزيز الخميس","Hussain Bin Mattar":"حسين بن مطر","Saud Alkhamis":"سعود الخميس","nawaf alkhamis":"نواف الخميس","Abdullah Alsultan":"عبدالله السلطان","Homoud Alkhalifah":"حمود الخليفة","Turki Alkhamis":"تركي الخميس","Khaled Alfahed":"خالد الفهد","Fahad Alkhamis":"فهد الخميس","Meshary Alkhamees":"مشاري الخميس","Mubarak Almutairi":"مبارك المطيري","Meshary Abdullah":"مشاري عبدالله","Alwaleed Alfelaij":"وليد الفليج"};
+var AR = {}, ROWS = [], META = {};
 
-var ROWS = [
-  ["2013/14",1,"Madi Alkhamis","القصيعة يونايتد",2408,8000],
-  ["2013/14",2,"Thamer Alhumaidhi","Bo Ya3qoub",2182,347779],
-  ["2013/14",3,"meshary alderah","فريق meshary",2133,519260],
-  ["2013/14",4,"Musaed Al_Husaini","Al Redz",2123,556881],
-  ["2013/14",5,"HAMAD ALKHAMEES","20 Times",2117,578231],
-  ["2013/14",6,"Mohammad R","Mohammad's Team",2105,624980],
-  ["2013/14",7,"Ali Alkhamees","امبراطور الشمس",2073,750439],
-  ["2013/14",8,"fahad alsha6y","Liverpool",1986,1094249],
-  ["2013/14",9,"Abdulaziz Al Khamees","Bos3yid X11",1931,1296318],
-  ["2014/15",1,"meshary alderah","فريق meshary",2188,11859],
-  ["2014/15",2,"Madi Alkhamis","القصيعة يونايتد",2172,15968],
-  ["2014/15",3,"Mohammad R","Mohammad's Team",2098,55241],
-  ["2014/15",4,"HAMAD ALKHAMEES","20 Times",1983,260336],
-  ["2014/15",5,"Ali Alkhamees","امبراطور الشمس",1934,435109],
-  ["2014/15",6,"Thamer Alhumaidhi","Bo Ya3qoub",1812,1047893],
-  ["2014/15",7,"Musaed Al_Husaini","Al Redz",1800,1112772],
-  ["2014/15",8,"Abdulaziz Al Khamees","Bos3yid X11",1782,1204878],
-  ["2014/15",9,"fahad alsha6y","Liverpool",1727,1486791],
-  ["2014/15",10,"Abdullah Alkhamees","Nerds FC",1521,2469786],
-  ["2015/16",1,"Yousef KH","Stockfish",2113,187331],
-  ["2015/16",2,"Thamer Alhumaidhi","Bo Ya3qoub",2104,212097],
-  ["2015/16",3,"Hussain Bin Mattar","Bin Mattar FC",2103,213473],
-  ["2015/16",4,"Ali Alkhamees","امبراطور الشمس",2103,213744],
-  ["2015/16",5,"Mohammad R","Mohammad's Team",2056,379120],
-  ["2015/16",6,"HAMAD ALKHAMEES","20 Times",2027,509848],
-  ["2015/16",7,"Saud Alkhamis","Azooz@Anfield",2020,545474],
-  ["2015/16",8,"nawaf alkhamis","madrak$hesale7",2008,606789],
-  ["2015/16",9,"Abdullah Alkhamees","Nerds FC",2001,643849],
-  ["2015/16",10,"Meshary Abdullah","mshary",1981,752868],
-  ["2015/16",11,"Musaed Al_Husaini","Al Redz",1972,802337],
-  ["2015/16",12,"meshary alderah","فريق meshary",1966,838592],
-  ["2015/16",13,"Madi Alkhamis","القصيعة يونايتد",1940,989654],
-  ["2015/16",14,"Abdullah Alsultan","Abdullah Alsultan",1921,1103922],
-  ["2015/16",15,"Abdulaziz Al Khamees","Bos3yid X11",1817,1699738],
-  ["2015/16",16,"fahad alsha6y","Liverpool",1638,2443628],
-  ["2016/17",1,"Mohammad R","Mohammad's Team",2392,1044],
-  ["2016/17",2,"Thamer Alhumaidhi","Bo Ya3qoub",2270,20892],
-  ["2016/17",3,"Madi Alkhamis","القصيعة يونايتد",2240,35627],
-  ["2016/17",4,"meshary alderah","فريق meshary",2231,41709],
-  ["2016/17",5,"HAMAD ALKHAMEES","20 Times",2230,42480],
-  ["2016/17",6,"Yousef KH","Stockfish",2201,66780],
-  ["2016/17",7,"Abdullah Alkhamees","Nerds FC",2084,285225],
-  ["2016/17",8,"Saud Alkhamis","Azooz@Anfield",2066,341016],
-  ["2016/17",9,"Abdullah Alsultan","Abdullah Alsultan",2034,457808],
-  ["2016/17",10,"Ali Alkhamees","امبراطور الشمس",2021,509161],
-  ["2016/17",11,"nawaf alkhamis","madrak$hesale7",1993,641089],
-  ["2016/17",12,"Homoud Alkhalifah","halkhalifah",1943,903234],
-  ["2016/17",13,"Abdulaziz Al Khamees","Bos3yid X11",1930,979987],
-  ["2016/17",14,"Musaed Al_Husaini","Al Redz",1889,1238300],
-  ["2016/17",15,"fahad alsha6y","Liverpool",1887,1247475],
-  ["2016/17",16,"Hussain Bin Mattar","Bin Mattar FC",1864,1400323],
-  ["2016/17",17,"Turki Alkhamis","Q8 Dream",1443,3687485],
-  ["2017/18",1,"Madi Alkhamis","القصيعة يونايتد",2310,11030],
-  ["2017/18",2,"Abdulaziz Al Khamees","Bos3yid X11",2277,26360],
-  ["2017/18",3,"Mohammad R","Mohammad's Team",2258,40594],
-  ["2017/18",4,"Yousef KH","Stockfish",2256,42627],
-  ["2017/18",5,"meshary alderah","فريق meshary",2233,69343],
-  ["2017/18",6,"Musaed Al_Husaini","Al Redz",2215,96631],
-  ["2017/18",7,"Thamer Alhumaidhi","Bo Ya3qoub",2204,117184],
-  ["2017/18",8,"mohammad fahad","mohammad fahad",2152,260798],
-  ["2017/18",9,"fahad alsha6y","Liverpool",2147,277473],
-  ["2017/18",10,"Saud Alkhamis","Azooz@Anfield",2116,410064],
-  ["2017/18",11,"Hussain Bin Mattar","Bin Mattar FC",2099,493178],
-  ["2017/18",12,"Ahmed K","ahmed k",2069,670997],
-  ["2017/18",13,"Abdullah Alsultan","Abdullah Alsultan",2067,687291],
-  ["2017/18",14,"Khaled Alfahed","KAF",2065,696443],
-  ["2017/18",15,"HAMAD ALKHAMEES","20 Times",2045,836922],
-  ["2017/18",16,"nawaf alkhamis","madrak$hesale7",2004,1148750],
-  ["2017/18",17,"Ali Alkhamees","امبراطور الشمس",1863,2317178],
-  ["2017/18",18,"Homoud Alkhalifah","halkhalifah",1858,2355448],
-  ["2017/18",19,"Abdullah Alkhamees","Nerds FC",1818,2675056],
-  ["2017/18",20,"Turki Alkhamis","Q8 Dream",1589,4306138],
-  ["2018/19",1,"Yousef KH","Stockfish",2387,9488],
-  ["2018/19",2,"mohammad fahad","mohammad fahad",2366,15712],
-  ["2018/19",3,"Madi Alkhamis","القصيعة يونايتد",2271,96406],
-  ["2018/19",4,"Saud Alkhamis","Azooz@Anfield",2211,234904],
-  ["2018/19",5,"Ali Alkhamees","امبراطور الشمس",2196,284859],
-  ["2018/19",6,"HAMAD ALKHAMEES","20 Times",2190,309873],
-  ["2018/19",7,"Turki Alkhamis","Q8 Dream",2167,410566],
-  ["2018/19",8,"meshary alderah","فريق meshary",2163,431364],
-  ["2018/19",9,"fahad alsha6y","Liverpool",2151,492622],
-  ["2018/19",10,"Abdullah Alkhamees","Nerds FC",2126,649429],
-  ["2018/19",11,"Abdulaziz Al Khamees","Bos3yid X11",2125,658173],
-  ["2018/19",12,"Khaled Alfahed","KAF",2107,789580],
-  ["2018/19",13,"Musaed Al_Husaini","Al Redz",2085,975933],
-  ["2018/19",14,"Thamer Alhumaidhi","Bo Ya3qoub",2060,1214288],
-  ["2018/19",15,"nawaf alkhamis","madrak$hesale7",2060,1215953],
-  ["2018/19",16,"Fahad Alkhamis","Totti",2052,1296143],
-  ["2018/19",17,"Mohammad R","Mohammad's Team",2047,1345858],
-  ["2018/19",18,"Ahmed K","ahmed k",2040,1423973],
-  ["2018/19",19,"Meshary Alkhamees","Romanista",2027,1567517],
-  ["2018/19",20,"Abdullah Alsultan","Abdullah Alsultan",2022,1626826],
-  ["2018/19",21,"Hussain Bin Mattar","Bin Mattar FC",2012,1738566],
-  ["2018/19",22,"Homoud Alkhalifah","halkhalifah",1997,1917963],
-  ["2018/19",23,"Nasser T Alkhamis","Shadow Strikers",1662,4915160],
-  ["2018/19",24,"Meshary Abdullah","mshary",78,6285873],
-  ["2019/20",1,"Yousef KH","Stockfish",2344,15784],
-  ["2019/20",2,"HAMAD ALKHAMEES","20 Times",2339,18346],
-  ["2019/20",3,"mohammad fahad","mohammad fahad",2332,22252],
-  ["2019/20",4,"Turki Alkhamis","Q8 Dream",2330,23569],
-  ["2019/20",5,"Musaed Al_Husaini","Al Redz",2263,106175],
-  ["2019/20",6,"Saud Alkhamis","Azooz@Anfield",2249,136157],
-  ["2019/20",7,"meshary alderah","فريق meshary",2233,180265],
-  ["2019/20",8,"Thamer Alhumaidhi","Bo Ya3qoub",2226,200426],
-  ["2019/20",9,"Khaled Alfahed","KAF",2211,249725],
-  ["2019/20",10,"Meshary Alkhamees","Romanista",2202,285712],
-  ["2019/20",11,"Fahad Alkhamis","Totti",2185,359863],
-  ["2019/20",12,"Madi Alkhamis","القصيعة يونايتد",2169,443996],
-  ["2019/20",13,"Meshary Abdullah","mshary",2147,573522],
-  ["2019/20",14,"Homoud Alkhalifah","halkhalifah",2132,670521],
-  ["2019/20",15,"Abdulaziz Al Khamees","Bos3yid X11",2105,873623],
-  ["2019/20",16,"nawaf alkhamis","madrak$hesale7",2094,965547],
-  ["2019/20",17,"Abdullah Alkhamees","Nerds FC",2087,1024436],
-  ["2019/20",18,"Ali Alkhamees","امبراطور الشمس",2068,1189765],
-  ["2019/20",19,"Ahmed K","ahmed k",2065,1221566],
-  ["2019/20",20,"Nasser T Alkhamis","Shadow Strikers",2048,1383817],
-  ["2019/20",21,"fahad alsha6y","Liverpool",2040,1465763],
-  ["2019/20",22,"Mohammad R","Mohammad's Team",2018,1696099],
-  ["2019/20",23,"Abdullah Alsultan","Abdullah Alsultan",2003,1865523],
-  ["2019/20",24,"Hussain Bin Mattar","Bin Mattar FC",1786,4439784],
-  ["2019/20",25,"Mubarak Almutairi","MUBARAK TM",539,7414662],
-  ["2020/21",1,"Meshary Alkhamees","Romanista",2585,274],
-  ["2020/21",2,"HAMAD ALKHAMEES","20 Times",2460,24227],
-  ["2020/21",3,"Fahad Alkhamis","Totti",2436,42331],
-  ["2020/21",4,"Khaled Alfahed","KAF",2434,44316],
-  ["2020/21",5,"nawaf alkhamis","madrak$hesale7",2434,44843],
-  ["2020/21",6,"Thamer Alhumaidhi","Bo Ya3qoub",2423,55550],
-  ["2020/21",7,"Mohammad R","Mohammad's Team",2398,89521],
-  ["2020/21",8,"Musaed Al_Husaini","Al Redz",2344,210512],
-  ["2020/21",9,"mohammad fahad","mohammad fahad",2334,241635],
-  ["2020/21",10,"Madi Alkhamis","القصيعة يونايتد",2318,294242],
-  ["2020/21",11,"Abdulaziz Al Khamees","Bos3yid X11",2299,367918],
-  ["2020/21",12,"Turki Alkhamis","Q8 Dream",2266,516655],
-  ["2020/21",13,"Abdullah Alsultan","Abdullah Alsultan",2249,610584],
-  ["2020/21",14,"meshary alderah","فريق meshary",2242,649433],
-  ["2020/21",15,"Ahmed K","ahmed k",2240,661279],
-  ["2020/21",16,"Meshary Abdullah","mshary",2157,1227261],
-  ["2020/21",17,"Saud Alkhamis","Azooz@Anfield",2141,1353112],
-  ["2020/21",18,"Yousef KH","Stockfish",2139,1369573],
-  ["2020/21",19,"Hussain Bin Mattar","Bin Mattar FC",2106,1643027],
-  ["2020/21",20,"Abdullah Alkhamees","Nerds FC",2088,1803334],
-  ["2020/21",21,"fahad alsha6y","Liverpool",2013,2494571],
-  ["2020/21",22,"Mubarak Almutairi","MUBARAK TM",1958,3027333],
-  ["2020/21",23,"Homoud Alkhalifah","halkhalifah",1847,4075987],
-  ["2020/21",24,"Nasser T Alkhamis","Shadow Strikers",1837,4165324],
-  ["2021/22",1,"Musaed Al_Husaini","Al Redz",2523,77312],
-  ["2021/22",2,"Khaled Alfahed","KAF",2500,105679],
-  ["2021/22",3,"mohammad fahad","mohammad fahad",2465,163750],
-  ["2021/22",4,"Fahad Alkhamis","Totti",2459,174350],
-  ["2021/22",5,"Yousef KH","Stockfish",2434,226721],
-  ["2021/22",6,"meshary alderah","فريق meshary",2429,238025],
-  ["2021/22",7,"Abdulaziz Al Khamees","Bos3yid X11",2418,263252],
-  ["2021/22",8,"Turki Alkhamis","Q8 Dream",2414,271618],
-  ["2021/22",9,"Abdullah Alsultan","Abdullah Alsultan",2405,296510],
-  ["2021/22",10,"HAMAD ALKHAMEES","20 Times",2393,329223],
-  ["2021/22",11,"Meshary Alkhamees","Romanista",2387,345058],
-  ["2021/22",12,"Thamer Alhumaidhi","Bo Ya3qoub",2378,370792],
-  ["2021/22",13,"Madi Alkhamis","القصيعة يونايتد",2365,412771],
-  ["2021/22",14,"Ahmed K","ahmed k",2330,537021],
-  ["2021/22",15,"Ali Alkhamees","امبراطور الشمس",2305,636609],
-  ["2021/22",16,"nawaf alkhamis","madrak$hesale7",2301,657189],
-  ["2021/22",17,"Saud Alkhamis","Azooz@Anfield",2269,805263],
-  ["2021/22",18,"Hussain Bin Mattar","Bin Mattar FC",2240,956588],
-  ["2021/22",19,"fahad alsha6y","Liverpool",2017,2635821],
-  ["2021/22",20,"Mohammad R","Mohammad's Team",1985,2930210],
-  ["2021/22",21,"Abdullah Alkhamees","Nerds FC",1975,3029241],
-  ["2021/22",22,"Abdullah Alkhames","alkhames86",1870,4080776],
-  ["2021/22",23,"Homoud Alkhalifah","halkhalifah",1844,4345571],
-  ["2021/22",24,"Mubarak Almutairi","MUBARAK TM",1779,5019676],
-  ["2021/22",25,"Nasser T Alkhamis","Shadow Strikers",1592,6752392],
-  ["2021/22",26,"Naser Alkhamees","Naser",537,8969823],
-  ["2022/23",1,"mohammad fahad","mohammad fahad",2583,22800],
-  ["2022/23",2,"Madi Alkhamis","القصيعة يونايتد",2537,80679],
-  ["2022/23",3,"meshary alderah","فريق meshary",2515,130074],
-  ["2022/23",4,"Musaed Al_Husaini","Al Redz",2514,132930],
-  ["2022/23",5,"Hussain Bin Mattar","Bin Mattar FC",2475,257148],
-  ["2022/23",6,"Thamer Alhumaidhi","Bo Ya3qoub",2467,288380],
-  ["2022/23",7,"Meshary Alkhamees","Romanista",2461,314438],
-  ["2022/23",8,"Ali Alkhamees","امبراطور الشمس",2434,444768],
-  ["2022/23",9,"Fahad Alkhamis","Totti",2427,484809],
-  ["2022/23",10,"HAMAD ALKHAMEES","20 Times",2416,554347],
-  ["2022/23",11,"nawaf alkhamis","madrak$hesale7",2415,560541],
-  ["2022/23",12,"Abdullah Alsultan","Abdullah Alsultan",2407,610017],
-  ["2022/23",13,"Abdulaziz Al Khamees","Bos3yid X11",2395,690445],
-  ["2022/23",14,"Turki Alkhamis","Q8 Dream",2387,744909],
-  ["2022/23",15,"Khaled Alfahed","KAF",2375,835998],
-  ["2022/23",16,"Ahmed K","ahmed k",2355,1001625],
-  ["2022/23",17,"Yousef KH","Stockfish",2305,1477674],
-  ["2022/23",18,"Saud Alkhamis","Azooz@Anfield",2253,2053288],
-  ["2022/23",19,"Abdullah Alkhamees","Nerds FC",2182,2922435],
-  ["2022/23",20,"Abdullah Alkhames","alkhames86",2163,3169538],
-  ["2022/23",21,"fahad alsha6y","Liverpool",2082,4206958],
-  ["2022/23",22,"Homoud Alkhalifah","halkhalifah",2007,5158668],
-  ["2022/23",23,"Mohammad R","Mohammad's Team",1938,5995824],
-  ["2022/23",24,"Mubarak Almutairi","MUBARAK TM",1926,6140390],
-  ["2022/23",25,"Nasser T Alkhamis","Shadow Strikers",1717,8319831],
-  ["2022/23",26,"Naser Alkhamees","Naser",1652,8852732],
-  ["2022/23",27,"Meshary Abdullah","mshary",1464,9950166],
-  ["2023/24",1,"Musaed Al_Husaini","Al Redz",2536,32530],
-  ["2023/24",2,"HAMAD ALKHAMEES","20 Times",2462,152985],
-  ["2023/24",3,"Fahad Alkhamis","Totti",2447,191081],
-  ["2023/24",4,"Hussain Bin Mattar","Bin Mattar FC",2431,241090],
-  ["2023/24",5,"meshary alderah","فريق meshary",2395,387168],
-  ["2023/24",6,"Meshary Alkhamees","Romanista",2391,403592],
-  ["2023/24",7,"Turki Alkhamis","Q8 Dream",2374,491992],
-  ["2023/24",8,"Yousef KH","Stockfish",2374,495000],
-  ["2023/24",9,"Madi Alkhamis","القصيعة يونايتد",2360,577182],
-  ["2023/24",10,"Meshary Abdullah","mshary",2356,603631],
-  ["2023/24",11,"Abdullah Alsultan","Abdullah Alsultan",2343,691610],
-  ["2023/24",12,"Khaled Alfahed","KAF",2339,714856],
-  ["2023/24",13,"Abdullah Alkhamees","Nerds FC",2318,884030],
-  ["2023/24",14,"mohammad fahad","mohammad fahad",2314,917802],
-  ["2023/24",15,"Abdulaziz Al Khamees","Bos3yid X11",2309,960086],
-  ["2023/24",16,"nawaf alkhamis","madrak$hesale7",2308,970133],
-  ["2023/24",17,"Thamer Alhumaidhi","Bo Ya3qoub",2277,1265178],
-  ["2023/24",18,"Ali Alkhames","arsenal",2256,1497070],
-  ["2023/24",19,"fahad alsha6y","Liverpool",2205,2117661],
-  ["2023/24",20,"Abdullah Alkhames","alkhames86",2166,2643132],
-  ["2023/24",21,"Saud Alkhamis","Azooz@Anfield",2157,2767834],
-  ["2023/24",22,"Ali Alkhamees","امبراطور الشمس",2111,3383455],
-  ["2023/24",23,"Ahmed K","ahmed k",2104,3481825],
-  ["2023/24",24,"Homoud Alkhalifah","halkhalifah",1975,5091565],
-  ["2023/24",25,"Mohammad R","Mohammad's Team",1886,6163451],
-  ["2023/24",26,"Mubarak Almutairi","MUBARAK TM",1732,7967063],
-  ["2024/25",1,"Musaed Al_Husaini","Al Redz",2548,44146],
-  ["2024/25",2,"Ali Alkhames","arsenal",2525,76534],
-  ["2024/25",3,"HAMAD ALKHAMEES","20 Times",2490,152480],
-  ["2024/25",4,"mohammad fahad","mohammad fahad",2481,179511],
-  ["2024/25",5,"Yousef KH","Stockfish",2450,295362],
-  ["2024/25",6,"Abdulaziz Al Khamees","Bos3yid X11",2406,531377],
-  ["2024/25",7,"meshary alderah","فريق meshary",2404,548593],
-  ["2024/25",8,"Madi Alkhamis","القصيعة يونايتد",2398,587793],
-  ["2024/25",9,"Ahmed K","ahmed k",2381,711181],
-  ["2024/25",10,"Saud Alkhamis","Azooz@Anfield",2377,742382],
-  ["2024/25",11,"Khaled Alfahed","KAF",2375,756127],
-  ["2024/25",12,"Hussain Bin Mattar","Bin Mattar FC",2368,813300],
-  ["2024/25",13,"Thamer Alhumaidhi","Bo Ya3qoub",2362,865682],
-  ["2024/25",14,"Fahad Alkhamis","Totti",2265,1942298],
-  ["2024/25",15,"Nasser T Alkhamis","Shadow Strikers",2250,2137445],
-  ["2024/25",16,"Meshary Alkhamees","Romanista",2238,2305652],
-  ["2024/25",17,"Meshary Abdullah","mshary",2214,2654343],
-  ["2024/25",18,"Turki Alkhamis","Q8 Dream",2173,3239326],
-  ["2024/25",19,"Abdullah Alkhames","alkhames86",2142,3694234],
-  ["2024/25",20,"Homoud Alkhalifah","halkhalifah",2130,3863221],
-  ["2024/25",21,"Abdullah Alsultan","Abdullah Alsultan",2117,4050584],
-  ["2024/25",22,"Naser Alkhamees","Naser",2007,5428050],
-  ["2024/25",23,"Mubarak Almutairi","MUBARAK TM",1973,5785545],
-  ["2024/25",24,"Abdullah Alkhamees","Nerds FC",1931,6209663],
-  ["2024/25",25,"nawaf alkhamis","madrak$hesale7",1895,6568083],
-  ["2024/25",26,"Ali Alkhamees","امبراطور الشمس",1875,6761483],
-  ["2024/25",27,"fahad alsha6y","Liverpool",1742,8080975],
-  ["2024/25",28,"Mohammad R","Mohammad's Team",1657,8850085],
-  ["2025/26",1,"Yousef KH","Stockfish",2356,44218],
-  ["2025/26",2,"Madi Alkhamis","القصيعة يونايتد",2312,141737],
-  ["2025/26",3,"Musaed Al_Husaini","Al Redz",2283,257167],
-  ["2025/26",4,"HAMAD ALKHAMEES","20 Times",2277,290825],
-  ["2025/26",5,"Hussain Bin Mattar","Bin Mattar FC",2244,496413],
-  ["2025/26",6,"Thamer Alhumaidhi","Bo Ya3qoub",2228,623925],
-  ["2025/26",7,"meshary alderah","فريق meshary",2205,849171],
-  ["2025/26",8,"Ahmed K","ahmed k",2190,1003027],
-  ["2025/26",9,"mohammad fahad","mohammad fahad",2177,1161450],
-  ["2025/26",10,"nawaf alkhamis","madrak$hesale7",2172,1226873],
-  ["2025/26",11,"Fahad Alkhamis","Totti",2159,1389505],
-  ["2025/26",12,"Nasser T Alkhamis","Shadow Strikers",2152,1482315],
-  ["2025/26",13,"Meshary Alkhamees","Romanista",2134,1738249],
-  ["2025/26",14,"Ali Alkhames","arsenal",2124,1896092],
-  ["2025/26",15,"Meshary Abdullah","mshary",2096,2341565],
-  ["2025/26",16,"Naser Alkhamees","Naser",2094,2375223],
-  ["2025/26",17,"Khaled Alfahed","KAF",2086,2504903],
-  ["2025/26",18,"Abdullah Alsultan","Abdullah Alsultan",2067,2835901],
-  ["2025/26",19,"Turki Alkhamis","Q8 Dream",2064,2878471],
-  ["2025/26",20,"Abdulaziz Al Khamees","Bos3yid X11",2053,3081246],
-  ["2025/26",21,"Saud Alkhamis","Azooz@Anfield",2046,3205523],
-  ["2025/26",22,"Abdullah Alkhamees","Nerds FC",2005,3944163],
-  ["2025/26",23,"Ali Alkhamees","امبراطور الشمس",1998,4082662],
-  ["2025/26",24,"Homoud Alkhalifah","halkhalifah",1984,4342300],
-  ["2025/26",25,"Abdullah Alkhames","alkhames86",1930,5357362],
-  ["2025/26",26,"fahad alsha6y","Liverpool",1865,6540392],
-  ["2025/26",27,"Mohammad R","Mohammad's Team",1579,10503960],
-  ["2025/26",28,"Mubarak Almutairi","MUBARAK TM",1165,12282160]
-];
 
 
 var GW_STATS = [], GW_HL = [], GW_POP = {}, SEASON_SUMMARY = [], GENERATED_AT = null, LIVE_GW = null;
@@ -583,7 +303,18 @@ function teamLink(g, r) {
   return '<a class="gw-lnk" href="' + esc(url) + '" target="_blank" rel="noopener">شوف الفريق ↗</a>';
 }
 
+function noSeasonBlock(pad) {
+  return '<section class="pad"><div class="wrap">' +
+    '<div style="background:#46124F;border:2px solid #04F5FF;padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;gap:10px">' +
+    '<div style="font-size:17px;font-weight:800;color:#04F5FF">الموسم الحالي</div>' +
+    '<h2 style="margin:0;font-size:clamp(28px,4.4vw,42px);font-weight:900;line-height:1.1">الموسم ما بدأ بعد</h2>' +
+    '<p style="margin:0;font-size:clamp(17px,2.2vw,21px);font-weight:500;line-height:1.5;opacity:.8;text-wrap:pretty">أول ما تنزل أول جولة بتلقى هني ملخصها: الجوائز، الترتيب، الخصايص، والتبديلات. لي الحين شوف الأرشيف.</p>' +
+    '<div><button class="btn" data-go="archive" style="margin-top:6px">ادخل الأرشيف ←</button></div>' +
+    '</div></div></section>';
+}
+
 function gwView(g) {
+  if (!GWS.length) return noSeasonBlock();
   g = g || LAST_GW;
   gwCur = g;
   var rows = gwRows(g);
@@ -636,26 +367,109 @@ var fmt = function (n) { return n.toLocaleString('en-US'); };
 var accent = function (p) { return p === 1 ? '#FFD166' : p === 2 ? '#D6E0EB' : p === 3 ? '#E09468' : 'rgba(255,255,255,0.14)'; };
 var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
 
-var seasons = [], mgrs = {}, allTime = [];
-(function () {
-  var seen = {};
-  ROWS.forEach(function (r) { if (!seen[r[0]]) { seen[r[0]] = 1; seasons.push(r[0]); } });
-  ROWS.forEach(function (r) {
-    var m = mgrs[r[2]] || (mgrs[r[2]] = { en: r[2], ar: AR[r[2]], team: r[3], rows: [] });
-    m.team = r[3];
-    m.rows.push({ season: r[0], pos: r[1], pts: r[4], rank: r[5] });
+var seasons = [], mgrs = {}, allTime = [], bestSeason = null, champCount = 0;
+var SEASON_HISTORY = null, HIST = 'rows', SMETA = {}, IMPROVED = null, SINGLE = false;
+
+function slabel(x) { return String(x).slice(2); }
+function seasonSpan() {
+  if (!seasons.length) return '';
+  return seasons.length === 1 ? 'موسم ' + slabel(seasons[0]) : 'من موسم ' + slabel(seasons[0]) + ' إلى ' + slabel(seasons[seasons.length - 1]);
+}
+
+function buildHistory() {
+  seasons = []; mgrs = {}; allTime = []; bestSeason = null; SMETA = {}; IMPROVED = null;
+  if (!ROWS.length && SEASON_HISTORY) { HIST = 'career'; buildCareer(); SINGLE = seasons.length === 1; return; }
+  HIST = 'rows';
+  buildRows();
+  SINGLE = seasons.length === 1;
+}
+
+function buildCareer() {
+  var sh = SEASON_HISTORY;
+  var side = function (o) { return o ? { en: o.manager_name, ar: AR[o.manager_name] || o.manager_name, team: o.team_name, pts: o.points } : null; };
+  (sh.past_seasons || []).forEach(function (p) {
+    seasons.push(p.season);
+    SMETA[p.season] = { n: p.num_managers, champion: side(p.champion), runner: side(p.runner_up), third: side(p.third_place), spoon: side(p.wooden_spoon) };
+  });
+  seasons.sort();
+
+  var spoonOf = {}, titleOf = {}, secondOf = {}, thirdOf = {};
+  seasons.forEach(function (ss) {
+    var t = SMETA[ss];
+    if (t.spoon) (spoonOf[t.spoon.en] = spoonOf[t.spoon.en] || []).push(ss);
+    if (t.champion) (titleOf[t.champion.en] = titleOf[t.champion.en] || []).push(ss);
+    if (t.runner) (secondOf[t.runner.en] = secondOf[t.runner.en] || []).push(ss);
+    if (t.third) (thirdOf[t.third.en] = thirdOf[t.third.en] || []).push(ss);
+  });
+  var teamOf = {};
+  seasons.forEach(function (ss) {
+    ['champion', 'runner', 'third', 'spoon'].forEach(function (k) {
+      var v = SMETA[ss][k]; if (v && v.team) teamOf[v.en] = v.team;
+    });
+  });
+
+  (sh.hall_of_fame || []).forEach(function (f) {
+    var en = f.manager_name;
+    var m = mgrs[en] = {
+      en: en, ar: AR[en] || en, team: teamOf[en] || '', rows: [],
+      total: f.career_total_points, count: f.seasons_played,
+      titleSeasons: titleOf[en] || [], titles: f.titles,
+      secondSeasons: secondOf[en] || [], seconds: f.runner_up_finishes,
+      thirdSeasons: thirdOf[en] || [], thirds: (thirdOf[en] || []).length,
+      podiums: f.top_3_finishes,
+      lastSeasons: spoonOf[en] || [], lasts: (spoonOf[en] || []).length,
+      best: f.best_finish, bestSeason: f.best_finish_season,
+      avgPts: f.average_points, avg: null, bestRank: null
+    };
+    m.display = m.ar;
+    allTime.push(m);
   });
   var arSets = {};
-  Object.keys(mgrs).forEach(function (k) {
-    var m = mgrs[k];
-    (arSets[m.ar] = arSets[m.ar] || []).push(k);
+  allTime.forEach(function (m) { (arSets[m.ar] = arSets[m.ar] || []).push(m); });
+  allTime.forEach(function (m) { if (arSets[m.ar].length > 1 && m.team) m.display = m.ar + ' — ' + m.team; });
+
+  var hi = sh.highest_single_season_score;
+  if (hi) bestSeason = { en: hi.manager_name, season: hi.season, pts: hi.points, rank: null };
+  IMPROVED = sh.most_improved_season || null;
+
+  allTime.sort(function (a, b) { return b.total - a.total; });
+  allTime.forEach(function (m, i) { m.allRank = i + 1; });
+  champCount = allTime.filter(function (m) { return m.titles > 0; }).length;
+}
+
+function buildRows() {
+  var seen = {};
+  ROWS.forEach(function (r) { if (!seen[r[0]]) { seen[r[0]] = 1; seasons.push(r[0]); } });
+  seasons.sort();
+  ROWS.forEach(function (r) {
+    var m = mgrs[r[2]] || (mgrs[r[2]] = { en: r[2], ar: AR[r[2]] || r[2], team: r[3], rows: [] });
+    m.team = r[3];
+    m.rows.push({ season: r[0], pos: r[1], pts: r[4], rank: r[5] });
+    if (!bestSeason || r[4] > bestSeason.pts) bestSeason = { en: r[2], season: r[0], pts: r[4], rank: r[5] };
   });
+
+  var lastOf = {};
+  seasons.forEach(function (ss) {
+    var rows = ROWS.filter(function (r) { return r[0] === ss; });
+    if (!rows.length) return;
+    var mx = Math.max.apply(null, rows.map(function (r) { return r[1]; }));
+    rows.forEach(function (r) { if (r[1] === mx) (lastOf[r[2]] = lastOf[r[2]] || []).push(ss); });
+  });
+
+  var arSets = {};
+  Object.keys(mgrs).forEach(function (k) { (arSets[mgrs[k].ar] = arSets[mgrs[k].ar] || []).push(k); });
   Object.keys(mgrs).forEach(function (k) {
     var m = mgrs[k];
+    var at = function (p) { return m.rows.filter(function (r) { return r.pos === p; }); };
     m.total = m.rows.reduce(function (a, r) { return a + r.pts; }, 0);
     m.count = m.rows.length;
-    m.titles = m.rows.filter(function (r) { return r.pos === 1; }).length;
+    m.titleSeasons = at(1).map(function (r) { return r.season; });
+    m.titles = m.titleSeasons.length;
+    m.seconds = at(2).length;
+    m.thirds = at(3).length;
     m.podiums = m.rows.filter(function (r) { return r.pos <= 3; }).length;
+    m.lastSeasons = lastOf[k] || [];
+    m.lasts = m.lastSeasons.length;
     m.best = Math.min.apply(null, m.rows.map(function (r) { return r.pos; }));
     m.avg = (m.rows.reduce(function (a, r) { return a + r.pos; }, 0) / m.count).toFixed(2);
     m.bestRank = Math.min.apply(null, m.rows.map(function (r) { return r.rank; }));
@@ -664,7 +478,37 @@ var seasons = [], mgrs = {}, allTime = [];
   });
   allTime.sort(function (a, b) { return b.total - a.total; });
   allTime.forEach(function (m, i) { m.allRank = i + 1; });
-})();
+  champCount = allTime.filter(function (m) { return m.titles > 0; }).length;
+  seasons.forEach(function (ss) {
+    var list = seasonRows(ss);
+    if (!list.length) return;
+    var pick = function (x) { return x ? { en: x.m.en, ar: x.m.ar, team: x.m.team, pts: x.r.pts } : null; };
+    SMETA[ss] = { n: list.length, champion: pick(list[0]), runner: pick(list[1]), third: pick(list[2]), spoon: pick(list[list.length - 1]) };
+  });
+}
+
+function paintBrand() {
+  var nav = document.getElementById('brandNav'), ft = document.getElementById('brandFoot');
+  var pre = META.brand_pre || '', ac = META.brand_accent || (META.name || '');
+  if (nav) nav.innerHTML = (pre ? esc(pre) + ' ' : '') + '<span style="color:#00FF85">' + esc(ac) + '</span>';
+  if (ft) {
+    var yrs = seasons.length ? ' · ' + seasons[0].split('/')[0] + ' — ' + (seasons.length > 1 ? '20' + seasons[seasons.length - 1].split('/')[1] : '20' + seasons[0].split('/')[1]) : '';
+    ft.textContent = (META.name || '') + yrs;
+  }
+  if (META.name) document.title = META.name + ' — دوري فانتازي الأصدقاء';
+}
+
+function heroBlock() {
+  var w = String(META.brand_pre || '').split(' ').filter(Boolean).map(esc);
+  var last = w.pop() || '';
+  var ac = esc(META.brand_accent || META.name || '');
+  return '<h1 class="hero">' + (w.length ? w.join('<br>') + '<br>' : '') +
+    (last ? last + ' ' : '') + '<span style="color:#00FF85">' + ac + '</span></h1>';
+}
+function eyebrowBlock() {
+  var t = seasons.length === 1 ? 'أول موسم من الفانتازي' : seasons.length + ' موسم من الفانتازي';
+  return '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">' + t + '</div><div></div></div>';
+}
 
 var seasonRows = function (s) {
   return allTime.map(function (m) {
@@ -674,9 +518,82 @@ var seasonRows = function (s) {
   }).filter(Boolean).sort(function (a, b) { return a.r.pos - b.r.pos; });
 };
 
+function topBy(fn, min) {
+  var best = -Infinity, win = [];
+  allTime.forEach(function (m) {
+    var v = fn(m);
+    if (v === null || v === undefined) return;
+    if (v > best) { best = v; win = [m]; }
+    else if (v === best) win.push(m);
+  });
+  if (best <= (min === undefined ? 0 : min) || !isFinite(best)) return null;
+  return { v: best, list: win };
+}
+
+function recCard(o) {
+  if (!o.top) return '';
+  var list = o.top.list, tie = list.length > 1;
+  var names = list.map(function (m) { return esc(m.ar); }).join(' · ');
+  var foot = tie ? (o.tieFoot || '') : (o.foot ? o.foot(list[0]) : '');
+  return '<div class="rec" style="' + o.style + '">' +
+    '<div class="k" style="' + (o.kStyle || 'opacity:.85') + '">' + o.k + (tie ? ' — تعادل بين ' + list.length : '') + '</div>' +
+    (o.sub ? '<div style="font-size:15px;font-weight:500;opacity:.55;margin:-6px 0 12px">' + o.sub + '</div>' : '') +
+    '<div class="row"><span class="who"' + (tie ? ' style="font-size:20px;line-height:1.4"' : '') + '>' + names + '</span>' +
+      '<span class="big"' + (tie ? ' style="font-size:48px"' : '') + '>' + o.top.v + '</span></div>' +
+    (foot ? '<div style="font-size:18px;font-weight:700;opacity:.8">' + foot + '</div>' : '') + '</div>';
+}
+
+function seasonsFoot(field) {
+  return function (m) {
+    return '<span class="num" style="direction:ltr;display:inline-block">' + m[field].map(slabel).join(' · ') + '</span>';
+  };
+}
+
+function recordsSection() {
+  if (!allTime.length || SINGLE) return '';
+  var cards = [
+    recCard({ k: 'أكثر ألقاب', style: 'background:#E90052', top: topBy(function (m) { return m.titles; }), foot: seasonsFoot('titleSeasons'), tieFoot: 'كل واحد رفع الكأس نفس عدد المرات' }),
+    recCard({ k: 'أكثر مرات في المراكز الثلاثة الأولى', sub: 'أول أو ثاني أو ثالث — أكثر واحد صعد المنصة', style: 'background:#00FF85;color:#38003C', kStyle: 'opacity:.7', top: topBy(function (m) { return m.podiums; }, 1), foot: function () { return 'ساكن المنصة بالإيجار الطويل'; } }),
+    recCard({ k: 'أكثر مرات وصيف الدوري', style: 'background:#46124F;border:2px solid rgba(255,255,255,.18)', kStyle: 'color:#04F5FF', top: topBy(function (m) { return m.seconds; }, 1) }),
+    recCard({ k: 'أكثر مرات مركز ثالث', style: 'background:#46124F;border:2px solid rgba(255,255,255,.18)', kStyle: 'color:#04F5FF', top: topBy(function (m) { return m.thirds; }, 1) }),
+    bestSeason ? '<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">' + (seasons.length > 1 ? 'أفضل موسم في التاريخ' : 'أعلى نقاط بالموسم') + '</div>' +
+      '<div class="row"><span class="who">' + esc(nameAr(bestSeason.en)) + '</span>' +
+      '<span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">' + bestSeason.pts + '</span>' +
+      '<span style="font-size:16px;font-weight:700;opacity:.75">نقطة</span></span></div>' +
+      '<div style="font-size:18px;font-weight:700;opacity:.8">موسم ' + slabel(bestSeason.season) + (bestSeason.rank ? ' — وترتيبه العالمي: <span class="num" style="font-weight:700">' + fmt(bestSeason.rank) + '</span>' : '') + '</div></div>' : '',
+    recCard({ k: 'فشيلة الدوري — أكثر واحد جا الأخير', sub: 'قاعد بذيل الجدول أكثر من أي أحد', style: 'background:#2A002E;border:2px dashed rgba(255,255,255,.35)', kStyle: 'color:#E90052', top: topBy(function (m) { return m.lasts; }, seasons.length > 1 ? 1 : 0), foot: seasonsFoot('lastSeasons'), tieFoot: 'كل واحد قعد بالذيل نفس عدد المرات' })
+  ].filter(Boolean);
+
+  if (IMPROVED) {
+    cards.push('<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">أكبر قفزة بين موسمين</div>' +
+      '<div class="row"><span class="who">' + esc(nameAr(IMPROVED.manager_name)) + '</span>' +
+      '<span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">' + IMPROVED.places_gained + '</span>' +
+      '<span style="font-size:16px;font-weight:700;opacity:.75">مركز</span></span></div>' +
+      '<div style="font-size:18px;font-weight:700;opacity:.8">من المركز <span class="num" style="font-weight:700">' + IMPROVED.from_position + '</span> في ' + slabel(IMPROVED.from_season) +
+      ' إلى <span class="num" style="font-weight:700">' + IMPROVED.to_position + '</span> في ' + slabel(IMPROVED.to_season) + '</div></div>');
+  }
+
+  var cursed = null;
+  if (seasons.length > 2) {
+    allTime.forEach(function (m) {
+      if (m.titles || m.avg === null || m.count < Math.min(3, seasons.length)) return;
+      if (!cursed || +m.avg < +cursed.avg) cursed = m;
+    });
+  }
+  if (cursed) {
+    cards.push('<div style="grid-column:1/-1;background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">' +
+      '<div style="font-size:62px;line-height:1">😅</div><div style="flex:1;min-width:240px">' +
+      '<h3 style="margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:900;line-height:1">المنحوس</h3>' +
+      '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">' + esc(cursed.ar) + ' يمتلك أفضل متوسط ترتيب بين كل اللي ما رفعوا الكأس — <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">' + cursed.avg + '</span> على مدى ' + cursed.count + ' ' + seasonWord(cursed.count) + ' — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>');
+  }
+  if (!cards.length) return '';
+  return '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">أرقام ما تنسى</h2><div class="s" style="color:#E90052">من صنع التاريخ؟</div></div>' +
+    '<div class="recs">' + cards.join('') + '</div></div></section>';
+}
+
 function landingView() {
-  var g = LAST_GW, hl = gwHl(g);
-  var champ = seasonRows(seasons[seasons.length - 1])[0];
+  var g = LAST_GW, hl = gwHl(g), live = GWS.length > 0;
+  var champ = seasons.length ? seasonRows(seasons[seasons.length - 1])[0] : null;
   var card = function (o) {
     return '<div data-go="' + o.go + '" style="cursor:pointer;background:' + o.bg + ';color:' + o.fg + ';padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;gap:14px;min-height:clamp(300px,42vw,400px);border-top:8px solid ' + o.bar + '">' +
       '<div style="font-size:17px;font-weight:800;opacity:.7">' + o.eyebrow + '</div>' +
@@ -691,18 +608,18 @@ function landingView() {
       '<div style="font-size:14px;font-weight:700;opacity:.75;margin-top:2px">' + l + '</div></div>';
   };
   return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,80px) 0 clamp(30px,5vw,50px)"><div class="wrap">' +
-    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
-    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
+    eyebrowBlock() + heroBlock() +
     '<p class="lede" style="margin-bottom:0">وين تبي تروح؟ تابع الموسم الجاري جولة بجولة، أو نبش بالأرشيف وشوف منو صنع التاريخ.</p>' +
     '</div></div>' +
     '<section class="pad"><div class="wrap">' +
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">' +
-    card({ go: 'gw', bg: '#00FF85', fg: '#38003C', bar: '#38003C', eyebrow: 'مباشر اللحين', title: 'الموسم الحالي', cta: 'ادخل ملخص الجولات',
-      body: 'ملخص كل جولة: جوائز، ترتيب، خصايص، ومنو كابتنه ضيّعه. آخر تحديث بعد الجولة ' + g + '.',
-      chips: chip('GW' + g, 'آخر جولة', 1) + chip(hl.top_score, 'أعلى نقاط', 1) + chip(esc(nameAr(hl.top_scorer)), 'نجم الجولة', 1) }) +
-    card({ go: 'archive', bg: '#46124F', fg: '#fff', bar: '#E90052', eyebrow: '2013 — 2026', title: 'أرشيف المواسم', cta: 'ادخل الأرشيف',
+    card({ go: 'gw', bg: '#00FF85', fg: '#38003C', bar: '#38003C', eyebrow: live ? 'مباشر اللحين' : 'قريباً', title: 'الموسم الحالي', cta: live ? 'ادخل ملخص الجولات' : 'شوف التفاصيل',
+      body: live ? 'ملخص كل جولة: جوائز، ترتيب، خصايص، ومنو كابتنه ضيّعه. آخر تحديث بعد الجولة ' + g + '.'
+                 : 'الموسم ما بدأ بعد — أول ما تنزل أول جولة بتلقى هني الجوائز والترتيب والتبديلات.',
+      chips: live ? chip('GW' + g, 'آخر جولة', 1) + chip(hl.top_score, 'أعلى نقاط', 1) + chip(esc(nameAr(hl.top_scorer)), 'نجم الجولة', 1) : '' }) +
+    card({ go: 'archive', bg: '#46124F', fg: '#fff', bar: '#E90052', eyebrow: seasonSpan(), title: 'أرشيف المواسم', cta: 'ادخل الأرشيف',
       body: 'كل الأبطال، الترتيب التاريخي، أرقام ما تنسى، وملف كامل لكل مشترك — ومقارنة وجه لوجه.',
-      chips: chip(seasons.length, 'موسم') + chip(allTime.length, 'مشترك') + chip(esc(champ.m.ar), 'آخر بطل') }) +
+      chips: chip(seasons.length, 'موسم') + chip(allTime.length, 'مشترك') + (champ ? chip(esc(champ.m.ar), 'آخر بطل') : '') }) +
     '</div></div></section>';
 }
 
@@ -734,12 +651,13 @@ function gwBand() {
 
 function homeView() {
   var champs = seasons.map(function (s) {
-    var t = seasonRows(s)[0];
+    var c = (SMETA[s] || {}).champion;
+    if (!c) return '';
     return '<div class="champ" data-season="' + s + '">' +
       '<div class="num" style="flex:0 0 74px;font-size:26px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
-      '<div style="flex:1 1 140px;min-width:0"><div style="font-size:22px;font-weight:800;line-height:1.2">' + esc(t.m.ar) + '</div>' +
-      '<div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(t.m.team) + '</div></div>' +
-      '<div class="num" style="flex:0 0 66px;font-size:26px;font-weight:700">' + t.r.pts + '</div></div>';
+      '<div style="flex:1 1 140px;min-width:0"><div style="font-size:22px;font-weight:800;line-height:1.2">' + esc(c.ar) + '</div>' +
+      '<div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(c.team) + '</div></div>' +
+      '<div class="num" style="flex:0 0 66px;font-size:26px;font-weight:700">' + c.pts + '</div></div>';
   }).join('');
 
   var table = allTime.map(function (m) {
@@ -748,64 +666,53 @@ function homeView() {
       '<div class="c-rank" style="color:' + a + '">' + m.allRank + '</div>' +
       '<div class="c-name"><b>' + esc(m.display) + '</b><span>' + esc(m.team) + '</span></div>' +
       '<div class="c-pts">' + fmt(m.total) + '</div>' +
-      '<div class="c-sub">' + m.count + '</div></div>';
+      (SINGLE ? '' : '<div class="c-sub">' + m.count + '</div>') + '</div>';
   }).join('');
 
+  var one = SINGLE ? seasons[0] : null;
+  var gap = SINGLE && allTime.length > 1 ? allTime[0].total - allTime[allTime.length - 1].total : null;
+
   return '<div style="background:linear-gradient(165deg,#4A1259 0%,#38003C 70%);padding:clamp(40px,7vw,84px) 0 clamp(36px,6vw,64px)"><div class="wrap">' +
-    '<div class="eyebrow"><div class="dot"></div><div style="font-size:clamp(16px,2.2vw,22px);font-weight:700;color:#04F5FF">13 موسم من الفانتازي</div><div></div></div>' +
-    '<h1 class="hero">BEST<br>IN <span style="color:#00FF85">Q8</span></h1>' +
-    '<p class="lede">كل الأبطال، وكل الأرقام، وكل الخيبات — من موسم 13/14 إلى 25/26. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.</p>' +
+    eyebrowBlock() + heroBlock() +
+    '<p class="lede">' + (SINGLE
+      ? 'موسم ' + label(one) + ' كامل — البطل، المنصة، والترتيب من الأول للأخير. اضغط أي مشترك وشوف أرقامه.'
+      : 'كل الأبطال، وكل الأرقام، وكل الخيبات — ' + seasonSpan() + '. اضغط على أي موسم أو أي مشترك وشوف تاريخه كامل.') + '</p>' +
     '<div class="stats">' +
-      '<div class="stat" style="background:#E90052"><div class="n">13</div><div class="l">موسم</div></div>' +
-      '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">28</div><div class="l">مشترك</div></div>' +
-      '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">7</div><div class="l">أبطال مختلفين</div></div>' +
-      '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">2585</div><div class="l">أعلى نقاط بموسم</div></div>' +
+      (SINGLE
+        ? '<div class="stat" style="background:#E90052"><div class="n num">' + label(one) + '</div><div class="l">الموسم</div></div>' +
+          '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">' + allTime.length + '</div><div class="l">مشترك</div></div>' +
+          '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">' + (bestSeason ? bestSeason.pts : '—') + '</div><div class="l">نقاط البطل</div></div>' +
+          (gap !== null ? '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">' + fmt(gap) + '</div><div class="l">الفارق بين الأول والأخير</div></div>' : '')
+        : '<div class="stat" style="background:#E90052"><div class="n">' + seasons.length + '</div><div class="l">موسم</div></div>' +
+          '<div class="stat" style="background:#00FF85;color:#38003C"><div class="n">' + allTime.length + '</div><div class="l">مشترك</div></div>' +
+          '<div class="stat" style="background:#04F5FF;color:#38003C"><div class="n">' + champCount + '</div><div class="l">' + (champCount === 1 ? 'بطل' : 'أبطال مختلفين') + '</div></div>' +
+          '<div class="stat" style="background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)"><div class="n">' + (bestSeason ? bestSeason.pts : '—') + '</div><div class="l">أعلى نقاط بموسم</div></div>') +
     '</div></div></div>' +
 
-    '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">لوحة الأبطال</h2><div class="s">اضغط الموسم لترتيب الدوري كامل</div></div>' +
-    '<div class="cards">' + champs + '</div></div></section>' +
+    (SINGLE
+      ? '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">منصة الموسم</h2><div class="s">اضغط أي واحد لملفه</div></div>' +
+        podiumBlock(one) + '</div></section>'
+      : '<section class="pad"><div class="wrap"><div class="hd"><h2 class="sec">لوحة الأبطال</h2><div class="s">اضغط الموسم لترتيب الدوري كامل</div></div>' +
+        '<div class="cards">' + champs + '</div></div></section>') +
 
-    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#E90052"><h2 class="sec">أرقام ما تنسى</h2><div class="s" style="color:#E90052">من صنع التاريخ؟</div></div>' +
-    '<div class="recs">' +
-      '<div class="rec" style="background:#E90052"><div class="k" style="opacity:.85">أكثر ألقاب</div>' +
-        '<div class="row"><span class="who">يوسف الخميس</span><span class="big">4</span></div>' +
-        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;opacity:.9">15/16 · 18/19 · 19/20 · 25/26</div></div>' +
-      '<div class="rec" style="background:#00FF85;color:#38003C"><div class="k" style="opacity:.7;margin-bottom:4px">أكثر مرات في المراكز الثلاثة الأولى</div>' +
-        '<div style="font-size:15px;font-weight:500;opacity:.6;margin-bottom:12px">أول أو ثاني أو ثالث — أكثر واحد صعد المنصة</div>' +
-        '<div class="row"><span class="who">ماضي الخميس</span><span class="big">7</span></div>' +
-        '<div style="font-size:18px;font-weight:700;opacity:.75">ساكن المنصة بالإيجار الطويل</div></div>' +
-      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات وصيف الدوري — تعادل ثلاثي</div>' +
-        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">ثلاث مرات لكل واحد</span><span class="big" style="font-size:48px">3</span></div>' +
-        '<div style="font-size:21px;font-weight:800;line-height:1.45">ثامر الحميضي · ماضي الخميس · حمد الخميس</div></div>' +
-      '<div class="rec" style="background:#46124F;border:2px solid rgba(255,255,255,.18)"><div class="k" style="color:#04F5FF">أكثر مرات مركز ثالث — تعادل خماسي</div>' +
-        '<div class="row"><span style="font-size:18px;font-weight:700;color:rgba(255,255,255,.6)">مرتين لكل واحد</span><span class="big" style="font-size:48px">2</span></div>' +
-        '<div style="font-size:20px;font-weight:800;line-height:1.45">مشاري الدرعة · محمد الرهيماني · ماضي الخميس · محمد الفهد · فهد الخميس</div></div>' +
-      '<div class="rec" style="background:#04F5FF;color:#38003C"><div class="k" style="opacity:.7">أفضل موسم في التاريخ</div>' +
-        '<div class="row"><span class="who">مشاري الخميس</span><span style="display:flex;flex-direction:column;align-items:center"><span class="big" style="font-size:50px">2585</span><span style="font-size:16px;font-weight:700;opacity:.75">نقطة</span></span></div>' +
-        '<div style="font-size:18px;font-weight:700;opacity:.8">موسم 20/21 — وأفضل ترتيب عالمي على الإطلاق: <span class="num" style="font-weight:700">274</span></div></div>' +
-      '<div class="rec" style="background:#2A002E;border:2px dashed rgba(255,255,255,.35)"><div class="k" style="color:#E90052;margin-bottom:4px">فشيلة الدوري — أكثر واحد جا الأخير</div>' +
-        '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:12px">قاعد بذيل الجدول أكثر من أي أحد</div>' +
-        '<div class="row"><span class="who">مبارك المطيري</span><span class="big">3</span></div>' +
-        '<div class="num" style="direction:ltr;text-align:right;font-size:18px;color:rgba(255,255,255,.7)">19/20 · 23/24 · 25/26</div></div>' +
-      '<div style="grid-column:1/-1;background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">' +
-        '<div style="font-size:62px;line-height:1">😅</div><div style="flex:1;min-width:240px">' +
-        '<h3 style="margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:900;line-height:1">المنحوس</h3>' +
-        '<p style="margin:0;font-size:clamp(17px,2.2vw,22px);font-weight:500;line-height:1.45">حمد الخميس يمتلك أفضل متوسط ترتيب في تاريخ الدوري كله — <span class="num" style="font-weight:700;background:#00FF85;color:#38003C;padding:0 8px">5.69</span> على مدى 13 موسم — ومع ذلك <span style="font-weight:900;color:#00FF85">ما رفع الكأس ولا مرة واحدة</span>.</p></div></div>' +
-    '</div></div></section>' +
+    recordsSection() +
 
-    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#04F5FF;margin-bottom:8px"><h2 class="sec">الترتيب التاريخي</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك لتاريخه الكامل</div></div>' +
-    '<p style="margin:0 0 18px;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)">مجموع نقاط كل مشترك في كل المواسم اللي شارك فيها — مو ترتيب الموسم الأخير.</p>' +
-    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">مواسم</div></div>' +
+    '<section class="pad"><div class="wrap"><div class="hd" style="border-bottom-color:#04F5FF;margin-bottom:8px"><h2 class="sec">' + (SINGLE ? 'ترتيب الموسم' : 'الترتيب التاريخي') + '</h2><div class="s" style="color:#04F5FF">اضغط أي مشترك ' + (SINGLE ? 'لأرقامه' : 'لتاريخه الكامل') + '</div></div>' +
+    (SINGLE ? '' : '<p style="margin:0 0 18px;font-size:17px;font-weight:500;color:rgba(255,255,255,.6)">مجموع نقاط كل مشترك في كل المواسم اللي شارك فيها — مو ترتيب الموسم الأخير.</p>') +
+    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div>' +
+    (SINGLE ? '' : '<div style="flex:0 0 92px">مواسم</div>') + '</div>' +
     '<div class="rows">' + table + '</div></div></section>';
 }
 
 function seasonsView() {
+  if (SINGLE) return homeView();
   var cards = seasons.map(function (s) {
-    var list = seasonRows(s);
+    var t = SMETA[s] || {};
+    if (!t.champion) return '';
     return '<div class="scard" data-season="' + s + '"><div class="num" style="font-size:34px;font-weight:700;color:#04F5FF;direction:ltr;text-align:right">' + label(s) + '</div>' +
       '<div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-top:8px">البطل</div>' +
-      '<div style="font-size:20px;font-weight:800">' + esc(list[0].m.ar) + '</div>' +
-      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55)">' + list.length + ' مشترك</div></div>';
+      '<div style="font-size:20px;font-weight:800">' + esc(t.champion.ar) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55)">' + t.n + ' مشترك</div></div>';
   }).join('');
   return '<section class="pad"><div class="wrap"><h2 class="sec">كل المواسم</h2>' +
     '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اختر موسم لترتيبه الكامل.</p>' +
@@ -818,11 +725,35 @@ function managersView() {
       '<div style="font-size:21px;font-weight:900">' + esc(m.display) + '</div>' +
       '<div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:10px">' + esc(m.team) + '</div>' +
       '<div style="display:flex;gap:14px;align-items:baseline"><span class="num" style="font-size:22px;font-weight:700;color:#00FF85">' + fmt(m.total) + '</span>' +
-      '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5)">' + m.count + ' مواسم</span></div></div>';
+      (SINGLE ? '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5)">المركز <span class="num">' + m.best + '</span></span>'
+        : '<span style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5)">' + (m.count === 1 ? 'موسم واحد' : m.count + ' ' + seasonWord(m.count)) + '</span>') + '</div></div>';
   }).join('');
   return '<section class="pad"><div class="wrap"><h2 class="sec">كل المشتركين</h2>' +
     '<p style="margin:8px 0 24px;font-size:18px;font-weight:500;color:rgba(255,255,255,.6)">اضغط أي واحد لسجله في كل المواسم.</p>' +
     '<div class="grid-cards">' + cards + '</div></div></section>';
+}
+
+function podiumBlock(s) {
+  var t = SMETA[s] || {};
+  var slot = function (o, pos, k, bg, fg) {
+    if (!o) return '';
+    return '<div data-mgr="' + esc(o.en) + '" style="cursor:pointer;background:' + bg + ';' + (fg ? 'color:' + fg + ';' : '') + 'padding:22px;display:flex;flex-direction:column;gap:4px">' +
+      '<div style="font-size:15px;font-weight:800;opacity:.7">' + k + '</div>' +
+      '<div class="num" style="font-size:34px;font-weight:700;line-height:1">' + pos + '</div>' +
+      '<div style="font-size:clamp(20px,3vw,26px);font-weight:900;line-height:1.15;margin-top:4px">' + esc(o.ar) + '</div>' +
+      '<div style="font-size:15px;font-weight:500;opacity:.7">' + esc(o.team || '') + '</div>' +
+      '<div class="num" style="font-size:26px;font-weight:700;margin-top:6px">' + o.pts + '</div></div>';
+  };
+  var shown = [t.champion, t.runner, t.third].filter(Boolean);
+  var spoonExtra = t.spoon && shown.every(function (o) { return o.en !== t.spoon.en; });
+  var covered = shown.length + (spoonExtra ? 1 : 0);
+  return '<div class="cards" style="margin-bottom:18px">' +
+    slot(t.champion, 1, 'البطل', '#FFD166', '#38003C') +
+    slot(t.runner, 2, 'الوصيف', '#D6E0EB', '#38003C') +
+    slot(t.third, 3, 'المركز الثالث', '#E09468', '#38003C') +
+    (spoonExtra ? slot(t.spoon, t.n || '', 'الأخير', '#2A002E') : '') +
+    '</div>' +
+    (t.n && t.n > covered ? '<p style="margin:0;font-size:16px;font-weight:600;color:rgba(255,255,255,.5);text-wrap:pretty">الترتيب الكامل لهذا الموسم غير متوفر في البيانات — بس المنصة وصاحب المركز الأخير.</p>' : '');
 }
 
 function seasonView(s) {
@@ -842,8 +773,27 @@ function seasonView(s) {
     (i > 0 ? '<button class="btn" data-season="' + seasons[i - 1] + '">الموسم السابق</button>' : '') +
     (i < seasons.length - 1 ? '<button class="btn" data-season="' + seasons[i + 1] + '">الموسم التالي</button>' : '') +
     '</div></div>' +
-    '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
-    '<div class="rows">' + rows + '</div></div></section>';
+    (rows ? '<div class="thead"><div style="flex:0 0 40px">#</div><div style="flex:1 1 120px">المشترك</div><div style="flex:0 0 84px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+      '<div class="rows">' + rows + '</div>' : podiumBlock(s)) +
+    '</div></section>';
+}
+
+function seasonTagsBlock(m) {
+  if (SINGLE) return '';
+  var tag = function (list, k, bg, fg) {
+    if (!list || !list.length) return '';
+    return '<div style="background:' + bg + ';' + (fg ? 'color:' + fg + ';' : '') + 'padding:16px 18px">' +
+      '<div style="font-size:15px;font-weight:800;opacity:.75;margin-bottom:8px">' + k + '</div>' +
+      '<div style="display:flex;gap:6px;flex-wrap:wrap">' + list.slice().reverse().map(function (x) {
+        return '<span class="num" data-season="' + x + '" style="cursor:pointer;background:rgba(' + (fg ? '56,0,60' : '255,255,255') + ',.16);padding:3px 9px;font-size:16px;font-weight:700">' + label(x) + '</span>';
+      }).join('') + '</div></div>';
+  };
+  var blocks = tag(m.titleSeasons, 'مواسم الألقاب', '#FFD166', '#38003C') +
+    tag(m.secondSeasons, 'مواسم الوصافة', '#D6E0EB', '#38003C') +
+    tag(m.thirdSeasons, 'مواسم المركز الثالث', '#E09468', '#38003C') +
+    tag(m.lastSeasons, 'مواسم المركز الأخير', '#7A0B4A');
+  return (blocks ? '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:16px">' + blocks + '</div>' : '') +
+    '<p style="margin:0;font-size:16px;font-weight:600;color:rgba(255,255,255,.5);text-wrap:pretty">السجل موسم بموسم غير متوفر في البيانات — الأرقام فوق مجموع مسيرته.</p>';
 }
 
 function managerView(en) {
@@ -864,13 +814,21 @@ function managerView(en) {
     '<h2 style="margin:6px 0 4px;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.05">' + esc(m.ar) + '</h2>' +
     '<div style="font-size:20px;font-weight:500;color:rgba(255,255,255,.6)">' + esc(m.team) + '</div></div>' +
     '<div class="tiles">' +
-      '<div class="tile" style="background:#E90052;border:0"><div class="n">' + m.titles + '</div><div class="l">ألقاب</div></div>' +
-      '<div class="tile" style="background:#00FF85;color:#38003C;border:0"><div class="n">' + m.podiums + '</div><div class="l">مرات بالمراكز الثلاثة الأولى</div></div>' +
-      tile(m.count, 'مواسم') + tile(fmt(m.total), 'مجموع النقاط') +
-      tile(m.avg, 'متوسط الترتيب', '#04F5FF') + tile(fmt(m.bestRank), 'أفضل ترتيب عالمي', '#04F5FF') +
+      (SINGLE ? '' :
+        '<div class="tile" style="background:#E90052;border:0"><div class="n">' + m.titles + '</div><div class="l">' + titleWord(m.titles) + '</div></div>' +
+        '<div class="tile" style="background:#00FF85;color:#38003C;border:0"><div class="n">' + m.podiums + '</div><div class="l">' + timesWord(m.podiums) + ' بالمراكز الثلاثة الأولى</div></div>') +
+      (SINGLE ? '' : tile(m.count, seasonWord(m.count))) + tile(fmt(m.total), 'مجموع النقاط') +
+      (m.avg !== null ? tile(m.avg, 'متوسط الترتيب', '#04F5FF')
+        : SINGLE ? '' : tile(fmt(Math.round(m.avgPts || 0)), 'متوسط نقاط الموسم', '#04F5FF')) +
+      (m.bestRank !== null ? tile(fmt(m.bestRank), 'أفضل ترتيب عالمي', '#04F5FF')
+        : tile(m.best, SINGLE ? 'مركزه بالموسم' : 'أفضل مركز', '#04F5FF')) +
+      (!SINGLE && m.seconds ? tile(m.seconds, 'مرات وصيف') : '') +
+      (!SINGLE && m.lasts ? tile(m.lasts, timesWord(m.lasts) + ' بالمركز الأخير', '#FF5C9E') : '') +
     '</div>' +
-    '<div class="thead thead-m" style="border-bottom-color:#04F5FF"><div style="flex:0 0 68px">الموسم</div><div style="flex:0 0 44px">المركز</div><div style="flex:1 1 80px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
-    '<div class="rows">' + rows + '</div></div></section>';
+    (rows ? '<div class="thead thead-m" style="border-bottom-color:#04F5FF"><div style="flex:0 0 68px">الموسم</div><div style="flex:0 0 44px">المركز</div><div style="flex:1 1 80px">النقاط</div><div style="flex:0 0 92px">عالمياً</div></div>' +
+      '<div class="rows">' + rows + '</div>'
+      : seasonTagsBlock(m)) +
+    '</div></section>';
 }
 
 var cmpA = null, cmpB = null;
@@ -902,20 +860,23 @@ function compareView() {
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:24px">' +
     '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الأول</div><select id="selA" style="border:2px solid #00FF85">' + opts(A.en) + '</select></div>' +
     '<div><div style="font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">المشترك الثاني</div><select id="selB" style="border:2px solid #E90052">' + opts(B.en) + '</select></div></div>' +
-    '<div style="background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:22px;margin-bottom:20px">' +
-    '<div style="font-size:16px;font-weight:700;opacity:.8;margin-bottom:6px">تقابلوا في ' + shared.length + ' موسم</div>' +
-    '<div style="font-size:clamp(20px,3vw,28px);font-weight:900;line-height:1.35">' + esc(h2h) + '</div></div>' +
+    (A.rows.length && B.rows.length ? '<div style="background:linear-gradient(120deg,#E90052 0%,#7A0B4A 100%);padding:22px;margin-bottom:20px">' +
+      '<div style="font-size:16px;font-weight:700;opacity:.8;margin-bottom:6px">تقابلوا في ' + shared.length + ' ' + seasonWord(shared.length) + '</div>' +
+      '<div style="font-size:clamp(20px,3vw,28px);font-weight:900;line-height:1.35">' + esc(h2h) + '</div></div>' : '') +
     '<div class="cmp-hd"><div style="font-size:18px;font-weight:900;color:#00FF85">' + esc(A.display) + '</div>' +
     '<div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.5)">المقارنة</div>' +
     '<div style="font-size:18px;font-weight:900;color:#FF5C9E;text-align:left">' + esc(B.display) + '</div></div>' +
     '<div class="rows">' +
-      row('ألقاب', A.titles, B.titles, true) +
-      row('مرات بالمراكز الثلاثة الأولى', A.podiums, B.podiums, true) +
+      (SINGLE ? '' : row('ألقاب', A.titles, B.titles, true) +
+        row('مرات بالمراكز الثلاثة الأولى', A.podiums, B.podiums, true)) +
       row('مجموع النقاط', A.total, B.total, true, fmt(A.total), fmt(B.total)) +
-      row('مواسم', A.count, B.count, true) +
-      row('متوسط الترتيب', +A.avg, +B.avg, false, A.avg, B.avg) +
-      row('أفضل مركز', A.best, B.best, false) +
-      row('أفضل ترتيب عالمي', A.bestRank, B.bestRank, false, fmt(A.bestRank), fmt(B.bestRank)) +
+      (SINGLE ? '' : row('مواسم', A.count, B.count, true)) +
+      (A.avg !== null ? row('متوسط الترتيب', +A.avg, +B.avg, false, A.avg, B.avg)
+        : row('متوسط نقاط الموسم', A.avgPts, B.avgPts, true, fmt(Math.round(A.avgPts || 0)), fmt(Math.round(B.avgPts || 0)))) +
+      row(SINGLE ? 'المركز' : 'أفضل مركز', A.best, B.best, false) +
+      (SINGLE ? '' : row('مرات وصيف', A.seconds, B.seconds, true)) +
+      (A.bestRank !== null ? row('أفضل ترتيب عالمي', A.bestRank, B.bestRank, false, fmt(A.bestRank), fmt(B.bestRank))
+        : SINGLE ? '' : row('مرات بالمركز الأخير', A.lasts, B.lasts, false)) +
     '</div></div></section>';
 }
 
@@ -994,6 +955,9 @@ function capTail(g, player) {
   if (n < 2) return '';
   return ' — <span class="num" style="font-weight:800">' + n + '</span> مديرين حطّوا عليه الشارة';
 }
+function seasonWord(n) { return (n === 1 || n >= 11) ? 'موسم' : 'مواسم'; }
+function titleWord(n) { return n === 1 ? 'لقب' : n >= 11 ? 'لقب' : 'ألقاب'; }
+function timesWord(n) { return (n === 1 || n >= 11) ? 'مرة' : 'مرات'; }
 function mgrWord(n) { return n >= 11 ? 'مدير' : 'مديرين'; }
 function capWho(g, player, manager) {
   if (!player) return nameAr(manager);
@@ -1034,21 +998,69 @@ function ingest(d) {
   });
   Object.keys(GW_POP).forEach(function (g) { GW_POP[g].sort(function (a, b) { return b[1] - a[1]; }); });
   SEASON_SUMMARY = d.season_summary || [];
+  SEASON_HISTORY = d.season_history || null;
   GENERATED_AT = d.generated_at || null;
   LIVE_GW = d.live_gw === undefined || d.live_gw === null || d.live_gw === '' ? null : toNum(d.live_gw);
   computeGws();
   paintUpdated();
 }
 
-fetch((window.__resources && window.__resources.fplData) || 'data/fpl-data.json', { cache: 'no-store' })
-  .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-  .then(function (d) { ingest(d); render(); })
-  .catch(function (err) {
-    computeGws();
-    render();
-    console.error('fpl-data.json load failed', err);
-    app.insertAdjacentHTML('afterbegin', '<section class="pad"><div class="wrap"><div style="background:#E90052;padding:18px;font-size:17px;font-weight:800">ما قدرنا نقرأ ملف البيانات <span style="direction:ltr;display:inline-block">data/fpl-data.json</span> — بيانات الجولات ما راح تظهر.</div></div></section>');
+var SLUG = (function () {
+  var m = /[?&]league=([\w-]+)/.exec(location.search);
+  if (m) return m[1];
+  var t = document.querySelector('meta[name="league-slug"]');
+  return (t && t.getAttribute('content')) || 'q8';
+})();
+var RES = window.__resources || {};
+var LEAGUE_URL = RES.leagueData || 'data/league.json';
+var DATA_URL = RES.fplData || 'data/fpl-data.json';
+var DATA_TRIES = RES.fplData ? [RES.fplData] : ['data/fpl-data.json', 'data/' + SLUG + '/fpl-data.json'];
+var LEAGUE_TRIES = RES.leagueData ? [RES.leagueData] : ['data/league.json', 'data/' + SLUG + '/league.json'];
+
+function loadJson(url) {
+  return fetch(url, { cache: 'no-store' }).then(function (r) {
+    if (!r.ok) throw new Error(url + ' → HTTP ' + r.status);
+    return r.json();
   });
+}
+
+function loadFirst(urls, kind) {
+  var i = 0;
+  return (function next() {
+    if (i >= urls.length) throw new Error('no ' + kind + ' found in ' + urls.join(' , '));
+    var u = urls[i++];
+    return loadJson(u).then(function (j) {
+      if (kind === 'data') DATA_URL = u; else LEAGUE_URL = u;
+      return j;
+    }, function () { return next(); });
+  })();
+}
+
+function dataError(msg) {
+  app.insertAdjacentHTML('afterbegin', '<section class="pad"><div class="wrap"><div style="background:#E90052;padding:18px;font-size:17px;font-weight:800;line-height:1.5">' + msg + '</div></div></section>');
+}
+
+Promise.all([
+  loadFirst(LEAGUE_TRIES, 'league').then(function (l) {
+    META = l.meta || {};
+    AR = l.names || {};
+    ROWS = (l.history || []).map(function (h) { return [h.season, h.rank, h.manager_name, h.team_name, h.total_points, h.overall_rank]; });
+  }).catch(function (err) {
+    console.error(err);
+    return null;
+  }),
+  loadFirst(DATA_TRIES, 'data').then(ingest).catch(function (err) {
+    console.error(err);
+    computeGws();
+    return 'ما قدرنا نقرأ ملف البيانات <span style="direction:ltr;display:inline-block">data/fpl-data.json</span> — بيانات الجولات ما راح تظهر.';
+  })
+]).then(function (errs) {
+  buildHistory();
+  paintBrand();
+  render();
+  errs.filter(function (e) { return typeof e === 'string'; }).forEach(dataError);
+  if (!seasons.length) dataError('ما قدرنا نقرأ بيانات الأرشيف — لا <span style="direction:ltr;display:inline-block">data/league.json</span> ولا <span style="direction:ltr;display:inline-block">season_history</span> داخل ملف البيانات.');
+});
 </script>
 </body>
 </html>
