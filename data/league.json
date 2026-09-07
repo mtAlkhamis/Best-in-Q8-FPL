@@ -1,0 +1,2281 @@
+{
+ "meta": {
+  "name": "Best in Q8",
+  "brand_pre": "BEST IN",
+  "brand_accent": "Q8",
+  "tagline": "موسم من الفانتازي"
+ },
+ "names": {
+  "Madi Alkhamis": "ماضي الخميس",
+  "HAMAD ALKHAMEES": "حمد الخميس",
+  "meshary alderah": "مشاري الدرعة",
+  "Musaed Al_Husaini": "مساعد الحسيني",
+  "Thamer Alhumaidhi": "ثامر الحميضي",
+  "Mohammad R": "محمد الرهيماني",
+  "Yousef KH": "يوسف الخميس",
+  "mohammad fahad": "محمد الفهد",
+  "Ahmed K": "أحمد الخميس",
+  "Ali Alkhamees": "علي الخميس",
+  "Ali Alkhames": "علي الخميس",
+  "Abdullah Alkhamees": "عبدالله الخميس",
+  "Abdullah Alkhames": "عبدالله الخميس",
+  "Naser Alkhamees": "ناصر الخميس",
+  "Nasser T Alkhamis": "ناصر الخميس",
+  "fahad alsha6y": "فهد الشطي",
+  "Abdulaziz Al Khamees": "عبدالعزيز الخميس",
+  "Hussain Bin Mattar": "حسين بن مطر",
+  "Saud Alkhamis": "سعود الخميس",
+  "nawaf alkhamis": "نواف الخميس",
+  "Abdullah Alsultan": "عبدالله السلطان",
+  "Homoud Alkhalifah": "حمود الخليفة",
+  "Turki Alkhamis": "تركي الخميس",
+  "Khaled Alfahed": "خالد الفهد",
+  "Fahad Alkhamis": "فهد الخميس",
+  "Meshary Alkhamees": "مشاري الخميس",
+  "Mubarak Almutairi": "مبارك المطيري",
+  "Meshary Abdullah": "مشاري عبدالله",
+  "Alwaleed Alfelaij": "وليد الفليج"
+ },
+ "history": [
+  {
+   "season": "2013/14",
+   "rank": 1,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2408,
+   "overall_rank": 8000
+  },
+  {
+   "season": "2013/14",
+   "rank": 2,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2182,
+   "overall_rank": 347779
+  },
+  {
+   "season": "2013/14",
+   "rank": 3,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2133,
+   "overall_rank": 519260
+  },
+  {
+   "season": "2013/14",
+   "rank": 4,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2123,
+   "overall_rank": 556881
+  },
+  {
+   "season": "2013/14",
+   "rank": 5,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2117,
+   "overall_rank": 578231
+  },
+  {
+   "season": "2013/14",
+   "rank": 6,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2105,
+   "overall_rank": 624980
+  },
+  {
+   "season": "2013/14",
+   "rank": 7,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2073,
+   "overall_rank": 750439
+  },
+  {
+   "season": "2013/14",
+   "rank": 8,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 1986,
+   "overall_rank": 1094249
+  },
+  {
+   "season": "2013/14",
+   "rank": 9,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 1931,
+   "overall_rank": 1296318
+  },
+  {
+   "season": "2014/15",
+   "rank": 1,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2188,
+   "overall_rank": 11859
+  },
+  {
+   "season": "2014/15",
+   "rank": 2,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2172,
+   "overall_rank": 15968
+  },
+  {
+   "season": "2014/15",
+   "rank": 3,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2098,
+   "overall_rank": 55241
+  },
+  {
+   "season": "2014/15",
+   "rank": 4,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 1983,
+   "overall_rank": 260336
+  },
+  {
+   "season": "2014/15",
+   "rank": 5,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 1934,
+   "overall_rank": 435109
+  },
+  {
+   "season": "2014/15",
+   "rank": 6,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 1812,
+   "overall_rank": 1047893
+  },
+  {
+   "season": "2014/15",
+   "rank": 7,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 1800,
+   "overall_rank": 1112772
+  },
+  {
+   "season": "2014/15",
+   "rank": 8,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 1782,
+   "overall_rank": 1204878
+  },
+  {
+   "season": "2014/15",
+   "rank": 9,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 1727,
+   "overall_rank": 1486791
+  },
+  {
+   "season": "2014/15",
+   "rank": 10,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 1521,
+   "overall_rank": 2469786
+  },
+  {
+   "season": "2015/16",
+   "rank": 1,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2113,
+   "overall_rank": 187331
+  },
+  {
+   "season": "2015/16",
+   "rank": 2,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2104,
+   "overall_rank": 212097
+  },
+  {
+   "season": "2015/16",
+   "rank": 3,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2103,
+   "overall_rank": 213473
+  },
+  {
+   "season": "2015/16",
+   "rank": 4,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2103,
+   "overall_rank": 213744
+  },
+  {
+   "season": "2015/16",
+   "rank": 5,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2056,
+   "overall_rank": 379120
+  },
+  {
+   "season": "2015/16",
+   "rank": 6,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2027,
+   "overall_rank": 509848
+  },
+  {
+   "season": "2015/16",
+   "rank": 7,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2020,
+   "overall_rank": 545474
+  },
+  {
+   "season": "2015/16",
+   "rank": 8,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2008,
+   "overall_rank": 606789
+  },
+  {
+   "season": "2015/16",
+   "rank": 9,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2001,
+   "overall_rank": 643849
+  },
+  {
+   "season": "2015/16",
+   "rank": 10,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 1981,
+   "overall_rank": 752868
+  },
+  {
+   "season": "2015/16",
+   "rank": 11,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 1972,
+   "overall_rank": 802337
+  },
+  {
+   "season": "2015/16",
+   "rank": 12,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 1966,
+   "overall_rank": 838592
+  },
+  {
+   "season": "2015/16",
+   "rank": 13,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 1940,
+   "overall_rank": 989654
+  },
+  {
+   "season": "2015/16",
+   "rank": 14,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 1921,
+   "overall_rank": 1103922
+  },
+  {
+   "season": "2015/16",
+   "rank": 15,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 1817,
+   "overall_rank": 1699738
+  },
+  {
+   "season": "2015/16",
+   "rank": 16,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 1638,
+   "overall_rank": 2443628
+  },
+  {
+   "season": "2016/17",
+   "rank": 1,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2392,
+   "overall_rank": 1044
+  },
+  {
+   "season": "2016/17",
+   "rank": 2,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2270,
+   "overall_rank": 20892
+  },
+  {
+   "season": "2016/17",
+   "rank": 3,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2240,
+   "overall_rank": 35627
+  },
+  {
+   "season": "2016/17",
+   "rank": 4,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2231,
+   "overall_rank": 41709
+  },
+  {
+   "season": "2016/17",
+   "rank": 5,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2230,
+   "overall_rank": 42480
+  },
+  {
+   "season": "2016/17",
+   "rank": 6,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2201,
+   "overall_rank": 66780
+  },
+  {
+   "season": "2016/17",
+   "rank": 7,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2084,
+   "overall_rank": 285225
+  },
+  {
+   "season": "2016/17",
+   "rank": 8,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2066,
+   "overall_rank": 341016
+  },
+  {
+   "season": "2016/17",
+   "rank": 9,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2034,
+   "overall_rank": 457808
+  },
+  {
+   "season": "2016/17",
+   "rank": 10,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2021,
+   "overall_rank": 509161
+  },
+  {
+   "season": "2016/17",
+   "rank": 11,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 1993,
+   "overall_rank": 641089
+  },
+  {
+   "season": "2016/17",
+   "rank": 12,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1943,
+   "overall_rank": 903234
+  },
+  {
+   "season": "2016/17",
+   "rank": 13,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 1930,
+   "overall_rank": 979987
+  },
+  {
+   "season": "2016/17",
+   "rank": 14,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 1889,
+   "overall_rank": 1238300
+  },
+  {
+   "season": "2016/17",
+   "rank": 15,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 1887,
+   "overall_rank": 1247475
+  },
+  {
+   "season": "2016/17",
+   "rank": 16,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 1864,
+   "overall_rank": 1400323
+  },
+  {
+   "season": "2016/17",
+   "rank": 17,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 1443,
+   "overall_rank": 3687485
+  },
+  {
+   "season": "2017/18",
+   "rank": 1,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2310,
+   "overall_rank": 11030
+  },
+  {
+   "season": "2017/18",
+   "rank": 2,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2277,
+   "overall_rank": 26360
+  },
+  {
+   "season": "2017/18",
+   "rank": 3,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2258,
+   "overall_rank": 40594
+  },
+  {
+   "season": "2017/18",
+   "rank": 4,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2256,
+   "overall_rank": 42627
+  },
+  {
+   "season": "2017/18",
+   "rank": 5,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2233,
+   "overall_rank": 69343
+  },
+  {
+   "season": "2017/18",
+   "rank": 6,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2215,
+   "overall_rank": 96631
+  },
+  {
+   "season": "2017/18",
+   "rank": 7,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2204,
+   "overall_rank": 117184
+  },
+  {
+   "season": "2017/18",
+   "rank": 8,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2152,
+   "overall_rank": 260798
+  },
+  {
+   "season": "2017/18",
+   "rank": 9,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2147,
+   "overall_rank": 277473
+  },
+  {
+   "season": "2017/18",
+   "rank": 10,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2116,
+   "overall_rank": 410064
+  },
+  {
+   "season": "2017/18",
+   "rank": 11,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2099,
+   "overall_rank": 493178
+  },
+  {
+   "season": "2017/18",
+   "rank": 12,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2069,
+   "overall_rank": 670997
+  },
+  {
+   "season": "2017/18",
+   "rank": 13,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2067,
+   "overall_rank": 687291
+  },
+  {
+   "season": "2017/18",
+   "rank": 14,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2065,
+   "overall_rank": 696443
+  },
+  {
+   "season": "2017/18",
+   "rank": 15,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2045,
+   "overall_rank": 836922
+  },
+  {
+   "season": "2017/18",
+   "rank": 16,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2004,
+   "overall_rank": 1148750
+  },
+  {
+   "season": "2017/18",
+   "rank": 17,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 1863,
+   "overall_rank": 2317178
+  },
+  {
+   "season": "2017/18",
+   "rank": 18,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1858,
+   "overall_rank": 2355448
+  },
+  {
+   "season": "2017/18",
+   "rank": 19,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 1818,
+   "overall_rank": 2675056
+  },
+  {
+   "season": "2017/18",
+   "rank": 20,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 1589,
+   "overall_rank": 4306138
+  },
+  {
+   "season": "2018/19",
+   "rank": 1,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2387,
+   "overall_rank": 9488
+  },
+  {
+   "season": "2018/19",
+   "rank": 2,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2366,
+   "overall_rank": 15712
+  },
+  {
+   "season": "2018/19",
+   "rank": 3,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2271,
+   "overall_rank": 96406
+  },
+  {
+   "season": "2018/19",
+   "rank": 4,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2211,
+   "overall_rank": 234904
+  },
+  {
+   "season": "2018/19",
+   "rank": 5,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2196,
+   "overall_rank": 284859
+  },
+  {
+   "season": "2018/19",
+   "rank": 6,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2190,
+   "overall_rank": 309873
+  },
+  {
+   "season": "2018/19",
+   "rank": 7,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2167,
+   "overall_rank": 410566
+  },
+  {
+   "season": "2018/19",
+   "rank": 8,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2163,
+   "overall_rank": 431364
+  },
+  {
+   "season": "2018/19",
+   "rank": 9,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2151,
+   "overall_rank": 492622
+  },
+  {
+   "season": "2018/19",
+   "rank": 10,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2126,
+   "overall_rank": 649429
+  },
+  {
+   "season": "2018/19",
+   "rank": 11,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2125,
+   "overall_rank": 658173
+  },
+  {
+   "season": "2018/19",
+   "rank": 12,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2107,
+   "overall_rank": 789580
+  },
+  {
+   "season": "2018/19",
+   "rank": 13,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2085,
+   "overall_rank": 975933
+  },
+  {
+   "season": "2018/19",
+   "rank": 14,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2060,
+   "overall_rank": 1214288
+  },
+  {
+   "season": "2018/19",
+   "rank": 15,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2060,
+   "overall_rank": 1215953
+  },
+  {
+   "season": "2018/19",
+   "rank": 16,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2052,
+   "overall_rank": 1296143
+  },
+  {
+   "season": "2018/19",
+   "rank": 17,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2047,
+   "overall_rank": 1345858
+  },
+  {
+   "season": "2018/19",
+   "rank": 18,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2040,
+   "overall_rank": 1423973
+  },
+  {
+   "season": "2018/19",
+   "rank": 19,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2027,
+   "overall_rank": 1567517
+  },
+  {
+   "season": "2018/19",
+   "rank": 20,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2022,
+   "overall_rank": 1626826
+  },
+  {
+   "season": "2018/19",
+   "rank": 21,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2012,
+   "overall_rank": 1738566
+  },
+  {
+   "season": "2018/19",
+   "rank": 22,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1997,
+   "overall_rank": 1917963
+  },
+  {
+   "season": "2018/19",
+   "rank": 23,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 1662,
+   "overall_rank": 4915160
+  },
+  {
+   "season": "2018/19",
+   "rank": 24,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 78,
+   "overall_rank": 6285873
+  },
+  {
+   "season": "2019/20",
+   "rank": 1,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2344,
+   "overall_rank": 15784
+  },
+  {
+   "season": "2019/20",
+   "rank": 2,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2339,
+   "overall_rank": 18346
+  },
+  {
+   "season": "2019/20",
+   "rank": 3,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2332,
+   "overall_rank": 22252
+  },
+  {
+   "season": "2019/20",
+   "rank": 4,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2330,
+   "overall_rank": 23569
+  },
+  {
+   "season": "2019/20",
+   "rank": 5,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2263,
+   "overall_rank": 106175
+  },
+  {
+   "season": "2019/20",
+   "rank": 6,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2249,
+   "overall_rank": 136157
+  },
+  {
+   "season": "2019/20",
+   "rank": 7,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2233,
+   "overall_rank": 180265
+  },
+  {
+   "season": "2019/20",
+   "rank": 8,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2226,
+   "overall_rank": 200426
+  },
+  {
+   "season": "2019/20",
+   "rank": 9,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2211,
+   "overall_rank": 249725
+  },
+  {
+   "season": "2019/20",
+   "rank": 10,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2202,
+   "overall_rank": 285712
+  },
+  {
+   "season": "2019/20",
+   "rank": 11,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2185,
+   "overall_rank": 359863
+  },
+  {
+   "season": "2019/20",
+   "rank": 12,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2169,
+   "overall_rank": 443996
+  },
+  {
+   "season": "2019/20",
+   "rank": 13,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 2147,
+   "overall_rank": 573522
+  },
+  {
+   "season": "2019/20",
+   "rank": 14,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 2132,
+   "overall_rank": 670521
+  },
+  {
+   "season": "2019/20",
+   "rank": 15,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2105,
+   "overall_rank": 873623
+  },
+  {
+   "season": "2019/20",
+   "rank": 16,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2094,
+   "overall_rank": 965547
+  },
+  {
+   "season": "2019/20",
+   "rank": 17,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2087,
+   "overall_rank": 1024436
+  },
+  {
+   "season": "2019/20",
+   "rank": 18,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2068,
+   "overall_rank": 1189765
+  },
+  {
+   "season": "2019/20",
+   "rank": 19,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2065,
+   "overall_rank": 1221566
+  },
+  {
+   "season": "2019/20",
+   "rank": 20,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 2048,
+   "overall_rank": 1383817
+  },
+  {
+   "season": "2019/20",
+   "rank": 21,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2040,
+   "overall_rank": 1465763
+  },
+  {
+   "season": "2019/20",
+   "rank": 22,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2018,
+   "overall_rank": 1696099
+  },
+  {
+   "season": "2019/20",
+   "rank": 23,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2003,
+   "overall_rank": 1865523
+  },
+  {
+   "season": "2019/20",
+   "rank": 24,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 1786,
+   "overall_rank": 4439784
+  },
+  {
+   "season": "2019/20",
+   "rank": 25,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 539,
+   "overall_rank": 7414662
+  },
+  {
+   "season": "2020/21",
+   "rank": 1,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2585,
+   "overall_rank": 274
+  },
+  {
+   "season": "2020/21",
+   "rank": 2,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2460,
+   "overall_rank": 24227
+  },
+  {
+   "season": "2020/21",
+   "rank": 3,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2436,
+   "overall_rank": 42331
+  },
+  {
+   "season": "2020/21",
+   "rank": 4,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2434,
+   "overall_rank": 44316
+  },
+  {
+   "season": "2020/21",
+   "rank": 5,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2434,
+   "overall_rank": 44843
+  },
+  {
+   "season": "2020/21",
+   "rank": 6,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2423,
+   "overall_rank": 55550
+  },
+  {
+   "season": "2020/21",
+   "rank": 7,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 2398,
+   "overall_rank": 89521
+  },
+  {
+   "season": "2020/21",
+   "rank": 8,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2344,
+   "overall_rank": 210512
+  },
+  {
+   "season": "2020/21",
+   "rank": 9,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2334,
+   "overall_rank": 241635
+  },
+  {
+   "season": "2020/21",
+   "rank": 10,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2318,
+   "overall_rank": 294242
+  },
+  {
+   "season": "2020/21",
+   "rank": 11,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2299,
+   "overall_rank": 367918
+  },
+  {
+   "season": "2020/21",
+   "rank": 12,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2266,
+   "overall_rank": 516655
+  },
+  {
+   "season": "2020/21",
+   "rank": 13,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2249,
+   "overall_rank": 610584
+  },
+  {
+   "season": "2020/21",
+   "rank": 14,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2242,
+   "overall_rank": 649433
+  },
+  {
+   "season": "2020/21",
+   "rank": 15,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2240,
+   "overall_rank": 661279
+  },
+  {
+   "season": "2020/21",
+   "rank": 16,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 2157,
+   "overall_rank": 1227261
+  },
+  {
+   "season": "2020/21",
+   "rank": 17,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2141,
+   "overall_rank": 1353112
+  },
+  {
+   "season": "2020/21",
+   "rank": 18,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2139,
+   "overall_rank": 1369573
+  },
+  {
+   "season": "2020/21",
+   "rank": 19,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2106,
+   "overall_rank": 1643027
+  },
+  {
+   "season": "2020/21",
+   "rank": 20,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2088,
+   "overall_rank": 1803334
+  },
+  {
+   "season": "2020/21",
+   "rank": 21,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2013,
+   "overall_rank": 2494571
+  },
+  {
+   "season": "2020/21",
+   "rank": 22,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 1958,
+   "overall_rank": 3027333
+  },
+  {
+   "season": "2020/21",
+   "rank": 23,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1847,
+   "overall_rank": 4075987
+  },
+  {
+   "season": "2020/21",
+   "rank": 24,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 1837,
+   "overall_rank": 4165324
+  },
+  {
+   "season": "2021/22",
+   "rank": 1,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2523,
+   "overall_rank": 77312
+  },
+  {
+   "season": "2021/22",
+   "rank": 2,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2500,
+   "overall_rank": 105679
+  },
+  {
+   "season": "2021/22",
+   "rank": 3,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2465,
+   "overall_rank": 163750
+  },
+  {
+   "season": "2021/22",
+   "rank": 4,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2459,
+   "overall_rank": 174350
+  },
+  {
+   "season": "2021/22",
+   "rank": 5,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2434,
+   "overall_rank": 226721
+  },
+  {
+   "season": "2021/22",
+   "rank": 6,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2429,
+   "overall_rank": 238025
+  },
+  {
+   "season": "2021/22",
+   "rank": 7,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2418,
+   "overall_rank": 263252
+  },
+  {
+   "season": "2021/22",
+   "rank": 8,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2414,
+   "overall_rank": 271618
+  },
+  {
+   "season": "2021/22",
+   "rank": 9,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2405,
+   "overall_rank": 296510
+  },
+  {
+   "season": "2021/22",
+   "rank": 10,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2393,
+   "overall_rank": 329223
+  },
+  {
+   "season": "2021/22",
+   "rank": 11,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2387,
+   "overall_rank": 345058
+  },
+  {
+   "season": "2021/22",
+   "rank": 12,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2378,
+   "overall_rank": 370792
+  },
+  {
+   "season": "2021/22",
+   "rank": 13,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2365,
+   "overall_rank": 412771
+  },
+  {
+   "season": "2021/22",
+   "rank": 14,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2330,
+   "overall_rank": 537021
+  },
+  {
+   "season": "2021/22",
+   "rank": 15,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2305,
+   "overall_rank": 636609
+  },
+  {
+   "season": "2021/22",
+   "rank": 16,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2301,
+   "overall_rank": 657189
+  },
+  {
+   "season": "2021/22",
+   "rank": 17,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2269,
+   "overall_rank": 805263
+  },
+  {
+   "season": "2021/22",
+   "rank": 18,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2240,
+   "overall_rank": 956588
+  },
+  {
+   "season": "2021/22",
+   "rank": 19,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2017,
+   "overall_rank": 2635821
+  },
+  {
+   "season": "2021/22",
+   "rank": 20,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 1985,
+   "overall_rank": 2930210
+  },
+  {
+   "season": "2021/22",
+   "rank": 21,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 1975,
+   "overall_rank": 3029241
+  },
+  {
+   "season": "2021/22",
+   "rank": 22,
+   "manager_name": "Abdullah Alkhames",
+   "team_name": "alkhames86",
+   "total_points": 1870,
+   "overall_rank": 4080776
+  },
+  {
+   "season": "2021/22",
+   "rank": 23,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1844,
+   "overall_rank": 4345571
+  },
+  {
+   "season": "2021/22",
+   "rank": 24,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 1779,
+   "overall_rank": 5019676
+  },
+  {
+   "season": "2021/22",
+   "rank": 25,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 1592,
+   "overall_rank": 6752392
+  },
+  {
+   "season": "2021/22",
+   "rank": 26,
+   "manager_name": "Naser Alkhamees",
+   "team_name": "Naser",
+   "total_points": 537,
+   "overall_rank": 8969823
+  },
+  {
+   "season": "2022/23",
+   "rank": 1,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2583,
+   "overall_rank": 22800
+  },
+  {
+   "season": "2022/23",
+   "rank": 2,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2537,
+   "overall_rank": 80679
+  },
+  {
+   "season": "2022/23",
+   "rank": 3,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2515,
+   "overall_rank": 130074
+  },
+  {
+   "season": "2022/23",
+   "rank": 4,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2514,
+   "overall_rank": 132930
+  },
+  {
+   "season": "2022/23",
+   "rank": 5,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2475,
+   "overall_rank": 257148
+  },
+  {
+   "season": "2022/23",
+   "rank": 6,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2467,
+   "overall_rank": 288380
+  },
+  {
+   "season": "2022/23",
+   "rank": 7,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2461,
+   "overall_rank": 314438
+  },
+  {
+   "season": "2022/23",
+   "rank": 8,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2434,
+   "overall_rank": 444768
+  },
+  {
+   "season": "2022/23",
+   "rank": 9,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2427,
+   "overall_rank": 484809
+  },
+  {
+   "season": "2022/23",
+   "rank": 10,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2416,
+   "overall_rank": 554347
+  },
+  {
+   "season": "2022/23",
+   "rank": 11,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2415,
+   "overall_rank": 560541
+  },
+  {
+   "season": "2022/23",
+   "rank": 12,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2407,
+   "overall_rank": 610017
+  },
+  {
+   "season": "2022/23",
+   "rank": 13,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2395,
+   "overall_rank": 690445
+  },
+  {
+   "season": "2022/23",
+   "rank": 14,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2387,
+   "overall_rank": 744909
+  },
+  {
+   "season": "2022/23",
+   "rank": 15,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2375,
+   "overall_rank": 835998
+  },
+  {
+   "season": "2022/23",
+   "rank": 16,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2355,
+   "overall_rank": 1001625
+  },
+  {
+   "season": "2022/23",
+   "rank": 17,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2305,
+   "overall_rank": 1477674
+  },
+  {
+   "season": "2022/23",
+   "rank": 18,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2253,
+   "overall_rank": 2053288
+  },
+  {
+   "season": "2022/23",
+   "rank": 19,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2182,
+   "overall_rank": 2922435
+  },
+  {
+   "season": "2022/23",
+   "rank": 20,
+   "manager_name": "Abdullah Alkhames",
+   "team_name": "alkhames86",
+   "total_points": 2163,
+   "overall_rank": 3169538
+  },
+  {
+   "season": "2022/23",
+   "rank": 21,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2082,
+   "overall_rank": 4206958
+  },
+  {
+   "season": "2022/23",
+   "rank": 22,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 2007,
+   "overall_rank": 5158668
+  },
+  {
+   "season": "2022/23",
+   "rank": 23,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 1938,
+   "overall_rank": 5995824
+  },
+  {
+   "season": "2022/23",
+   "rank": 24,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 1926,
+   "overall_rank": 6140390
+  },
+  {
+   "season": "2022/23",
+   "rank": 25,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 1717,
+   "overall_rank": 8319831
+  },
+  {
+   "season": "2022/23",
+   "rank": 26,
+   "manager_name": "Naser Alkhamees",
+   "team_name": "Naser",
+   "total_points": 1652,
+   "overall_rank": 8852732
+  },
+  {
+   "season": "2022/23",
+   "rank": 27,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 1464,
+   "overall_rank": 9950166
+  },
+  {
+   "season": "2023/24",
+   "rank": 1,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2536,
+   "overall_rank": 32530
+  },
+  {
+   "season": "2023/24",
+   "rank": 2,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2462,
+   "overall_rank": 152985
+  },
+  {
+   "season": "2023/24",
+   "rank": 3,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2447,
+   "overall_rank": 191081
+  },
+  {
+   "season": "2023/24",
+   "rank": 4,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2431,
+   "overall_rank": 241090
+  },
+  {
+   "season": "2023/24",
+   "rank": 5,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2395,
+   "overall_rank": 387168
+  },
+  {
+   "season": "2023/24",
+   "rank": 6,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2391,
+   "overall_rank": 403592
+  },
+  {
+   "season": "2023/24",
+   "rank": 7,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2374,
+   "overall_rank": 491992
+  },
+  {
+   "season": "2023/24",
+   "rank": 8,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2374,
+   "overall_rank": 495000
+  },
+  {
+   "season": "2023/24",
+   "rank": 9,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2360,
+   "overall_rank": 577182
+  },
+  {
+   "season": "2023/24",
+   "rank": 10,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 2356,
+   "overall_rank": 603631
+  },
+  {
+   "season": "2023/24",
+   "rank": 11,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2343,
+   "overall_rank": 691610
+  },
+  {
+   "season": "2023/24",
+   "rank": 12,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2339,
+   "overall_rank": 714856
+  },
+  {
+   "season": "2023/24",
+   "rank": 13,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2318,
+   "overall_rank": 884030
+  },
+  {
+   "season": "2023/24",
+   "rank": 14,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2314,
+   "overall_rank": 917802
+  },
+  {
+   "season": "2023/24",
+   "rank": 15,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2309,
+   "overall_rank": 960086
+  },
+  {
+   "season": "2023/24",
+   "rank": 16,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2308,
+   "overall_rank": 970133
+  },
+  {
+   "season": "2023/24",
+   "rank": 17,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2277,
+   "overall_rank": 1265178
+  },
+  {
+   "season": "2023/24",
+   "rank": 18,
+   "manager_name": "Ali Alkhames",
+   "team_name": "arsenal",
+   "total_points": 2256,
+   "overall_rank": 1497070
+  },
+  {
+   "season": "2023/24",
+   "rank": 19,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 2205,
+   "overall_rank": 2117661
+  },
+  {
+   "season": "2023/24",
+   "rank": 20,
+   "manager_name": "Abdullah Alkhames",
+   "team_name": "alkhames86",
+   "total_points": 2166,
+   "overall_rank": 2643132
+  },
+  {
+   "season": "2023/24",
+   "rank": 21,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2157,
+   "overall_rank": 2767834
+  },
+  {
+   "season": "2023/24",
+   "rank": 22,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 2111,
+   "overall_rank": 3383455
+  },
+  {
+   "season": "2023/24",
+   "rank": 23,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2104,
+   "overall_rank": 3481825
+  },
+  {
+   "season": "2023/24",
+   "rank": 24,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1975,
+   "overall_rank": 5091565
+  },
+  {
+   "season": "2023/24",
+   "rank": 25,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 1886,
+   "overall_rank": 6163451
+  },
+  {
+   "season": "2023/24",
+   "rank": 26,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 1732,
+   "overall_rank": 7967063
+  },
+  {
+   "season": "2024/25",
+   "rank": 1,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2548,
+   "overall_rank": 44146
+  },
+  {
+   "season": "2024/25",
+   "rank": 2,
+   "manager_name": "Ali Alkhames",
+   "team_name": "arsenal",
+   "total_points": 2525,
+   "overall_rank": 76534
+  },
+  {
+   "season": "2024/25",
+   "rank": 3,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2490,
+   "overall_rank": 152480
+  },
+  {
+   "season": "2024/25",
+   "rank": 4,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2481,
+   "overall_rank": 179511
+  },
+  {
+   "season": "2024/25",
+   "rank": 5,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2450,
+   "overall_rank": 295362
+  },
+  {
+   "season": "2024/25",
+   "rank": 6,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2406,
+   "overall_rank": 531377
+  },
+  {
+   "season": "2024/25",
+   "rank": 7,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2404,
+   "overall_rank": 548593
+  },
+  {
+   "season": "2024/25",
+   "rank": 8,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2398,
+   "overall_rank": 587793
+  },
+  {
+   "season": "2024/25",
+   "rank": 9,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2381,
+   "overall_rank": 711181
+  },
+  {
+   "season": "2024/25",
+   "rank": 10,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2377,
+   "overall_rank": 742382
+  },
+  {
+   "season": "2024/25",
+   "rank": 11,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2375,
+   "overall_rank": 756127
+  },
+  {
+   "season": "2024/25",
+   "rank": 12,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2368,
+   "overall_rank": 813300
+  },
+  {
+   "season": "2024/25",
+   "rank": 13,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2362,
+   "overall_rank": 865682
+  },
+  {
+   "season": "2024/25",
+   "rank": 14,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2265,
+   "overall_rank": 1942298
+  },
+  {
+   "season": "2024/25",
+   "rank": 15,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 2250,
+   "overall_rank": 2137445
+  },
+  {
+   "season": "2024/25",
+   "rank": 16,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2238,
+   "overall_rank": 2305652
+  },
+  {
+   "season": "2024/25",
+   "rank": 17,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 2214,
+   "overall_rank": 2654343
+  },
+  {
+   "season": "2024/25",
+   "rank": 18,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2173,
+   "overall_rank": 3239326
+  },
+  {
+   "season": "2024/25",
+   "rank": 19,
+   "manager_name": "Abdullah Alkhames",
+   "team_name": "alkhames86",
+   "total_points": 2142,
+   "overall_rank": 3694234
+  },
+  {
+   "season": "2024/25",
+   "rank": 20,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 2130,
+   "overall_rank": 3863221
+  },
+  {
+   "season": "2024/25",
+   "rank": 21,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2117,
+   "overall_rank": 4050584
+  },
+  {
+   "season": "2024/25",
+   "rank": 22,
+   "manager_name": "Naser Alkhamees",
+   "team_name": "Naser",
+   "total_points": 2007,
+   "overall_rank": 5428050
+  },
+  {
+   "season": "2024/25",
+   "rank": 23,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 1973,
+   "overall_rank": 5785545
+  },
+  {
+   "season": "2024/25",
+   "rank": 24,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 1931,
+   "overall_rank": 6209663
+  },
+  {
+   "season": "2024/25",
+   "rank": 25,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 1895,
+   "overall_rank": 6568083
+  },
+  {
+   "season": "2024/25",
+   "rank": 26,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 1875,
+   "overall_rank": 6761483
+  },
+  {
+   "season": "2024/25",
+   "rank": 27,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 1742,
+   "overall_rank": 8080975
+  },
+  {
+   "season": "2024/25",
+   "rank": 28,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 1657,
+   "overall_rank": 8850085
+  },
+  {
+   "season": "2025/26",
+   "rank": 1,
+   "manager_name": "Yousef KH",
+   "team_name": "Stockfish",
+   "total_points": 2356,
+   "overall_rank": 44218
+  },
+  {
+   "season": "2025/26",
+   "rank": 2,
+   "manager_name": "Madi Alkhamis",
+   "team_name": "القصيعة يونايتد",
+   "total_points": 2312,
+   "overall_rank": 141737
+  },
+  {
+   "season": "2025/26",
+   "rank": 3,
+   "manager_name": "Musaed Al_Husaini",
+   "team_name": "Al Redz",
+   "total_points": 2283,
+   "overall_rank": 257167
+  },
+  {
+   "season": "2025/26",
+   "rank": 4,
+   "manager_name": "HAMAD ALKHAMEES",
+   "team_name": "20 Times",
+   "total_points": 2277,
+   "overall_rank": 290825
+  },
+  {
+   "season": "2025/26",
+   "rank": 5,
+   "manager_name": "Hussain Bin Mattar",
+   "team_name": "Bin Mattar FC",
+   "total_points": 2244,
+   "overall_rank": 496413
+  },
+  {
+   "season": "2025/26",
+   "rank": 6,
+   "manager_name": "Thamer Alhumaidhi",
+   "team_name": "Bo Ya3qoub",
+   "total_points": 2228,
+   "overall_rank": 623925
+  },
+  {
+   "season": "2025/26",
+   "rank": 7,
+   "manager_name": "meshary alderah",
+   "team_name": "فريق meshary",
+   "total_points": 2205,
+   "overall_rank": 849171
+  },
+  {
+   "season": "2025/26",
+   "rank": 8,
+   "manager_name": "Ahmed K",
+   "team_name": "ahmed k",
+   "total_points": 2190,
+   "overall_rank": 1003027
+  },
+  {
+   "season": "2025/26",
+   "rank": 9,
+   "manager_name": "mohammad fahad",
+   "team_name": "mohammad fahad",
+   "total_points": 2177,
+   "overall_rank": 1161450
+  },
+  {
+   "season": "2025/26",
+   "rank": 10,
+   "manager_name": "nawaf alkhamis",
+   "team_name": "madrak$hesale7",
+   "total_points": 2172,
+   "overall_rank": 1226873
+  },
+  {
+   "season": "2025/26",
+   "rank": 11,
+   "manager_name": "Fahad Alkhamis",
+   "team_name": "Totti",
+   "total_points": 2159,
+   "overall_rank": 1389505
+  },
+  {
+   "season": "2025/26",
+   "rank": 12,
+   "manager_name": "Nasser T Alkhamis",
+   "team_name": "Shadow Strikers",
+   "total_points": 2152,
+   "overall_rank": 1482315
+  },
+  {
+   "season": "2025/26",
+   "rank": 13,
+   "manager_name": "Meshary Alkhamees",
+   "team_name": "Romanista",
+   "total_points": 2134,
+   "overall_rank": 1738249
+  },
+  {
+   "season": "2025/26",
+   "rank": 14,
+   "manager_name": "Ali Alkhames",
+   "team_name": "arsenal",
+   "total_points": 2124,
+   "overall_rank": 1896092
+  },
+  {
+   "season": "2025/26",
+   "rank": 15,
+   "manager_name": "Meshary Abdullah",
+   "team_name": "mshary",
+   "total_points": 2096,
+   "overall_rank": 2341565
+  },
+  {
+   "season": "2025/26",
+   "rank": 16,
+   "manager_name": "Naser Alkhamees",
+   "team_name": "Naser",
+   "total_points": 2094,
+   "overall_rank": 2375223
+  },
+  {
+   "season": "2025/26",
+   "rank": 17,
+   "manager_name": "Khaled Alfahed",
+   "team_name": "KAF",
+   "total_points": 2086,
+   "overall_rank": 2504903
+  },
+  {
+   "season": "2025/26",
+   "rank": 18,
+   "manager_name": "Abdullah Alsultan",
+   "team_name": "Abdullah Alsultan",
+   "total_points": 2067,
+   "overall_rank": 2835901
+  },
+  {
+   "season": "2025/26",
+   "rank": 19,
+   "manager_name": "Turki Alkhamis",
+   "team_name": "Q8 Dream",
+   "total_points": 2064,
+   "overall_rank": 2878471
+  },
+  {
+   "season": "2025/26",
+   "rank": 20,
+   "manager_name": "Abdulaziz Al Khamees",
+   "team_name": "Bos3yid X11",
+   "total_points": 2053,
+   "overall_rank": 3081246
+  },
+  {
+   "season": "2025/26",
+   "rank": 21,
+   "manager_name": "Saud Alkhamis",
+   "team_name": "Azooz@Anfield",
+   "total_points": 2046,
+   "overall_rank": 3205523
+  },
+  {
+   "season": "2025/26",
+   "rank": 22,
+   "manager_name": "Abdullah Alkhamees",
+   "team_name": "Nerds FC",
+   "total_points": 2005,
+   "overall_rank": 3944163
+  },
+  {
+   "season": "2025/26",
+   "rank": 23,
+   "manager_name": "Ali Alkhamees",
+   "team_name": "امبراطور الشمس",
+   "total_points": 1998,
+   "overall_rank": 4082662
+  },
+  {
+   "season": "2025/26",
+   "rank": 24,
+   "manager_name": "Homoud Alkhalifah",
+   "team_name": "halkhalifah",
+   "total_points": 1984,
+   "overall_rank": 4342300
+  },
+  {
+   "season": "2025/26",
+   "rank": 25,
+   "manager_name": "Abdullah Alkhames",
+   "team_name": "alkhames86",
+   "total_points": 1930,
+   "overall_rank": 5357362
+  },
+  {
+   "season": "2025/26",
+   "rank": 26,
+   "manager_name": "fahad alsha6y",
+   "team_name": "Liverpool",
+   "total_points": 1865,
+   "overall_rank": 6540392
+  },
+  {
+   "season": "2025/26",
+   "rank": 27,
+   "manager_name": "Mohammad R",
+   "team_name": "Mohammad's Team",
+   "total_points": 1579,
+   "overall_rank": 10503960
+  },
+  {
+   "season": "2025/26",
+   "rank": 28,
+   "manager_name": "Mubarak Almutairi",
+   "team_name": "MUBARAK TM",
+   "total_points": 1165,
+   "overall_rank": 12282160
+  }
+ ]
+}
