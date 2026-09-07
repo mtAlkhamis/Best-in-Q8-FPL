@@ -3,7 +3,7 @@
   "start_gw": 1,
   "end_gw": 3,
   "live_gw": 3,
-  "generated_at": "2026-09-07T10:38:03.640240+00:00",
+  "generated_at": "2026-09-07T11:04:21.326189+00:00",
   "manager_gameweek_stats": [
     {
       "gameweek": 1,
@@ -1727,8 +1727,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": 0.0,
-      "transferred_in": "Kusi-Asare, Cherki",
-      "transferred_out": "Beto, Szoboszlai",
+      "transferred_in": "Cherki, Kusi-Asare",
+      "transferred_out": "Szoboszlai, Beto",
       "transfer_points_in": 3.0,
       "transfer_points_out": 3.0,
       "season_transfers_to_date": 2,
@@ -1895,8 +1895,8 @@
       "num_transfers": 3,
       "transfer_cost": 4,
       "net_transfer_impact": -7.0,
-      "transferred_in": "Walle Egeli, Cherki, De Cuyper",
-      "transferred_out": "Calvert-Lewin, Tzolis, Shaw",
+      "transferred_in": "De Cuyper, Cherki, Walle Egeli",
+      "transferred_out": "Shaw, Tzolis, Calvert-Lewin",
       "transfer_points_in": 7.0,
       "transfer_points_out": 10.0,
       "season_transfers_to_date": 3,
@@ -1951,8 +1951,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": -3.0,
-      "transferred_in": "Hall, Gomez",
-      "transferred_out": "Van Hecke, Hughes",
+      "transferred_in": "Gomez, Hall",
+      "transferred_out": "Hughes, Van Hecke",
       "transfer_points_in": 6.0,
       "transfer_points_out": 9.0,
       "season_transfers_to_date": 2,
@@ -2035,8 +2035,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": 3.0,
-      "transferred_in": "Gvardiol, Cherki",
-      "transferred_out": "A.Garc\u00eda, Mbeumo",
+      "transferred_in": "Cherki, Gvardiol",
+      "transferred_out": "Mbeumo, A.Garc\u00eda",
       "transfer_points_in": 11.0,
       "transfer_points_out": 8.0,
       "season_transfers_to_date": 2,
@@ -2063,8 +2063,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": 0.0,
-      "transferred_in": "Schade, Egan",
-      "transferred_out": "Mbeumo, Rodon",
+      "transferred_in": "Egan, Schade",
+      "transferred_out": "Rodon, Mbeumo",
       "transfer_points_in": 8.0,
       "transfer_points_out": 8.0,
       "season_transfers_to_date": 2,
@@ -2119,8 +2119,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": -2.0,
-      "transferred_in": "Diop, Cherki",
-      "transferred_out": "O'Reilly, E.Le F\u00e9e",
+      "transferred_in": "Cherki, Diop",
+      "transferred_out": "E.Le F\u00e9e, O'Reilly",
       "transfer_points_in": 6.0,
       "transfer_points_out": 8.0,
       "season_transfers_to_date": 2,
@@ -2147,8 +2147,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": 1.0,
-      "transferred_in": "Elanga, Konsa",
-      "transferred_out": "Ndiaye, Hume",
+      "transferred_in": "Konsa, Elanga",
+      "transferred_out": "Hume, Ndiaye",
       "transfer_points_in": 5.0,
       "transfer_points_out": 4.0,
       "season_transfers_to_date": 2,
@@ -2231,8 +2231,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": 9.0,
-      "transferred_in": "Gomez, Isak",
-      "transferred_out": "Tzolis, Calvert-Lewin",
+      "transferred_in": "Isak, Gomez",
+      "transferred_out": "Calvert-Lewin, Tzolis",
       "transfer_points_in": 15.0,
       "transfer_points_out": 6.0,
       "season_transfers_to_date": 2,
@@ -2287,8 +2287,8 @@
       "num_transfers": 2,
       "transfer_cost": 0,
       "net_transfer_impact": 6.0,
-      "transferred_in": "Ajayi, Szoboszlai",
-      "transferred_out": "Maguire, Sarr",
+      "transferred_in": "Szoboszlai, Ajayi",
+      "transferred_out": "Sarr, Maguire",
       "transfer_points_in": 8.0,
       "transfer_points_out": 2.0,
       "season_transfers_to_date": 2,
@@ -2483,8 +2483,8 @@
       "num_transfers": 2,
       "transfer_cost": 4,
       "net_transfer_impact": -6.0,
-      "transferred_in": "Maguire, Szoboszlai",
-      "transferred_out": "White, Tzolis",
+      "transferred_in": "Szoboszlai, Maguire",
+      "transferred_out": "Tzolis, White",
       "transfer_points_in": 5.0,
       "transfer_points_out": 7.0,
       "season_transfers_to_date": 2,
@@ -5514,18 +5514,24 @@
       "sharpest_trader_players_out": "",
       "sharpest_trader_points_in": null,
       "sharpest_trader_points_out": null,
+      "sharpest_trader_out": [],
+      "sharpest_trader_in": [],
       "transfer_tangle_manager": "",
       "transfer_tangle_net_impact": null,
       "transfer_tangle_players_in": "",
       "transfer_tangle_players_out": "",
       "transfer_tangle_points_in": null,
       "transfer_tangle_points_out": null,
+      "transfer_tangle_out": [],
+      "transfer_tangle_in": [],
       "one_move_master_manager": "",
       "one_move_master_net_impact": null,
       "one_move_master_player_in": "",
       "one_move_master_player_out": "",
       "one_move_master_points_in": null,
       "one_move_master_points_out": null,
+      "one_move_master_out": [],
+      "one_move_master_in": [],
       "most_captained_player": "Haaland",
       "most_captained_pct": 65.5,
       "most_owned_player": "Jo\u00e3o Pedro",
@@ -5565,18 +5571,54 @@
       "sharpest_trader_players_out": "Doku",
       "sharpest_trader_points_in": 5.0,
       "sharpest_trader_points_out": 0.0,
+      "sharpest_trader_out": [
+        {
+          "name": "Doku",
+          "points": 0
+        }
+      ],
+      "sharpest_trader_in": [
+        {
+          "name": "Rogers",
+          "points": 5
+        }
+      ],
       "transfer_tangle_manager": "Khaled Alfahed",
       "transfer_tangle_net_impact": -6.0,
       "transfer_tangle_players_in": "Gonzalo",
       "transfer_tangle_players_out": "Calvert-Lewin",
       "transfer_tangle_points_in": 2.0,
       "transfer_tangle_points_out": 8.0,
+      "transfer_tangle_out": [
+        {
+          "name": "Calvert-Lewin",
+          "points": 8
+        }
+      ],
+      "transfer_tangle_in": [
+        {
+          "name": "Gonzalo",
+          "points": 2
+        }
+      ],
       "one_move_master_manager": "Abdullah Alkhames",
       "one_move_master_net_impact": 5.0,
       "one_move_master_player_in": "Rogers",
       "one_move_master_player_out": "Doku",
       "one_move_master_points_in": 5.0,
       "one_move_master_points_out": 0.0,
+      "one_move_master_out": [
+        {
+          "name": "Doku",
+          "points": 0
+        }
+      ],
+      "one_move_master_in": [
+        {
+          "name": "Rogers",
+          "points": 5
+        }
+      ],
       "most_captained_player": "Haaland",
       "most_captained_pct": 36.7,
       "most_owned_player": "Jo\u00e3o Pedro",
@@ -5612,22 +5654,82 @@
       "no_chip_warrior_score": 73,
       "sharpest_trader_manager": "Mubarak Almutairi",
       "sharpest_trader_net_impact": 9.0,
-      "sharpest_trader_players_in": "Gomez, Isak",
-      "sharpest_trader_players_out": "Tzolis, Calvert-Lewin",
+      "sharpest_trader_players_in": "Isak, Gomez",
+      "sharpest_trader_players_out": "Calvert-Lewin, Tzolis",
       "sharpest_trader_points_in": 15.0,
       "sharpest_trader_points_out": 6.0,
+      "sharpest_trader_out": [
+        {
+          "name": "Calvert-Lewin",
+          "points": 1
+        },
+        {
+          "name": "Tzolis",
+          "points": 5
+        }
+      ],
+      "sharpest_trader_in": [
+        {
+          "name": "Isak",
+          "points": 13
+        },
+        {
+          "name": "Gomez",
+          "points": 2
+        }
+      ],
       "transfer_tangle_manager": "Musaed Al_Husaini",
       "transfer_tangle_net_impact": -7.0,
-      "transfer_tangle_players_in": "Walle Egeli, Cherki, De Cuyper",
-      "transfer_tangle_players_out": "Calvert-Lewin, Tzolis, Shaw",
+      "transfer_tangle_players_in": "De Cuyper, Cherki, Walle Egeli",
+      "transfer_tangle_players_out": "Shaw, Tzolis, Calvert-Lewin",
       "transfer_tangle_points_in": 7.0,
       "transfer_tangle_points_out": 10.0,
+      "transfer_tangle_out": [
+        {
+          "name": "Shaw",
+          "points": 4
+        },
+        {
+          "name": "Tzolis",
+          "points": 5
+        },
+        {
+          "name": "Calvert-Lewin",
+          "points": 1
+        }
+      ],
+      "transfer_tangle_in": [
+        {
+          "name": "De Cuyper",
+          "points": 4
+        },
+        {
+          "name": "Cherki",
+          "points": 3
+        },
+        {
+          "name": "Walle Egeli",
+          "points": 0
+        }
+      ],
       "one_move_master_manager": "Saud Alkhamis",
       "one_move_master_net_impact": 3.0,
       "one_move_master_player_in": "Verbruggen",
       "one_move_master_player_out": "Dubravka",
       "one_move_master_points_in": 3.0,
       "one_move_master_points_out": 0.0,
+      "one_move_master_out": [
+        {
+          "name": "Dubravka",
+          "points": 0
+        }
+      ],
+      "one_move_master_in": [
+        {
+          "name": "Verbruggen",
+          "points": 3
+        }
+      ],
       "most_captained_player": "Haaland",
       "most_captained_pct": 77.4,
       "most_owned_player": "Haaland",
