@@ -26,7 +26,9 @@ Output: data/fpl-data.json (path can be overridden with --output_path)
 """
 
 import json
+import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -47,9 +49,38 @@ HISTORY_URL = FPL_URL + "entry/{entry_id}/history/"
 # rebuild. Neither should be eligible for the transfer awards.
 SQUAD_OVERHAUL_CHIPS = {"wildcard", "freehit"}
 
+# The FPL calls below (one per manager per gameweek for picks, one each per
+# manager for transfers/history) are independent, network-bound requests -
+# there's no reason to wait for one to finish before starting the next. This
+# caps how many are in flight at once: high enough to meaningfully cut
+# runtime on a big league, low enough not to look like abuse to FPL's public
+# API (requests' default connection pool is also sized for 10).
+MAX_WORKERS = 10
+
+# How many times to retry a single request before giving up on it, and the
+# base delay (seconds, multiplied by the attempt number) between retries.
+# FPL's public API occasionally drops a connection or returns a transient
+# 5xx - more noticeably now that requests fire concurrently - so one flaky
+# request no longer has to fail the entire export.
+REQUEST_RETRIES = 3
+REQUEST_RETRY_BACKOFF = 1.5
+
+
+def _get_json(session, url):
+    """GET url and parse it as JSON, retrying on transient failures."""
+    last_error = None
+    for attempt in range(REQUEST_RETRIES):
+        try:
+            return session.get(url).json()
+        except Exception as exc:  # noqa: BLE001 - deliberately broad: retry on anything
+            last_error = exc
+            if attempt < REQUEST_RETRIES - 1:
+                time.sleep(REQUEST_RETRY_BACKOFF * (attempt + 1))
+    raise last_error
+
 
 def get_bootstrap(session):
-    return session.get(BOOTSTRAP_URL).json()
+    return _get_json(session, BOOTSTRAP_URL)
 
 
 def get_player_info(bootstrap):
@@ -108,7 +139,7 @@ def get_league_entries(session, league_id):
             + str(page)
             + "&phase=1"
         )
-        data = session.get(url).json()
+        data = _get_json(session, url)
         results = data["standings"]["results"]
         if not results:
             break
@@ -123,12 +154,12 @@ def get_league_entries(session, league_id):
 
 
 def get_gw_live_points(session, gw):
-    data = session.get(LIVE_URL.format(gw=gw)).json()
+    data = _get_json(session, LIVE_URL.format(gw=gw))
     return {el["id"]: el["stats"]["total_points"] for el in data["elements"]}
 
 
 def get_entry_gw_picks(session, entry_id, gw):
-    return session.get(PICKS_URL.format(entry_id=entry_id, gw=gw)).json()
+    return _get_json(session, PICKS_URL.format(entry_id=entry_id, gw=gw))
 
 
 def get_entry_transfers(session, entry_id):
@@ -138,7 +169,7 @@ def get_entry_transfers(session, entry_id):
     free hit's temporary swap (or its automatic reversion the following
     week) as transfers, because it isn't one.
     """
-    return session.get(TRANSFERS_URL.format(entry_id=entry_id)).json()
+    return _get_json(session, TRANSFERS_URL.format(entry_id=entry_id))
 
 
 def get_entry_history(session, entry_id):
@@ -147,7 +178,7 @@ def get_entry_history(session, entry_id):
     for that week (including free-hit weeks, where the picks endpoint's own
     entry_history has been seen to under-report the transfer count).
     """
-    return session.get(HISTORY_URL.format(entry_id=entry_id)).json()
+    return _get_json(session, HISTORY_URL.format(entry_id=entry_id))
 
 
 FPL_ENTRY_URL = "https://fantasy.premierleague.com/entry/{entry_id}/event/{gw}"
@@ -156,6 +187,7 @@ FPL_ENTRY_URL = "https://fantasy.premierleague.com/entry/{entry_id}/event/{gw}"
 def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info):
     rows, popularity_rows = [], []
     season_transfers = {}  # entry_id -> cumulative transfers made so far this season
+    entry_ids = [entry["entry_id"] for entry in entries]
 
     # Transfers and per-gameweek history are each fetched ONCE per manager
     # (both endpoints already return full-season data) rather than diffing
@@ -166,179 +198,201 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
     # the squad snaps back. FPL's own transfer ledger doesn't have that
     # problem: free hit and wildcard swaps just aren't recorded as transfers
     # there unless they actually are.
+    #
+    # These per-manager fetches (and the per-gameweek picks fetches below)
+    # are all independent of each other, so they run through a shared thread
+    # pool instead of one-request-at-a-time - the wall-clock cost here is
+    # almost entirely network latency, not local computation, so this is
+    # where parallelizing actually pays off. Only the fetching is
+    # concurrent: every row is still built afterward in the league's own
+    # entry order, single-threaded, so the output is identical to a fully
+    # sequential run - just faster to produce.
     transfers_by_entry_gw = {}
     history_by_entry_gw = {}
-    for entry in entries:
-        entry_id = entry["entry_id"]
+
+    def fetch_ledger(entry_id):
         by_gw = {}
         for t in get_entry_transfers(session, entry_id):
             by_gw.setdefault(t["event"], []).append(t)
-        transfers_by_entry_gw[entry_id] = by_gw
         history = get_entry_history(session, entry_id)
-        history_by_entry_gw[entry_id] = {row["event"]: row for row in history.get("current", [])}
+        return entry_id, by_gw, {row["event"]: row for row in history.get("current", [])}
 
-    for gw in range(start_gw, end_gw + 1):
-        gw_player_points = get_gw_live_points(session, gw)
-        captain_counts = Counter()
-        owned_counts = Counter()
-        num_managers_this_gw = 0
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        for entry_id, by_gw, history_by_gw in executor.map(fetch_ledger, entry_ids):
+            transfers_by_entry_gw[entry_id] = by_gw
+            history_by_entry_gw[entry_id] = history_by_gw
 
-        for entry in entries:
-            entry_id = entry["entry_id"]
-            data = get_entry_gw_picks(session, entry_id, gw)
-            picks_hist = data.get("entry_history")
-            if not picks_hist:
-                continue
-            num_managers_this_gw += 1
+        for gw in range(start_gw, end_gw + 1):
+            gw_player_points = get_gw_live_points(session, gw)
+            captain_counts = Counter()
+            owned_counts = Counter()
+            num_managers_this_gw = 0
 
-            # event_transfers / event_transfers_cost come from the season
-            # history endpoint, not the picks endpoint's own entry_history -
-            # the latter has been seen to under-report the transfer count on
-            # free-hit weeks specifically. Fall back to the picks endpoint's
-            # value only if history doesn't have this gw yet for some reason.
-            gw_hist = history_by_entry_gw.get(entry_id, {}).get(gw, picks_hist)
-            num_transfers = gw_hist["event_transfers"]
-            transfer_cost = gw_hist["event_transfers_cost"]
+            # By far the biggest chunk of requests this script makes (one
+            # per manager, every gameweek) - fetched concurrently, then
+            # processed below in the same fixed order as before.
+            picks_by_entry = dict(zip(
+                entry_ids,
+                executor.map(lambda entry_id, _gw=gw: get_entry_gw_picks(session, entry_id, _gw), entry_ids),
+            ))
+            print(f"  gw{gw}: fetched picks for {len(entry_ids)} managers")
 
-            picks = data.get("picks", [])
-            squad_ids = {p["element"] for p in picks}
-            captain_pick = next((p for p in picks if p["is_captain"]), None)
-            captain_id = captain_pick["element"] if captain_pick else None
-            captain_multiplier = captain_pick["multiplier"] if captain_pick else 0
-            captain_raw_points = gw_player_points.get(captain_id, 0) if captain_id else 0
+            for entry in entries:
+                entry_id = entry["entry_id"]
+                data = picks_by_entry[entry_id]
+                picks_hist = data.get("entry_history")
+                if not picks_hist:
+                    continue
+                num_managers_this_gw += 1
 
-            # FPL's own "points" field on entry_history (picks endpoint) can lag
-            # behind the live per-player stats endpoint - especially right after
-            # a match finishes, while bonus points are still being finalized.
-            # Rather than trust that separately-cached total, compute it
-            # ourselves from the same live per-player data used for the squad
-            # breakdown below, so the two always agree and both stay fresh.
-            gw_points_computed = sum(
-                gw_player_points.get(p["element"], 0) * p["multiplier"] for p in picks
-            )
-            bench_points_computed = sum(
-                gw_player_points.get(p["element"], 0) for p in picks if p["multiplier"] == 0
-            )
-            points_delta = gw_points_computed - picks_hist["points"]
+                # event_transfers / event_transfers_cost come from the season
+                # history endpoint, not the picks endpoint's own entry_history -
+                # the latter has been seen to under-report the transfer count on
+                # free-hit weeks specifically. Fall back to the picks endpoint's
+                # value only if history doesn't have this gw yet for some reason.
+                gw_hist = history_by_entry_gw.get(entry_id, {}).get(gw, picks_hist)
+                num_transfers = gw_hist["event_transfers"]
+                transfer_cost = gw_hist["event_transfers_cost"]
 
-            season_transfers[entry_id] = season_transfers.get(entry_id, 0) + num_transfers
+                picks = data.get("picks", [])
+                squad_ids = {p["element"] for p in picks}
+                captain_pick = next((p for p in picks if p["is_captain"]), None)
+                captain_id = captain_pick["element"] if captain_pick else None
+                captain_multiplier = captain_pick["multiplier"] if captain_pick else 0
+                captain_raw_points = gw_player_points.get(captain_id, 0) if captain_id else 0
 
-            for pid in squad_ids:
-                owned_counts[pid] += 1
-            if captain_id:
-                captain_counts[captain_id] += 1
-
-            # Real transfers for this gameweek, straight from FPL's ledger -
-            # each record is one player out, one player in. Sorted by time
-            # so the in/out arrays pair up index-for-index as the same swap
-            # (not sorted by name or points - order is what makes them a
-            # pair).
-            gw_transfers = sorted(
-                transfers_by_entry_gw.get(entry_id, {}).get(gw, []),
-                key=lambda t: t.get("time", ""),
-            )
-            transferred_in_ids = [t["element_in"] for t in gw_transfers]
-            transferred_out_ids = [t["element_out"] for t in gw_transfers]
-
-            if len(gw_transfers) != num_transfers:
-                # Ledger and history disagree on the count - don't guess at
-                # which players were involved, just flag it and leave the
-                # transfer fields empty for this row.
-                print(
-                    f"WARNING: transfer count mismatch for entry {entry_id} "
-                    f"({entry['manager_name']}) gw{gw}: {len(gw_transfers)} "
-                    f"transfer record(s) vs event_transfers={num_transfers}"
+                # FPL's own "points" field on entry_history (picks endpoint) can lag
+                # behind the live per-player stats endpoint - especially right after
+                # a match finishes, while bonus points are still being finalized.
+                # Rather than trust that separately-cached total, compute it
+                # ourselves from the same live per-player data used for the squad
+                # breakdown below, so the two always agree and both stay fresh.
+                gw_points_computed = sum(
+                    gw_player_points.get(p["element"], 0) * p["multiplier"] for p in picks
                 )
-                transferred_in_names = ""
-                transferred_out_names = ""
-                points_in = None
-                points_out = None
-                net_transfer_impact = None
-                transfer_detail_in = []
-                transfer_detail_out = []
-            else:
-                transferred_in_names = ", ".join(
-                    player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_in_ids
+                bench_points_computed = sum(
+                    gw_player_points.get(p["element"], 0) for p in picks if p["multiplier"] == 0
                 )
-                transferred_out_names = ", ".join(
-                    player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_out_ids
+                points_delta = gw_points_computed - picks_hist["points"]
+
+                season_transfers[entry_id] = season_transfers.get(entry_id, 0) + num_transfers
+
+                for pid in squad_ids:
+                    owned_counts[pid] += 1
+                if captain_id:
+                    captain_counts[captain_id] += 1
+
+                # Real transfers for this gameweek, straight from FPL's ledger -
+                # each record is one player out, one player in. Sorted by time
+                # so the in/out arrays pair up index-for-index as the same swap
+                # (not sorted by name or points - order is what makes them a
+                # pair).
+                gw_transfers = sorted(
+                    transfers_by_entry_gw.get(entry_id, {}).get(gw, []),
+                    key=lambda t: t.get("time", ""),
                 )
-                # Raw points, no captain multiplier - these are the players'
-                # own gameweek scores, not what they'd have contributed to
-                # this manager's squad.
-                points_in = sum(gw_player_points.get(pid, 0) for pid in transferred_in_ids)
-                points_out = sum(gw_player_points.get(pid, 0) for pid in transferred_out_ids)
-                net_transfer_impact = points_in - points_out - transfer_cost
-                # Per-player detail behind the side totals above, same order
-                # as transferred_in_ids/transferred_out_ids (index i of one
-                # is the same swap as index i of the other).
-                transfer_detail_in = [
-                    {"name": player_info.get(pid, {}).get("name", "Unknown"), "points": gw_player_points.get(pid, 0)}
-                    for pid in transferred_in_ids
-                ]
-                transfer_detail_out = [
-                    {"name": player_info.get(pid, {}).get("name", "Unknown"), "points": gw_player_points.get(pid, 0)}
-                    for pid in transferred_out_ids
-                ]
+                transferred_in_ids = [t["element_in"] for t in gw_transfers]
+                transferred_out_ids = [t["element_out"] for t in gw_transfers]
 
-            rows.append(
-                {
-                    "gameweek": gw,
-                    "entry_id": entry_id,
-                    "manager_name": entry["manager_name"],
-                    "team_name": entry["team_name"],
-                    "gw_points": gw_points_computed,
-                    "cumulative_points": picks_hist["total_points"] + points_delta,
-                    "bench_points": bench_points_computed,
-                    "team_value": picks_hist["value"] / 10,
-                    "bank": picks_hist["bank"] / 10,
-                    "overall_rank": picks_hist["overall_rank"],
-                    "num_transfers": num_transfers,
-                    "transfer_cost": transfer_cost,
-                    "net_transfer_impact": net_transfer_impact,
-                    "transferred_in": transferred_in_names,
-                    "transferred_out": transferred_out_names,
-                    "transfer_points_in": points_in,
-                    "transfer_points_out": points_out,
-                    # Per-player detail behind transfer_points_in/out - kept
-                    # off manager_gameweek_stats (dropped before that dataset
-                    # is written out below) and used only to build the
-                    # per-player arrays on the transfer awards in
-                    # gameweek_highlights.
-                    "transfer_detail_in": transfer_detail_in,
-                    "transfer_detail_out": transfer_detail_out,
-                    "season_transfers_to_date": season_transfers[entry_id],
-                    "chip_played": data.get("active_chip"),
-                    "captain_id": captain_id,
-                    "captain_name": player_info.get(captain_id, {}).get("name", "Unknown"),
-                    "captain_multiplier": captain_multiplier,
-                    "captain_contribution": captain_raw_points * captain_multiplier,
-                    # Full per-player squad detail used to be included here as its
-                    # own dataset (every player, every manager, every gameweek) -
-                    # that's the bulk of the file's size and it only grows every
-                    # week. A link to the manager's own team page on FPL's site
-                    # covers the same "who did they play" need on demand, without
-                    # carrying the data ourselves.
-                    "team_link": FPL_ENTRY_URL.format(entry_id=entry_id, gw=gw),
-                }
-            )
+                if len(gw_transfers) != num_transfers:
+                    # Ledger and history disagree on the count - don't guess at
+                    # which players were involved, just flag it and leave the
+                    # transfer fields empty for this row.
+                    print(
+                        f"WARNING: transfer count mismatch for entry {entry_id} "
+                        f"({entry['manager_name']}) gw{gw}: {len(gw_transfers)} "
+                        f"transfer record(s) vs event_transfers={num_transfers}"
+                    )
+                    transferred_in_names = ""
+                    transferred_out_names = ""
+                    points_in = None
+                    points_out = None
+                    net_transfer_impact = None
+                    transfer_detail_in = []
+                    transfer_detail_out = []
+                else:
+                    transferred_in_names = ", ".join(
+                        player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_in_ids
+                    )
+                    transferred_out_names = ", ".join(
+                        player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_out_ids
+                    )
+                    # Raw points, no captain multiplier - these are the players'
+                    # own gameweek scores, not what they'd have contributed to
+                    # this manager's squad.
+                    points_in = sum(gw_player_points.get(pid, 0) for pid in transferred_in_ids)
+                    points_out = sum(gw_player_points.get(pid, 0) for pid in transferred_out_ids)
+                    net_transfer_impact = points_in - points_out - transfer_cost
+                    # Per-player detail behind the side totals above, same order
+                    # as transferred_in_ids/transferred_out_ids (index i of one
+                    # is the same swap as index i of the other).
+                    transfer_detail_in = [
+                        {"name": player_info.get(pid, {}).get("name", "Unknown"), "points": gw_player_points.get(pid, 0)}
+                        for pid in transferred_in_ids
+                    ]
+                    transfer_detail_out = [
+                        {"name": player_info.get(pid, {}).get("name", "Unknown"), "points": gw_player_points.get(pid, 0)}
+                        for pid in transferred_out_ids
+                    ]
 
-        for pid, owned_count in owned_counts.items():
-            popularity_rows.append(
-                {
-                    "gameweek": gw,
-                    "player_id": pid,
-                    "player_name": player_info.get(pid, {}).get("name", "Unknown"),
-                    "times_owned": owned_count,
-                    "pct_owned": round(100 * owned_count / num_managers_this_gw, 1)
-                    if num_managers_this_gw
-                    else 0,
-                    "times_captained": captain_counts.get(pid, 0),
-                    "pct_captained": round(100 * captain_counts.get(pid, 0) / num_managers_this_gw, 1)
-                    if num_managers_this_gw
-                    else 0,
-                }
-            )
+                rows.append(
+                    {
+                        "gameweek": gw,
+                        "entry_id": entry_id,
+                        "manager_name": entry["manager_name"],
+                        "team_name": entry["team_name"],
+                        "gw_points": gw_points_computed,
+                        "cumulative_points": picks_hist["total_points"] + points_delta,
+                        "bench_points": bench_points_computed,
+                        "team_value": picks_hist["value"] / 10,
+                        "bank": picks_hist["bank"] / 10,
+                        "overall_rank": picks_hist["overall_rank"],
+                        "num_transfers": num_transfers,
+                        "transfer_cost": transfer_cost,
+                        "net_transfer_impact": net_transfer_impact,
+                        "transferred_in": transferred_in_names,
+                        "transferred_out": transferred_out_names,
+                        "transfer_points_in": points_in,
+                        "transfer_points_out": points_out,
+                        # Per-player detail behind transfer_points_in/out - kept
+                        # off manager_gameweek_stats (dropped before that dataset
+                        # is written out below) and used only to build the
+                        # per-player arrays on the transfer awards in
+                        # gameweek_highlights.
+                        "transfer_detail_in": transfer_detail_in,
+                        "transfer_detail_out": transfer_detail_out,
+                        "season_transfers_to_date": season_transfers[entry_id],
+                        "chip_played": data.get("active_chip"),
+                        "captain_id": captain_id,
+                        "captain_name": player_info.get(captain_id, {}).get("name", "Unknown"),
+                        "captain_multiplier": captain_multiplier,
+                        "captain_contribution": captain_raw_points * captain_multiplier,
+                        # Full per-player squad detail used to be included here as its
+                        # own dataset (every player, every manager, every gameweek) -
+                        # that's the bulk of the file's size and it only grows every
+                        # week. A link to the manager's own team page on FPL's site
+                        # covers the same "who did they play" need on demand, without
+                        # carrying the data ourselves.
+                        "team_link": FPL_ENTRY_URL.format(entry_id=entry_id, gw=gw),
+                    }
+                )
+
+            for pid, owned_count in owned_counts.items():
+                popularity_rows.append(
+                    {
+                        "gameweek": gw,
+                        "player_id": pid,
+                        "player_name": player_info.get(pid, {}).get("name", "Unknown"),
+                        "times_owned": owned_count,
+                        "pct_owned": round(100 * owned_count / num_managers_this_gw, 1)
+                        if num_managers_this_gw
+                        else 0,
+                        "times_captained": captain_counts.get(pid, 0),
+                        "pct_captained": round(100 * captain_counts.get(pid, 0) / num_managers_this_gw, 1)
+                        if num_managers_this_gw
+                        else 0,
+                    }
+                )
 
     return rows, popularity_rows
 
@@ -669,6 +723,7 @@ def validate_transfer_consistency(df):
 
 
 def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"):
+    started_at = time.perf_counter()
     session = requests.session()
 
     print(f"Fetching player info and league '{league_id}' entries...")
@@ -715,7 +770,7 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:
         json.dump(combined, f, indent=2)
-    print(f"Wrote {out_path}")
+    print(f"Wrote {out_path} in {time.perf_counter() - started_at:.1f}s")
 
 
 if __name__ == "__main__":
