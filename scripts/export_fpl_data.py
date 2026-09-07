@@ -229,8 +229,14 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                 captain_counts[captain_id] += 1
 
             # Real transfers for this gameweek, straight from FPL's ledger -
-            # each record is one player out, one player in.
-            gw_transfers = transfers_by_entry_gw.get(entry_id, {}).get(gw, [])
+            # each record is one player out, one player in. Sorted by time
+            # so the in/out arrays pair up index-for-index as the same swap
+            # (not sorted by name or points - order is what makes them a
+            # pair).
+            gw_transfers = sorted(
+                transfers_by_entry_gw.get(entry_id, {}).get(gw, []),
+                key=lambda t: t.get("time", ""),
+            )
             transferred_in_ids = [t["element_in"] for t in gw_transfers]
             transferred_out_ids = [t["element_out"] for t in gw_transfers]
 
@@ -248,6 +254,8 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                 points_in = None
                 points_out = None
                 net_transfer_impact = None
+                transfer_detail_in = []
+                transfer_detail_out = []
             else:
                 transferred_in_names = ", ".join(
                     player_info.get(pid, {}).get("name", "Unknown") for pid in transferred_in_ids
@@ -261,6 +269,17 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                 points_in = sum(gw_player_points.get(pid, 0) for pid in transferred_in_ids)
                 points_out = sum(gw_player_points.get(pid, 0) for pid in transferred_out_ids)
                 net_transfer_impact = points_in - points_out - transfer_cost
+                # Per-player detail behind the side totals above, same order
+                # as transferred_in_ids/transferred_out_ids (index i of one
+                # is the same swap as index i of the other).
+                transfer_detail_in = [
+                    {"name": player_info.get(pid, {}).get("name", "Unknown"), "points": gw_player_points.get(pid, 0)}
+                    for pid in transferred_in_ids
+                ]
+                transfer_detail_out = [
+                    {"name": player_info.get(pid, {}).get("name", "Unknown"), "points": gw_player_points.get(pid, 0)}
+                    for pid in transferred_out_ids
+                ]
 
             rows.append(
                 {
@@ -281,6 +300,13 @@ def build_manager_gameweek_rows(session, entries, start_gw, end_gw, player_info)
                     "transferred_out": transferred_out_names,
                     "transfer_points_in": points_in,
                     "transfer_points_out": points_out,
+                    # Per-player detail behind transfer_points_in/out - kept
+                    # off manager_gameweek_stats (dropped before that dataset
+                    # is written out below) and used only to build the
+                    # per-player arrays on the transfer awards in
+                    # gameweek_highlights.
+                    "transfer_detail_in": transfer_detail_in,
+                    "transfer_detail_out": transfer_detail_out,
                     "season_transfers_to_date": season_transfers[entry_id],
                     "chip_played": data.get("active_chip"),
                     "captain_id": captain_id,
@@ -403,6 +429,37 @@ def build_gameweek_highlights(df, popularity_df):
             else None
         )
 
+        # Sanity check the per-player detail behind each transfer award
+        # before it goes anywhere near the JSON: array lengths must match
+        # num_transfers, and the per-player points must sum to the side
+        # totals already computed above. These should always hold by
+        # construction (both come from the same transfer_detail_in/out
+        # built alongside transfer_points_in/out) - fail loudly rather than
+        # silently write a file where a page-rendered breakdown wouldn't
+        # add up to its own total.
+        for award_label, award_row in (
+            ("sharpest_trader", sharpest_trader),
+            ("transfer_tangle", transfer_tangle),
+            ("one_move_master", one_move_master),
+        ):
+            if award_row is None:
+                continue
+            n_in = len(award_row["transfer_detail_in"])
+            n_out = len(award_row["transfer_detail_out"])
+            assert n_in == n_out == award_row["num_transfers"], (
+                f"{award_label} gw{gw} ({award_row['manager_name']}): array "
+                f"lengths in={n_in} out={n_out} vs num_transfers="
+                f"{award_row['num_transfers']}"
+            )
+            assert sum(p["points"] for p in award_row["transfer_detail_in"]) == award_row["transfer_points_in"], (
+                f"{award_label} gw{gw} ({award_row['manager_name']}): per-player "
+                f"in-points don't sum to transfer_points_in"
+            )
+            assert sum(p["points"] for p in award_row["transfer_detail_out"]) == award_row["transfer_points_out"], (
+                f"{award_label} gw{gw} ({award_row['manager_name']}): per-player "
+                f"out-points don't sum to transfer_points_out"
+            )
+
         chips_this_gw = gw_df[gw_df["chip_played"].notna()][["manager_name", "chip_played"]].to_dict(
             "records"
         )
@@ -462,6 +519,14 @@ def build_gameweek_highlights(df, popularity_df):
                 "sharpest_trader_points_out": sharpest_trader["transfer_points_out"]
                 if sharpest_trader is not None
                 else None,
+                # Per-player breakdown behind the totals above - out[i]/in[i]
+                # is the same swap, in the order the transfers were made.
+                "sharpest_trader_out": sharpest_trader["transfer_detail_out"]
+                if sharpest_trader is not None
+                else [],
+                "sharpest_trader_in": sharpest_trader["transfer_detail_in"]
+                if sharpest_trader is not None
+                else [],
                 "transfer_tangle_manager": name_or_blank(transfer_tangle),
                 "transfer_tangle_net_impact": transfer_tangle["net_transfer_impact"]
                 if transfer_tangle is not None
@@ -478,6 +543,12 @@ def build_gameweek_highlights(df, popularity_df):
                 "transfer_tangle_points_out": transfer_tangle["transfer_points_out"]
                 if transfer_tangle is not None
                 else None,
+                "transfer_tangle_out": transfer_tangle["transfer_detail_out"]
+                if transfer_tangle is not None
+                else [],
+                "transfer_tangle_in": transfer_tangle["transfer_detail_in"]
+                if transfer_tangle is not None
+                else [],
                 # "Best single transfer" - exactly one player out, one player in.
                 "one_move_master_manager": name_or_blank(one_move_master),
                 "one_move_master_net_impact": one_move_master["net_transfer_impact"]
@@ -495,6 +566,12 @@ def build_gameweek_highlights(df, popularity_df):
                 "one_move_master_points_out": one_move_master["transfer_points_out"]
                 if one_move_master is not None
                 else None,
+                "one_move_master_out": one_move_master["transfer_detail_out"]
+                if one_move_master is not None
+                else [],
+                "one_move_master_in": one_move_master["transfer_detail_in"]
+                if one_move_master is not None
+                else [],
                 "most_captained_player": most_captained["player_name"] if most_captained is not None else "",
                 "most_captained_pct": most_captained["pct_captained"] if most_captained is not None else None,
                 "most_owned_player": most_owned["player_name"] if most_owned is not None else "",
@@ -593,8 +670,13 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
     df = add_league_rank_and_movement(df)
     validate_transfer_consistency(df)
     popularity_df = pd.DataFrame(popularity_rows)
+    # highlights and season_summary are built from the full df (they need
+    # transfer_detail_in/out to populate the per-player transfer arrays);
+    # manager_gameweek_stats itself doesn't carry that detail - it's kept
+    # scoped to gameweek_highlights only.
     highlights_df = build_gameweek_highlights(df, popularity_df)
     season_df = build_season_summary(df)
+    stats_df = df.drop(columns=["transfer_detail_in", "transfer_detail_out"])
 
     combined = {
         "league_id": league_id,
@@ -602,7 +684,7 @@ def main(league_id=14514, start_gw=1, end_gw=0, output_path="data/fpl-data.json"
         "end_gw": end_gw,
         "live_gw": end_gw if is_live else None,
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "manager_gameweek_stats": df_records(df),
+        "manager_gameweek_stats": df_records(stats_df),
         "player_gameweek_popularity": df_records(popularity_df),
         "gameweek_highlights": df_records(highlights_df),
         "season_summary": df_records(season_df),
