@@ -1,9 +1,9 @@
 {
   "league_id": 14514,
   "start_gw": 1,
-  "end_gw": 10,
-  "live_gw": null,
-  "generated_at": "2026-11-10T11:38:55.981330+00:00",
+  "end_gw": 11,
+  "live_gw": 11,
+  "generated_at": "2026-11-24T10:34:20.998354+00:00",
   "manager_gameweek_stats": [
     {
       "gameweek": 1,
@@ -8600,6 +8600,874 @@
       "team_link": "https://fantasy.premierleague.com/entry/10108289/event/10",
       "league_rank": 31,
       "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 3388158,
+      "manager_name": "mohammad fahad",
+      "team_name": "mohammad fahad",
+      "gw_points": 35,
+      "cumulative_points": 727,
+      "bench_points": 2,
+      "team_value": 103.5,
+      "bank": 2.0,
+      "overall_rank": 166430,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 7,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/3388158/event/11",
+      "league_rank": 1,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 4224105,
+      "manager_name": "Ali Alkhamees",
+      "team_name": "\u0627\u0645\u0628\u0631\u0627\u0637\u0648\u0631 \u0627\u0644\u0634\u0645\u0633",
+      "gw_points": 36,
+      "cumulative_points": 715,
+      "bench_points": 4,
+      "team_value": 101.1,
+      "bank": 3.3,
+      "overall_rank": 303053,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "McGinn",
+      "transferred_out": "Mbeumo",
+      "transfer_points_in": 1.0,
+      "transfer_points_out": 1.0,
+      "season_transfers_to_date": 9,
+      "chip_played": null,
+      "captain_id": 166,
+      "captain_name": "N.Jackson",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/4224105/event/11",
+      "league_rank": 2,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 4900926,
+      "manager_name": "Saud Alkhamis",
+      "team_name": "Azooz@Anfield",
+      "gw_points": 40,
+      "cumulative_points": 712,
+      "bench_points": 15,
+      "team_value": 103.7,
+      "bank": 1.5,
+      "overall_rank": 350661,
+      "num_transfers": 2,
+      "transfer_cost": 0,
+      "net_transfer_impact": 2.0,
+      "transferred_in": "N.Jackson, Konsa",
+      "transferred_out": "Thiago, Gvardiol",
+      "transfer_points_in": 3.0,
+      "transfer_points_out": 1.0,
+      "season_transfers_to_date": 11,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/4900926/event/11",
+      "league_rank": 3,
+      "rank_change": 1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 4634908,
+      "manager_name": "Musaed Al_Husaini",
+      "team_name": "Al Redz",
+      "gw_points": 34,
+      "cumulative_points": 709,
+      "bench_points": 18,
+      "team_value": 103.0,
+      "bank": 0.1,
+      "overall_rank": 391417,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 9,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/4634908/event/11",
+      "league_rank": 4,
+      "rank_change": -1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 26303,
+      "manager_name": "HAMAD ALKHAMEES",
+      "team_name": "20 Times",
+      "gw_points": 42,
+      "cumulative_points": 701,
+      "bench_points": 6,
+      "team_value": 103.0,
+      "bank": 1.8,
+      "overall_rank": 533555,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 9,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/26303/event/11",
+      "league_rank": 5,
+      "rank_change": 2.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 2672807,
+      "manager_name": "Ahmed K",
+      "team_name": "ahmed k",
+      "gw_points": 38,
+      "cumulative_points": 701,
+      "bench_points": 8,
+      "team_value": 101.5,
+      "bank": 0.4,
+      "overall_rank": 538446,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 10,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/2672807/event/11",
+      "league_rank": 5,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 1723009,
+      "manager_name": "Yousef KH",
+      "team_name": "Stockfish",
+      "gw_points": 53,
+      "cumulative_points": 700,
+      "bench_points": 0,
+      "team_value": 102.6,
+      "bank": 0.6,
+      "overall_rank": 548405,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": -1.0,
+      "transferred_in": "Manzambi",
+      "transferred_out": "Dewsbury-Hall",
+      "transfer_points_in": 1.0,
+      "transfer_points_out": 2.0,
+      "season_transfers_to_date": 8,
+      "chip_played": "bboost",
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/1723009/event/11",
+      "league_rank": 7,
+      "rank_change": 2.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 2180361,
+      "manager_name": "Thamer Alhumaidhi",
+      "team_name": "Bo Ya3qoub",
+      "gw_points": 49,
+      "cumulative_points": 691,
+      "bench_points": 11,
+      "team_value": 102.3,
+      "bank": 0.8,
+      "overall_rank": 760222,
+      "num_transfers": 2,
+      "transfer_cost": 0,
+      "net_transfer_impact": 6.0,
+      "transferred_in": "Isak, Dewsbury-Hall",
+      "transferred_out": "Jo\u00e3o Pedro, Mbeumo",
+      "transfer_points_in": 7.0,
+      "transfer_points_out": 1.0,
+      "season_transfers_to_date": 10,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/2180361/event/11",
+      "league_rank": 8,
+      "rank_change": 2.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 677433,
+      "manager_name": "Abdulaziz Al Khamees",
+      "team_name": "Bos3yid X11",
+      "gw_points": 39,
+      "cumulative_points": 688,
+      "bench_points": 10,
+      "team_value": 102.4,
+      "bank": 6.9,
+      "overall_rank": 841121,
+      "num_transfers": 2,
+      "transfer_cost": 0,
+      "net_transfer_impact": -2.0,
+      "transferred_in": "McGinn, Evanilson",
+      "transferred_out": "Xhaka, Calvert-Lewin",
+      "transfer_points_in": 7.0,
+      "transfer_points_out": 9.0,
+      "season_transfers_to_date": 12,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/677433/event/11",
+      "league_rank": 9,
+      "rank_change": -1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 7782200,
+      "manager_name": "Fahad Alkhamis",
+      "team_name": "Totti",
+      "gw_points": 25,
+      "cumulative_points": 686,
+      "bench_points": 10,
+      "team_value": 101.2,
+      "bank": 0.1,
+      "overall_rank": 888532,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "De Cuyper",
+      "transferred_out": "Konsa",
+      "transfer_points_in": 1.0,
+      "transfer_points_out": 1.0,
+      "season_transfers_to_date": 10,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/7782200/event/11",
+      "league_rank": 10,
+      "rank_change": -4.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 2908279,
+      "manager_name": "meshary alderah",
+      "team_name": "\u0641\u0631\u064a\u0642 meshary",
+      "gw_points": 44,
+      "cumulative_points": 680,
+      "bench_points": 0,
+      "team_value": 103.2,
+      "bank": 1.1,
+      "overall_rank": 1058700,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": 5.0,
+      "transferred_in": "Van Hecke",
+      "transferred_out": "Davis",
+      "transfer_points_in": 6.0,
+      "transfer_points_out": 1.0,
+      "season_transfers_to_date": 10,
+      "chip_played": "bboost",
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/2908279/event/11",
+      "league_rank": 11,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 971334,
+      "manager_name": "Ali Alkhames",
+      "team_name": "arsenal",
+      "gw_points": 40,
+      "cumulative_points": 676,
+      "bench_points": 6,
+      "team_value": 103.3,
+      "bank": 3.4,
+      "overall_rank": 1186388,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 11,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/971334/event/11",
+      "league_rank": 12,
+      "rank_change": -1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 2586183,
+      "manager_name": "Homoud Alkhalifah",
+      "team_name": "halkhalifah",
+      "gw_points": 30,
+      "cumulative_points": 664,
+      "bench_points": 2,
+      "team_value": 99.8,
+      "bank": 1.5,
+      "overall_rank": 1660013,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 9,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/2586183/event/11",
+      "league_rank": 13,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 4463568,
+      "manager_name": "Hussain Bin Mattar",
+      "team_name": "Bin Mattar FC",
+      "gw_points": 48,
+      "cumulative_points": 664,
+      "bench_points": 17,
+      "team_value": 100.3,
+      "bank": 0.0,
+      "overall_rank": 1593576,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": 1.0,
+      "transferred_in": "Gro\u00df",
+      "transferred_out": "Gomez",
+      "transfer_points_in": 4.0,
+      "transfer_points_out": 3.0,
+      "season_transfers_to_date": 10,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/4463568/event/11",
+      "league_rank": 13,
+      "rank_change": 4.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 7774505,
+      "manager_name": "Naser Alkhamees",
+      "team_name": "Naser",
+      "gw_points": 26,
+      "cumulative_points": 658,
+      "bench_points": 6,
+      "team_value": 101.3,
+      "bank": 2.7,
+      "overall_rank": 1807789,
+      "num_transfers": 3,
+      "transfer_cost": 0,
+      "net_transfer_impact": 4.0,
+      "transferred_in": "N.Jackson, Ndiaye, Evanilson",
+      "transferred_out": "Jo\u00e3o Pedro, Rogers, Kostoulas",
+      "transfer_points_in": 10.0,
+      "transfer_points_out": 6.0,
+      "season_transfers_to_date": 8,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/7774505/event/11",
+      "league_rank": 15,
+      "rank_change": -1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 574859,
+      "manager_name": "Turki Alkhamis",
+      "team_name": "Q8 Dream",
+      "gw_points": 43,
+      "cumulative_points": 655,
+      "bench_points": 12,
+      "team_value": 102.0,
+      "bank": 2.3,
+      "overall_rank": 1928576,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 8,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/574859/event/11",
+      "league_rank": 16,
+      "rank_change": 2.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 70811,
+      "manager_name": "Madi Alkhamis",
+      "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+      "gw_points": 28,
+      "cumulative_points": 652,
+      "bench_points": 13,
+      "team_value": 102.4,
+      "bank": 0.0,
+      "overall_rank": 2053112,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": -7.0,
+      "transferred_in": "N.Jackson",
+      "transferred_out": "Calvert-Lewin",
+      "transfer_points_in": 2.0,
+      "transfer_points_out": 9.0,
+      "season_transfers_to_date": 8,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/70811/event/11",
+      "league_rank": 17,
+      "rank_change": -1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 3393908,
+      "manager_name": "Meshary Alkhamees",
+      "team_name": "Romanista",
+      "gw_points": 25,
+      "cumulative_points": 651,
+      "bench_points": 12,
+      "team_value": 101.2,
+      "bank": 2.9,
+      "overall_rank": 2103215,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 9,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/3393908/event/11",
+      "league_rank": 18,
+      "rank_change": -3.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 3205884,
+      "manager_name": "Khaled Alfahed",
+      "team_name": "KAF",
+      "gw_points": 41,
+      "cumulative_points": 646,
+      "bench_points": 4,
+      "team_value": 102.9,
+      "bank": 5.2,
+      "overall_rank": 2308005,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 7,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/3205884/event/11",
+      "league_rank": 19,
+      "rank_change": 1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 8097311,
+      "manager_name": "Alwaleed Alfelaij",
+      "team_name": "Bokhaled",
+      "gw_points": 45,
+      "cumulative_points": 646,
+      "bench_points": 5,
+      "team_value": 101.3,
+      "bank": 1.5,
+      "overall_rank": 2312050,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 8,
+      "chip_played": null,
+      "captain_id": 79,
+      "captain_name": "Evanilson",
+      "captain_multiplier": 2,
+      "captain_contribution": 12,
+      "team_link": "https://fantasy.premierleague.com/entry/8097311/event/11",
+      "league_rank": 19,
+      "rank_change": 2.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 3947636,
+      "manager_name": "nawaf alkhamis",
+      "team_name": "madrak$hesale7",
+      "gw_points": 26,
+      "cumulative_points": 638,
+      "bench_points": 2,
+      "team_value": 102.9,
+      "bank": 2.7,
+      "overall_rank": 2801619,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": -2.0,
+      "transferred_in": "Gakpo",
+      "transferred_out": "Gibbs-White",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 2.0,
+      "season_transfers_to_date": 14,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/3947636/event/11",
+      "league_rank": 21,
+      "rank_change": -3.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 6397101,
+      "manager_name": "Abdullah Alsultan",
+      "team_name": "Abdullah Alsultan",
+      "gw_points": 43,
+      "cumulative_points": 638,
+      "bench_points": 17,
+      "team_value": 102.4,
+      "bank": 0.3,
+      "overall_rank": 2676098,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 8,
+      "chip_played": null,
+      "captain_id": 166,
+      "captain_name": "N.Jackson",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/6397101/event/11",
+      "league_rank": 21,
+      "rank_change": 1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 3581670,
+      "manager_name": "Nasser T Alkhamis",
+      "team_name": "Shadow Strikers",
+      "gw_points": 33,
+      "cumulative_points": 625,
+      "bench_points": 4,
+      "team_value": 99.6,
+      "bank": 0.6,
+      "overall_rank": 3305913,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 7,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/3581670/event/11",
+      "league_rank": 23,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 1272313,
+      "manager_name": "fahad alsha6y",
+      "team_name": "Liverpool",
+      "gw_points": 38,
+      "cumulative_points": 624,
+      "bench_points": 24,
+      "team_value": 101.8,
+      "bank": 0.5,
+      "overall_rank": 3367305,
+      "num_transfers": 2,
+      "transfer_cost": 0,
+      "net_transfer_impact": -3.0,
+      "transferred_in": "J.Timber, Konsa",
+      "transferred_out": "Thomas, Gu\u00e9hi",
+      "transfer_points_in": 2.0,
+      "transfer_points_out": 5.0,
+      "season_transfers_to_date": 9,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/1272313/event/11",
+      "league_rank": 24,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 4949682,
+      "manager_name": "Meshary Abdullah",
+      "team_name": "mshary",
+      "gw_points": 40,
+      "cumulative_points": 601,
+      "bench_points": 12,
+      "team_value": 101.4,
+      "bank": 3.8,
+      "overall_rank": 4560443,
+      "num_transfers": 1,
+      "transfer_cost": 0,
+      "net_transfer_impact": 2.0,
+      "transferred_in": "N.Jackson",
+      "transferred_out": "Jo\u00e3o Pedro",
+      "transfer_points_in": 2.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 10,
+      "chip_played": null,
+      "captain_id": 166,
+      "captain_name": "N.Jackson",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/4949682/event/11",
+      "league_rank": 25,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 8882786,
+      "manager_name": "Mubarak Almutairi",
+      "team_name": "MUBARAK TM",
+      "gw_points": 41,
+      "cumulative_points": 591,
+      "bench_points": 6,
+      "team_value": 99.2,
+      "bank": 0.2,
+      "overall_rank": 5057479,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 5,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/8882786/event/11",
+      "league_rank": 26,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 6529579,
+      "manager_name": "Mohammad R",
+      "team_name": "Mohammad's Team",
+      "gw_points": 41,
+      "cumulative_points": 582,
+      "bench_points": 27,
+      "team_value": 100.8,
+      "bank": 0.2,
+      "overall_rank": 5521021,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 7,
+      "chip_played": null,
+      "captain_id": 166,
+      "captain_name": "N.Jackson",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/6529579/event/11",
+      "league_rank": 27,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 8963678,
+      "manager_name": "Mohammed Al-Khamees",
+      "team_name": "Bokhamee$$",
+      "gw_points": 37,
+      "cumulative_points": 512,
+      "bench_points": 4,
+      "team_value": 100.3,
+      "bank": 1.3,
+      "overall_rank": 8357164,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 5,
+      "chip_played": null,
+      "captain_id": 106,
+      "captain_name": "Thiago",
+      "captain_multiplier": 2,
+      "captain_contribution": 0,
+      "team_link": "https://fantasy.premierleague.com/entry/8963678/event/11",
+      "league_rank": 28,
+      "rank_change": 0.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 2948045,
+      "manager_name": "Abdullah Alkhamees",
+      "team_name": "Nerds FC",
+      "gw_points": 48,
+      "cumulative_points": 495,
+      "bench_points": 0,
+      "team_value": 98.0,
+      "bank": 0.0,
+      "overall_rank": 9074138,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 0,
+      "chip_played": null,
+      "captain_id": 55,
+      "captain_name": "Watkins",
+      "captain_multiplier": 0,
+      "captain_contribution": 0,
+      "team_link": "https://fantasy.premierleague.com/entry/2948045/event/11",
+      "league_rank": 29,
+      "rank_change": 1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 7667973,
+      "manager_name": "Abdullah Alkhames",
+      "team_name": "alkhames86",
+      "gw_points": 24,
+      "cumulative_points": 484,
+      "bench_points": 10,
+      "team_value": 99.7,
+      "bank": 5.2,
+      "overall_rank": 9067507,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 8,
+      "chip_played": null,
+      "captain_id": 399,
+      "captain_name": "Cherki",
+      "captain_multiplier": 2,
+      "captain_contribution": 2,
+      "team_link": "https://fantasy.premierleague.com/entry/7667973/event/11",
+      "league_rank": 30,
+      "rank_change": -1.0
+    },
+    {
+      "gameweek": 11,
+      "entry_id": 10108289,
+      "manager_name": "Sami Alkhamis",
+      "team_name": "samixmanutd1234",
+      "gw_points": 41,
+      "cumulative_points": 435,
+      "bench_points": 10,
+      "team_value": 101.5,
+      "bank": 0.9,
+      "overall_rank": 9930181,
+      "num_transfers": 0,
+      "transfer_cost": 0,
+      "net_transfer_impact": 0.0,
+      "transferred_in": "",
+      "transferred_out": "",
+      "transfer_points_in": 0.0,
+      "transfer_points_out": 0.0,
+      "season_transfers_to_date": 4,
+      "chip_played": null,
+      "captain_id": 411,
+      "captain_name": "Haaland",
+      "captain_multiplier": 2,
+      "captain_contribution": 4,
+      "team_link": "https://fantasy.premierleague.com/entry/10108289/event/11",
+      "league_rank": 31,
+      "rank_change": 0.0
     }
   ],
   "player_gameweek_popularity": [
@@ -8803,33 +9671,6 @@
     },
     {
       "gameweek": 1,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 15,
-      "pct_owned": 51.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 14,
-      "pct_owned": 48.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 87,
-      "player_name": "Ajer",
-      "times_owned": 3,
-      "pct_owned": 10.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
       "player_id": 1,
       "player_name": "Raya",
       "times_owned": 7,
@@ -8920,6 +9761,51 @@
     },
     {
       "gameweek": 1,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 15,
+      "pct_owned": 51.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 14,
+      "pct_owned": 48.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 87,
+      "player_name": "Ajer",
+      "times_owned": 3,
+      "pct_owned": 10.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 6,
+      "pct_owned": 20.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 127,
+      "player_name": "Gomez",
+      "times_owned": 7,
+      "pct_owned": 24.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
       "player_id": 385,
       "player_name": "Trafford",
       "times_owned": 1,
@@ -8974,51 +9860,6 @@
     },
     {
       "gameweek": 1,
-      "player_id": 127,
-      "player_name": "Gomez",
-      "times_owned": 7,
-      "pct_owned": 24.1,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 558,
-      "player_name": "Schlager",
-      "times_owned": 1,
-      "pct_owned": 3.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 532,
-      "player_name": "Ballard",
-      "times_owned": 1,
-      "pct_owned": 3.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 6,
-      "pct_owned": 20.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 544,
-      "player_name": "Xhaka",
-      "times_owned": 1,
-      "pct_owned": 3.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
       "player_id": 480,
       "player_name": "Gibbs-White",
       "times_owned": 3,
@@ -9059,6 +9900,33 @@
       "player_name": "Konsa",
       "times_owned": 4,
       "pct_owned": 13.8,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 544,
+      "player_name": "Xhaka",
+      "times_owned": 1,
+      "pct_owned": 3.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 558,
+      "player_name": "Schlager",
+      "times_owned": 1,
+      "pct_owned": 3.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 532,
+      "player_name": "Ballard",
+      "times_owned": 1,
+      "pct_owned": 3.4,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -9127,6 +9995,24 @@
     },
     {
       "gameweek": 1,
+      "player_id": 208,
+      "player_name": "Sarr",
+      "times_owned": 2,
+      "pct_owned": 6.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 3,
+      "pct_owned": 10.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
       "player_id": 226,
       "player_name": "Pickford",
       "times_owned": 1,
@@ -9181,6 +10067,15 @@
     },
     {
       "gameweek": 1,
+      "player_id": 356,
+      "player_name": "Virgil",
+      "times_owned": 1,
+      "pct_owned": 3.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
       "player_id": 229,
       "player_name": "Tarkowski",
       "times_owned": 2,
@@ -9192,42 +10087,6 @@
       "gameweek": 1,
       "player_id": 304,
       "player_name": "O'Shea",
-      "times_owned": 1,
-      "pct_owned": 3.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 208,
-      "player_name": "Sarr",
-      "times_owned": 2,
-      "pct_owned": 6.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 3,
-      "pct_owned": 10.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 356,
-      "player_name": "Virgil",
-      "times_owned": 1,
-      "pct_owned": 3.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 1,
-      "player_id": 233,
-      "player_name": "Mykolenko",
       "times_owned": 1,
       "pct_owned": 3.4,
       "times_captained": 0,
@@ -9282,6 +10141,15 @@
       "gameweek": 1,
       "player_id": 473,
       "player_name": "Aina",
+      "times_owned": 1,
+      "pct_owned": 3.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 1,
+      "player_id": 233,
+      "player_name": "Mykolenko",
       "times_owned": 1,
       "pct_owned": 3.4,
       "times_captained": 0,
@@ -9739,33 +10607,6 @@
     },
     {
       "gameweek": 2,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 14,
-      "pct_owned": 46.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 15,
-      "pct_owned": 50.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 87,
-      "player_name": "Ajer",
-      "times_owned": 3,
-      "pct_owned": 10.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
       "player_id": 1,
       "player_name": "Raya",
       "times_owned": 7,
@@ -9865,6 +10706,60 @@
     },
     {
       "gameweek": 2,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 14,
+      "pct_owned": 46.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 15,
+      "pct_owned": 50.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 87,
+      "player_name": "Ajer",
+      "times_owned": 3,
+      "pct_owned": 10.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 418,
+      "player_name": "Maguire",
+      "times_owned": 8,
+      "pct_owned": 26.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 6,
+      "pct_owned": 20.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 127,
+      "player_name": "Gomez",
+      "times_owned": 7,
+      "pct_owned": 23.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
       "player_id": 385,
       "player_name": "Trafford",
       "times_owned": 1,
@@ -9910,51 +10805,6 @@
     },
     {
       "gameweek": 2,
-      "player_id": 127,
-      "player_name": "Gomez",
-      "times_owned": 7,
-      "pct_owned": 23.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 558,
-      "player_name": "Schlager",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 418,
-      "player_name": "Maguire",
-      "times_owned": 8,
-      "pct_owned": 26.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 6,
-      "pct_owned": 20.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 544,
-      "player_name": "Xhaka",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
       "player_id": 480,
       "player_name": "Gibbs-White",
       "times_owned": 2,
@@ -9986,6 +10836,24 @@
       "player_name": "Konsa",
       "times_owned": 3,
       "pct_owned": 10.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 544,
+      "player_name": "Xhaka",
+      "times_owned": 1,
+      "pct_owned": 3.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 558,
+      "player_name": "Schlager",
+      "times_owned": 1,
+      "pct_owned": 3.3,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -10047,6 +10915,24 @@
       "gameweek": 2,
       "player_id": 542,
       "player_name": "E.Le F\u00e9e",
+      "times_owned": 3,
+      "pct_owned": 10.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 208,
+      "player_name": "Sarr",
+      "times_owned": 2,
+      "pct_owned": 6.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 82,
+      "player_name": "Kelleher",
       "times_owned": 3,
       "pct_owned": 10.0,
       "times_captained": 0,
@@ -10117,6 +11003,15 @@
     },
     {
       "gameweek": 2,
+      "player_id": 356,
+      "player_name": "Virgil",
+      "times_owned": 1,
+      "pct_owned": 3.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
       "player_id": 229,
       "player_name": "Tarkowski",
       "times_owned": 2,
@@ -10144,8 +11039,26 @@
     },
     {
       "gameweek": 2,
-      "player_id": 208,
-      "player_name": "Sarr",
+      "player_id": 111,
+      "player_name": "Steele",
+      "times_owned": 1,
+      "pct_owned": 3.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 504,
+      "player_name": "Vuskovic",
+      "times_owned": 1,
+      "pct_owned": 3.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 569,
+      "player_name": "Gonzalo",
       "times_owned": 2,
       "pct_owned": 6.7,
       "times_captained": 0,
@@ -10153,17 +11066,35 @@
     },
     {
       "gameweek": 2,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 3,
-      "pct_owned": 10.0,
+      "player_id": 236,
+      "player_name": "Dewsbury-Hall",
+      "times_owned": 1,
+      "pct_owned": 3.3,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 2,
-      "player_id": 356,
-      "player_name": "Virgil",
+      "player_id": 248,
+      "player_name": "Beto",
+      "times_owned": 1,
+      "pct_owned": 3.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 32,
+      "player_name": "Cash",
+      "times_owned": 1,
+      "pct_owned": 3.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 2,
+      "player_id": 473,
+      "player_name": "Aina",
       "times_owned": 1,
       "pct_owned": 3.3,
       "times_captained": 0,
@@ -10207,71 +11138,8 @@
     },
     {
       "gameweek": 2,
-      "player_id": 569,
-      "player_name": "Gonzalo",
-      "times_owned": 2,
-      "pct_owned": 6.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
       "player_id": 572,
       "player_name": "Tzolakis",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 111,
-      "player_name": "Steele",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 504,
-      "player_name": "Vuskovic",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 236,
-      "player_name": "Dewsbury-Hall",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 248,
-      "player_name": "Beto",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 32,
-      "player_name": "Cash",
-      "times_owned": 1,
-      "pct_owned": 3.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 2,
-      "player_id": 473,
-      "player_name": "Aina",
       "times_owned": 1,
       "pct_owned": 3.3,
       "times_captained": 0,
@@ -10774,10 +11642,19 @@
     },
     {
       "gameweek": 3,
-      "player_id": 321,
-      "player_name": "Walle Egeli",
-      "times_owned": 2,
-      "pct_owned": 6.5,
+      "player_id": 1,
+      "player_name": "Raya",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 260,
+      "player_name": "Wilson",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -10801,10 +11678,55 @@
     },
     {
       "gameweek": 3,
+      "player_id": 40,
+      "player_name": "Rogers",
+      "times_owned": 7,
+      "pct_owned": 22.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 362,
+      "player_name": "Jacquet",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 397,
+      "player_name": "Semenyo",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 3,
       "player_id": 109,
       "player_name": "Verbruggen",
       "times_owned": 13,
       "pct_owned": 41.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 536,
+      "player_name": "Reinildo",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 321,
+      "player_name": "Walle Egeli",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -10846,26 +11768,17 @@
     },
     {
       "gameweek": 3,
-      "player_id": 1,
-      "player_name": "Raya",
-      "times_owned": 6,
-      "pct_owned": 19.4,
+      "player_id": 418,
+      "player_name": "Maguire",
+      "times_owned": 9,
+      "pct_owned": 29.0,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 3,
-      "player_id": 260,
-      "player_name": "Wilson",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 40,
-      "player_name": "Rogers",
+      "player_id": 259,
+      "player_name": "Diop",
       "times_owned": 7,
       "pct_owned": 22.6,
       "times_captained": 0,
@@ -10873,28 +11786,19 @@
     },
     {
       "gameweek": 3,
-      "player_id": 362,
-      "player_name": "Jacquet",
-      "times_owned": 2,
-      "pct_owned": 6.5,
+      "player_id": 329,
+      "player_name": "Rodon",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 3,
-      "player_id": 397,
-      "player_name": "Semenyo",
+      "player_id": 127,
+      "player_name": "Gomez",
       "times_owned": 9,
       "pct_owned": 29.0,
-      "times_captained": 1,
-      "pct_captained": 3.2
-    },
-    {
-      "gameweek": 3,
-      "player_id": 536,
-      "player_name": "Reinildo",
-      "times_owned": 1,
-      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -10931,69 +11835,6 @@
       "player_name": "Palmer",
       "times_owned": 3,
       "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 127,
-      "player_name": "Gomez",
-      "times_owned": 9,
-      "pct_owned": 29.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 12,
-      "pct_owned": 38.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 558,
-      "player_name": "Schlager",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 418,
-      "player_name": "Maguire",
-      "times_owned": 9,
-      "pct_owned": 29.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 7,
-      "pct_owned": 22.6,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 329,
-      "player_name": "Rodon",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 544,
-      "player_name": "Xhaka",
-      "times_owned": 1,
-      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -11037,6 +11878,33 @@
       "gameweek": 3,
       "player_id": 593,
       "player_name": "Dedi\u0107",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 544,
+      "player_name": "Xhaka",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 12,
+      "pct_owned": 38.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 558,
+      "player_name": "Schlager",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -11098,6 +11966,24 @@
     },
     {
       "gameweek": 3,
+      "player_id": 279,
+      "player_name": "Ajayi",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
       "player_id": 226,
       "player_name": "Pickford",
       "times_owned": 1,
@@ -11143,15 +12029,6 @@
     },
     {
       "gameweek": 3,
-      "player_id": 279,
-      "player_name": "Ajayi",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
       "player_id": 539,
       "player_name": "O'Nien",
       "times_owned": 1,
@@ -11165,6 +12042,15 @@
       "player_name": "Tzolakis",
       "times_owned": 2,
       "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 356,
+      "player_name": "Virgil",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -11192,42 +12078,6 @@
       "player_name": "M.Sangar\u00e9",
       "times_owned": 2,
       "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 356,
-      "player_name": "Virgil",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 387,
-      "player_name": "O'Reilly",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 3,
-      "player_id": 233,
-      "player_name": "Mykolenko",
-      "times_owned": 1,
-      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -11289,6 +12139,24 @@
       "gameweek": 3,
       "player_id": 473,
       "player_name": "Aina",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 387,
+      "player_name": "O'Reilly",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 3,
+      "player_id": 233,
+      "player_name": "Mykolenko",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -11782,69 +12650,6 @@
     },
     {
       "gameweek": 4,
-      "player_id": 58,
-      "player_name": "Forster",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 282,
-      "player_name": "Giles",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 15,
-      "player_name": "\u00d8degaard",
-      "times_owned": 4,
-      "pct_owned": 12.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 17,
-      "pct_owned": 54.8,
-      "times_captained": 1,
-      "pct_captained": 3.2
-    },
-    {
-      "gameweek": 4,
-      "player_id": 115,
-      "player_name": "De Cuyper",
-      "times_owned": 8,
-      "pct_owned": 25.8,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 379,
-      "player_name": "Isak",
-      "times_owned": 15,
-      "pct_owned": 48.4,
-      "times_captained": 4,
-      "pct_captained": 12.9
-    },
-    {
-      "gameweek": 4,
-      "player_id": 154,
-      "player_name": "Palmer",
-      "times_owned": 9,
-      "pct_owned": 29.0,
-      "times_captained": 6,
-      "pct_captained": 19.4
-    },
-    {
-      "gameweek": 4,
       "player_id": 1,
       "player_name": "Raya",
       "times_owned": 6,
@@ -11899,10 +12704,109 @@
     },
     {
       "gameweek": 4,
+      "player_id": 115,
+      "player_name": "De Cuyper",
+      "times_owned": 8,
+      "pct_owned": 25.8,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
       "player_id": 87,
       "player_name": "Ajer",
       "times_owned": 3,
       "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 379,
+      "player_name": "Isak",
+      "times_owned": 15,
+      "pct_owned": 48.4,
+      "times_captained": 4,
+      "pct_captained": 12.9
+    },
+    {
+      "gameweek": 4,
+      "player_id": 58,
+      "player_name": "Forster",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 282,
+      "player_name": "Giles",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 15,
+      "player_name": "\u00d8degaard",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 17,
+      "pct_owned": 54.8,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 4,
+      "player_id": 154,
+      "player_name": "Palmer",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 6,
+      "pct_captained": 19.4
+    },
+    {
+      "gameweek": 4,
+      "player_id": 418,
+      "player_name": "Maguire",
+      "times_owned": 7,
+      "pct_owned": 22.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 127,
+      "player_name": "Gomez",
+      "times_owned": 9,
+      "pct_owned": 29.0,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -11953,78 +12857,6 @@
     },
     {
       "gameweek": 4,
-      "player_id": 127,
-      "player_name": "Gomez",
-      "times_owned": 9,
-      "pct_owned": 29.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 10,
-      "pct_owned": 32.3,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 558,
-      "player_name": "Schlager",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 418,
-      "player_name": "Maguire",
-      "times_owned": 7,
-      "pct_owned": 22.6,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 544,
-      "player_name": "Xhaka",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 449,
-      "player_name": "Hall",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
       "player_id": 454,
       "player_name": "Elanga",
       "times_owned": 3,
@@ -12054,6 +12886,42 @@
       "gameweek": 4,
       "player_id": 593,
       "player_name": "Dedi\u0107",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 544,
+      "player_name": "Xhaka",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 449,
+      "player_name": "Hall",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 10,
+      "pct_owned": 32.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 558,
+      "player_name": "Schlager",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -12099,6 +12967,33 @@
       "gameweek": 4,
       "player_id": 28,
       "player_name": "Martinez",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 279,
+      "player_name": "Ajayi",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -12160,6 +13055,15 @@
     },
     {
       "gameweek": 4,
+      "player_id": 356,
+      "player_name": "Virgil",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
       "player_id": 229,
       "player_name": "Tarkowski",
       "times_owned": 2,
@@ -12182,60 +13086,6 @@
       "player_name": "M.Sangar\u00e9",
       "times_owned": 2,
       "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 279,
-      "player_name": "Ajayi",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 356,
-      "player_name": "Virgil",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 4,
-      "player_id": 469,
-      "player_name": "N.Williams",
-      "times_owned": 1,
-      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -12297,6 +13147,24 @@
       "gameweek": 4,
       "player_id": 473,
       "player_name": "Aina",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 4,
+      "player_id": 469,
+      "player_name": "N.Williams",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -12826,51 +13694,6 @@
     },
     {
       "gameweek": 5,
-      "player_id": 321,
-      "player_name": "Walle Egeli",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 399,
-      "player_name": "Cherki",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 16,
-      "pct_owned": 51.6,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 115,
-      "player_name": "De Cuyper",
-      "times_owned": 9,
-      "pct_owned": 29.0,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 87,
-      "player_name": "Ajer",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
       "player_id": 1,
       "player_name": "Raya",
       "times_owned": 6,
@@ -12916,12 +13739,111 @@
     },
     {
       "gameweek": 5,
+      "player_id": 115,
+      "player_name": "De Cuyper",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 87,
+      "player_name": "Ajer",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
       "player_id": 379,
       "player_name": "Isak",
       "times_owned": 11,
       "pct_owned": 35.5,
       "times_captained": 1,
       "pct_captained": 3.2
+    },
+    {
+      "gameweek": 5,
+      "player_id": 321,
+      "player_name": "Walle Egeli",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 399,
+      "player_name": "Cherki",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 16,
+      "pct_owned": 51.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 418,
+      "player_name": "Maguire",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 473,
+      "player_name": "Aina",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 154,
+      "player_name": "Palmer",
+      "times_owned": 8,
+      "pct_owned": 25.8,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 5,
+      "player_id": 127,
+      "player_name": "Gomez",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
     },
     {
       "gameweek": 5,
@@ -12979,73 +13901,28 @@
     },
     {
       "gameweek": 5,
-      "player_id": 154,
-      "player_name": "Palmer",
-      "times_owned": 8,
-      "pct_owned": 25.8,
-      "times_captained": 1,
-      "pct_captained": 3.2
-    },
-    {
-      "gameweek": 5,
-      "player_id": 127,
-      "player_name": "Gomez",
-      "times_owned": 9,
-      "pct_owned": 29.0,
+      "player_id": 454,
+      "player_name": "Elanga",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 5,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 6,
-      "pct_owned": 19.4,
+      "player_id": 237,
+      "player_name": "Ndiaye",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 5,
-      "player_id": 558,
-      "player_name": "Schlager",
+      "player_id": 26,
+      "player_name": "Havertz",
       "times_owned": 1,
       "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 418,
-      "player_name": "Maguire",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 473,
-      "player_name": "Aina",
-      "times_owned": 2,
-      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -13078,26 +13955,17 @@
     },
     {
       "gameweek": 5,
-      "player_id": 454,
-      "player_name": "Elanga",
-      "times_owned": 2,
-      "pct_owned": 6.5,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 6,
+      "pct_owned": 19.4,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 5,
-      "player_id": 237,
-      "player_name": "Ndiaye",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 26,
-      "player_name": "Havertz",
+      "player_id": 558,
+      "player_name": "Schlager",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -13186,6 +14054,24 @@
     },
     {
       "gameweek": 5,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
       "player_id": 96,
       "player_name": "Damsgaard",
       "times_owned": 1,
@@ -13231,10 +14117,10 @@
     },
     {
       "gameweek": 5,
-      "player_id": 268,
-      "player_name": "King",
-      "times_owned": 3,
-      "pct_owned": 9.7,
+      "player_id": 68,
+      "player_name": "Tavernier",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -13258,37 +14144,10 @@
     },
     {
       "gameweek": 5,
-      "player_id": 82,
-      "player_name": "Kelleher",
+      "player_id": 268,
+      "player_name": "King",
       "times_owned": 3,
       "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 68,
-      "player_name": "Tavernier",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 5,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -13359,6 +14218,15 @@
       "gameweek": 5,
       "player_id": 455,
       "player_name": "Tonali",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 5,
+      "player_id": 204,
+      "player_name": "Mitchell",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -13915,51 +14783,6 @@
     },
     {
       "gameweek": 6,
-      "player_id": 321,
-      "player_name": "Walle Egeli",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 399,
-      "player_name": "Cherki",
-      "times_owned": 7,
-      "pct_owned": 22.6,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 115,
-      "player_name": "De Cuyper",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 87,
-      "player_name": "Ajer",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
       "player_id": 1,
       "player_name": "Raya",
       "times_owned": 8,
@@ -14005,12 +14828,93 @@
     },
     {
       "gameweek": 6,
+      "player_id": 115,
+      "player_name": "De Cuyper",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 87,
+      "player_name": "Ajer",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
       "player_id": 379,
       "player_name": "Isak",
       "times_owned": 4,
       "pct_owned": 12.9,
       "times_captained": 0,
       "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 321,
+      "player_name": "Walle Egeli",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 399,
+      "player_name": "Cherki",
+      "times_owned": 7,
+      "pct_owned": 22.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 449,
+      "player_name": "Hall",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 290,
+      "player_name": "Slater",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 569,
+      "player_name": "Gonzalo",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 1,
+      "pct_captained": 3.2
     },
     {
       "gameweek": 6,
@@ -14059,15 +14963,6 @@
     },
     {
       "gameweek": 6,
-      "player_id": 569,
-      "player_name": "Gonzalo",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 1,
-      "pct_captained": 3.2
-    },
-    {
-      "gameweek": 6,
       "player_id": 154,
       "player_name": "Palmer",
       "times_owned": 7,
@@ -14095,46 +14990,28 @@
     },
     {
       "gameweek": 6,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 5,
-      "pct_owned": 16.1,
+      "player_id": 138,
+      "player_name": "Kostoulas",
+      "times_owned": 6,
+      "pct_owned": 19.4,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 6,
-      "player_id": 558,
-      "player_name": "Schlager",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 237,
+      "player_name": "Ndiaye",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 6,
-      "player_id": 449,
-      "player_name": "Hall",
-      "times_owned": 4,
-      "pct_owned": 12.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 290,
-      "player_name": "Slater",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 3,
-      "pct_owned": 9.7,
+      "player_id": 557,
+      "player_name": "Tzolis",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -14176,28 +15053,19 @@
     },
     {
       "gameweek": 6,
-      "player_id": 138,
-      "player_name": "Kostoulas",
-      "times_owned": 6,
-      "pct_owned": 19.4,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 5,
+      "pct_owned": 16.1,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 6,
-      "player_id": 237,
-      "player_name": "Ndiaye",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 557,
-      "player_name": "Tzolis",
-      "times_owned": 2,
-      "pct_owned": 6.5,
+      "player_id": 558,
+      "player_name": "Schlager",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -14241,6 +15109,24 @@
       "gameweek": 6,
       "player_id": 28,
       "player_name": "Martinez",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
       "times_owned": 1,
       "pct_owned": 3.2,
       "times_captained": 0,
@@ -14293,28 +15179,19 @@
     },
     {
       "gameweek": 6,
-      "player_id": 68,
-      "player_name": "Tavernier",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 268,
-      "player_name": "King",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
       "player_id": 418,
       "player_name": "Maguire",
       "times_owned": 5,
       "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 68,
+      "player_name": "Tavernier",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -14338,35 +15215,8 @@
     },
     {
       "gameweek": 6,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 6,
-      "player_id": 25,
-      "player_name": "Gy\u00f6keres",
+      "player_id": 268,
+      "player_name": "King",
       "times_owned": 3,
       "pct_owned": 9.7,
       "times_captained": 0,
@@ -14401,10 +15251,28 @@
     },
     {
       "gameweek": 6,
+      "player_id": 25,
+      "player_name": "Gy\u00f6keres",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
       "player_id": 572,
       "player_name": "Tzolakis",
       "times_owned": 3,
       "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 6,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -14932,10 +15800,10 @@
     },
     {
       "gameweek": 7,
-      "player_id": 321,
-      "player_name": "Walle Egeli",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 1,
+      "player_name": "Raya",
+      "times_owned": 7,
+      "pct_owned": 22.6,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -14945,33 +15813,6 @@
       "player_name": "Gvardiol",
       "times_owned": 12,
       "pct_owned": 38.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 399,
-      "player_name": "Cherki",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 8,
-      "pct_owned": 25.8,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 1,
-      "player_name": "Raya",
-      "times_owned": 7,
-      "pct_owned": 22.6,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15022,10 +15863,28 @@
     },
     {
       "gameweek": 7,
-      "player_id": 385,
-      "player_name": "Trafford",
+      "player_id": 321,
+      "player_name": "Walle Egeli",
       "times_owned": 1,
       "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 399,
+      "player_name": "Cherki",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 8,
+      "pct_owned": 25.8,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15035,6 +15894,42 @@
       "player_name": "Hall",
       "times_owned": 5,
       "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 290,
+      "player_name": "Slater",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 569,
+      "player_name": "Gonzalo",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 385,
+      "player_name": "Trafford",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15067,15 +15962,6 @@
     },
     {
       "gameweek": 7,
-      "player_id": 569,
-      "player_name": "Gonzalo",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
       "player_id": 154,
       "player_name": "Palmer",
       "times_owned": 7,
@@ -15103,8 +15989,8 @@
     },
     {
       "gameweek": 7,
-      "player_id": 68,
-      "player_name": "Tavernier",
+      "player_id": 138,
+      "player_name": "Kostoulas",
       "times_owned": 7,
       "pct_owned": 22.6,
       "times_captained": 0,
@@ -15112,17 +15998,8 @@
     },
     {
       "gameweek": 7,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 4,
-      "pct_owned": 12.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 290,
-      "player_name": "Slater",
+      "player_id": 237,
+      "player_name": "Ndiaye",
       "times_owned": 2,
       "pct_owned": 6.5,
       "times_captained": 0,
@@ -15130,10 +16007,10 @@
     },
     {
       "gameweek": 7,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 3,
-      "pct_owned": 9.7,
+      "player_id": 166,
+      "player_name": "N.Jackson",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15157,6 +16034,15 @@
     },
     {
       "gameweek": 7,
+      "player_id": 68,
+      "player_name": "Tavernier",
+      "times_owned": 7,
+      "pct_owned": 22.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
       "player_id": 453,
       "player_name": "Barnes",
       "times_owned": 4,
@@ -15166,28 +16052,10 @@
     },
     {
       "gameweek": 7,
-      "player_id": 138,
-      "player_name": "Kostoulas",
-      "times_owned": 7,
-      "pct_owned": 22.6,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 237,
-      "player_name": "Ndiaye",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 166,
-      "player_name": "N.Jackson",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 4,
+      "pct_owned": 12.9,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15247,6 +16115,24 @@
     },
     {
       "gameweek": 7,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
       "player_id": 96,
       "player_name": "Damsgaard",
       "times_owned": 1,
@@ -15292,42 +16178,6 @@
     },
     {
       "gameweek": 7,
-      "player_id": 268,
-      "player_name": "King",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 94,
-      "player_name": "Schade",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 7,
       "player_id": 388,
       "player_name": "Gu\u00e9hi",
       "times_owned": 4,
@@ -15346,19 +16196,19 @@
     },
     {
       "gameweek": 7,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 94,
+      "player_name": "Schade",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 7,
-      "player_id": 464,
-      "player_name": "Wissa",
-      "times_owned": 6,
-      "pct_owned": 19.4,
+      "player_id": 268,
+      "player_name": "King",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15377,6 +16227,24 @@
       "player_name": "Tzolakis",
       "times_owned": 3,
       "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 7,
+      "player_id": 464,
+      "player_name": "Wissa",
+      "times_owned": 6,
+      "pct_owned": 19.4,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15904,10 +16772,10 @@
     },
     {
       "gameweek": 8,
-      "player_id": 321,
-      "player_name": "Walle Egeli",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 453,
+      "player_name": "Barnes",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15917,42 +16785,6 @@
       "player_name": "Gvardiol",
       "times_owned": 11,
       "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 109,
-      "player_name": "Verbruggen",
-      "times_owned": 12,
-      "pct_owned": 38.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 399,
-      "player_name": "Cherki",
-      "times_owned": 12,
-      "pct_owned": 38.7,
-      "times_captained": 1,
-      "pct_captained": 3.2
-    },
-    {
-      "gameweek": 8,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 453,
-      "player_name": "Barnes",
-      "times_owned": 3,
-      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -15976,6 +16808,24 @@
     },
     {
       "gameweek": 8,
+      "player_id": 109,
+      "player_name": "Verbruggen",
+      "times_owned": 12,
+      "pct_owned": 38.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 399,
+      "player_name": "Cherki",
+      "times_owned": 12,
+      "pct_owned": 38.7,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 8,
       "player_id": 87,
       "player_name": "Ajer",
       "times_owned": 2,
@@ -15994,10 +16844,19 @@
     },
     {
       "gameweek": 8,
-      "player_id": 385,
-      "player_name": "Trafford",
+      "player_id": 321,
+      "player_name": "Walle Egeli",
       "times_owned": 1,
       "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 6,
+      "pct_owned": 19.4,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -16012,17 +16871,17 @@
     },
     {
       "gameweek": 8,
-      "player_id": 15,
-      "player_name": "\u00d8degaard",
-      "times_owned": 4,
-      "pct_owned": 12.9,
+      "player_id": 290,
+      "player_name": "Slater",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 8,
-      "player_id": 534,
-      "player_name": "Hume",
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
       "times_owned": 4,
       "pct_owned": 12.9,
       "times_captained": 0,
@@ -16048,6 +16907,33 @@
     },
     {
       "gameweek": 8,
+      "player_id": 385,
+      "player_name": "Trafford",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 15,
+      "player_name": "\u00d8degaard",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 534,
+      "player_name": "Hume",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
       "player_id": 286,
       "player_name": "Belloumi",
       "times_owned": 5,
@@ -16061,51 +16947,6 @@
       "player_name": "Gomez",
       "times_owned": 6,
       "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 290,
-      "player_name": "Slater",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 4,
-      "pct_owned": 12.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 544,
-      "player_name": "Xhaka",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 5,
-      "pct_owned": 16.1,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -16133,6 +16974,33 @@
       "player_name": "N.Jackson",
       "times_owned": 1,
       "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 544,
+      "player_name": "Xhaka",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -16219,6 +17087,15 @@
     },
     {
       "gameweek": 8,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
       "player_id": 96,
       "player_name": "Damsgaard",
       "times_owned": 1,
@@ -16264,33 +17141,6 @@
     },
     {
       "gameweek": 8,
-      "player_id": 229,
-      "player_name": "Tarkowski",
-      "times_owned": 4,
-      "pct_owned": 12.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 268,
-      "player_name": "King",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 8,
       "player_id": 388,
       "player_name": "Gu\u00e9hi",
       "times_owned": 4,
@@ -16318,10 +17168,19 @@
     },
     {
       "gameweek": 8,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 229,
+      "player_name": "Tarkowski",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 268,
+      "player_name": "King",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -16349,6 +17208,15 @@
       "player_name": "Tzolakis",
       "times_owned": 3,
       "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 8,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -16894,37 +17762,19 @@
     },
     {
       "gameweek": 9,
-      "player_id": 391,
-      "player_name": "Gvardiol",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 109,
-      "player_name": "Verbruggen",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 5,
-      "pct_owned": 16.1,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
       "player_id": 453,
       "player_name": "Barnes",
       "times_owned": 4,
       "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 391,
+      "player_name": "Gvardiol",
+      "times_owned": 11,
+      "pct_owned": 35.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -16957,6 +17807,15 @@
     },
     {
       "gameweek": 9,
+      "player_id": 109,
+      "player_name": "Verbruggen",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
       "player_id": 379,
       "player_name": "Isak",
       "times_owned": 6,
@@ -16972,6 +17831,51 @@
       "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 290,
+      "player_name": "Slater",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 569,
+      "player_name": "Gonzalo",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 154,
+      "player_name": "Palmer",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 2,
+      "pct_captained": 6.5
     },
     {
       "gameweek": 9,
@@ -17011,15 +17915,6 @@
     },
     {
       "gameweek": 9,
-      "player_id": 154,
-      "player_name": "Palmer",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 2,
-      "pct_captained": 6.5
-    },
-    {
-      "gameweek": 9,
       "player_id": 286,
       "player_name": "Belloumi",
       "times_owned": 6,
@@ -17042,60 +17937,6 @@
       "player_name": "Kudus",
       "times_owned": 3,
       "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 290,
-      "player_name": "Slater",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 569,
-      "player_name": "Gonzalo",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 544,
-      "player_name": "Xhaka",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 259,
-      "player_name": "Diop",
-      "times_owned": 4,
-      "pct_owned": 12.9,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -17130,6 +17971,33 @@
       "gameweek": 9,
       "player_id": 566,
       "player_name": "Silva",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 544,
+      "player_name": "Xhaka",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 423,
+      "player_name": "Shaw",
       "times_owned": 2,
       "pct_owned": 6.5,
       "times_captained": 0,
@@ -17200,6 +18068,24 @@
     },
     {
       "gameweek": 9,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
       "player_id": 96,
       "player_name": "Damsgaard",
       "times_owned": 1,
@@ -17263,33 +18149,6 @@
     },
     {
       "gameweek": 9,
-      "player_id": 268,
-      "player_name": "King",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 9,
       "player_id": 13,
       "player_name": "Rice",
       "times_owned": 1,
@@ -17317,10 +18176,10 @@
     },
     {
       "gameweek": 9,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 268,
+      "player_name": "King",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -17339,6 +18198,15 @@
       "player_name": "Tzolakis",
       "times_owned": 3,
       "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 9,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -17875,37 +18743,19 @@
     },
     {
       "gameweek": 10,
-      "player_id": 391,
-      "player_name": "Gvardiol",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 109,
-      "player_name": "Verbruggen",
-      "times_owned": 11,
-      "pct_owned": 35.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 368,
-      "player_name": "Szoboszlai",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
       "player_id": 453,
       "player_name": "Barnes",
       "times_owned": 4,
       "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 391,
+      "player_name": "Gvardiol",
+      "times_owned": 11,
+      "pct_owned": 35.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -17938,12 +18788,75 @@
     },
     {
       "gameweek": 10,
+      "player_id": 109,
+      "player_name": "Verbruggen",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
       "player_id": 87,
       "player_name": "Ajer",
       "times_owned": 2,
       "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 290,
+      "player_name": "Slater",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 566,
+      "player_name": "Silva",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 569,
+      "player_name": "Gonzalo",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 154,
+      "player_name": "Palmer",
+      "times_owned": 10,
+      "pct_owned": 32.3,
+      "times_captained": 2,
+      "pct_captained": 6.5
     },
     {
       "gameweek": 10,
@@ -17992,15 +18905,6 @@
     },
     {
       "gameweek": 10,
-      "player_id": 154,
-      "player_name": "Palmer",
-      "times_owned": 10,
-      "pct_owned": 32.3,
-      "times_captained": 2,
-      "pct_captained": 6.5
-    },
-    {
-      "gameweek": 10,
       "player_id": 286,
       "player_name": "Belloumi",
       "times_owned": 6,
@@ -18028,35 +18932,17 @@
     },
     {
       "gameweek": 10,
-      "player_id": 423,
-      "player_name": "Shaw",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 138,
+      "player_name": "Kostoulas",
+      "times_owned": 6,
+      "pct_owned": 19.4,
       "times_captained": 0,
       "pct_captained": 0.0
     },
     {
       "gameweek": 10,
-      "player_id": 290,
-      "player_name": "Slater",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 334,
-      "player_name": "Muharemovi\u0107",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 566,
-      "player_name": "Silva",
+      "player_id": 330,
+      "player_name": "Bogle",
       "times_owned": 4,
       "pct_owned": 12.9,
       "times_captained": 0,
@@ -18064,10 +18950,10 @@
     },
     {
       "gameweek": 10,
-      "player_id": 569,
-      "player_name": "Gonzalo",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 597,
+      "player_name": "Suzuki",
+      "times_owned": 2,
+      "pct_owned": 6.5,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -18100,28 +18986,10 @@
     },
     {
       "gameweek": 10,
-      "player_id": 138,
-      "player_name": "Kostoulas",
-      "times_owned": 6,
-      "pct_owned": 19.4,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 330,
-      "player_name": "Bogle",
-      "times_owned": 4,
-      "pct_owned": 12.9,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 597,
-      "player_name": "Suzuki",
-      "times_owned": 2,
-      "pct_owned": 6.5,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -18199,6 +19067,33 @@
     },
     {
       "gameweek": 10,
+      "player_id": 356,
+      "player_name": "Virgil",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
       "player_id": 96,
       "player_name": "Damsgaard",
       "times_owned": 1,
@@ -18262,42 +19157,6 @@
     },
     {
       "gameweek": 10,
-      "player_id": 268,
-      "player_name": "King",
-      "times_owned": 3,
-      "pct_owned": 9.7,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 356,
-      "player_name": "Virgil",
-      "times_owned": 1,
-      "pct_owned": 3.2,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 82,
-      "player_name": "Kelleher",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
-      "player_id": 542,
-      "player_name": "E.Le F\u00e9e",
-      "times_owned": 2,
-      "pct_owned": 6.5,
-      "times_captained": 0,
-      "pct_captained": 0.0
-    },
-    {
-      "gameweek": 10,
       "player_id": 13,
       "player_name": "Rice",
       "times_owned": 1,
@@ -18325,10 +19184,10 @@
     },
     {
       "gameweek": 10,
-      "player_id": 204,
-      "player_name": "Mitchell",
-      "times_owned": 1,
-      "pct_owned": 3.2,
+      "player_id": 268,
+      "player_name": "King",
+      "times_owned": 3,
+      "pct_owned": 9.7,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -18347,6 +19206,15 @@
       "player_name": "Tzolakis",
       "times_owned": 3,
       "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 10,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
       "times_captained": 0,
       "pct_captained": 0.0
     },
@@ -18640,6 +19508,1023 @@
     },
     {
       "gameweek": 10,
+      "player_id": 258,
+      "player_name": "Castagne",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 1,
+      "player_name": "Raya",
+      "times_owned": 10,
+      "pct_owned": 32.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 129,
+      "player_name": "Ayari",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 68,
+      "player_name": "Tavernier",
+      "times_owned": 22,
+      "pct_owned": 71.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 166,
+      "player_name": "N.Jackson",
+      "times_owned": 20,
+      "pct_owned": 64.5,
+      "times_captained": 4,
+      "pct_captained": 12.9
+    },
+    {
+      "gameweek": 11,
+      "player_id": 8,
+      "player_name": "Calafiori",
+      "times_owned": 23,
+      "pct_owned": 74.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 40,
+      "player_name": "Rogers",
+      "times_owned": 20,
+      "pct_owned": 64.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 427,
+      "player_name": "Mbeumo",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 623,
+      "player_name": "Bentley",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 305,
+      "player_name": "Davis",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 115,
+      "player_name": "De Cuyper",
+      "times_owned": 20,
+      "pct_owned": 64.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 411,
+      "player_name": "Haaland",
+      "times_owned": 29,
+      "pct_owned": 93.5,
+      "times_captained": 23,
+      "pct_captained": 74.2
+    },
+    {
+      "gameweek": 11,
+      "player_id": 277,
+      "player_name": "Egan",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 379,
+      "player_name": "Isak",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 124,
+      "player_name": "Gro\u00df",
+      "times_owned": 17,
+      "pct_owned": 54.8,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 31,
+      "player_name": "Konsa",
+      "times_owned": 16,
+      "pct_owned": 51.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 4,
+      "player_name": "Gabriel",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 426,
+      "player_name": "B.Fernandes",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 236,
+      "player_name": "Dewsbury-Hall",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 45,
+      "player_name": "McGinn",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 173,
+      "player_name": "Thomas",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 175,
+      "player_name": "van Ewijk",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 496,
+      "player_name": "Kinsky",
+      "times_owned": 13,
+      "pct_owned": 41.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 112,
+      "player_name": "Van Hecke",
+      "times_owned": 7,
+      "pct_owned": 22.6,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 497,
+      "player_name": "Dubravka",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 212,
+      "player_name": "Hughes",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 249,
+      "player_name": "Barry",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 453,
+      "player_name": "Barnes",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 362,
+      "player_name": "Jacquet",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 109,
+      "player_name": "Verbruggen",
+      "times_owned": 11,
+      "pct_owned": 35.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 237,
+      "player_name": "Ndiaye",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 87,
+      "player_name": "Ajer",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 391,
+      "player_name": "Gvardiol",
+      "times_owned": 10,
+      "pct_owned": 32.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 368,
+      "player_name": "Szoboszlai",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 290,
+      "player_name": "Slater",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 334,
+      "player_name": "Muharemovi\u0107",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 566,
+      "player_name": "Silva",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 569,
+      "player_name": "Gonzalo",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 154,
+      "player_name": "Palmer",
+      "times_owned": 10,
+      "pct_owned": 32.3,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 480,
+      "player_name": "Gibbs-White",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 385,
+      "player_name": "Trafford",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 449,
+      "player_name": "Hall",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 165,
+      "player_name": "Jo\u00e3o Pedro",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 534,
+      "player_name": "Hume",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 286,
+      "player_name": "Belloumi",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 127,
+      "player_name": "Gomez",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 512,
+      "player_name": "Kudus",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 138,
+      "player_name": "Kostoulas",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 330,
+      "player_name": "Bogle",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 53,
+      "player_name": "Manzambi",
+      "times_owned": 5,
+      "pct_owned": 16.1,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 597,
+      "player_name": "Suzuki",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 259,
+      "player_name": "Diop",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 79,
+      "player_name": "Evanilson",
+      "times_owned": 9,
+      "pct_owned": 29.0,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 11,
+      "player_id": 423,
+      "player_name": "Shaw",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 384,
+      "player_name": "Donnarumma",
+      "times_owned": 4,
+      "pct_owned": 12.9,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 94,
+      "player_name": "Schade",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 229,
+      "player_name": "Tarkowski",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 15,
+      "player_name": "\u00d8degaard",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 399,
+      "player_name": "Cherki",
+      "times_owned": 6,
+      "pct_owned": 19.4,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 11,
+      "player_id": 57,
+      "player_name": "Petrovi\u0107",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 356,
+      "player_name": "Virgil",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 346,
+      "player_name": "Calvert-Lewin",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 82,
+      "player_name": "Kelleher",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 542,
+      "player_name": "E.Le F\u00e9e",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 96,
+      "player_name": "Damsgaard",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 226,
+      "player_name": "Pickford",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 388,
+      "player_name": "Gu\u00e9hi",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 10,
+      "player_name": "White",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 401,
+      "player_name": "Marmoush",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 503,
+      "player_name": "Van de Ven",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 539,
+      "player_name": "O'Nien",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 13,
+      "player_name": "Rice",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 304,
+      "player_name": "O'Shea",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 61,
+      "player_name": "Truffert",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 268,
+      "player_name": "King",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 504,
+      "player_name": "Vuskovic",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 572,
+      "player_name": "Tzolakis",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 204,
+      "player_name": "Mitchell",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 367,
+      "player_name": "Gakpo",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 201,
+      "player_name": "Mu\u00f1oz",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 464,
+      "player_name": "Wissa",
+      "times_owned": 3,
+      "pct_owned": 9.7,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 412,
+      "player_name": "Lammens",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 5,
+      "player_name": "J.Timber",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 332,
+      "player_name": "Justin",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 627,
+      "player_name": "Barcola",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 279,
+      "player_name": "Ajayi",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 233,
+      "player_name": "Mykolenko",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 400,
+      "player_name": "Doku",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 467,
+      "player_name": "Sels",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 556,
+      "player_name": "Targett",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 272,
+      "player_name": "Kusi-Asare",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 280,
+      "player_name": "Coyle",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 58,
+      "player_name": "Forster",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 70,
+      "player_name": "Kluivert",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 98,
+      "player_name": "Janelt",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 387,
+      "player_name": "O'Reilly",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 418,
+      "player_name": "Maguire",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 38,
+      "player_name": "A.Garc\u00eda",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 106,
+      "player_name": "Thiago",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 11,
+      "player_id": 428,
+      "player_name": "Cunha",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 251,
+      "player_name": "Lecomte",
+      "times_owned": 2,
+      "pct_owned": 6.5,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 350,
+      "player_name": "A.Becker",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 358,
+      "player_name": "Kerkez",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 208,
+      "player_name": "Sarr",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 316,
+      "player_name": "Emersonn",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 452,
+      "player_name": "Bruno G.",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 200,
+      "player_name": "Lacroix",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 397,
+      "player_name": "Semenyo",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 366,
+      "player_name": "Wirtz",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 498,
+      "player_name": "Senesi",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 533,
+      "player_name": "Mukiele",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
+      "player_id": 55,
+      "player_name": "Watkins",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 1,
+      "pct_captained": 3.2
+    },
+    {
+      "gameweek": 11,
+      "player_id": 25,
+      "player_name": "Gy\u00f6keres",
+      "times_owned": 1,
+      "pct_owned": 3.2,
+      "times_captained": 0,
+      "pct_captained": 0.0
+    },
+    {
+      "gameweek": 11,
       "player_id": 258,
       "player_name": "Castagne",
       "times_owned": 1,
@@ -19770,6 +21655,119 @@
       "most_owned_player": "Haaland",
       "most_owned_pct": 93.5,
       "chips_played": "mohammad fahad (3xc); Musaed Al_Husaini (bboost); Mohammad R (wildcard)"
+    },
+    {
+      "gameweek": 11,
+      "top_scorer": "Yousef KH",
+      "top_score": 53,
+      "bottom_scorer": "Abdullah Alkhames",
+      "bottom_score": 24,
+      "biggest_riser": "Hussain Bin Mattar",
+      "riser_places_gained": 4.0,
+      "biggest_faller": "Fahad Alkhamis",
+      "faller_places_lost": 4.0,
+      "best_captain_manager": "Alwaleed Alfelaij",
+      "best_captain_player": "Evanilson",
+      "best_captain_points": 12,
+      "worst_captain_manager": "Mohammed Al-Khamees",
+      "worst_captain_player": "Thiago",
+      "worst_captain_points": 0,
+      "most_wasted_bench_manager": "Mohammad R",
+      "wasted_bench_points": 27,
+      "value_king_manager": "Saud Alkhamis",
+      "value_king_value": 103.7,
+      "value_laggard_manager": "Mubarak Almutairi",
+      "value_laggard_value": 99.2,
+      "chip_master_manager": "Yousef KH",
+      "chip_master_chip": "bboost",
+      "chip_master_score": 53.0,
+      "no_chip_warrior_manager": "Thamer Alhumaidhi",
+      "no_chip_warrior_score": 49,
+      "sharpest_trader_manager": "Thamer Alhumaidhi",
+      "sharpest_trader_net_impact": 6.0,
+      "sharpest_trader_players_in": "Isak, Dewsbury-Hall",
+      "sharpest_trader_players_out": "Jo\u00e3o Pedro, Mbeumo",
+      "sharpest_trader_points_in": 7.0,
+      "sharpest_trader_points_out": 1.0,
+      "sharpest_trader_out": [
+        {
+          "name": "Jo\u00e3o Pedro",
+          "points": 0
+        },
+        {
+          "name": "Mbeumo",
+          "points": 1
+        }
+      ],
+      "sharpest_trader_in": [
+        {
+          "name": "Isak",
+          "points": 5
+        },
+        {
+          "name": "Dewsbury-Hall",
+          "points": 2
+        }
+      ],
+      "transfer_tangle_manager": "Madi Alkhamis",
+      "transfer_tangle_net_impact": -7.0,
+      "transfer_tangle_players_in": "N.Jackson",
+      "transfer_tangle_players_out": "Calvert-Lewin",
+      "transfer_tangle_points_in": 2.0,
+      "transfer_tangle_points_out": 9.0,
+      "transfer_tangle_out": [
+        {
+          "name": "Calvert-Lewin",
+          "points": 9
+        }
+      ],
+      "transfer_tangle_in": [
+        {
+          "name": "N.Jackson",
+          "points": 2
+        }
+      ],
+      "one_move_master_manager": "Thamer Alhumaidhi",
+      "one_move_master_net_impact": 5.0,
+      "one_move_master_player_in": "Isak",
+      "one_move_master_player_out": "Jo\u00e3o Pedro",
+      "one_move_master_points_in": 5.0,
+      "one_move_master_points_out": 0.0,
+      "one_move_master_out": [
+        {
+          "name": "Jo\u00e3o Pedro",
+          "points": 0
+        }
+      ],
+      "one_move_master_in": [
+        {
+          "name": "Isak",
+          "points": 5
+        }
+      ],
+      "one_move_disaster_manager": "Madi Alkhamis",
+      "one_move_disaster_net_impact": -7.0,
+      "one_move_disaster_player_in": "N.Jackson",
+      "one_move_disaster_player_out": "Calvert-Lewin",
+      "one_move_disaster_points_in": 2.0,
+      "one_move_disaster_points_out": 9.0,
+      "one_move_disaster_out": [
+        {
+          "name": "Calvert-Lewin",
+          "points": 9
+        }
+      ],
+      "one_move_disaster_in": [
+        {
+          "name": "N.Jackson",
+          "points": 2
+        }
+      ],
+      "most_captained_player": "Haaland",
+      "most_captained_pct": 74.2,
+      "most_owned_player": "Haaland",
+      "most_owned_pct": 93.5,
+      "chips_played": "Yousef KH (bboost); meshary alderah (bboost)"
     }
   ],
   "season_summary": [
@@ -19780,22 +21778,34 @@
       "total_transfers": 7,
       "total_transfer_cost": 0,
       "best_overall_rank": 116722,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.7,
-      "current_cumulative_points": 692,
+      "gameweeks_tracked": 11,
+      "current_team_value": 103.5,
+      "current_cumulative_points": 727,
       "current_league_rank": 1
     },
     {
       "entry_id": 4224105,
       "manager_name": "Ali Alkhamees",
       "team_name": "\u0627\u0645\u0628\u0631\u0627\u0637\u0648\u0631 \u0627\u0644\u0634\u0645\u0633",
-      "total_transfers": 8,
+      "total_transfers": 9,
       "total_transfer_cost": 0,
       "best_overall_rank": 286307,
-      "gameweeks_tracked": 10,
-      "current_team_value": 100.6,
-      "current_cumulative_points": 679,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.1,
+      "current_cumulative_points": 715,
       "current_league_rank": 2
+    },
+    {
+      "entry_id": 4900926,
+      "manager_name": "Saud Alkhamis",
+      "team_name": "Azooz@Anfield",
+      "total_transfers": 11,
+      "total_transfer_cost": 4,
+      "best_overall_rank": 5446,
+      "gameweeks_tracked": 11,
+      "current_team_value": 103.7,
+      "current_cumulative_points": 712,
+      "current_league_rank": 3
     },
     {
       "entry_id": 4634908,
@@ -19804,21 +21814,9 @@
       "total_transfers": 9,
       "total_transfer_cost": 4,
       "best_overall_rank": 331512,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.4,
-      "current_cumulative_points": 675,
-      "current_league_rank": 3
-    },
-    {
-      "entry_id": 4900926,
-      "manager_name": "Saud Alkhamis",
-      "team_name": "Azooz@Anfield",
-      "total_transfers": 9,
-      "total_transfer_cost": 4,
-      "best_overall_rank": 5446,
-      "gameweeks_tracked": 10,
-      "current_team_value": 103.1,
-      "current_cumulative_points": 672,
+      "gameweeks_tracked": 11,
+      "current_team_value": 103.0,
+      "current_cumulative_points": 709,
       "current_league_rank": 4
     },
     {
@@ -19828,22 +21826,10 @@
       "total_transfers": 10,
       "total_transfer_cost": 4,
       "best_overall_rank": 25708,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.3,
-      "current_cumulative_points": 663,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.5,
+      "current_cumulative_points": 701,
       "current_league_rank": 5
-    },
-    {
-      "entry_id": 7782200,
-      "manager_name": "Fahad Alkhamis",
-      "team_name": "Totti",
-      "total_transfers": 9,
-      "total_transfer_cost": 0,
-      "best_overall_rank": 486686,
-      "gameweeks_tracked": 10,
-      "current_team_value": 100.8,
-      "current_cumulative_points": 661,
-      "current_league_rank": 6
     },
     {
       "entry_id": 26303,
@@ -19852,46 +21838,70 @@
       "total_transfers": 9,
       "total_transfer_cost": 4,
       "best_overall_rank": 141593,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.5,
-      "current_cumulative_points": 659,
-      "current_league_rank": 7
-    },
-    {
-      "entry_id": 677433,
-      "manager_name": "Abdulaziz Al Khamees",
-      "team_name": "Bos3yid X11",
-      "total_transfers": 10,
-      "total_transfer_cost": 8,
-      "best_overall_rank": 766402,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.1,
-      "current_cumulative_points": 649,
-      "current_league_rank": 8
+      "gameweeks_tracked": 11,
+      "current_team_value": 103.0,
+      "current_cumulative_points": 701,
+      "current_league_rank": 5
     },
     {
       "entry_id": 1723009,
       "manager_name": "Yousef KH",
       "team_name": "Stockfish",
-      "total_transfers": 7,
+      "total_transfers": 8,
       "total_transfer_cost": 0,
-      "best_overall_rank": 723815,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.0,
-      "current_cumulative_points": 647,
-      "current_league_rank": 9
+      "best_overall_rank": 548405,
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.6,
+      "current_cumulative_points": 700,
+      "current_league_rank": 7
     },
     {
       "entry_id": 2180361,
       "manager_name": "Thamer Alhumaidhi",
       "team_name": "Bo Ya3qoub",
-      "total_transfers": 8,
+      "total_transfers": 10,
       "total_transfer_cost": 0,
-      "best_overall_rank": 792292,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.1,
-      "current_cumulative_points": 642,
+      "best_overall_rank": 760222,
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.3,
+      "current_cumulative_points": 691,
+      "current_league_rank": 8
+    },
+    {
+      "entry_id": 677433,
+      "manager_name": "Abdulaziz Al Khamees",
+      "team_name": "Bos3yid X11",
+      "total_transfers": 12,
+      "total_transfer_cost": 8,
+      "best_overall_rank": 766402,
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.4,
+      "current_cumulative_points": 688,
+      "current_league_rank": 9
+    },
+    {
+      "entry_id": 7782200,
+      "manager_name": "Fahad Alkhamis",
+      "team_name": "Totti",
+      "total_transfers": 10,
+      "total_transfer_cost": 0,
+      "best_overall_rank": 486686,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.2,
+      "current_cumulative_points": 686,
       "current_league_rank": 10
+    },
+    {
+      "entry_id": 2908279,
+      "manager_name": "meshary alderah",
+      "team_name": "\u0641\u0631\u064a\u0642 meshary",
+      "total_transfers": 10,
+      "total_transfer_cost": 4,
+      "best_overall_rank": 662317,
+      "gameweeks_tracked": 11,
+      "current_team_value": 103.2,
+      "current_cumulative_points": 680,
+      "current_league_rank": 11
     },
     {
       "entry_id": 971334,
@@ -19899,23 +21909,11 @@
       "team_name": "arsenal",
       "total_transfers": 11,
       "total_transfer_cost": 16,
-      "best_overall_rank": 1249909,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.9,
-      "current_cumulative_points": 636,
-      "current_league_rank": 11
-    },
-    {
-      "entry_id": 2908279,
-      "manager_name": "meshary alderah",
-      "team_name": "\u0641\u0631\u064a\u0642 meshary",
-      "total_transfers": 9,
-      "total_transfer_cost": 4,
-      "best_overall_rank": 662317,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.7,
-      "current_cumulative_points": 636,
-      "current_league_rank": 11
+      "best_overall_rank": 1186388,
+      "gameweeks_tracked": 11,
+      "current_team_value": 103.3,
+      "current_cumulative_points": 676,
+      "current_league_rank": 12
     },
     {
       "entry_id": 2586183,
@@ -19924,58 +21922,34 @@
       "total_transfers": 9,
       "total_transfer_cost": 0,
       "best_overall_rank": 1197746,
-      "gameweeks_tracked": 10,
-      "current_team_value": 99.7,
-      "current_cumulative_points": 634,
+      "gameweeks_tracked": 11,
+      "current_team_value": 99.8,
+      "current_cumulative_points": 664,
+      "current_league_rank": 13
+    },
+    {
+      "entry_id": 4463568,
+      "manager_name": "Hussain Bin Mattar",
+      "team_name": "Bin Mattar FC",
+      "total_transfers": 10,
+      "total_transfer_cost": 0,
+      "best_overall_rank": 1593576,
+      "gameweeks_tracked": 11,
+      "current_team_value": 100.3,
+      "current_cumulative_points": 664,
       "current_league_rank": 13
     },
     {
       "entry_id": 7774505,
       "manager_name": "Naser Alkhamees",
       "team_name": "Naser",
-      "total_transfers": 5,
+      "total_transfers": 8,
       "total_transfer_cost": 0,
       "best_overall_rank": 464226,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.8,
-      "current_cumulative_points": 632,
-      "current_league_rank": 14
-    },
-    {
-      "entry_id": 3393908,
-      "manager_name": "Meshary Alkhamees",
-      "team_name": "Romanista",
-      "total_transfers": 9,
-      "total_transfer_cost": 0,
-      "best_overall_rank": 525349,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.1,
-      "current_cumulative_points": 626,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.3,
+      "current_cumulative_points": 658,
       "current_league_rank": 15
-    },
-    {
-      "entry_id": 70811,
-      "manager_name": "Madi Alkhamis",
-      "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
-      "total_transfers": 7,
-      "total_transfer_cost": 0,
-      "best_overall_rank": 96782,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.9,
-      "current_cumulative_points": 624,
-      "current_league_rank": 16
-    },
-    {
-      "entry_id": 4463568,
-      "manager_name": "Hussain Bin Mattar",
-      "team_name": "Bin Mattar FC",
-      "total_transfers": 9,
-      "total_transfer_cost": 0,
-      "best_overall_rank": 1988993,
-      "gameweeks_tracked": 10,
-      "current_team_value": 99.9,
-      "current_cumulative_points": 616,
-      "current_league_rank": 17
     },
     {
       "entry_id": 574859,
@@ -19984,34 +21958,34 @@
       "total_transfers": 8,
       "total_transfer_cost": 0,
       "best_overall_rank": 691183,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.3,
-      "current_cumulative_points": 612,
-      "current_league_rank": 18
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.0,
+      "current_cumulative_points": 655,
+      "current_league_rank": 16
     },
     {
-      "entry_id": 3947636,
-      "manager_name": "nawaf alkhamis",
-      "team_name": "madrak$hesale7",
-      "total_transfers": 13,
-      "total_transfer_cost": 24,
-      "best_overall_rank": 759785,
-      "gameweeks_tracked": 10,
-      "current_team_value": 102.4,
-      "current_cumulative_points": 612,
-      "current_league_rank": 18
-    },
-    {
-      "entry_id": 3205884,
-      "manager_name": "Khaled Alfahed",
-      "team_name": "KAF",
-      "total_transfers": 7,
+      "entry_id": 70811,
+      "manager_name": "Madi Alkhamis",
+      "team_name": "\u0627\u0644\u0642\u0635\u064a\u0639\u0629 \u064a\u0648\u0646\u0627\u064a\u062a\u062f",
+      "total_transfers": 8,
       "total_transfer_cost": 0,
-      "best_overall_rank": 1185762,
-      "gameweeks_tracked": 10,
+      "best_overall_rank": 96782,
+      "gameweeks_tracked": 11,
       "current_team_value": 102.4,
-      "current_cumulative_points": 605,
-      "current_league_rank": 20
+      "current_cumulative_points": 652,
+      "current_league_rank": 17
+    },
+    {
+      "entry_id": 3393908,
+      "manager_name": "Meshary Alkhamees",
+      "team_name": "Romanista",
+      "total_transfers": 9,
+      "total_transfer_cost": 0,
+      "best_overall_rank": 525349,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.2,
+      "current_cumulative_points": 651,
+      "current_league_rank": 18
     },
     {
       "entry_id": 8097311,
@@ -20020,10 +21994,22 @@
       "total_transfers": 8,
       "total_transfer_cost": 4,
       "best_overall_rank": 255722,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.0,
-      "current_cumulative_points": 601,
-      "current_league_rank": 21
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.3,
+      "current_cumulative_points": 646,
+      "current_league_rank": 19
+    },
+    {
+      "entry_id": 3205884,
+      "manager_name": "Khaled Alfahed",
+      "team_name": "KAF",
+      "total_transfers": 7,
+      "total_transfer_cost": 0,
+      "best_overall_rank": 1185762,
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.9,
+      "current_cumulative_points": 646,
+      "current_league_rank": 19
     },
     {
       "entry_id": 6397101,
@@ -20032,10 +22018,22 @@
       "total_transfers": 8,
       "total_transfer_cost": 0,
       "best_overall_rank": 2305575,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.8,
-      "current_cumulative_points": 595,
-      "current_league_rank": 22
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.4,
+      "current_cumulative_points": 638,
+      "current_league_rank": 21
+    },
+    {
+      "entry_id": 3947636,
+      "manager_name": "nawaf alkhamis",
+      "team_name": "madrak$hesale7",
+      "total_transfers": 14,
+      "total_transfer_cost": 24,
+      "best_overall_rank": 759785,
+      "gameweeks_tracked": 11,
+      "current_team_value": 102.9,
+      "current_cumulative_points": 638,
+      "current_league_rank": 21
     },
     {
       "entry_id": 3581670,
@@ -20044,33 +22042,33 @@
       "total_transfers": 7,
       "total_transfer_cost": 0,
       "best_overall_rank": 2274730,
-      "gameweeks_tracked": 10,
-      "current_team_value": 99.8,
-      "current_cumulative_points": 592,
+      "gameweeks_tracked": 11,
+      "current_team_value": 99.6,
+      "current_cumulative_points": 625,
       "current_league_rank": 23
     },
     {
       "entry_id": 1272313,
       "manager_name": "fahad alsha6y",
       "team_name": "Liverpool",
-      "total_transfers": 7,
+      "total_transfers": 9,
       "total_transfer_cost": 0,
       "best_overall_rank": 1841697,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.5,
-      "current_cumulative_points": 586,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.8,
+      "current_cumulative_points": 624,
       "current_league_rank": 24
     },
     {
       "entry_id": 4949682,
       "manager_name": "Meshary Abdullah",
       "team_name": "mshary",
-      "total_transfers": 9,
+      "total_transfers": 10,
       "total_transfer_cost": 4,
       "best_overall_rank": 1516623,
-      "gameweeks_tracked": 10,
-      "current_team_value": 101.3,
-      "current_cumulative_points": 561,
+      "gameweeks_tracked": 11,
+      "current_team_value": 101.4,
+      "current_cumulative_points": 601,
       "current_league_rank": 25
     },
     {
@@ -20080,9 +22078,9 @@
       "total_transfers": 5,
       "total_transfer_cost": 0,
       "best_overall_rank": 2462198,
-      "gameweeks_tracked": 10,
+      "gameweeks_tracked": 11,
       "current_team_value": 99.2,
-      "current_cumulative_points": 550,
+      "current_cumulative_points": 591,
       "current_league_rank": 26
     },
     {
@@ -20092,9 +22090,9 @@
       "total_transfers": 7,
       "total_transfer_cost": 0,
       "best_overall_rank": 4673927,
-      "gameweeks_tracked": 10,
-      "current_team_value": 100.1,
-      "current_cumulative_points": 541,
+      "gameweeks_tracked": 11,
+      "current_team_value": 100.8,
+      "current_cumulative_points": 582,
       "current_league_rank": 27
     },
     {
@@ -20104,22 +22102,10 @@
       "total_transfers": 5,
       "total_transfer_cost": 8,
       "best_overall_rank": 6963787,
-      "gameweeks_tracked": 9,
-      "current_team_value": 100.3,
-      "current_cumulative_points": 475,
-      "current_league_rank": 28
-    },
-    {
-      "entry_id": 7667973,
-      "manager_name": "Abdullah Alkhames",
-      "team_name": "alkhames86",
-      "total_transfers": 8,
-      "total_transfer_cost": 0,
-      "best_overall_rank": 2935782,
       "gameweeks_tracked": 10,
-      "current_team_value": 99.9,
-      "current_cumulative_points": 460,
-      "current_league_rank": 29
+      "current_team_value": 100.3,
+      "current_cumulative_points": 512,
+      "current_league_rank": 28
     },
     {
       "entry_id": 2948045,
@@ -20128,9 +22114,21 @@
       "total_transfers": 0,
       "total_transfer_cost": 0,
       "best_overall_rank": 4087187,
-      "gameweeks_tracked": 10,
-      "current_team_value": 98.3,
-      "current_cumulative_points": 447,
+      "gameweeks_tracked": 11,
+      "current_team_value": 98.0,
+      "current_cumulative_points": 495,
+      "current_league_rank": 29
+    },
+    {
+      "entry_id": 7667973,
+      "manager_name": "Abdullah Alkhames",
+      "team_name": "alkhames86",
+      "total_transfers": 8,
+      "total_transfer_cost": 0,
+      "best_overall_rank": 2935782,
+      "gameweeks_tracked": 11,
+      "current_team_value": 99.7,
+      "current_cumulative_points": 484,
       "current_league_rank": 30
     },
     {
@@ -20139,10 +22137,10 @@
       "team_name": "samixmanutd1234",
       "total_transfers": 4,
       "total_transfer_cost": 0,
-      "best_overall_rank": 10058570,
-      "gameweeks_tracked": 8,
-      "current_team_value": 101.4,
-      "current_cumulative_points": 394,
+      "best_overall_rank": 9930181,
+      "gameweeks_tracked": 9,
+      "current_team_value": 101.5,
+      "current_cumulative_points": 435,
       "current_league_rank": 31
     }
   ],
